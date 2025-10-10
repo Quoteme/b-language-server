@@ -1,6 +1,6 @@
 test:
   stage: test
-  image: eclipse-temurin:8
+  image: eclipse-temurin:17
   variables:
     GRADLE_USER_HOME: "$CI_PROJECT_DIR/.gradle"
   script:

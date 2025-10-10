@@ -1,10 +1,10 @@
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.2.20"
     idea
     // Apply the application plugin to add support for building a CLI application.
     application
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "9.2.2"
 }
 
 repositories {
@@ -23,15 +23,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     // eclipse lsp implementation
-    implementation("org.eclipse.lsp4j", "org.eclipse.lsp4j", "0.20.1")
+    implementation("org.eclipse.lsp4j", "org.eclipse.lsp4j", "0.24.0")
 
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test-junit5
     testImplementation(kotlin("test-junit5"))
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.10.2")
+    testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.14.0")
 
-    implementation(platform("de.hhu.stups:prob-java-bom:4.13.0"))
+    implementation(platform("de.hhu.stups:prob-java-bom:4.15.0"))
     implementation("de.hhu.stups", "prob-java")
 }
 
@@ -44,8 +44,10 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>(){
-    kotlinOptions.jvmTarget = "1.8"
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+    }
 }
 
 application {

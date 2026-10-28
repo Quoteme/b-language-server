@@ -34,7 +34,7 @@ class Server : LanguageServer, ServerInterface {
         res.capabilities.textDocumentSync = Either.forRight(sync)
         res.capabilities.workspace = WorkspaceServerCapabilities(WorkspaceFoldersOptions())
         res.capabilities.workspace.workspaceFolders.supported = true
-        res.capabilities.codeActionProvider = Either.forLeft(true)
+        res.capabilities.codeActionProvider = Either.forRight(CodeActionOptions(listOf(CodeActionKind.Source)))
         res.capabilities.hoverProvider = Either.forLeft(true)
         res.capabilities.executeCommandProvider = ExecuteCommandOptions(BDocumentService.COMMANDS)
        // res.capabilities.completionProvider = CompletionOptions()

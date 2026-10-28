@@ -116,14 +116,25 @@ class BDocumentService(private val server: ServerInterface,
         Hover(MarkupContent(MarkupKind.MARKDOWN, markdown))
     }
 
+    /**
+     * Offers the ProB commands as source actions of the whole file, and only when asked for explicitly,
+     * so clients show no lightbulb on every line.
+     */
     override fun codeAction(params: CodeActionParams): CompletableFuture<List<Either<Command, CodeAction>>> {
         val uri = params.textDocument.uri
+        val wanted = params.context.triggerKind != CodeActionTriggerKind.Automatic &&
+            params.context.only?.any { CodeActionKind.Source.startsWith(it) } ?: true
         val actions = listOf(
             "ProB: model check for deadlocks and invariant violations" to MODEL_CHECK,
             "ProB: discharge proof obligations with a longer timeout" to DISCHARGE_POS,
             "ProB: list proof obligations" to SHOW_POS,
             "ProB: animate" to OPEN_ANIMATION,
-        ).map { (title, command) -> Either.forLeft<Command, CodeAction>(Command(title, command, listOf(uri))) }
+        ).takeIf { wanted }.orEmpty().map { (title, command) ->
+            Either.forRight<Command, CodeAction>(CodeAction(title).apply {
+                kind = CodeActionKind.Source
+                this.command = Command(title, command, listOf(uri))
+            })
+        }
         return CompletableFuture.completedFuture(actions)
     }
 

@@ -7,6 +7,7 @@ import b.language.server.proBMangement.prob.CouldNotFindProBHomeException
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import b.language.server.proBMangement.prob.Animation
+import b.language.server.proBMangement.prob.Completion
 import b.language.server.proBMangement.prob.Hover as HoverText
 import org.eclipse.lsp4j.jsonrpc.messages.Either
 import java.util.concurrent.CompletableFuture
@@ -114,6 +115,19 @@ class BDocumentService(private val server: ServerInterface,
             null
         } ?: return@supplyAsync null
         Hover(MarkupContent(MarkupKind.MARKDOWN, markdown))
+    }
+
+    override fun completion(params: CompletionParams): CompletableFuture<Either<MutableList<CompletionItem>, CompletionList>> = CompletableFuture.supplyAsync {
+        val uri = params.textDocument.uri
+        val file = File(URI(uri).path)
+        val items = try {
+            Completion.at(file, documents[uri].orEmpty(), params.position.line, params.position.character,
+                proBInterface.proofObligations(file), proBInterface.identifiers(file))
+        } catch (e : RuntimeException) {
+            communicator.sendDebugMessage("completion failed: ${e.message}", MessageType.Info)
+            emptyList()
+        }
+        Either.forRight(CompletionList(false, items))
     }
 
     /**

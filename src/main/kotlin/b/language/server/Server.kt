@@ -37,7 +37,7 @@ class Server : LanguageServer, ServerInterface {
         res.capabilities.codeActionProvider = Either.forRight(CodeActionOptions(listOf(CodeActionKind.Source)))
         res.capabilities.hoverProvider = Either.forLeft(true)
         res.capabilities.executeCommandProvider = ExecuteCommandOptions(BDocumentService.COMMANDS)
-       // res.capabilities.completionProvider = CompletionOptions()
+        res.capabilities.completionProvider = CompletionOptions()
         return CompletableFuture.supplyAsync { res }
     }
 

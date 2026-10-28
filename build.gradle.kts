@@ -28,8 +28,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testImplementation("org.junit.jupiter", "junit-jupiter-engine", "5.14.0")
 
-    implementation(platform("de.hhu.stups:prob-java-bom:4.15.0"))
+    implementation(platform("de.hhu.stups:prob-java-bom:4.16.1"))
     implementation("de.hhu.stups", "prob-java")
+    // Parser for Event-B in Camille notation
+    implementation("de.hhu.stups:eventbstruct:2.16.1")
 }
 
 java {

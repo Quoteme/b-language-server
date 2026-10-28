@@ -24,7 +24,9 @@ object Communicator : CommunicatorInterface {
      * @param diagnostics object containing the Diagnostics
      */
     override fun publishDiagnostics(target: String, diagnostics: List<Diagnostic>) {
-        client.publishDiagnostics(PublishDiagnosticsParams(target, diagnostics))
+        // ProB reports plain file paths, but clients expect file:// URIs.
+        val uri = if (target.contains("://")) target else java.io.File(target).toPath().toUri().toString()
+        client.publishDiagnostics(PublishDiagnosticsParams(uri, diagnostics))
 
     }
 

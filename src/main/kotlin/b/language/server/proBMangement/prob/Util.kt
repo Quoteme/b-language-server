@@ -17,7 +17,8 @@ fun convertErrorItems(errorItems: List<ErrorItem>, currentLoadedFile: File, comm
                     errorItem.message,
                     getErrorItemType(errorItem.type),
 
-                File(location.filename).toURI().path)
+                // Locations without a file name belong to the checked file.
+                File(location.filename.ifEmpty { currentLoadedFile.absolutePath }).toURI().path)
 
         }.ifEmpty { //Fallback when errors from prob do not have position infos
             listOf(Diagnostic(Range(

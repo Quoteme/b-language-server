@@ -2,7 +2,14 @@ package b.language.server
 
 import b.language.server.communication.CommunicatorInterface
 import b.language.server.proBMangement.ProBInterface
+import b.language.server.dataStorage.Settings
 import b.language.server.proBMangement.prob.CouldNotFindProBHomeException
+import com.google.gson.JsonObject
+import com.google.gson.JsonPrimitive
+import b.language.server.proBMangement.prob.Animation
+import b.language.server.proBMangement.prob.Hover as HoverText
+import org.eclipse.lsp4j.jsonrpc.messages.Either
+import java.util.concurrent.CompletableFuture
 import org.eclipse.lsp4j.*
 import org.eclipse.lsp4j.services.TextDocumentService
 import java.io.File
@@ -15,6 +22,20 @@ class BDocumentService(private val server: ServerInterface,
 
     private val documents = ConcurrentHashMap<String, String>()
     private val issueTracker : ConcurrentHashMap<String, Set<String>> = ConcurrentHashMap()
+    private val published : ConcurrentHashMap<String, Map<String, List<Diagnostic>>> = ConcurrentHashMap()
+    private val animation by lazy { Animation(communicator) }
+
+    companion object {
+        const val MODEL_CHECK = "prob.modelCheck"
+        const val DISCHARGE_POS = "prob.dischargePOs"
+        const val SHOW_POS = "prob.showPOs"
+        const val ANIMATE = "prob.animate"
+        /** Handled by the client, which opens its animation panel and then sends [ANIMATE]. */
+        const val OPEN_ANIMATION = "prob.animate.open"
+        /** Shows a visualisation of the animation's current state, as ProB Tcl/Tk does. */
+        const val VISUALIZE = "prob.visualize"
+        val COMMANDS = listOf(MODEL_CHECK, DISCHARGE_POS, SHOW_POS, ANIMATE, VISUALIZE)
+    }
 
     /**
      * The document open notification is sent from the client to the server to
@@ -26,6 +47,7 @@ class BDocumentService(private val server: ServerInterface,
      */
     override fun didOpen(params: DidOpenTextDocumentParams?) {
         documents[params?.textDocument!!.uri] = params.textDocument!!.text
+        checkDocument(File(URI(params.textDocument.uri).path))
     }
 
     /**
@@ -44,31 +66,22 @@ class BDocumentService(private val server: ServerInterface,
     /**
      * checks a document via prob and the set options
      * @param file the uri to perform actions on
+     * @param adjust changes the client's settings for this check
      */
-    fun checkDocument(file : File){
-
-
+    fun checkDocument(file : File, adjust : (Settings) -> Settings = { it }){
 
         val clientSettings = server.getDocumentSettings(file.absolutePath)
         communicator.sendDebugMessage("waiting for document settings", MessageType.Info)
 
-        clientSettings.thenAccept{ settings ->
+        clientSettings.thenAccept{ original ->
+            val settings = adjust(original)
             communicator.setDebugMode(settings.debugMode)
             communicator.sendDebugMessage("settings are $settings", MessageType.Info)
 
             try{
-                val diagnostics: List<Diagnostic> = proBInterface.checkDocument(file, settings)
-
-                val sortedDiagnostic = diagnostics.groupBy { it.source }
-                sortedDiagnostic.forEach { entry -> communicator.publishDiagnostics(entry.key, entry.value)}
+                val diagnostics: List<Diagnostic> = synchronized(proBInterface) { proBInterface.checkDocument(file, settings) }
+                publish(file, diagnostics.groupBy { it.source })
                 communicator.showMessage("Evaluation done: ${diagnostics.size} problem(s)", MessageType.Log)
-
-                val filesWithProblems = sortedDiagnostic.keys.toList()
-                val invalidFiles = calculateToInvalidate(file, filesWithProblems)
-                invalidFiles.forEach{uri -> communicator.publishDiagnostics(uri, listOf())}
-                communicator.sendDebugMessage("invalidating old files $invalidFiles", MessageType.Info)
-                issueTracker[file.absolutePath] = filesWithProblems.toSet()
-
             }catch (e : CouldNotFindProBHomeException){
 
                 communicator.sendDebugMessage(e.localizedMessage, MessageType.Info)
@@ -78,6 +91,101 @@ class BDocumentService(private val server: ServerInterface,
 
     }
 
+    /** Publishes the problems found for [file], clearing files that no longer have any. */
+    private fun publish(file : File, byFile : Map<String, List<Diagnostic>>) {
+        byFile.values.flatten().forEach { it.source = "ProB" }
+        byFile.forEach { (target, diagnostics) -> communicator.publishDiagnostics(target, diagnostics) }
+        val invalidFiles = calculateToInvalidate(file, byFile.keys.toList())
+        invalidFiles.forEach { uri -> communicator.publishDiagnostics(uri, listOf()) }
+        communicator.sendDebugMessage("invalidating old files $invalidFiles", MessageType.Info)
+        issueTracker[file.absolutePath] = byFile.keys
+        published[file.absolutePath] = byFile
+    }
+
+    override fun hover(params: HoverParams): CompletableFuture<Hover?> = CompletableFuture.supplyAsync {
+        val uri = params.textDocument.uri
+        val file = File(URI(uri).path)
+        val text = documents[uri] ?: file.takeIf { it.isFile }?.readText() ?: return@supplyAsync null
+        val markdown = try {
+            HoverText.at(file, text, params.position.line, params.position.character,
+                proBInterface.proofObligations(file), proBInterface.identifiers(file))
+        } catch (e : RuntimeException) {
+            communicator.sendDebugMessage("hover failed: ${e.message}", MessageType.Info)
+            null
+        } ?: return@supplyAsync null
+        Hover(MarkupContent(MarkupKind.MARKDOWN, markdown))
+    }
+
+    override fun codeAction(params: CodeActionParams): CompletableFuture<List<Either<Command, CodeAction>>> {
+        val uri = params.textDocument.uri
+        val actions = listOf(
+            "ProB: model check for deadlocks and invariant violations" to MODEL_CHECK,
+            "ProB: discharge proof obligations with a longer timeout" to DISCHARGE_POS,
+            "ProB: list proof obligations" to SHOW_POS,
+            "ProB: animate" to OPEN_ANIMATION,
+        ).map { (title, command) -> Either.forLeft<Command, CodeAction>(Command(title, command, listOf(uri))) }
+        return CompletableFuture.completedFuture(actions)
+    }
+
+    /** Runs one of [COMMANDS] on the document given as its first argument. */
+    fun executeCommand(command : String, arguments : List<Any?>) : CompletableFuture<Any?> {
+        val argument = arguments.firstOrNull()
+        if (command == ANIMATE) {
+            val request = argument as? JsonObject ?: return CompletableFuture.completedFuture(null)
+            fun field(name : String) = request.get(name)?.takeUnless { it.isJsonNull }
+            val action = field("action")?.asString ?: "view"
+            return CompletableFuture.supplyAsync {
+                synchronized(animation) {
+                    when (action) {
+                        "start" -> animation.start(File(URI(field("uri")!!.asString).path))
+                        "stop" -> animation.stop().let { mapOf("stopped" to true) }
+                        else -> animation.perform(action, field("argument")?.asString, field("count")?.asInt ?: 1)
+                    }
+                }
+            }
+        }
+        if (command == VISUALIZE) {
+            val request = argument as? JsonObject ?: return CompletableFuture.completedFuture(null)
+            fun field(name : String) = request.get(name)?.takeUnless { it.isJsonNull }
+            val formulas = field("formulas")?.asJsonArray?.map { it.asString }.orEmpty()
+            return CompletableFuture.supplyAsync {
+                synchronized(animation) {
+                    animation.visualize(field("kind")?.asString ?: "dot", field("command")?.asString ?: "", formulas, field("format")?.asString ?: "svg")
+                }
+            }
+        }
+        val uri = (argument as? JsonPrimitive)?.asString ?: argument?.toString()?.trim('"')
+            ?: return CompletableFuture.completedFuture(null)
+        val file = File(URI(uri).path)
+        return when (command) {
+            MODEL_CHECK -> server.getDocumentSettings(file.absolutePath).thenApply { settings ->
+                val (found, summary) = synchronized(proBInterface) { proBInterface.modelCheck(file, settings) }
+                val merged = published[file.absolutePath].orEmpty().mapValues { it.value.toMutableList() }.toMutableMap()
+                found.forEach { merged.getOrPut(it.source) { mutableListOf() } += it }
+                publish(file, merged)
+                communicator.showMessage(summary, MessageType.Info)
+                communicator.showMessage("Evaluation done: ${found.size} problem(s) found by model checking", MessageType.Log)
+                null
+            }
+            DISCHARGE_POS -> {
+                checkDocument(file) { it.copy(poTimeout = it.poTimeout * 10) }
+                CompletableFuture.completedFuture(null)
+            }
+            SHOW_POS -> CompletableFuture.completedFuture(
+                synchronized(proBInterface) { proBInterface.proofObligations(file) }.map { po ->
+                    mapOf(
+                        "uri" to po.file.toURI().toString(),
+                        "line" to po.line - 1,
+                        "character" to po.pos - 1,
+                        "name" to po.name,
+                        "status" to po.status.name.lowercase(),
+                        "detail" to po.detail,
+                    )
+                }
+            )
+            else -> CompletableFuture.completedFuture(null)
+        }
+    }
 
     /**
      * Gets all uris that are no longer contain problems
@@ -110,8 +218,8 @@ class BDocumentService(private val server: ServerInterface,
      */
     override fun didChange(params: DidChangeTextDocumentParams?) {
 
-        communicator.sendDebugMessage("document ${URI(params!!.textDocument.uri).path} was changed", MessageType.Info)
-        checkDocument(File(URI(params.textDocument.uri).path))
+        // ProB checks the file on disk, so changes are only kept for hovering; saving checks.
+        params!!.contentChanges.lastOrNull()?.let { documents[params.textDocument.uri] = it.text }
     }
 
 }

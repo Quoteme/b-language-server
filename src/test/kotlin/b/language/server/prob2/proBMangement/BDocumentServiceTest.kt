@@ -67,12 +67,11 @@ class BDocumentServiceTest {
 
         documentService.checkDocument(File(documentToCheck))
 
-        val targetSet =  communicator.pushedDiagnostics.entries.first().value.map { value -> value.source }.toSet()
 
 
         assertEquals(1, communicator.pushedDiagnostics.entries.size)
         assertEquals(3, communicator.pushedDiagnostics.entries.first().value.size)
-        assertEquals(expectedDocument, targetSet.first())
+        assertEquals(expectedDocument, communicator.pushedDiagnostics.keys.first())
 
     }
 
@@ -95,11 +94,10 @@ class BDocumentServiceTest {
 
         documentService.checkDocument(File(documentToCheck))
 
-        val targetSet =  communicator.pushedDiagnostics.entries.first().value.map { value -> value.source }.toSet()
 
         assertEquals(2, communicator.pushedDiagnostics.entries.size)
         assertEquals(3, communicator.pushedDiagnostics.entries.first().value.size)
-        assertEquals(expectedDocument, targetSet.first())
+        assertEquals(expectedDocument, communicator.pushedDiagnostics.keys.first())
 
     }
 

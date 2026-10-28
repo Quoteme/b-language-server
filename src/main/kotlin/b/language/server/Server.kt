@@ -25,9 +25,18 @@ class Server : LanguageServer, ServerInterface {
 
     override fun initialize(params: InitializeParams?): CompletableFuture<InitializeResult> {
         val res = InitializeResult(ServerCapabilities())
-        res.capabilities.textDocumentSync = Either.forLeft(TextDocumentSyncKind.Full)
+        // ProB checks the file on disk, so only opening and saving trigger a check.
+        val sync = TextDocumentSyncOptions()
+        sync.openClose = true
+        // Changes are kept for hovering only; ProB checks the file on disk when it is saved.
+        sync.change = TextDocumentSyncKind.Full
+        sync.save = Either.forRight(SaveOptions(false))
+        res.capabilities.textDocumentSync = Either.forRight(sync)
         res.capabilities.workspace = WorkspaceServerCapabilities(WorkspaceFoldersOptions())
         res.capabilities.workspace.workspaceFolders.supported = true
+        res.capabilities.codeActionProvider = Either.forRight(CodeActionOptions(listOf(CodeActionKind.Source)))
+        res.capabilities.hoverProvider = Either.forLeft(true)
+        res.capabilities.executeCommandProvider = ExecuteCommandOptions(BDocumentService.COMMANDS)
        // res.capabilities.completionProvider = CompletionOptions()
         return CompletableFuture.supplyAsync { res }
     }
@@ -90,7 +99,7 @@ class Server : LanguageServer, ServerInterface {
             configurationItem.section = "prob"
 
             val requestedConfig = languageClient.configuration(ConfigurationParams(listOf(configurationItem)))
-            documentSettings[uri] = CompletableFuture.allOf(requestedConfig).thenApply{ castJsonToSetting(requestedConfig.get().first() as JsonObject) }
+            documentSettings[uri] = CompletableFuture.allOf(requestedConfig).thenApply{ castJsonToSetting(requestedConfig.get().firstOrNull() as? JsonObject ?: JsonObject()) }
             documentSettings[uri]!!
         }
     }

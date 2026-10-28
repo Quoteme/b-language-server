@@ -87,7 +87,16 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
 
         communicator.sendDebugMessage("success!", MessageType.Info)
         communicator.sendDebugMessage("checking document", MessageType.Info)
-        return kernel.check(file, ProBSettings(wdChecks = settings.wdChecks, strictChecks = settings.strictChecks,
-                performanceHints = settings.performanceHints))
+        return kernel.check(file, proBSettings(settings))
     }
+
+    override fun modelCheck(file : File, settings: Settings): Pair<List<Diagnostic>, String> =
+        kernel.modelCheck(file, proBSettings(settings))
+
+    override fun proofObligations(file : File): List<ProofObligation> = kernel.proofObligations(file)
+
+    override fun identifiers(file : File): Map<String, String> = kernel.identifiers(file)
+
+    private fun proBSettings(settings : Settings) = ProBSettings(wdChecks = settings.wdChecks, strictChecks = settings.strictChecks,
+            performanceHints = settings.performanceHints, poTimeout = settings.poTimeout, modelCheckStates = settings.modelCheckStates)
 }

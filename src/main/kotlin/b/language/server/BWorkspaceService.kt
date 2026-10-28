@@ -4,11 +4,16 @@ import b.language.server.communication.Communicator
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.DidChangeWatchedFilesParams
+import org.eclipse.lsp4j.ExecuteCommandParams
 import org.eclipse.lsp4j.MessageType
+import java.util.concurrent.CompletableFuture
 import org.eclipse.lsp4j.services.WorkspaceService
 
 
 class BWorkspaceService(private val server: Server, private val communicator: Communicator) : WorkspaceService {
+    override fun executeCommand(params: ExecuteCommandParams): CompletableFuture<Any?> =
+        (server.textDocumentService as BDocumentService).executeCommand(params.command, params.arguments.orEmpty())
+
     /**
      * The watched files notification is sent from the client to the server when
      * the client detects changes to file watched by the language client.

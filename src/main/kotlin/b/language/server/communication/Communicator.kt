@@ -6,28 +6,35 @@ import org.eclipse.lsp4j.MessageType
 import org.eclipse.lsp4j.PublishDiagnosticsParams
 import org.eclipse.lsp4j.services.LanguageClient
 
-
 object Communicator : CommunicatorInterface {
-
-
     /**
      * Will be set in the server an encapsulates the client
      */
-    lateinit var client : LanguageClient
+    lateinit var client: LanguageClient
 
-    private var debugMode : Boolean = true
-
+    private var debugMode: Boolean = true
 
     /**
      * Sends the diagnostics
      *
      * @param diagnostics object containing the Diagnostics
      */
-    override fun publishDiagnostics(target: String, diagnostics: List<Diagnostic>) {
+    override fun publishDiagnostics(
+        target: String,
+        diagnostics: List<Diagnostic>,
+    ) {
         // ProB reports plain file paths, but clients expect file:// URIs.
-        val uri = if (target.contains("://")) target else java.io.File(target).toPath().toUri().toString()
+        val uri =
+            if (target.contains("://")) {
+                target
+            } else {
+                java.io
+                    .File(target)
+                    .toPath()
+                    .toUri()
+                    .toString()
+            }
         client.publishDiagnostics(PublishDiagnosticsParams(uri, diagnostics))
-
     }
 
     /**
@@ -36,11 +43,13 @@ object Communicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity the Severity of the message (Error/Info/Warning)
      */
-    override fun sendDebugMessage(message: String, severity: MessageType) {
-        if(debugMode) {
+    override fun sendDebugMessage(
+        message: String,
+        severity: MessageType,
+    ) {
+        if (debugMode) {
             client.logMessage(MessageParams(severity, message))
         }
-
     }
 
     /**
@@ -49,17 +58,19 @@ object Communicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity the Severity of the message (Error/Info/Warning)
      */
-    override fun showMessage(message: String, severity: MessageType) {
+    override fun showMessage(
+        message: String,
+        severity: MessageType,
+    ) {
         client.showMessage(MessageParams(severity, message))
     }
-
 
     /**
      * To enable/disable debug mode
      *
      * @param mode the new state of the debug mode
      */
-    override fun setDebugMode(mode : Boolean){
+    override fun setDebugMode(mode: Boolean) {
         debugMode = mode
     }
 
@@ -68,7 +79,10 @@ object Communicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity tne message severity
      */
-    override fun bufferDebugMessage(message: String, severity: MessageType) {
+    override fun bufferDebugMessage(
+        message: String,
+        severity: MessageType,
+    ) {
         TODO("Not yet implemented")
     }
 }

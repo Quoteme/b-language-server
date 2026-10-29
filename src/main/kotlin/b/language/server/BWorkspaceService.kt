@@ -6,11 +6,13 @@ import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.DidChangeWatchedFilesParams
 import org.eclipse.lsp4j.ExecuteCommandParams
 import org.eclipse.lsp4j.MessageType
-import java.util.concurrent.CompletableFuture
 import org.eclipse.lsp4j.services.WorkspaceService
+import java.util.concurrent.CompletableFuture
 
-
-class BWorkspaceService(private val server: Server, private val communicator: Communicator) : WorkspaceService {
+class BWorkspaceService(
+    private val server: Server,
+    private val communicator: Communicator,
+) : WorkspaceService {
     override fun executeCommand(params: ExecuteCommandParams): CompletableFuture<Any?> =
         (server.textDocumentService as BDocumentService).executeCommand(params.command, params.arguments.orEmpty())
 
@@ -19,7 +21,7 @@ class BWorkspaceService(private val server: Server, private val communicator: Co
      * the client detects changes to file watched by the language client.
      */
     override fun didChangeWatchedFiles(params: DidChangeWatchedFilesParams?) {
-         communicator.sendDebugMessage("----------changed watched files", MessageType.Info)
+        communicator.sendDebugMessage("----------changed watched files", MessageType.Info)
 
         // Not needed
     }
@@ -30,9 +32,9 @@ class BWorkspaceService(private val server: Server, private val communicator: Co
      */
     override fun didChangeConfiguration(params: DidChangeConfigurationParams?) {
         communicator.sendDebugMessage("received change in configuration settings", MessageType.Info)
-        if(server.configurationAbility) {
+        if (server.configurationAbility) {
             server.documentSettings.clear()
-        }else{
+        } else {
             if (params!!.settings is JsonObject) {
                 val settings: JsonObject = params.settings as JsonObject
                 val documentSetting = castJsonToSetting(settings)

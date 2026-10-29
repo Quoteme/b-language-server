@@ -13,11 +13,8 @@ import java.io.File
 import kotlin.test.assertEquals
 
 class UtilTest {
-
-
     @Test
-    fun generateErrorItem()
-    {
+    fun generateErrorItem() {
         val startLine = 100
         val statCol = 100
         val endLine = 101
@@ -25,44 +22,47 @@ class UtilTest {
         val message = "hello"
         val file = File("/test")
 
-         val errorItem = ErrorItem(message, ErrorItem.Type.INTERNAL_ERROR,
-                 listOf(ErrorItem.Location(file.absolutePath, startLine,statCol,endLine,endCol)))
+        val errorItem =
+            ErrorItem(
+                message,
+                ErrorItem.Type.INTERNAL_ERROR,
+                listOf(ErrorItem.Location(file.absolutePath, startLine, statCol, endLine, endCol)),
+            )
 
-         val diagnostic = Diagnostic(
-                 Range(
-                         Position(startLine-1, statCol),
-                         Position(endLine-1, endCol)),
-                 message, DiagnosticSeverity.Error, file.absolutePath)
+        val diagnostic =
+            Diagnostic(
+                Range(
+                    Position(startLine - 1, statCol),
+                    Position(endLine - 1, endCol),
+                ),
+                message,
+                DiagnosticSeverity.Error,
+                file.absolutePath,
+            )
 
-        val errorItemAfter = convertErrorItems(listOf(errorItem), File("dummy"), DummyCommunicator() ).first()
+        val errorItemAfter = convertErrorItems(listOf(errorItem), File("dummy"), DummyCommunicator()).first()
 
         assertEquals(diagnostic, errorItemAfter)
-
     }
 
     @Test
-    fun errorCodeTranslation_Error1()
-    {
+    fun errorCodeTranslation_Error1() {
         val result = getErrorItemType(ErrorItem.Type.INTERNAL_ERROR)
 
         assertEquals(DiagnosticSeverity.Error, result)
     }
 
     @Test
-    fun errorCodeTranslation_Error2()
-    {
+    fun errorCodeTranslation_Error2() {
         val result = getErrorItemType(ErrorItem.Type.ERROR)
 
         assertEquals(DiagnosticSeverity.Error, result)
     }
 
     @Test
-    fun errorCodeTranslation_Warning()
-    {
+    fun errorCodeTranslation_Warning() {
         val result = getErrorItemType(ErrorItem.Type.WARNING)
 
         assertEquals(DiagnosticSeverity.Warning, result)
     }
-
-
 }

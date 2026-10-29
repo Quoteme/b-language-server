@@ -29,3 +29,13 @@ hs_err_pid*
 build
 /.idea
 /lsp
+
+.classpath
+
+.project
+
+.settings/org.eclipse.buildship.core.prefs
+
+.settings/org.eclipse.jdt.core.prefs
+
+kls_database.db

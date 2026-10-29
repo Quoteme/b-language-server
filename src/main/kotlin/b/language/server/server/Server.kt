@@ -27,19 +27,16 @@ import org.eclipse.lsp4j.services.TextDocumentService
 import org.eclipse.lsp4j.services.WorkspaceService
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.atomic.AtomicBoolean
-import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
 class Server(
     private val analysis: AnalysisDispatcher,
-) : LanguageServer,
-    ServerInterface {
-    private val documentService = BDocumentService(this, Communicator, analysis)
+) : LanguageServer {
+    private val documentService = BDocumentService({ getDocumentSettings(it.absolutePath) }, Communicator, analysis)
     private val released = AtomicBoolean(false)
     private val bWorkspaceService: WorkspaceService = BWorkspaceService(this, Communicator)
     private lateinit var languageClient: LanguageClient
     var globalSettings: Settings = Settings()
-    val documentSettings: HashMap<String, CompletableFuture<Settings>> = HashMap()
     var configurationAbility: Boolean = true
 
     override fun initialize(params: InitializeParams?): CompletableFuture<InitializeResult> {
@@ -104,12 +101,12 @@ class Server(
     }
 
     /**
-     * Get the settings for the current document - will fallback to global settings eventually; If setting not cached
-     * method will try to get setting from the client
+     * Get the settings for the current document from the client, or the global settings if the client cannot be
+     * asked for them
      * @param uri the uri of the document requested
      * @return settings of the document requested
      */
-    override fun getDocumentSettings(uri: String): CompletableFuture<Settings> {
+    fun getDocumentSettings(uri: String): CompletableFuture<Settings> {
         Communicator.sendDebugMessage("requesting configuration for document: $uri", MessageType.Info)
         return if (!configurationAbility) {
             val returnValue = CompletableFuture<Settings>()
@@ -121,12 +118,9 @@ class Server(
             configurationItem.scopeUri = uri
             configurationItem.section = "prob"
 
-            val requested =
-                languageClient.configuration(ConfigurationParams(listOf(configurationItem))).thenApply { configuration ->
-                    readSettings(configuration.firstOrNull() as? JsonObject)
-                }
-            documentSettings[uri] = requested
-            requested
+            languageClient.configuration(ConfigurationParams(listOf(configurationItem))).thenApply { configuration ->
+                readSettings(configuration.firstOrNull() as? JsonObject)
+            }
         }
     }
 
@@ -136,8 +130,4 @@ class Server(
             Communicator.sendDebugMessage("ignoring invalid settings: ${it.message}", MessageType.Warning)
             Settings()
         }
-
-    override fun removeDocumentSettings(uri: String) {
-        documentSettings.remove(uri)
-    }
 }

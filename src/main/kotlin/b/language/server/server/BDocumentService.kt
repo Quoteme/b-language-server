@@ -45,7 +45,8 @@ import org.eclipse.lsp4j.jsonrpc.messages.Either as LspEither
 
 /** Translates the client's requests about documents to the analysis, and its results back. */
 class BDocumentService(
-    private val server: ServerInterface,
+    /** The client's settings for a file. */
+    private val settingsOf: (File) -> CompletableFuture<Settings>,
     private val communicator: CommunicatorInterface,
     private val analysis: Analysis<Project>,
 ) : TextDocumentService,
@@ -85,7 +86,7 @@ class BDocumentService(
         file: File,
         adjust: (Settings) -> Settings = { it },
     ) {
-        server.getDocumentSettings(file.absolutePath).thenAccept { original ->
+        settingsOf(file).thenAccept { original ->
             val settings = adjust(original)
             communicator.setDebugMode(settings.debugMode)
             communicator.sendDebugMessage("settings are $settings", MessageType.Info)
@@ -201,7 +202,7 @@ class BDocumentService(
 
             Command.MODEL_CHECK -> {
                 val file = fileArgument(argument) ?: return CompletableFuture.completedFuture(null)
-                server.getDocumentSettings(file.absolutePath).thenApply { settings ->
+                settingsOf(file).thenApply { settings ->
                     val report = synchronized(analysis) { analysis.modelCheck(projectOf(file), settings) }
                     publish(file, published[file].orEmpty() + report.problems)
                     communicator.showMessage(report.summary, MessageType.Info)
@@ -250,11 +251,9 @@ class BDocumentService(
         return fileOf(uri)
     }
 
-    /** Forgets the settings of a closed document; its text is kept, as the files that refer to it may still be open. */
+    /** Keeps a closed document's text, as the files that refer to it may still be open. */
     override fun didClose(params: DidCloseTextDocumentParams) {
-        val path = URI(params.textDocument.uri).path
-        communicator.sendDebugMessage("document $path was closed - removing meta data", MessageType.Info)
-        server.removeDocumentSettings(path)
+        communicator.sendDebugMessage("document ${URI(params.textDocument.uri).path} was closed", MessageType.Info)
     }
 
     /** Keeps the editor's text for hovers and completions; checking happens on save, since ProB reads the files on disk. */

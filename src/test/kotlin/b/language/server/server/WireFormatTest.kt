@@ -14,7 +14,7 @@ import kotlin.test.assertEquals
 /** The JSON the client reads from the commands, as lsp4j writes it; b.nvim depends on these names. */
 class WireFormatTest {
     private val analysis = AnalysisDispatcher(startProB())
-    private val service = BDocumentService(BDocumentServiceTest.DummyServer(), RecordingCommunicator(), analysis)
+    private val service = BDocumentService(BDocumentServiceTest::defaultSettings, RecordingCommunicator(), analysis)
     private val gson = MessageJsonHandler(emptyMap()).gson
 
     @AfterEach

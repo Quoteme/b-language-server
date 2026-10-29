@@ -33,9 +33,8 @@ class BWorkspaceService(
      */
     override fun didChangeConfiguration(params: DidChangeConfigurationParams?) {
         communicator.sendDebugMessage("received change in configuration settings", MessageType.Info)
-        if (server.configurationAbility) {
-            server.documentSettings.clear()
-        } else {
+        // A client that can be asked for settings is asked on every check, so only the pushed settings need storing.
+        if (!server.configurationAbility) {
             (params?.settings as? JsonObject)?.let { server.globalSettings = server.readSettings(it) }
         }
     }

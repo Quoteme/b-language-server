@@ -23,11 +23,9 @@ class BDocumentServiceTest {
     @AfterEach
     fun close() = opened.asReversed().forEach { it.close() }
 
-    /** A server whose client always has the default settings. */
-    class DummyServer : ServerInterface {
-        override fun getDocumentSettings(uri: String): CompletableFuture<Settings> = CompletableFuture.completedFuture(Settings())
-
-        override fun removeDocumentSettings(uri: String) = Unit
+    companion object {
+        /** A client that always has the default settings. */
+        fun defaultSettings(file: File): CompletableFuture<Settings> = CompletableFuture.completedFuture(Settings())
     }
 
     /**
@@ -50,7 +48,7 @@ class BDocumentServiceTest {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
+        val documentService = BDocumentService(::defaultSettings, communicator, analysis).also { opened += it }
 
         val documentToCheck = File("src/test/resources/WD_M1.mch").absolutePath
 
@@ -73,7 +71,7 @@ class BDocumentServiceTest {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
+        val documentService = BDocumentService(::defaultSettings, communicator, analysis).also { opened += it }
 
         val documentToCheck = File("src/test/resources/WD_M2.mch").absolutePath
 
@@ -100,7 +98,7 @@ class BDocumentServiceTest {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(DummyServer(), communicator, FixedAfterFirstCheck(analysis)).also { opened += it }
+        val documentService = BDocumentService(::defaultSettings, communicator, FixedAfterFirstCheck(analysis)).also { opened += it }
 
         documentService.checkDocument(File(File("src/test/resources/WD_M2.mch").absolutePath))
 

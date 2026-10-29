@@ -1,8 +1,9 @@
 package b.language.server.server
 
+import arrow.core.Either
+import arrow.core.getOrElse
 import b.language.server.analysis.Analysis
 import b.language.server.analysis.Problem
-import b.language.server.analysis.prob.ProBHomeNotFound
 import b.language.server.analysis.prob.animation.Animation
 import b.language.server.analysis.prob.animation.AnimationAction
 import b.language.server.analysis.prob.animation.AnimationRequest
@@ -16,6 +17,7 @@ import b.language.server.project.Project
 import b.language.server.project.SourcePosition
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import org.eclipse.lsp4j.CodeAction
 import org.eclipse.lsp4j.CodeActionKind
@@ -33,13 +35,13 @@ import org.eclipse.lsp4j.HoverParams
 import org.eclipse.lsp4j.MarkupContent
 import org.eclipse.lsp4j.MarkupKind
 import org.eclipse.lsp4j.MessageType
-import org.eclipse.lsp4j.jsonrpc.messages.Either
 import org.eclipse.lsp4j.services.TextDocumentService
 import java.io.File
 import java.net.URI
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 import org.eclipse.lsp4j.Command as LspCommand
+import org.eclipse.lsp4j.jsonrpc.messages.Either as LspEither
 
 /** Translates the client's requests about documents to the analysis, and its results back. */
 class BDocumentService(
@@ -87,14 +89,16 @@ class BDocumentService(
             val settings = adjust(original)
             communicator.setDebugMode(settings.debugMode)
             communicator.sendDebugMessage("settings are $settings", MessageType.Info)
-            try {
-                val problems = synchronized(analysis) { analysis.check(projectOf(file), settings) }
-                publish(file, problems)
-                communicator.showMessage("Evaluation done: ${problems.size} problem(s)", MessageType.Log)
-            } catch (e: ProBHomeNotFound) {
-                communicator.sendDebugMessage(e.localizedMessage, MessageType.Info)
-                communicator.showMessage(e.localizedMessage, MessageType.Error)
-            }
+            synchronized(analysis) { analysis.check(projectOf(file), settings) }.fold(
+                { failure ->
+                    communicator.sendDebugMessage(failure.message, MessageType.Info)
+                    communicator.showMessage(failure.message, MessageType.Error)
+                },
+                { problems ->
+                    publish(file, problems)
+                    communicator.showMessage("Evaluation done: ${problems.size} problem(s)", MessageType.Log)
+                },
+            )
         }
     }
 
@@ -115,41 +119,39 @@ class BDocumentService(
         CompletableFuture.supplyAsync {
             val file = fileOf(params.textDocument.uri)
             val text = documents.textOf(file) ?: return@supplyAsync null
+            // A failing hover shows nothing rather than an error in the editor.
             val markdown =
-                try {
-                    analysis.hover(Project.of(file, text), SourcePosition(params.position.line, params.position.character))
-                } catch (e: RuntimeException) {
-                    communicator.sendDebugMessage("hover failed: ${e.message}", MessageType.Info)
-                    null
-                } ?: return@supplyAsync null
+                Either
+                    .catch { analysis.hover(Project.of(file, text), SourcePosition(params.position.line, params.position.character)) }
+                    .onLeft { communicator.sendDebugMessage("hover failed: ${it.message}", MessageType.Info) }
+                    .getOrNull() ?: return@supplyAsync null
             Hover(MarkupContent(MarkupKind.MARKDOWN, markdown.text))
         }
 
-    override fun completion(params: CompletionParams): CompletableFuture<Either<MutableList<CompletionItem>, CompletionList>> =
+    override fun completion(params: CompletionParams): CompletableFuture<LspEither<MutableList<CompletionItem>, CompletionList>> =
         CompletableFuture.supplyAsync {
             val file = fileOf(params.textDocument.uri)
+            // A failing completion offers nothing rather than an error in the editor.
             val items =
-                try {
-                    analysis.complete(projectOf(file), SourcePosition(params.position.line, params.position.character)).map { it.toLsp() }
-                } catch (e: RuntimeException) {
-                    communicator.sendDebugMessage("completion failed: ${e.message}", MessageType.Info)
-                    emptyList()
-                }
-            Either.forRight(CompletionList(false, items))
+                Either
+                    .catch { analysis.complete(projectOf(file), SourcePosition(params.position.line, params.position.character)).map { it.toLsp() } }
+                    .onLeft { communicator.sendDebugMessage("completion failed: ${it.message}", MessageType.Info) }
+                    .getOrElse { emptyList() }
+            LspEither.forRight(CompletionList(false, items))
         }
 
     /**
      * Offers the ProB commands as source actions of the whole file, and only when asked for explicitly,
      * so clients show no lightbulb on every line.
      */
-    override fun codeAction(params: CodeActionParams): CompletableFuture<List<Either<LspCommand, CodeAction>>> {
+    override fun codeAction(params: CodeActionParams): CompletableFuture<List<LspEither<LspCommand, CodeAction>>> {
         val uri = params.textDocument.uri
         val wanted =
             params.context.triggerKind != CodeActionTriggerKind.Automatic &&
                 params.context.only?.any { CodeActionKind.Source.startsWith(it) } ?: true
         val actions =
             Command.entries.filter { wanted && it.title != null }.map { command ->
-                Either.forRight<LspCommand, CodeAction>(
+                LspEither.forRight<LspCommand, CodeAction>(
                     CodeAction(command.title).apply {
                         kind = CodeActionKind.Source
                         this.command = LspCommand(command.title, command.id, listOf(uri))
@@ -168,12 +170,16 @@ class BDocumentService(
         return when (Command.of(command)) {
             Command.ANIMATE -> {
                 val request = decode<AnimationRequest>(argument) ?: return CompletableFuture.completedFuture(null)
-                CompletableFuture.supplyAsync { synchronized(animation) { animate(request) } }
+                CompletableFuture.supplyAsync {
+                    request.fold({ Failure(it.message) }, { synchronized(animation) { animate(it) } })
+                }
             }
 
             Command.VISUALIZE -> {
                 val request = decode<VisualizationRequest>(argument) ?: return CompletableFuture.completedFuture(null)
-                CompletableFuture.supplyAsync { synchronized(animation) { animation.visualize(request) } }
+                CompletableFuture.supplyAsync {
+                    request.fold({ Failure(it.message) }, { synchronized(animation) { animation.visualize(it) } })
+                }
             }
 
             Command.MODEL_CHECK -> {
@@ -253,7 +259,20 @@ class BDocumentService(
                 isLenient = true
             }
 
-        /** Reads a request the client sent as a JSON object; missing or unknown fields take their defaults. */
-        inline fun <reified T> decode(argument: Any?): T? = (argument as? JsonObject)?.let { requests.decodeFromString<T>(it.toString()) }
+        /**
+         * Reads a request the client sent as a JSON object, or null if it sent none; missing or
+         * unknown fields take their defaults.
+         */
+        inline fun <reified T> decode(argument: Any?): Either<InvalidRequest, T>? =
+            (argument as? JsonObject)?.let { json ->
+                Either
+                    .catchOrThrow<SerializationException, T> { requests.decodeFromString<T>(json.toString()) }
+                    .mapLeft { InvalidRequest("Invalid request: ${it.message}") }
+            }
     }
 }
+
+/** A request the client sent that does not have the expected shape. */
+data class InvalidRequest(
+    val message: String,
+)

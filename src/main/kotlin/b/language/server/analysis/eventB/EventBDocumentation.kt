@@ -1,5 +1,6 @@
 package b.language.server.analysis.eventB
 
+import arrow.core.Either
 import b.language.server.analysis.Markdown
 import b.language.server.analysis.ProofObligation
 import b.language.server.analysis.Verdict
@@ -268,12 +269,11 @@ object EventBDocumentation {
             val source = labeled.source ?: continue
             if (file != main.file) continue
             val offset = offsetIn(source, line, column) ?: continue
+            // Rodin's AST rejects positions it cannot map, such as those inside translated ASCII.
             val sub =
-                try {
-                    labeled.formula.getPosition(SourceLocation(offset, offset))?.let { labeled.formula.getSubFormula(it) }
-                } catch (e: RuntimeException) {
-                    null
-                } ?: return null
+                Either
+                    .catch { labeled.formula.getPosition(SourceLocation(offset, offset))?.let { labeled.formula.getSubFormula(it) } }
+                    .getOrNull() ?: return null
             val type =
                 when (sub) {
                     is BoundIdentDecl -> sub.type

@@ -26,6 +26,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
+    // Typed errors: Either and the Raise DSL instead of exceptions
+    implementation("io.arrow-kt:arrow-core:2.3.0")
+
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test-junit5
     testImplementation(kotlin("test-junit5"))
 

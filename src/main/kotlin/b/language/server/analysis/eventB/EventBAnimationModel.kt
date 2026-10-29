@@ -2,6 +2,7 @@ package b.language.server.analysis.eventB
 
 import b.language.server.analysis.Severity
 import b.language.server.analysis.prob.ProBSession
+import b.language.server.analysis.prob.explanation
 import b.language.server.analysis.prob.animation.AnimationLoad
 import b.language.server.analysis.prob.animation.AnimationModel
 import b.language.server.analysis.prob.animation.AnimationSources
@@ -30,8 +31,10 @@ class EventBAnimationModel(
         val error = result.problems.firstOrNull { it.severity == Severity.ERROR }
         if (error != null) return AnimationLoad.Failed("The model has errors; fix them first: ${error.message}")
         val main = result.main ?: return AnimationLoad.Failed("ProB could not load the model")
-        ProBTranslation.of(main, session.instance(EventBModel::class.java)).loadInto(stateSpace)
-        return AnimationLoad.Loaded(EventBAnimationSources(main))
+        return ProBTranslation.of(main, session.instance(EventBModel::class.java)).loadInto(stateSpace).fold(
+            { failure -> AnimationLoad.Failed(failure.explanation) },
+            { AnimationLoad.Loaded(EventBAnimationSources(main)) },
+        )
     }
 }
 

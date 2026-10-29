@@ -1,17 +1,20 @@
 package b.language.server.config
 
+import arrow.core.getOrElse
 import com.google.gson.JsonParser
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+import kotlin.test.fail
 
 class SettingsTest {
-    private fun parse(json: String) = Settings.from(JsonParser.parseString(json).asJsonObject)
+    private fun parse(json: String) = Settings.from(JsonParser.parseString(json).asJsonObject).getOrElse { fail(it.message) }
 
     @Test
     fun `missing settings fall back to the defaults`() {
         assertEquals(Settings(), parse("{}"))
-        assertEquals(Settings(), Settings.from(null))
+        assertEquals(Settings(), Settings.from(null).getOrNull())
     }
 
     @Test
@@ -37,6 +40,11 @@ class SettingsTest {
     @Test
     fun `numbers and booleans given as strings are read`() {
         assertEquals(Settings(poTimeout = 5, debugMode = false), parse("""{"poTimeout": "5", "debugMode": "false"}"""))
+    }
+
+    @Test
+    fun `values of the wrong kind make the settings invalid`() {
+        assertTrue(Settings.from(JsonParser.parseString("""{"debugMode": "abc"}""").asJsonObject).isLeft())
     }
 
     @Test

@@ -1,5 +1,8 @@
 package b.language.server.analysis.eventB
 
+import arrow.core.Either
+import b.language.server.analysis.prob.LoadFailure
+import b.language.server.analysis.prob.ProBFailure
 import de.prob.animator.domainobjects.EventB
 import de.prob.model.eventb.Context
 import de.prob.model.eventb.Event
@@ -26,7 +29,8 @@ class ProBTranslation(
     private val model: EventBModel,
     private val main: AbstractElement,
 ) {
-    fun loadInto(stateSpace: StateSpace) = model.loadIntoStateSpace(stateSpace, main)
+    fun loadInto(stateSpace: StateSpace): Either<LoadFailure, Unit> =
+        ProBFailure.catching { model.loadIntoStateSpace(stateSpace, main) }.mapLeft(LoadFailure::Rejected)
 
     companion object {
         /** Formulas use no mathematical extensions. */

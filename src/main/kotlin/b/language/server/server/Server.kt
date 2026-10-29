@@ -3,6 +3,7 @@ package b.language.server.server
 import b.language.server.analysis.AnalysisDispatcher
 import b.language.server.client.Communicator
 import b.language.server.config.Settings
+import arrow.core.getOrElse
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.CodeActionKind
 import org.eclipse.lsp4j.CodeActionOptions
@@ -29,10 +30,10 @@ import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
-class Server :
-    LanguageServer,
+class Server(
+    private val analysis: AnalysisDispatcher,
+) : LanguageServer,
     ServerInterface {
-    private val analysis = AnalysisDispatcher()
     private val documentService = BDocumentService(this, Communicator, analysis)
     private val released = AtomicBoolean(false)
     private val bWorkspaceService: WorkspaceService = BWorkspaceService(this, Communicator)
@@ -120,14 +121,21 @@ class Server :
             configurationItem.scopeUri = uri
             configurationItem.section = "prob"
 
-            val requestedConfig = languageClient.configuration(ConfigurationParams(listOf(configurationItem)))
-            documentSettings[uri] =
-                CompletableFuture.allOf(requestedConfig).thenApply {
-                    Settings.from(requestedConfig.get().firstOrNull() as? JsonObject)
+            val requested =
+                languageClient.configuration(ConfigurationParams(listOf(configurationItem))).thenApply { configuration ->
+                    readSettings(configuration.firstOrNull() as? JsonObject)
                 }
-            documentSettings[uri]!!
+            documentSettings[uri] = requested
+            requested
         }
     }
+
+    /** The client's settings, or the defaults if they cannot be read. */
+    fun readSettings(json: JsonObject?): Settings =
+        Settings.from(json).getOrElse {
+            Communicator.sendDebugMessage("ignoring invalid settings: ${it.message}", MessageType.Warning)
+            Settings()
+        }
 
     override fun removeDocumentSettings(uri: String) {
         documentSettings.remove(uri)

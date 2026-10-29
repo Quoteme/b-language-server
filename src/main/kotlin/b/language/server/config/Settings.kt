@@ -1,8 +1,10 @@
 package b.language.server.config
 
+import arrow.core.Either
 import com.google.gson.JsonObject
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonNames
 
@@ -26,7 +28,15 @@ data class Settings(
                 isLenient = true
             }
 
-        /** Reads the settings the client sent as JSON. */
-        fun from(json: JsonObject?): Settings = format.decodeFromString(json?.toString() ?: "{}")
+        /** Reads the settings the client sent as JSON; values of the wrong kind make them invalid. */
+        fun from(json: JsonObject?): Either<InvalidSettings, Settings> =
+            Either
+                .catchOrThrow<SerializationException, Settings> { format.decodeFromString(json?.toString() ?: "{}") }
+                .mapLeft { InvalidSettings(it.message ?: "invalid settings") }
     }
 }
+
+/** Settings the client sent that cannot be read, and why. */
+data class InvalidSettings(
+    val message: String,
+)

@@ -1,6 +1,7 @@
 package b.language.server.analysis.classicB
 
 import b.language.server.analysis.prob.ProBSession
+import b.language.server.analysis.prob.explanation
 import b.language.server.analysis.prob.animation.AnimationLoad
 import b.language.server.analysis.prob.animation.AnimationModel
 import b.language.server.analysis.prob.animation.AnimationSources
@@ -22,8 +23,10 @@ class ClassicBAnimationModel(
         session: ProBSession,
         stateSpace: StateSpace,
     ): AnimationLoad {
-        ClassicBModel(session, project).loadInto(stateSpace)
-        return AnimationLoad.Loaded(ClassicBAnimationSources(project))
+        return ClassicBModel(session, project).loadInto(stateSpace).fold(
+            { failure -> AnimationLoad.Failed(failure.explanation) },
+            { AnimationLoad.Loaded(ClassicBAnimationSources(project)) },
+        )
     }
 }
 

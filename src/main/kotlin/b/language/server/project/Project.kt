@@ -11,6 +11,15 @@ interface Project {
     /** The main file's text as the editor has it. */
     val text: String
 
+    /**
+     * Calls the function for this kind of project. Adding a kind of project adds a parameter, so
+     * the compiler finds every place that must handle it.
+     */
+    fun <R> match(
+        classicB: (ClassicBProject) -> R,
+        eventB: (EventBProject) -> R,
+    ): R
+
     companion object {
         private val FIRST_WORD = Regex("""\A(?:\s|//[^\n]*|/\*[\s\S]*?\*/)*([A-Za-z_]+)""")
 

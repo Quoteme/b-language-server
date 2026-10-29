@@ -36,11 +36,7 @@ class BWorkspaceService(
         if (server.configurationAbility) {
             server.documentSettings.clear()
         } else {
-            if (params!!.settings is JsonObject) {
-                val settings: JsonObject = params.settings as JsonObject
-                val documentSetting = Settings.from(settings)
-                server.globalSettings = documentSetting
-            }
+            (params?.settings as? JsonObject)?.let { server.globalSettings = server.readSettings(it) }
         }
     }
 }

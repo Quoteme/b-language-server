@@ -1,5 +1,6 @@
 package b.language.server.analysis.prob
 
+import b.language.server.analysis.AnalysisFailure
 import java.io.File
 
 /** Where the ProB installation is: prob-java's own, or a directory the user chose. */
@@ -18,8 +19,21 @@ sealed interface ProBHome {
     }
 }
 
-class ProBHomeNotFound(
-    home: ProBHome.Directory,
-) : Exception(
-        "searched at ${home.path.path} for prob but found nothing - make sure you point to the prob directory not to probcli.sh/probcli",
-    )
+/** Why ProB cannot be used. */
+sealed interface ProBUnavailable : AnalysisFailure {
+    data class HomeNotFound(
+        val home: ProBHome.Directory,
+    ) : ProBUnavailable {
+        override val message: String
+            get() =
+                "searched at ${home.path.path} for prob but found nothing - make sure you point to the prob directory " +
+                    "not to probcli.sh/probcli"
+    }
+
+    data class StartFailed(
+        val home: ProBHome,
+        val reason: String?,
+    ) : ProBUnavailable {
+        override val message: String get() = "wrong path to prob $home" + (reason?.let { ": $it" } ?: "")
+    }
+}

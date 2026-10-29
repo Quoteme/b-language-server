@@ -1,7 +1,9 @@
 package b.language.server.project.eventB
 
+import arrow.core.Either
 import b.language.server.project.Location
 import b.language.server.project.Project
+import b.language.server.project.classicB.ClassicBProject
 import de.be4.eventb.core.parser.BException
 import de.be4.eventb.core.parser.EventBLexerException
 import de.be4.eventb.core.parser.EventBParseException
@@ -23,6 +25,11 @@ class EventBProject(
     override val mainFile: File,
     override val text: String,
 ) : Project {
+    override fun <R> match(
+        classicB: (ClassicBProject) -> R,
+        eventB: (EventBProject) -> R,
+    ): R = eventB(this)
+
     enum class ComponentKind(
         val keyword: String,
     ) {
@@ -30,20 +37,25 @@ class EventBProject(
         CONTEXT("context"),
     }
 
-    /** A component file and its parse tree. */
+    /** A component file, its parse tree, and the name it declares. */
     class Component(
         val file: File,
         val unit: PParseUnit,
+        val kind: ComponentKind,
+        val name: TIdentifierLiteral,
     ) {
-        val kind: ComponentKind = if (unit is AMachineParseUnit) ComponentKind.MACHINE else ComponentKind.CONTEXT
-
-        /** The name as declared, with its place in the file. */
-        val name: TIdentifierLiteral =
-            when (unit) {
-                is AMachineParseUnit -> unit.name
-                is AContextParseUnit -> unit.name
-                else -> error("not a machine or context: $unit")
-            }
+        companion object {
+            /** The component of a parse tree, if it is a machine or a context. */
+            fun of(
+                file: File,
+                unit: PParseUnit,
+            ): Component? =
+                when (unit) {
+                    is AMachineParseUnit -> Component(file, unit, ComponentKind.MACHINE, unit.name)
+                    is AContextParseUnit -> Component(file, unit, ComponentKind.CONTEXT, unit.name)
+                    else -> null
+                }
+        }
     }
 
     /** Why a component could not be loaded. */
@@ -91,16 +103,16 @@ class EventBProject(
             return failed(referencedFrom.file, reference, "Component '${reference.text}' not found, expected it in ${file.name}")
         }
         val text = file.readText()
-        val unit =
-            try {
-                EventBParser().parse(text).pParseUnit
-            } catch (e: BException) {
-                return Loading.Failed(listOf(parseError(file, Project.firstWord(text), e)))
-            }
-        if (unit !is AMachineParseUnit && unit !is AContextParseUnit) return Loading.Failed(emptyList())
-        val component = Component(file, unit)
-        components[component.name.text] = component
-        return Loading.Loaded(component)
+        return Either
+            .catchOrThrow<BException, PParseUnit> { EventBParser().parse(text).pParseUnit }
+            .fold(
+                { Loading.Failed(listOf(parseError(file, Project.firstWord(text), it))) },
+                { unit ->
+                    val component = Component.of(file, unit) ?: return Loading.Failed(emptyList())
+                    components[component.name.text] = component
+                    Loading.Loaded(component)
+                },
+            )
     }
 
     private fun failed(

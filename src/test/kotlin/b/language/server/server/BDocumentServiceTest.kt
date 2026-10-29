@@ -1,8 +1,12 @@
 package b.language.server.server
 
+import arrow.core.Either
+import arrow.core.right
 import b.language.server.analysis.AnalysisDispatcher
+import b.language.server.analysis.AnalysisFailure
 import b.language.server.analysis.Analysis
 import b.language.server.analysis.Problem
+import b.language.server.analysis.prob.startProB
 import b.language.server.client.DummyCommunicator
 import b.language.server.config.Settings
 import b.language.server.project.Project
@@ -43,14 +47,14 @@ class BDocumentServiceTest {
         override fun check(
             project: Project,
             settings: Settings,
-        ): List<Problem> = if (counter++ == 0) real.check(project, settings) else listOf()
+        ): Either<AnalysisFailure, List<Problem>> = if (counter++ == 0) real.check(project, settings) else listOf<Problem>().right()
     }
 
     @Test
     fun checkDocument_test_documentRegistered() {
         val communicator = DummyCommunicator()
 
-        val analysis = AnalysisDispatcher().also { opened += it }
+        val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
 
         val documentToCheck = File("src/test/resources/WD_M1.mch").absolutePath
@@ -73,7 +77,7 @@ class BDocumentServiceTest {
     fun checkDocument_test_subDocument_displayed_properly() {
         val communicator = DummyCommunicator()
 
-        val analysis = AnalysisDispatcher().also { opened += it }
+        val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
 
         val documentToCheck = File("src/test/resources/WD_M2.mch").absolutePath
@@ -100,7 +104,7 @@ class BDocumentServiceTest {
     fun checkDocument_test_unregistered_document_after_no_errors() {
         val communicator = DummyCommunicator()
 
-        val analysis = AnalysisDispatcher().also { opened += it }
+        val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, FixedAfterFirstCheck(analysis)).also { opened += it }
 
         documentService.checkDocument(File(File("src/test/resources/WD_M2.mch").absolutePath))

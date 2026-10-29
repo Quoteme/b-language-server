@@ -1,6 +1,9 @@
 package b.language.server.analysis.prob.animation
 
+import arrow.core.Either
+import arrow.core.getOrElse
 import b.language.server.analysis.prob.ModelCheckOutcome
+import b.language.server.analysis.prob.ProBFailure
 import b.language.server.analysis.prob.ProBPreferences
 import b.language.server.analysis.prob.ProBSession
 import b.language.server.analysis.prob.Transitions
@@ -33,8 +36,7 @@ import java.nio.file.Files
  */
 class Animation : AutoCloseable {
     /** Started with the first animation only. */
-    private val started = lazy { ProBSession() }
-    private val session by started
+    private val started = lazy { ProBSession.start() }
 
     private var model: AnimationModel? = null
     private var sources: AnimationSources? = null
@@ -57,16 +59,11 @@ class Animation : AutoCloseable {
     /** Loads [model] and starts a new animation of it. */
     fun start(model: AnimationModel): AnimationResponse {
         stop()
+        val session = started.value.getOrElse { return Failure(it.message) }
         this.model = model
         message = ""
         val stateSpace = session.createStateSpace(ProBPreferences(maxOperations = 20, maxInitialisations = 20))
-        val loaded =
-            try {
-                model.load(session, stateSpace)
-            } catch (e: ProBError) {
-                AnimationLoad.Failed(e.errors.firstOrNull()?.message ?: e.message ?: "ProB could not load the model")
-            }
-        when (loaded) {
+        when (val loaded = model.load(session, stateSpace)) {
             is AnimationLoad.Failed -> {
                 stateSpace.kill()
                 return Failure(loaded.reason)
@@ -78,13 +75,12 @@ class Animation : AutoCloseable {
         }
         trace = Trace(stateSpace)
         images =
-            try {
-                GetImagesForMachineCommand().also { stateSpace.execute(it) }.images.mapValues { (_, name) ->
-                    File(name).let { if (it.isAbsolute) it else File(model.file.absoluteFile.parentFile, name) }
-                }
-            } catch (e: ProBError) {
-                emptyMap()
-            }
+            ProBFailure
+                .catching {
+                    GetImagesForMachineCommand().also { stateSpace.execute(it) }.images.mapValues { (_, name) ->
+                        File(name).let { if (it.isAbsolute) it else File(model.file.absoluteFile.parentFile, name) }
+                    }
+                }.getOrElse { emptyMap() }
         visb = loadVisB(stateSpace, model.file)
         return view()
     }
@@ -102,7 +98,7 @@ class Animation : AutoCloseable {
     /** Stops the animation and ends its ProB process, if it was started. */
     override fun close() {
         stop()
-        if (started.isInitialized()) session.close()
+        if (started.isInitialized()) started.value.onRight { it.close() }
     }
 
     /** Runs one step of the animation and returns the new view. */
@@ -112,68 +108,71 @@ class Animation : AutoCloseable {
         count: Int,
     ): AnimationResponse {
         val current = trace ?: return Failure(NOT_RUNNING)
+        if (action == AnimationAction.RESTART) return start(model ?: return Failure(NOT_RUNNING))
         message = ""
-        try {
-            trace =
-                when (action) {
-                    AnimationAction.EXECUTE -> {
-                        current.nextTransitions.firstOrNull { it.id == argument }?.let { current.add(it) } ?: current
-                    }
-
-                    AnimationAction.EXECUTE_WITH -> {
-                        val parts = (argument ?: "").split('\u0000', limit = 2)
-                        val event = parts[0]
-                        val predicate = parts.getOrElse(1) { "" }
-                        val predicates = listOfNotNull(predicate.ifBlank { null })
-                        if (current.canExecuteEvent(event, predicates)) {
-                            current.execute(event, predicates)
-                        } else {
-                            message = "$event cannot be executed${if (predicate.isBlank()) "" else " with $predicate"}"
-                            current
-                        }
-                    }
-
-                    AnimationAction.BACK -> {
-                        generateSequence(current) { if (it.canGoBack()) it.back() else null }.take(count + 1).last()
-                    }
-
-                    AnimationAction.FORWARD -> {
-                        generateSequence(current) { if (it.canGoForward()) it.forward() else null }.take(count + 1).last()
-                    }
-
-                    AnimationAction.GOTO -> {
-                        current.gotoPosition((argument?.toIntOrNull() ?: 0) - 1)
-                    }
-
-                    AnimationAction.RANDOM -> {
-                        current.randomAnimation(count).also {
-                            if (it.transitionList.size < current.transitionList.size + count) message = "Stopped early: no event is enabled"
-                        }
-                    }
-
-                    AnimationAction.FIND -> {
-                        find(current, argument ?: "")
-                    }
-
-                    AnimationAction.MODEL_CHECK -> {
-                        modelCheck(current)
-                    }
-
-                    AnimationAction.RESTART -> {
-                        return start(model ?: return Failure(NOT_RUNNING))
-                    }
-
-                    AnimationAction.START, AnimationAction.STOP, AnimationAction.VIEW -> {
-                        current
-                    }
-                }
-        } catch (e: ProBError) {
-            message = e.errors.firstOrNull()?.message ?: e.message ?: "ProB reported an error"
-        } catch (e: IllegalArgumentException) {
-            message = e.message ?: "Invalid input"
+        // ProB rejects what it cannot do; prob-java rejects arguments, such as a step beyond the history.
+        when (val stepped = ProBFailure.catching { Either.catchOrThrow<IllegalArgumentException, Trace> { step(current, action, argument, count) } }) {
+            is Either.Left -> message = stepped.value.message("ProB reported an error")
+            is Either.Right -> stepped.value.fold({ message = it.message ?: "Invalid input" }, { trace = it })
         }
         return view()
     }
+
+    /** The trace after one step from [current]. */
+    private fun step(
+        current: Trace,
+        action: AnimationAction,
+        argument: String?,
+        count: Int,
+    ): Trace =
+        when (action) {
+            AnimationAction.EXECUTE -> {
+                current.nextTransitions.firstOrNull { it.id == argument }?.let { current.add(it) } ?: current
+            }
+
+            AnimationAction.EXECUTE_WITH -> {
+                val parts = (argument ?: "").split('\u0000', limit = 2)
+                val event = parts[0]
+                val predicate = parts.getOrElse(1) { "" }
+                val predicates = listOfNotNull(predicate.ifBlank { null })
+                if (current.canExecuteEvent(event, predicates)) {
+                    current.execute(event, predicates)
+                } else {
+                    message = "$event cannot be executed${if (predicate.isBlank()) "" else " with $predicate"}"
+                    current
+                }
+            }
+
+            AnimationAction.BACK -> {
+                generateSequence(current) { if (it.canGoBack()) it.back() else null }.take(count + 1).last()
+            }
+
+            AnimationAction.FORWARD -> {
+                generateSequence(current) { if (it.canGoForward()) it.forward() else null }.take(count + 1).last()
+            }
+
+            AnimationAction.GOTO -> {
+                current.gotoPosition((argument?.toIntOrNull() ?: 0) - 1)
+            }
+
+            AnimationAction.RANDOM -> {
+                current.randomAnimation(count).also {
+                    if (it.transitionList.size < current.transitionList.size + count) message = "Stopped early: no event is enabled"
+                }
+            }
+
+            AnimationAction.FIND -> {
+                find(current, argument ?: "")
+            }
+
+            AnimationAction.MODEL_CHECK -> {
+                modelCheck(current)
+            }
+
+            AnimationAction.START, AnimationAction.STOP, AnimationAction.VIEW, AnimationAction.RESTART -> {
+                current
+            }
+        }
 
     private fun find(
         current: Trace,
@@ -204,8 +203,10 @@ class Animation : AutoCloseable {
      */
     fun visualize(request: VisualizationRequest): VisualizationResponse {
         val trace = trace ?: return Failure(NOT_RUNNING)
-        return try {
-            when (request.kind) {
+        // Rendering can also fail outside ProB, such as when Graphviz is missing; the client shows why.
+        return Either
+            .catch {
+                when (request.kind) {
                 VisualizationKind.GRAPHICS -> {
                     val page = File(output, "graphics.html")
                     graphicsPage = page
@@ -235,11 +236,13 @@ class Animation : AutoCloseable {
                     Table(visualization.name, table.header, table.rows)
                 }
             }
-        } catch (e: ProBError) {
-            Failure(e.errors.firstOrNull()?.message ?: e.message ?: "ProB could not visualise the state")
-        } catch (e: Exception) {
-            Failure(e.message ?: e.toString())
-        }
+            }.getOrElse { error ->
+                if (error is ProBError) {
+                    Failure(ProBFailure(error.errors, error.message).message("ProB could not visualise the state"))
+                } else {
+                    Failure(error.message ?: error.toString())
+                }
+            }
     }
 
     private fun parse(
@@ -248,31 +251,29 @@ class Animation : AutoCloseable {
     ) = formulas.map { trace.stateSpace.model.parseFormula(it, FormulaExpand.EXPAND) }
 
     /** The dot and table visualisations of ProB Tcl/Tk's Visualize menu for the current state. */
-    private fun visualizations(trace: Trace): List<VisualizationEntry> =
-        try {
-            fun entry(
-                kind: VisualizationKind,
-                item: DynamicCommandItem,
-            ) = VisualizationEntry(kind, item.command, item.name, item.description, item.arity, item.isAvailable, item.available)
-            DotVisualizationCommand.getAll(trace).map { entry(VisualizationKind.DOT, it) } +
-                TableVisualizationCommand.getAll(trace).map { entry(VisualizationKind.TABLE, it) }
-        } catch (e: ProBError) {
-            emptyList()
-        }
+    private fun visualizations(trace: Trace): List<VisualizationEntry> {
+        fun entry(
+            kind: VisualizationKind,
+            item: DynamicCommandItem,
+        ) = VisualizationEntry(kind, item.command, item.name, item.description, item.arity, item.isAvailable, item.available)
+        return ProBFailure
+            .catching {
+                DotVisualizationCommand.getAll(trace).map { entry(VisualizationKind.DOT, it) } +
+                    TableVisualizationCommand.getAll(trace).map { entry(VisualizationKind.TABLE, it) }
+            }.getOrElse { emptyList() }
+    }
 
     /**
      * The grid of ANIMATION_FUNCTION in [state], as ProB Tcl/Tk draws it: each cell has a text,
      * which for an image is ANIMATION_STR's or the image's name, and the image file if any.
      */
     private fun graphics(state: State): List<List<GraphicsCell>>? {
+        // Without ANIMATION_FUNCTION, ProB or prob-java refuse to compute the matrix.
         val matrix =
-            try {
-                GetAnimationMatrixForStateCommand(state).also { state.stateSpace.execute(it) }.matrix
-            } catch (e: ProBError) {
-                return null
-            } catch (e: IllegalArgumentException) {
-                return null
-            }
+            ProBFailure
+                .catching { Either.catchOrThrow<IllegalArgumentException, _> { GetAnimationMatrixForStateCommand(state).also { state.stateSpace.execute(it) }.matrix } }
+                .getOrNull()
+                ?.getOrNull()
         if (matrix.isNullOrEmpty()) return null
         return matrix.map { row ->
             row.map { entry ->
@@ -299,27 +300,27 @@ class Animation : AutoCloseable {
         stateSpace: StateSpace,
         file: File,
     ): File? =
-        try {
-            val path = ReadVisBPathFromDefinitionsCommand().also { stateSpace.execute(it) }.path
-            path
-                ?.takeIf { it.isNotBlank() }
-                ?.let { File(it).let { f -> if (f.isAbsolute) f else File(file.absoluteFile.parentFile, it) } }
-                ?.also { stateSpace.execute(LoadVisBCommand(it.absolutePath)) }
-        } catch (e: ProBError) {
-            message = "VisB: " + (e.errors.firstOrNull()?.message ?: e.message)
-            null
-        }
+        ProBFailure
+            .catching {
+                val path = ReadVisBPathFromDefinitionsCommand().also { stateSpace.execute(it) }.path
+                path
+                    ?.takeIf { it.isNotBlank() }
+                    ?.let { File(it).let { f -> if (f.isAbsolute) f else File(file.absoluteFile.parentFile, it) } }
+                    ?.also { stateSpace.execute(LoadVisBCommand(it.absolutePath)) }
+            }.getOrElse {
+                message = "VisB: " + it.message("null")
+                null
+            }
 
     /** Writes the VisB visualisation of the current state to [visbPage], made to reload itself. */
     private fun writeVisB(trace: Trace) {
         val page = visbPage ?: return
         if (!trace.currentState.isInitialised) return
-        try {
-            trace.stateSpace.execute(ExportVisBHtmlForStates(trace.currentState, page.toPath()))
-            page.writeText(page.readText().replaceFirst(Regex("(?i)<head>"), "<head><meta http-equiv=\"refresh\" content=\"1\">"))
-        } catch (e: ProBError) {
-            message = "VisB: " + (e.errors.firstOrNull()?.message ?: e.message)
-        }
+        ProBFailure
+            .catching {
+                trace.stateSpace.execute(ExportVisBHtmlForStates(trace.currentState, page.toPath()))
+                page.writeText(page.readText().replaceFirst(Regex("(?i)<head>"), "<head><meta http-equiv=\"refresh\" content=\"1\">"))
+            }.onLeft { message = "VisB: " + it.message("null") }
     }
 
     /** Writes the graphical animation of the current state to [graphicsPage], which reloads itself. */

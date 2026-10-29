@@ -28,3 +28,10 @@ fun ErrorItem.Type.toSeverity(): Severity =
         ErrorItem.Type.MESSAGE -> Severity.INFORMATION
         ErrorItem.Type.ERROR, ErrorItem.Type.INTERNAL_ERROR -> Severity.ERROR
     }
+
+/** Why loading failed, as problems of [checked] or of the file that could not be read. */
+fun LoadFailure.toProblems(checked: File): List<Problem> =
+    when (this) {
+        is LoadFailure.Rejected -> failure.errors.toProblems(checked)
+        is LoadFailure.Unreadable -> listOf(Problem(Location.startOf(file), "Could not read ${file.name}: $reason", Severity.ERROR))
+    }

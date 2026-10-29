@@ -3,6 +3,8 @@ package b.language.server.analysis.eventB
 import b.language.server.analysis.Problem
 import b.language.server.analysis.Severity
 import b.language.server.analysis.eventB.ProBTranslation.Companion.NO_EXTENSIONS
+import arrow.core.Either
+import b.language.server.analysis.prob.LoadFailure
 import b.language.server.analysis.prob.LoadableModel
 import b.language.server.analysis.prob.ModelCheckOutcome
 import b.language.server.analysis.prob.ModelCheckOutcome.ErrorFound.Kind
@@ -24,7 +26,7 @@ class EventBModelChecker(
         val main: CheckedComponent,
         private val translation: ProBTranslation,
     ) : LoadableModel {
-        override fun loadInto(stateSpace: StateSpace) = translation.loadInto(stateSpace)
+        override fun loadInto(stateSpace: StateSpace): Either<LoadFailure, Unit> = translation.loadInto(stateSpace)
     }
 
     override fun prepare(project: EventBProject): Model? {

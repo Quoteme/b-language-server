@@ -1,9 +1,12 @@
 package b.language.server.analysis.eventB
 
+import arrow.core.Either
+import arrow.core.getOrElse
 import b.language.server.analysis.ProofObligation
 import b.language.server.analysis.Verdict
 import b.language.server.analysis.eventB.ObligationGoal.Companion.PRIME_SUFFIX
 import b.language.server.analysis.eventB.ProBTranslation.Companion.NO_EXTENSIONS
+import b.language.server.analysis.prob.ProBFailure
 import b.language.server.analysis.prob.ProBPreferences
 import b.language.server.analysis.prob.ProBSession
 import de.prob.animator.command.CbcSolveCommand
@@ -11,7 +14,6 @@ import de.prob.animator.domainobjects.ComputationNotCompletedResult
 import de.prob.animator.domainobjects.EvalResult
 import de.prob.animator.domainobjects.EventB
 import de.prob.animator.domainobjects.FormulaExpand
-import de.prob.exception.ProBError
 import de.prob.model.eventb.Context
 import de.prob.model.eventb.EventBModel
 import de.prob.model.representation.ModelElementList
@@ -39,48 +41,49 @@ class Discharger(
             Context("proof_obligations").withSets(
                 ModelElementList(main.contexts.flatMap { it.sets }.distinct().map { ProBSet(EventB(it, NO_EXTENSIONS)) }),
             )
-        val verdicts = mutableListOf<Verdict>()
-        val stateSpace = session.createStateSpace(ProBPreferences(timeoutMillis = timeoutMillis))
-        try {
-            session.instance(EventBModel::class.java).addContext(sets).loadIntoStateSpace(stateSpace, sets)
-            goals.forEach { verdicts += solve(stateSpace, it) }
-        } catch (e: ProBError) {
-            log.info("could not discharge proof obligations: ${e.message}")
-        } finally {
-            stateSpace.kill()
-        }
-        return goals.mapIndexed { index, goal ->
-            ProofObligation(goal.name, goal.location, verdicts.getOrElse(index) { Verdict.Undischarged("") })
-        }
+        val verdicts =
+            session.withStateSpace(ProBPreferences(timeoutMillis = timeoutMillis)) { stateSpace ->
+                ProBFailure
+                    .catching { session.instance(EventBModel::class.java).addContext(sets).loadIntoStateSpace(stateSpace, sets) }
+                    .map { goals.map { solve(stateSpace, it) } }
+                    .getOrElse { failure ->
+                        log.info("could not discharge proof obligations: ${failure.description}")
+                        goals.map { Verdict.Undischarged("") }
+                    }
+            }
+        return goals.zip(verdicts) { goal, verdict -> ProofObligation(goal.name, goal.location, verdict) }
     }
 
+    /** Asks each solver in turn; the reason of the last one that could not decide is kept. */
     private fun solve(
         stateSpace: StateSpace,
         goal: ObligationGoal,
     ): Verdict {
         var reason = ""
         for (solver in solvers) {
-            val result =
-                try {
-                    val command = CbcSolveCommand(EventB(goal.negation, NO_EXTENSIONS, FormulaExpand.EXPAND), solver)
-                    stateSpace.execute(command)
-                    command.value
-                } catch (e: ProBError) {
-                    reason = e.errors.firstOrNull()?.message ?: e.message
-                        ?.lineSequence()
-                        ?.firstOrNull()
-                        .orEmpty()
-                    continue
+            val attempt =
+                ProBFailure.catching {
+                    CbcSolveCommand(EventB(goal.negation, NO_EXTENSIONS, FormulaExpand.EXPAND), solver).also { stateSpace.execute(it) }.value
                 }
-            if (result is EvalResult && result.value == "FALSE") return Verdict.Discharged
-            if (result is EvalResult && result.value == "TRUE") {
-                return Verdict.Disproved(
-                    result.solutions.entries.joinToString(", ") { (name, value) ->
-                        "${name.replace(Regex("$PRIME_SUFFIX$"), "'")} = $value"
-                    },
-                )
+            when (attempt) {
+                is Either.Left -> {
+                    val failure = attempt.value
+                    reason = failure.errors.firstOrNull()?.message ?: failure.description?.lineSequence()?.firstOrNull().orEmpty()
+                }
+
+                is Either.Right -> {
+                    val result = attempt.value
+                    if (result is EvalResult && result.value == "FALSE") return Verdict.Discharged
+                    if (result is EvalResult && result.value == "TRUE") {
+                        return Verdict.Disproved(
+                            result.solutions.entries.joinToString(", ") { (name, value) ->
+                                "${name.replace(Regex("$PRIME_SUFFIX$"), "'")} = $value"
+                            },
+                        )
+                    }
+                    reason = (result as? ComputationNotCompletedResult)?.reason ?: result.toString()
+                }
             }
-            reason = (result as? ComputationNotCompletedResult)?.reason ?: result.toString()
         }
         return Verdict.Undischarged(reason)
     }

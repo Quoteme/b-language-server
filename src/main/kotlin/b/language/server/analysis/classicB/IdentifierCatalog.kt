@@ -1,5 +1,6 @@
 package b.language.server.analysis.classicB
 
+import arrow.core.Either
 import b.language.server.analysis.CandidateKind
 import b.language.server.analysis.Markdown
 import b.language.server.analysis.documentation.CodeLanguage
@@ -53,16 +54,16 @@ class IdentifierCatalog private constructor(
 
             fun names(category: Category) = GetMachineIdentifiersCommand(category).also { stateSpace.execute(it) }.identifiers
 
+            /** The type ProB infers for [name], unless it cannot parse or type it. */
             fun type(name: String): String? =
-                try {
-                    FormulaTypecheckCommand(stateSpace.model.parseFormula(name, FormulaExpand.TRUNCATE))
-                        .also { stateSpace.execute(it) }
-                        .result
-                        .takeIf { it.isOk }
-                        ?.type
-                } catch (e: RuntimeException) {
-                    null
-                }
+                Either
+                    .catch {
+                        FormulaTypecheckCommand(stateSpace.model.parseFormula(name, FormulaExpand.TRUNCATE))
+                            .also { stateSpace.execute(it) }
+                            .result
+                            .takeIf { it.isOk }
+                            ?.type
+                    }.getOrNull()
 
             fun typed(name: String) = type(name)?.let { "$name : $it" } ?: name
 

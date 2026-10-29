@@ -3,6 +3,7 @@ package b.language.server.project.classicB
 import b.language.server.project.Location
 import b.language.server.project.Project
 import b.language.server.project.SourceLines
+import b.language.server.project.eventB.EventBProject
 import java.io.File
 
 /** A classical B machine, refinement or implementation. ProB reads the files it includes itself. */
@@ -10,6 +11,11 @@ class ClassicBProject(
     override val mainFile: File,
     override val text: String,
 ) : Project {
+    override fun <R> match(
+        classicB: (ClassicBProject) -> R,
+        eventB: (EventBProject) -> R,
+    ): R = classicB(this)
+
     /** The sections of a machine in which declarations are searched for. */
     enum class Section(
         val keyword: String,

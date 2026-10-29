@@ -1,16 +1,17 @@
 package b.language.server.analysis
 
+import arrow.core.Either
 import b.language.server.analysis.prob.animation.AnimationModel
 import b.language.server.config.Settings
 import b.language.server.project.Project
 import b.language.server.project.SourcePosition
 
-/** Checks a project and reports its problems. */
+/** Checks a project and reports its problems, unless the check cannot run at all. */
 interface Checker<in P : Project> {
     fun check(
         project: P,
         settings: Settings,
-    ): List<Problem>
+    ): Either<AnalysisFailure, List<Problem>>
 }
 
 /** Documents what is under the cursor. */

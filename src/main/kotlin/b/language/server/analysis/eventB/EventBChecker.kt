@@ -1,5 +1,8 @@
 package b.language.server.analysis.eventB
 
+import arrow.core.Either
+import arrow.core.raise.either
+import b.language.server.analysis.AnalysisFailure
 import b.language.server.analysis.Checker
 import b.language.server.analysis.LastCheck
 import b.language.server.analysis.Problem
@@ -24,19 +27,20 @@ class EventBChecker(
     override fun check(
         project: EventBProject,
         settings: Settings,
-    ): List<Problem> {
-        session.use(ProBHome.of(settings.probHome))
-        session.unloadCurrent()
-        val result = StaticChecker(project).check()
-        obligations.forget(project.mainFile)
-        val main = result.main
-        if (result.hasErrors || main == null) return result.problems
+    ): Either<AnalysisFailure, List<Problem>> =
+        either {
+            session.use(ProBHome.of(settings.probHome)).bind()
+            session.unloadCurrent()
+            val result = StaticChecker(project).check()
+            obligations.forget(project.mainFile)
+            val main = result.main
+            if (result.hasErrors || main == null) return@either result.problems
 
-        val goals = ProofObligationGenerator().generate(main)
-        val decided = discharger.discharge(main, goals, settings.poTimeout)
-        obligations[project.mainFile] = decided
-        return result.problems + decided.mapNotNull { it.toProblem() }
-    }
+            val goals = ProofObligationGenerator().generate(main)
+            val decided = discharger.discharge(main, goals, settings.poTimeout)
+            obligations[project.mainFile] = decided
+            result.problems + decided.mapNotNull { it.toProblem() }
+        }
 
     private fun ProofObligation.toProblem(): Problem? =
         when (verdict) {

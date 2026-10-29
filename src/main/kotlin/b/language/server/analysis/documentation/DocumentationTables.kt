@@ -1,6 +1,10 @@
 package b.language.server.analysis.documentation
 
+import arrow.core.Either
+import arrow.core.getOrElse
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
+import java.util.logging.Logger
 
 /** The documented keys of one language, by key, in the order of the official documentation. */
 class OperatorTable(
@@ -42,12 +46,20 @@ object DocumentationTables {
         title: String,
     ): Extras? = extras[language]?.get(title)
 
+    /** The entries of a table, or none if it is missing or broken, which the log tells. */
     private inline fun <reified T> read(name: String): List<T> {
         val text =
             DocumentationTables::class.java
                 .getResourceAsStream("/documentation/$name.json")
                 ?.bufferedReader(Charsets.UTF_8)
                 ?.readText() ?: return emptyList()
-        return Json.decodeFromString(text)
+        return Either
+            .catchOrThrow<SerializationException, List<T>> { Json.decodeFromString(text) }
+            .getOrElse {
+                log.warning("documentation table $name is broken: ${it.message}")
+                emptyList()
+            }
     }
+
+    private val log: Logger = Logger.getLogger(DocumentationTables::class.java.name)
 }

@@ -5,9 +5,45 @@ import de.be4.eventb.core.parser.EventBLexerException
 import de.be4.eventb.core.parser.EventBParseException
 import de.be4.eventb.core.parser.EventBParser
 import de.be4.eventb.core.parser.lexer.LexerException
-import de.be4.eventb.core.parser.node.*
+import de.be4.eventb.core.parser.node.AAction
+import de.be4.eventb.core.parser.node.AAnticipatedConvergence
+import de.be4.eventb.core.parser.node.AAxiom
+import de.be4.eventb.core.parser.node.ACarrierSet
+import de.be4.eventb.core.parser.node.AConstant
+import de.be4.eventb.core.parser.node.AContextParseUnit
+import de.be4.eventb.core.parser.node.AConvergentConvergence
+import de.be4.eventb.core.parser.node.ADerivedAxiom
+import de.be4.eventb.core.parser.node.ADerivedGuard
+import de.be4.eventb.core.parser.node.ADerivedInvariant
+import de.be4.eventb.core.parser.node.AEvent
+import de.be4.eventb.core.parser.node.AExtendedEventRefinement
+import de.be4.eventb.core.parser.node.AGuard
+import de.be4.eventb.core.parser.node.AInvariant
+import de.be4.eventb.core.parser.node.AMachineParseUnit
+import de.be4.eventb.core.parser.node.AParameter
+import de.be4.eventb.core.parser.node.ARefinesEventRefinement
+import de.be4.eventb.core.parser.node.AVariable
+import de.be4.eventb.core.parser.node.AVariant
+import de.be4.eventb.core.parser.node.AWitness
+import de.be4.eventb.core.parser.node.PParseUnit
+import de.be4.eventb.core.parser.node.TFormula
+import de.be4.eventb.core.parser.node.TIdentifierLiteral
+import de.be4.eventb.core.parser.node.TLabel
+import de.be4.eventb.core.parser.node.Token
 import de.prob.animator.domainobjects.EventB
-import de.prob.model.eventb.*
+import de.prob.model.eventb.Context
+import de.prob.model.eventb.Event
+import de.prob.model.eventb.EventBAction
+import de.prob.model.eventb.EventBAxiom
+import de.prob.model.eventb.EventBConstant
+import de.prob.model.eventb.EventBGuard
+import de.prob.model.eventb.EventBInvariant
+import de.prob.model.eventb.EventBMachine
+import de.prob.model.eventb.EventBModel
+import de.prob.model.eventb.EventBVariable
+import de.prob.model.eventb.EventParameter
+import de.prob.model.eventb.Variant
+import de.prob.model.eventb.Witness
 import de.prob.model.representation.AbstractElement
 import de.prob.model.representation.DependencyGraph.ERefType
 import de.prob.model.representation.ModelElementList
@@ -32,13 +68,22 @@ import java.io.File
 import de.prob.model.representation.Set as ProBSet
 
 /** A component file and its parse tree. */
-class Component(val file: File, val unit: PParseUnit)
+class Component(
+    val file: File,
+    val unit: PParseUnit,
+)
 
 /**
  * A labelled, type-checked formula and where it is written. [source] is the formula's text in the
  * file, unless it was written in ASCII and translated, which moves its source locations.
  */
-class Labeled<T : Formula<T>>(val label: String, val token: Token, val formula: T, val theorem: Boolean = false, val source: TFormula? = null)
+class Labeled<T : Formula<T>>(
+    val label: String,
+    val token: Token,
+    val formula: T,
+    val theorem: Boolean = false,
+    val source: TFormula? = null,
+)
 
 class ContextInfo(
     val name: String,
@@ -102,8 +147,9 @@ const val INITIALISATION = "INITIALISATION"
  * here and checked with the rules of Rodin's static checker, using Rodin's
  * AST library for the formulas.
  */
-class CamilleProject(private val mainFile: File) {
-
+class CamilleProject(
+    private val mainFile: File,
+) {
     companion object {
         private val FIRST_WORD = Regex("""\A(?:\s|//[^\n]*|/\*[\s\S]*?\*/)*([A-Za-z_]+)""")
         private val CONTEXT_CLAUSES = setOf("extends", "sets", "constants", "axioms")
@@ -120,6 +166,7 @@ class CamilleProject(private val mainFile: File) {
     private val diagnostics = mutableListOf<Diagnostic>()
     private val contexts = HashMap<String, ContextInfo?>()
     private val machines = HashMap<String, MachineInfo?>()
+
     /** Formulas parsed only after translating ASCII to Unicode. */
     private val translated = HashSet<TFormula>()
     private var main: Component? = null
@@ -131,18 +178,23 @@ class CamilleProject(private val mainFile: File) {
     /** Parses and checks the main file and every component it depends on. */
     fun check(): List<Diagnostic> {
         main = load(mainFile, null, null) ?: return diagnostics
-        mainInfo = when (val unit = main!!.unit) {
-            is AMachineParseUnit -> checkMachine(unit.name.text)
-            is AContextParseUnit -> checkContext(unit.name.text)
-            else -> null
-        }
+        mainInfo =
+            when (val unit = main!!.unit) {
+                is AMachineParseUnit -> checkMachine(unit.name.text)
+                is AContextParseUnit -> checkContext(unit.name.text)
+                else -> null
+            }
         return diagnostics
     }
 
     // ----------------------------------------------------------------------
     // Loading
 
-    private fun load(file: File, referencedFrom: Component?, reference: Token?): Component? {
+    private fun load(
+        file: File,
+        referencedFrom: Component?,
+        reference: Token?,
+    ): Component? {
         if (!file.isFile) {
             if (referencedFrom != null && reference != null) {
                 report(referencedFrom.file, reference, "Component '${reference.text}' not found, expected it in ${file.name}")
@@ -150,24 +202,29 @@ class CamilleProject(private val mainFile: File) {
             return null
         }
         val text = file.readText()
-        val unit = try {
-            EventBParser().parse(text).pParseUnit
-        } catch (e: BException) {
-            reportParseError(file, FIRST_WORD.find(text)?.groupValues?.get(1), e)
-            return null
-        }
+        val unit =
+            try {
+                EventBParser().parse(text).pParseUnit
+            } catch (e: BException) {
+                reportParseError(file, FIRST_WORD.find(text)?.groupValues?.get(1), e)
+                return null
+            }
         val component = Component(file, unit)
-        val name = when (unit) {
-            is AMachineParseUnit -> unit.name
-            is AContextParseUnit -> unit.name
-            else -> return null
-        }
+        val name =
+            when (unit) {
+                is AMachineParseUnit -> unit.name
+                is AContextParseUnit -> unit.name
+                else -> return null
+            }
         components[name.text] = component
         return component
     }
 
     /** Finds a referenced component next to the file that references it. */
-    private fun resolve(from: Component, name: TIdentifierLiteral): Component? {
+    private fun resolve(
+        from: Component,
+        name: TIdentifierLiteral,
+    ): Component? {
         components[name.text]?.let { return it }
         val dir = from.file.absoluteFile.parentFile
         val candidates = listOf(from.file.extension, "mch").distinct().map { File(dir, "${name.text}.$it") }
@@ -175,25 +232,42 @@ class CamilleProject(private val mainFile: File) {
         return load(file, from, name)
     }
 
-    private fun reportParseError(file: File, kind: String?, e: BException) {
+    private fun reportParseError(
+        file: File,
+        kind: String?,
+        e: BException,
+    ) {
         // SableCC prefixes messages with "[line,pos]"; the range already says where.
         fun message(raw: String?) = raw?.replace(Regex("""^\[\d+,\d+]\s*"""), "") ?: "Syntax error"
         when (val cause = e.cause) {
             is EventBParseException -> {
                 val token = cause.token
-                val hint = when {
-                    token == null -> null
-                    kind == "machine" && token.text in CONTEXT_CLAUSES ->
-                        "extends, sets, constants and axioms belong in a context, not in a machine"
-                    kind == "context" && token.text in MACHINE_CLAUSES ->
-                        "refines, sees, variables, invariants, variant and events belong in a machine, not in a context"
-                    else -> null
-                }
+                val hint =
+                    when {
+                        token == null -> {
+                            null
+                        }
+
+                        kind == "machine" && token.text in CONTEXT_CLAUSES -> {
+                            "extends, sets, constants and axioms belong in a context, not in a machine"
+                        }
+
+                        kind == "context" && token.text in MACHINE_CLAUSES -> {
+                            "refines, sees, variables, invariants, variant and events belong in a machine, not in a context"
+                        }
+
+                        else -> {
+                            null
+                        }
+                    }
                 val text = hint?.let { "$it (${message(cause.message)})" } ?: message(cause.message)
                 if (token != null) report(file, token, text) else report(file, 1, 1, 1, text)
             }
-            is EventBLexerException ->
+
+            is EventBLexerException -> {
                 report(file, cause.lastLine, cause.lastPos, cause.lastText?.length ?: 1, message(cause.message))
+            }
+
             is LexerException -> {
                 val position = Regex("""\[(\d+),(\d+)]\s*(.*)""").find(cause.message ?: "")
                 if (position != null) {
@@ -203,7 +277,10 @@ class CamilleProject(private val mainFile: File) {
                     report(file, 1, 1, 1, cause.message ?: "Syntax error")
                 }
             }
-            else -> report(file, 1, 1, 1, e.message ?: "Syntax error")
+
+            else -> {
+                report(file, 1, 1, 1, e.message ?: "Syntax error")
+            }
         }
     }
 
@@ -246,18 +323,23 @@ class CamilleProject(private val mainFile: File) {
                 sets += set.name.text
             }
         }
-        val constantTokens = unit.constants.filterIsInstance<AConstant>().map { it.name }.filter { declare(file, it, origins, name) }
+        val constantTokens =
+            unit.constants
+                .filterIsInstance<AConstant>()
+                .map { it.name }
+                .filter { declare(file, it, origins, name) }
 
         val scope = origins.keys
         val axioms = mutableListOf<Labeled<Predicate>>()
         var typed = true
         val labels = mutableSetOf<String>()
         for (axiom in unit.axioms) {
-            val (label, text, theorem) = when (axiom) {
-                is AAxiom -> Triple(axiom.name, axiom.predicate, false)
-                is ADerivedAxiom -> Triple(axiom.name, axiom.predicate, true)
-                else -> continue
-            }
+            val (label, text, theorem) =
+                when (axiom) {
+                    is AAxiom -> Triple(axiom.name, axiom.predicate, false)
+                    is ADerivedAxiom -> Triple(axiom.name, axiom.predicate, true)
+                    else -> continue
+                }
             checkLabel(file, label, labels)
             val predicate = checkFormula(file, label, text, Kind.PREDICATE, env, scope) as Predicate?
             if (predicate == null) typed = false else axioms += Labeled(labelText(label), label, predicate, theorem, located(text))
@@ -315,16 +397,28 @@ class CamilleProject(private val mainFile: File) {
         val variableTokens = mutableListOf<TIdentifierLiteral>()
         for (variable in unit.variables.filterIsInstance<AVariable>().map { it.name }) {
             when (variable.text) {
-                in vanished -> report(file, variable, "Abstract variable '${variable.text}' disappeared in an earlier refinement and cannot be re-introduced")
-                in abstractVariables -> if (variable.text in variables) {
-                    report(file, variable, "'${variable.text}' is already declared")
-                } else {
-                    variables += variable.text
-                    variableTokens += variable
+                in vanished -> {
+                    report(
+                        file,
+                        variable,
+                        "Abstract variable '${variable.text}' disappeared in an earlier refinement and cannot be re-introduced",
+                    )
                 }
-                else -> if (declare(file, variable, origins, name)) {
-                    variables += variable.text
-                    variableTokens += variable
+
+                in abstractVariables -> {
+                    if (variable.text in variables) {
+                        report(file, variable, "'${variable.text}' is already declared")
+                    } else {
+                        variables += variable.text
+                        variableTokens += variable
+                    }
+                }
+
+                else -> {
+                    if (declare(file, variable, origins, name)) {
+                        variables += variable.text
+                        variableTokens += variable
+                    }
                 }
             }
         }
@@ -334,11 +428,12 @@ class CamilleProject(private val mainFile: File) {
         val labels = mutableSetOf<String>()
         var typed = true
         for (invariant in unit.invariants) {
-            val (label, text, theorem) = when (invariant) {
-                is AInvariant -> Triple(invariant.name, invariant.predicate, false)
-                is ADerivedInvariant -> Triple(invariant.name, invariant.predicate, true)
-                else -> continue
-            }
+            val (label, text, theorem) =
+                when (invariant) {
+                    is AInvariant -> Triple(invariant.name, invariant.predicate, false)
+                    is ADerivedInvariant -> Triple(invariant.name, invariant.predicate, true)
+                    else -> continue
+                }
             checkLabel(file, label, labels)
             val predicate = checkFormula(file, label, text, Kind.PREDICATE, env, contextNames + allVariables) as Predicate?
             if (predicate == null) typed = false else invariants += Labeled(labelText(label), label, predicate, theorem, located(text))
@@ -349,17 +444,38 @@ class CamilleProject(private val mainFile: File) {
             }
         }
 
-        val variant = (unit.variant as? AVariant)?.let { node ->
-            val expression = checkFormula(file, null, node.expression, Kind.EXPRESSION, env.makeBuilder(), contextNames + variables) as Expression?
-            when {
-                expression == null -> null
-                expression.type !is IntegerType && expression.type !is PowerSetType -> {
-                    report(file, node.expression, null, "Variant must be an integer or a set, but has type ${expression.type}", DiagnosticSeverity.Error)
-                    null
+        val variant =
+            (unit.variant as? AVariant)?.let { node ->
+                val expression =
+                    checkFormula(
+                        file,
+                        null,
+                        node.expression,
+                        Kind.EXPRESSION,
+                        env.makeBuilder(),
+                        contextNames + variables,
+                    ) as Expression?
+                when {
+                    expression == null -> {
+                        null
+                    }
+
+                    expression.type !is IntegerType && expression.type !is PowerSetType -> {
+                        report(
+                            file,
+                            node.expression,
+                            null,
+                            "Variant must be an integer or a set, but has type ${expression.type}",
+                            DiagnosticSeverity.Error,
+                        )
+                        null
+                    }
+
+                    else -> {
+                        Labeled("variant", node.expression, expression, source = located(node.expression))
+                    }
                 }
-                else -> Labeled("variant", node.expression, expression, source = located(node.expression))
             }
-        }
 
         val scope = MachineScope(contextNames, variables, abstract)
         val events = LinkedHashMap<String, EventInfo>()
@@ -387,9 +503,18 @@ class CamilleProject(private val mainFile: File) {
         return info
     }
 
-    private class MachineScope(val contextNames: Set<String>, val variables: List<String>, val abstract: MachineInfo?)
+    private class MachineScope(
+        val contextNames: Set<String>,
+        val variables: List<String>,
+        val abstract: MachineInfo?,
+    )
 
-    private fun checkEvent(component: Component, event: AEvent, machineEnv: ITypeEnvironmentBuilder, scope: MachineScope): EventInfo? {
+    private fun checkEvent(
+        component: Component,
+        event: AEvent,
+        machineEnv: ITypeEnvironmentBuilder,
+        scope: MachineScope,
+    ): EventInfo? {
         val file = component.file
         val name = event.name.text
         val isInitialisation = name == INITIALISATION
@@ -397,11 +522,12 @@ class CamilleProject(private val mainFile: File) {
         val refinement = event.refinement
         val extended = refinement is AExtendedEventRefinement
 
-        val references: List<TIdentifierLiteral> = when (refinement) {
-            is AExtendedEventRefinement -> listOf(refinement.name)
-            is ARefinesEventRefinement -> refinement.names
-            else -> emptyList()
-        }
+        val references: List<TIdentifierLiteral> =
+            when (refinement) {
+                is AExtendedEventRefinement -> listOf(refinement.name)
+                is ARefinesEventRefinement -> refinement.names
+                else -> emptyList()
+            }
         val refines = mutableListOf<EventInfo>()
         if (abstract != null) {
             for (reference in references) {
@@ -415,11 +541,12 @@ class CamilleProject(private val mainFile: File) {
 
         if (isInitialisation && event.parameters.isNotEmpty()) report(file, event.name, "INITIALISATION must not have parameters")
         if (isInitialisation && event.guards.isNotEmpty()) {
-            val first = when (val g = event.guards.first()) {
-                is AGuard -> g.name
-                is ADerivedGuard -> g.name
-                else -> event.name
-            }
+            val first =
+                when (val g = event.guards.first()) {
+                    is AGuard -> g.name
+                    is ADerivedGuard -> g.name
+                    else -> event.name
+                }
             report(file, first, "INITIALISATION must not have guards")
         }
 
@@ -440,14 +567,19 @@ class CamilleProject(private val mainFile: File) {
         }
         val declared = HashMap<String, String>()
         (scope.contextNames + scope.abstract?.allVariables.orEmpty() + scope.variables).forEach { declared[it] = it }
-        val parameterTokens = event.parameters.filterIsInstance<AParameter>().map { it.name }.filter { token ->
-            when {
-                token.text in parameters -> {
-                    report(file, token, "'${token.text}' is already declared"); false
+        val parameterTokens =
+            event.parameters.filterIsInstance<AParameter>().map { it.name }.filter { token ->
+                when {
+                    token.text in parameters -> {
+                        report(file, token, "'${token.text}' is already declared")
+                        false
+                    }
+
+                    else -> {
+                        declare(file, token, declared, name)
+                    }
                 }
-                else -> declare(file, token, declared, name)
             }
-        }
 
         val variables = scope.variables.toSet()
         val guardScope = scope.contextNames + variables + parameters.keys + parameterTokens.map { it.text }
@@ -458,11 +590,12 @@ class CamilleProject(private val mainFile: File) {
         val guards = inherited?.guards.orEmpty().toMutableList()
         var typed = true
         for (guard in event.guards) {
-            val (label, text, theorem) = when (guard) {
-                is AGuard -> Triple(guard.name, guard.predicate, false)
-                is ADerivedGuard -> Triple(guard.name, guard.predicate, true)
-                else -> continue
-            }
+            val (label, text, theorem) =
+                when (guard) {
+                    is AGuard -> Triple(guard.name, guard.predicate, false)
+                    is ADerivedGuard -> Triple(guard.name, guard.predicate, true)
+                    else -> continue
+                }
             checkLabel(file, label, labels)
             val predicate = checkFormula(file, label, text, Kind.PREDICATE, env, guardScope) as Predicate?
             if (predicate == null) typed = false else guards += Labeled(labelText(label), label, predicate, theorem, located(text))
@@ -480,11 +613,18 @@ class CamilleProject(private val mainFile: File) {
         val assigned = actions.flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }.toMutableSet()
         for (action in event.actions.filterIsInstance<AAction>()) {
             checkLabel(file, action.name, labels)
-            val assignment = checkFormula(file, action.name, action.action, Kind.ASSIGNMENT, env.makeBuilder(), guardScope) as Assignment? ?: continue
+            val assignment =
+                checkFormula(file, action.name, action.action, Kind.ASSIGNMENT, env.makeBuilder(), guardScope) as Assignment? ?: continue
             var valid = true
             for (identifier in assignment.assignedIdentifiers) {
                 if (identifier.name !in variables) {
-                    report(file, action.action, identifier.sourceLocation, "'${identifier.name}' is not a variable", DiagnosticSeverity.Error)
+                    report(
+                        file,
+                        action.action,
+                        identifier.sourceLocation,
+                        "'${identifier.name}' is not a variable",
+                        DiagnosticSeverity.Error,
+                    )
                     valid = false
                 } else if (!assigned.add(identifier.name)) {
                     report(file, action.name, "'${identifier.name}' is assigned in more than one action")
@@ -492,8 +632,17 @@ class CamilleProject(private val mainFile: File) {
                 }
             }
             if (isInitialisation) {
-                for (identifier in assignment.usedIdentifiers.filter { it.name in variables || it.name in scope.abstract?.allVariables.orEmpty() }) {
-                    report(file, action.action, identifier.sourceLocation, "Identifier '${identifier.name}' has not been declared", DiagnosticSeverity.Error)
+                for (identifier in assignment.usedIdentifiers.filter {
+                    it.name in variables ||
+                        it.name in scope.abstract?.allVariables.orEmpty()
+                }) {
+                    report(
+                        file,
+                        action.action,
+                        identifier.sourceLocation,
+                        "Identifier '${identifier.name}' has not been declared",
+                        DiagnosticSeverity.Error,
+                    )
                     valid = false
                 }
             }
@@ -510,8 +659,13 @@ class CamilleProject(private val mainFile: File) {
         val disappearing = abstractVariables - variables
         val abstractParameters = refines.flatMap { it.parameters.entries }.associate { it.key to it.value }
         val disappearingParameters = if (extended) emptyMap() else abstractParameters - parameters.keys
-        val nondeterministic = refines.flatMap { it.actions }.filter { it.formula.tag != Formula.BECOMES_EQUAL_TO }
-            .flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }.filter { it in disappearing }.toSet()
+        val nondeterministic =
+            refines
+                .flatMap { it.actions }
+                .filter { it.formula.tag != Formula.BECOMES_EQUAL_TO }
+                .flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }
+                .filter { it in disappearing }
+                .toSet()
 
         val witnessEnv = env.makeBuilder()
         val witnessScope = (guardScope + abstractVariables + scope.abstract?.allVariables.orEmpty()).toMutableSet()
@@ -536,7 +690,15 @@ class CamilleProject(private val mainFile: File) {
                 continue
             }
             witnessed += label
-            val predicate = checkFormula(file, witness.name, witness.predicate, Kind.PREDICATE, witnessEnv.makeBuilder(), witnessScope) as Predicate?
+            val predicate =
+                checkFormula(
+                    file,
+                    witness.name,
+                    witness.predicate,
+                    Kind.PREDICATE,
+                    witnessEnv.makeBuilder(),
+                    witnessScope,
+                ) as Predicate?
             predicate?.let { witnesses += Labeled(label, witness.name, it, source = located(witness.predicate)) }
         }
         for (p in disappearingParameters.keys - witnessed) {
@@ -546,16 +708,22 @@ class CamilleProject(private val mainFile: File) {
             report(file, event.name, "Witness for '$x' missing; the default witness ⊤ is used", DiagnosticSeverity.Warning)
         }
 
-        val convergence = when (event.convergence) {
-            is AConvergentConvergence -> Convergence.CONVERGENT
-            is AAnticipatedConvergence -> Convergence.ANTICIPATED
-            else -> Convergence.ORDINARY
-        }
+        val convergence =
+            when (event.convergence) {
+                is AConvergentConvergence -> Convergence.CONVERGENT
+                is AAnticipatedConvergence -> Convergence.ANTICIPATED
+                else -> Convergence.ORDINARY
+            }
         return EventInfo(name, event.name, convergence, refines, extended, parameters, guards, actions, witnesses)
     }
 
     /** Declares [token] in [origins]; reports it if the name is taken. */
-    private fun declare(file: File, token: TIdentifierLiteral, origins: MutableMap<String, String>, origin: String): Boolean {
+    private fun declare(
+        file: File,
+        token: TIdentifierLiteral,
+        origins: MutableMap<String, String>,
+        origin: String,
+    ): Boolean {
         if (token.text in origins) {
             report(file, token, "'${token.text}' is already declared")
             return false
@@ -568,7 +736,11 @@ class CamilleProject(private val mainFile: File) {
 
     private fun located(formula: TFormula) = formula.takeIf { it !in translated }
 
-    private fun checkLabel(file: File, label: TLabel, labels: MutableSet<String>) {
+    private fun checkLabel(
+        file: File,
+        label: TLabel,
+        labels: MutableSet<String>,
+    ) {
         if (!labels.add(labelText(label))) report(file, label, "Label '${labelText(label)}' is already used")
     }
 
@@ -587,11 +759,12 @@ class CamilleProject(private val mainFile: File) {
         env: ITypeEnvironmentBuilder,
         scope: Set<String>,
     ): Formula<*>? {
-        fun parse(text: String): IParseResult = when (kind) {
-            Kind.PREDICATE -> factory.parsePredicate(text, null)
-            Kind.EXPRESSION -> factory.parseExpression(text, null)
-            Kind.ASSIGNMENT -> factory.parseAssignment(text, null)
-        }
+        fun parse(text: String): IParseResult =
+            when (kind) {
+                Kind.PREDICATE -> factory.parsePredicate(text, null)
+                Kind.EXPRESSION -> factory.parseExpression(text, null)
+                Kind.ASSIGNMENT -> factory.parseAssignment(text, null)
+            }
         var result = parse(formula.text)
         if (result.hasProblem()) {
             val unicode = parse(UnicodeTranslator.toRodinUnicode(formula.text))
@@ -603,14 +776,21 @@ class CamilleProject(private val mainFile: File) {
         result.problems.forEach { report(file, formula, it) }
         if (result.hasProblem()) return null
 
-        val parsed: Formula<*> = when (kind) {
-            Kind.PREDICATE -> result.parsedPredicate
-            Kind.EXPRESSION -> result.parsedExpression
-            Kind.ASSIGNMENT -> result.parsedAssignment
-        }
+        val parsed: Formula<*> =
+            when (kind) {
+                Kind.PREDICATE -> result.parsedPredicate
+                Kind.EXPRESSION -> result.parsedExpression
+                Kind.ASSIGNMENT -> result.parsedAssignment
+            }
         val undeclared = parsed.freeIdentifiers.filter { it.name !in scope }
         for (identifier in undeclared) {
-            report(file, formula, identifier.sourceLocation, "Identifier '${identifier.name}' has not been declared", DiagnosticSeverity.Error)
+            report(
+                file,
+                formula,
+                identifier.sourceLocation,
+                "Identifier '${identifier.name}' has not been declared",
+                DiagnosticSeverity.Error,
+            )
         }
         if (undeclared.isNotEmpty()) return null
 
@@ -629,23 +809,39 @@ class CamilleProject(private val mainFile: File) {
     // ----------------------------------------------------------------------
     // Diagnostics
 
-    private fun report(file: File, formula: TFormula, problem: ASTProblem) {
+    private fun report(
+        file: File,
+        formula: TFormula,
+        problem: ASTProblem,
+    ) {
         val severity = if (problem.isError) DiagnosticSeverity.Error else DiagnosticSeverity.Warning
         report(file, formula, problem.sourceLocation, problem.toString(), severity)
     }
 
     /** Reports a problem at a [location] inside [formula], whose text may span lines. */
-    private fun report(file: File, formula: TFormula, location: SourceLocation?, message: String, severity: DiagnosticSeverity) {
+    private fun report(
+        file: File,
+        formula: TFormula,
+        location: SourceLocation?,
+        message: String,
+        severity: DiagnosticSeverity,
+    ) {
         val text = formula.text
         val start = location?.start ?: 0
         val end = (location?.end ?: (text.length - 1)) + 1
-        diagnostics += Diagnostic(
-            Range(offsetToPosition(formula, start), offsetToPosition(formula, end.coerceAtMost(text.length))),
-            message, severity, file.toURI().path,
-        )
+        diagnostics +=
+            Diagnostic(
+                Range(offsetToPosition(formula, start), offsetToPosition(formula, end.coerceAtMost(text.length))),
+                message,
+                severity,
+                file.toURI().path,
+            )
     }
 
-    private fun offsetToPosition(formula: TFormula, offset: Int): Position {
+    private fun offsetToPosition(
+        formula: TFormula,
+        offset: Int,
+    ): Position {
         var line = formula.line - 1
         var column = formula.pos - 1
         for (char in formula.text.substring(0, offset.coerceIn(0, formula.text.length))) {
@@ -659,10 +855,21 @@ class CamilleProject(private val mainFile: File) {
         return Position(line, column)
     }
 
-    private fun report(file: File, token: Token, message: String, severity: DiagnosticSeverity = DiagnosticSeverity.Error) =
-        report(file, token.line, token.pos, token.text.length, message, severity)
+    private fun report(
+        file: File,
+        token: Token,
+        message: String,
+        severity: DiagnosticSeverity = DiagnosticSeverity.Error,
+    ) = report(file, token.line, token.pos, token.text.length, message, severity)
 
-    private fun report(file: File, line: Int, pos: Int, length: Int, message: String, severity: DiagnosticSeverity = DiagnosticSeverity.Error) {
+    private fun report(
+        file: File,
+        line: Int,
+        pos: Int,
+        length: Int,
+        message: String,
+        severity: DiagnosticSeverity = DiagnosticSeverity.Error,
+    ) {
         diagnostics += diagnostic(file, line, pos, length, message, severity)
     }
 
@@ -679,11 +886,14 @@ class CamilleProject(private val mainFile: File) {
         fun context(info: ContextInfo): Context {
             contextModels[info.name]?.let { return it }
             val extended = info.extended.map { context(it) }
-            val built = Context(info.name)
-                .withExtends(ModelElementList(extended))
-                .withSets(ModelElementList(info.sets.map { ProBSet(EventB(it, noExtensions)) }))
-                .withConstants(ModelElementList(info.constants.map { EventBConstant(it, false, null) }))
-                .withAxioms(ModelElementList(info.axioms.map { EventBAxiom(it.label, it.formula.toString(), it.theorem, noExtensions) }))
+            val built =
+                Context(info.name)
+                    .withExtends(ModelElementList(extended))
+                    .withSets(ModelElementList(info.sets.map { ProBSet(EventB(it, noExtensions)) }))
+                    .withConstants(ModelElementList(info.constants.map { EventBConstant(it, false, null) }))
+                    .withAxioms(
+                        ModelElementList(info.axioms.map { EventBAxiom(it.label, it.formula.toString(), it.theorem, noExtensions) }),
+                    )
             contextModels[info.name] = built
             model = model.addContext(built)
             extended.forEach { model = model.addRelationship(info.name, it.name, ERefType.EXTENDS) }
@@ -697,27 +907,34 @@ class CamilleProject(private val mainFile: File) {
             val sees = info.contexts.filter { c -> info.contexts.none { other -> other !== c && c in other.closure() } }.map { context(it) }
 
             // Extended events are flattened, as Rodin's static checker does.
-            val events = info.events.values.map { event ->
-                val type = when (event.convergence) {
-                    Convergence.CONVERGENT -> Event.EventType.CONVERGENT
-                    Convergence.ANTICIPATED -> Event.EventType.ANTICIPATED
-                    Convergence.ORDINARY -> Event.EventType.ORDINARY
+            val events =
+                info.events.values.map { event ->
+                    val type =
+                        when (event.convergence) {
+                            Convergence.CONVERGENT -> Event.EventType.CONVERGENT
+                            Convergence.ANTICIPATED -> Event.EventType.ANTICIPATED
+                            Convergence.ORDINARY -> Event.EventType.ORDINARY
+                        }
+                    val inheritance = if (event.refines.isEmpty()) Event.Inheritance.NONE else Event.Inheritance.REFINES
+                    Event(event.name, type, inheritance)
+                        .withParentEvent(event.refines.firstOrNull()?.let { abstract?.getEvent(it.name) })
+                        .withParameters(ModelElementList(event.parameters.keys.map { EventParameter(it) }))
+                        .withGuards(
+                            ModelElementList(event.guards.map { EventBGuard(it.label, it.formula.toString(), it.theorem, noExtensions) }),
+                        ).withWitnesses(ModelElementList(event.witnesses.map { Witness(it.label, it.formula.toString(), noExtensions) }))
+                        .withActions(ModelElementList(event.actions.map { EventBAction(it.label, it.formula.toString(), noExtensions) }))
                 }
-                val inheritance = if (event.refines.isEmpty()) Event.Inheritance.NONE else Event.Inheritance.REFINES
-                Event(event.name, type, inheritance)
-                    .withParentEvent(event.refines.firstOrNull()?.let { abstract?.getEvent(it.name) })
-                    .withParameters(ModelElementList(event.parameters.keys.map { EventParameter(it) }))
-                    .withGuards(ModelElementList(event.guards.map { EventBGuard(it.label, it.formula.toString(), it.theorem, noExtensions) }))
-                    .withWitnesses(ModelElementList(event.witnesses.map { Witness(it.label, it.formula.toString(), noExtensions) }))
-                    .withActions(ModelElementList(event.actions.map { EventBAction(it.label, it.formula.toString(), noExtensions) }))
-            }
 
-            var built = EventBMachine(info.name)
-                .withRefinesMachine(abstract)
-                .withSees(ModelElementList(sees))
-                .withVariables(ModelElementList(info.variables.map { EventBVariable(it, null) }))
-                .withInvariants(ModelElementList(info.invariants.map { EventBInvariant(it.label, it.formula.toString(), it.theorem, noExtensions) }))
-                .withEvents(ModelElementList(events))
+            var built =
+                EventBMachine(info.name)
+                    .withRefinesMachine(abstract)
+                    .withSees(ModelElementList(sees))
+                    .withVariables(ModelElementList(info.variables.map { EventBVariable(it, null) }))
+                    .withInvariants(
+                        ModelElementList(
+                            info.invariants.map { EventBInvariant(it.label, it.formula.toString(), it.theorem, noExtensions) },
+                        ),
+                    ).withEvents(ModelElementList(events))
             info.variant?.let { built = built.withVariant(Variant(it.formula.toString(), noExtensions)) }
 
             machineModels[info.name] = built
@@ -727,19 +944,29 @@ class CamilleProject(private val mainFile: File) {
             return built
         }
 
-        val mainComponent: AbstractElement = when (val info = mainInfo) {
-            is MachineInfo -> machine(info)
-            is ContextInfo -> context(info)
-            else -> error("the model has not been checked")
-        }
+        val mainComponent: AbstractElement =
+            when (val info = mainInfo) {
+                is MachineInfo -> machine(info)
+                is ContextInfo -> context(info)
+                else -> error("the model has not been checked")
+            }
         return model to mainComponent
     }
 }
 
-fun diagnostic(file: File, line: Int, pos: Int, length: Int, message: String, severity: DiagnosticSeverity): Diagnostic {
+fun diagnostic(
+    file: File,
+    line: Int,
+    pos: Int,
+    length: Int,
+    message: String,
+    severity: DiagnosticSeverity,
+): Diagnostic {
     val start = Position((line - 1).coerceAtLeast(0), (pos - 1).coerceAtLeast(0))
     return Diagnostic(
         Range(start, Position(start.line, start.character + length.coerceAtLeast(1))),
-        message, severity, file.toURI().path,
+        message,
+        severity,
+        file.toURI().path,
     )
 }

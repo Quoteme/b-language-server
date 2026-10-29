@@ -4,24 +4,39 @@ import b.language.server.communication.Communicator
 import b.language.server.dataStorage.Settings
 import b.language.server.proBMangement.prob.ProBKernelManager
 import com.google.gson.JsonObject
-import org.eclipse.lsp4j.*
+import org.eclipse.lsp4j.CodeActionKind
+import org.eclipse.lsp4j.CodeActionOptions
+import org.eclipse.lsp4j.CompletionOptions
+import org.eclipse.lsp4j.ConfigurationItem
+import org.eclipse.lsp4j.ConfigurationParams
+import org.eclipse.lsp4j.ExecuteCommandOptions
+import org.eclipse.lsp4j.InitializeParams
+import org.eclipse.lsp4j.InitializeResult
+import org.eclipse.lsp4j.MessageType
+import org.eclipse.lsp4j.SaveOptions
+import org.eclipse.lsp4j.ServerCapabilities
+import org.eclipse.lsp4j.TextDocumentSyncKind
+import org.eclipse.lsp4j.TextDocumentSyncOptions
+import org.eclipse.lsp4j.WorkspaceFoldersOptions
+import org.eclipse.lsp4j.WorkspaceServerCapabilities
 import org.eclipse.lsp4j.jsonrpc.messages.Either
-import org.eclipse.lsp4j.services.*
+import org.eclipse.lsp4j.services.LanguageClient
+import org.eclipse.lsp4j.services.LanguageServer
+import org.eclipse.lsp4j.services.TextDocumentService
+import org.eclipse.lsp4j.services.WorkspaceService
 import java.util.concurrent.CompletableFuture
 import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
-class Server : LanguageServer, ServerInterface {
-
-    private val textDocumentService : TextDocumentService = BDocumentService(this, Communicator, ProBKernelManager(Communicator))
-    private val bWorkspaceService : WorkspaceService = BWorkspaceService(this, Communicator)
-    private lateinit var languageClient : LanguageClient
-    var globalSettings : Settings = Settings()
-    val documentSettings : HashMap<String, CompletableFuture<Settings>> = HashMap()
-    var configurationAbility : Boolean = true
-
-
-
+class Server :
+    LanguageServer,
+    ServerInterface {
+    private val textDocumentService: TextDocumentService = BDocumentService(this, Communicator, ProBKernelManager(Communicator))
+    private val bWorkspaceService: WorkspaceService = BWorkspaceService(this, Communicator)
+    private lateinit var languageClient: LanguageClient
+    var globalSettings: Settings = Settings()
+    val documentSettings: HashMap<String, CompletableFuture<Settings>> = HashMap()
+    var configurationAbility: Boolean = true
 
     override fun initialize(params: InitializeParams?): CompletableFuture<InitializeResult> {
         val res = InitializeResult(ServerCapabilities())
@@ -47,16 +62,12 @@ class Server : LanguageServer, ServerInterface {
      * delivered correctly to the client). There is a separate exit notification
      * that asks the server to exit.
      */
-    override fun shutdown(): CompletableFuture<Any> {
-        return CompletableFuture.supplyAsync{true}
-    }
+    override fun shutdown(): CompletableFuture<Any> = CompletableFuture.supplyAsync { true }
 
     /**
      * Provides access to the textDocument services.
      */
-    override fun getTextDocumentService(): TextDocumentService {
-        return textDocumentService
-    }
+    override fun getTextDocumentService(): TextDocumentService = textDocumentService
 
     /**
      * A notification to ask the server to exit its process.
@@ -65,20 +76,15 @@ class Server : LanguageServer, ServerInterface {
         exitProcess(0)
     }
 
-
-
     /**
      * Provides access to the workspace services.
      */
-    override fun getWorkspaceService(): WorkspaceService {
-        return bWorkspaceService
-    }
+    override fun getWorkspaceService(): WorkspaceService = bWorkspaceService
 
     fun setRemoteProxy(remoteProxy: LanguageClient) {
         this.languageClient = remoteProxy
         Communicator.client = remoteProxy
     }
-
 
     /**
      * Get the settings for the current document - will fallback to global settings eventually; If setting not cached
@@ -86,9 +92,9 @@ class Server : LanguageServer, ServerInterface {
      * @param uri the uri of the document requested
      * @return settings of the document requested
      */
-    override fun getDocumentSettings(uri : String) : CompletableFuture<Settings> {
+    override fun getDocumentSettings(uri: String): CompletableFuture<Settings> {
         Communicator.sendDebugMessage("requesting configuration for document: $uri", MessageType.Info)
-        return if(!configurationAbility){
+        return if (!configurationAbility) {
             val returnValue = CompletableFuture<Settings>()
             returnValue.complete(globalSettings)
 
@@ -99,7 +105,10 @@ class Server : LanguageServer, ServerInterface {
             configurationItem.section = "prob"
 
             val requestedConfig = languageClient.configuration(ConfigurationParams(listOf(configurationItem)))
-            documentSettings[uri] = CompletableFuture.allOf(requestedConfig).thenApply{ castJsonToSetting(requestedConfig.get().firstOrNull() as? JsonObject ?: JsonObject()) }
+            documentSettings[uri] =
+                CompletableFuture.allOf(requestedConfig).thenApply {
+                    castJsonToSetting(requestedConfig.get().firstOrNull() as? JsonObject ?: JsonObject())
+                }
             documentSettings[uri]!!
         }
     }
@@ -107,9 +116,4 @@ class Server : LanguageServer, ServerInterface {
     override fun removeDocumentSettings(uri: String) {
         documentSettings.remove(uri)
     }
-
-
-
-
-
 }

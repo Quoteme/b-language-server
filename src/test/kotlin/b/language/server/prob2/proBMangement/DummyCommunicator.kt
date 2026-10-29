@@ -3,17 +3,18 @@ import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.MessageType
 
 class DummyCommunicator : CommunicatorInterface {
-
-    val pushedDiagnostics :MutableMap<String, List<Diagnostic>> = mutableMapOf()
+    val pushedDiagnostics: MutableMap<String, List<Diagnostic>> = mutableMapOf()
     private val pushedDebugMessages = mutableListOf<String>()
-
 
     /**
      * Sends the diagnostics
      *
      * @param diagnostics object containing the Diagnostics
      */
-    override fun publishDiagnostics(target: String, diagnostics: List<Diagnostic>) {
+    override fun publishDiagnostics(
+        target: String,
+        diagnostics: List<Diagnostic>,
+    ) {
         pushedDiagnostics[target] = diagnostics
     }
 
@@ -23,7 +24,10 @@ class DummyCommunicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity the Severity of the message (Error/Info/Warning)
      */
-    override fun sendDebugMessage(message: String, severity: MessageType) {
+    override fun sendDebugMessage(
+        message: String,
+        severity: MessageType,
+    ) {
         pushedDebugMessages.add(message)
     }
 
@@ -33,8 +37,11 @@ class DummyCommunicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity the Severity of the message (Error/Info/Warning)
      */
-    override fun showMessage(message: String, severity: MessageType) {
-        //void
+    override fun showMessage(
+        message: String,
+        severity: MessageType,
+    ) {
+        // void
     }
 
     /**
@@ -43,7 +50,7 @@ class DummyCommunicator : CommunicatorInterface {
      * @param mode the new state of the debug mode
      */
     override fun setDebugMode(mode: Boolean) {
-        //void
+        // void
     }
 
     /**
@@ -51,8 +58,10 @@ class DummyCommunicator : CommunicatorInterface {
      * @param message the message to send
      * @param severity tne message severity
      */
-    override fun bufferDebugMessage(message: String, severity: MessageType) {
-        //void
+    override fun bufferDebugMessage(
+        message: String,
+        severity: MessageType,
+    ) {
+        // void
     }
-
 }

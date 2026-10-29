@@ -35,14 +35,13 @@ const val PRIME_SUFFIX = "_prime"
 
 /** Generates the proof obligations of a checked context or machine. */
 class ProofObligationGenerator {
-
     private val obligations = mutableListOf<ProofObligation>()
 
     /**
      * The types of the identifiers in scope. Like Rodin, every obligation carries them as typing
      * hypotheses, since ProB cannot always infer them from the predicates alone, as in x' = ∅.
      */
-    private var types : Map<String, Type> = emptyMap()
+    private var types: Map<String, Type> = emptyMap()
 
     fun generate(info: Any?): List<ProofObligation> {
         when (info) {
@@ -52,16 +51,24 @@ class ProofObligationGenerator {
         return obligations
     }
 
-    private fun po(name: String, file: File, token: Token, hypotheses: List<String>, goal: String) {
+    private fun po(
+        name: String,
+        file: File,
+        token: Token,
+        hypotheses: List<String>,
+        goal: String,
+    ) {
         val text = (hypotheses + goal).joinToString(" ")
-        val typing = types.filter { (identifier, _) ->
-            Regex("(?<![\\w'])${Regex.escape(identifier)}(?![\\w'])").containsMatchIn(text)
-        }.map { (identifier, type) -> "$identifier ∈ ${type.toExpression()}" }
+        val typing =
+            types
+                .filter { (identifier, _) ->
+                    Regex("(?<![\\w'])${Regex.escape(identifier)}(?![\\w'])").containsMatchIn(text)
+                }.map { (identifier, type) -> "$identifier ∈ ${type.toExpression()}" }
         obligations += ProofObligation(name, file, token.line, token.pos, token.text.length, typing + hypotheses, goal)
     }
 
     /** The types of [env]'s identifiers and of their after-values, without the carrier sets. */
-    private fun typesOf(env : ITypeEnvironment) : Map<String, Type> {
+    private fun typesOf(env: ITypeEnvironment): Map<String, Type> {
         val result = LinkedHashMap<String, Type>()
         val iterator = env.iterator
         while (iterator.hasNext()) {
@@ -76,7 +83,13 @@ class ProofObligationGenerator {
     private fun context(info: ContextInfo) {
         val file = info.component.file
         types = typesOf(info.env)
-        val hypotheses = info.extended.flatMap { it.closure() }.distinct().flatMap { c -> c.axioms.map { prob(it.formula) } }.toMutableList()
+        val hypotheses =
+            info.extended
+                .flatMap { it.closure() }
+                .distinct()
+                .flatMap { c ->
+                    c.axioms.map { prob(it.formula) }
+                }.toMutableList()
         for (axiom in info.axioms) {
             wd(axiom.formula)?.let { po("${axiom.label}/WD", file, axiom.token, hypotheses, it) }
             if (axiom.theorem) po("${axiom.label}/THM", file, axiom.token, hypotheses, prob(axiom.formula))
@@ -109,7 +122,12 @@ class ProofObligationGenerator {
         for (event in info.events.values) event(info, event, axioms, base)
     }
 
-    private fun event(info: MachineInfo, event: EventInfo, axioms: List<String>, base: List<String>) {
+    private fun event(
+        info: MachineInfo,
+        event: EventInfo,
+        axioms: List<String>,
+        base: List<String>,
+    ) {
         val file = info.component.file
         types = typesOf(info.env) + event.parameters + event.refines.flatMap { it.parameters.entries }.associate { it.key to it.value }
         val prefix = event.name
@@ -137,14 +155,20 @@ class ProofObligationGenerator {
         val witnesses = event.witnesses.map { prob(it.formula) }
 
         // Abstract after-values that the concrete actions do not determine come from the abstract actions.
-        val abstractActions = event.refines.firstOrNull()?.actions.orEmpty()
-        val abstractEffects = abstractActions
-            .filter { a -> a.formula.tag == Formula.BECOMES_EQUAL_TO && a.formula.assignedIdentifiers.all { it.name in disappearing } }
-            .map { prob(it.formula.baPredicate) }
+        val abstractActions =
+            event.refines
+                .firstOrNull()
+                ?.actions
+                .orEmpty()
+        val abstractEffects =
+            abstractActions
+                .filter { a -> a.formula.tag == Formula.BECOMES_EQUAL_TO && a.formula.assignedIdentifiers.all { it.name in disappearing } }
+                .map { prob(it.formula.baPredicate) }
         val after = enabled + witnesses + actions + abstractEffects
 
         // Variables the event may change, concrete or disappearing abstract ones.
-        val changed = event.assigned + abstractActions.flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }.filter { it in disappearing }
+        val changed =
+            event.assigned + abstractActions.flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }.filter { it in disappearing }
         for (invariant in info.invariants.filter { !it.theorem }) {
             val mentioned = invariant.formula.freeIdentifiers.map { it.name }
             if (event.isInitialisation || mentioned.any { it in changed }) {
@@ -156,13 +180,23 @@ class ProofObligationGenerator {
         if (abstract != null && event.refines.isNotEmpty() && !event.extended) {
             if (event.refines.size == 1) {
                 val concrete = event.guards.map { it.formula.toString() }.toSet()
-                for (guard in event.refines.first().guards.filter { !it.theorem && it.formula.toString() !in concrete }) {
+                for (guard in event.refines
+                    .first()
+                    .guards
+                    .filter { !it.theorem && it.formula.toString() !in concrete }) {
                     po("$prefix/${guard.label}/GRD", file, event.token, enabled + parameterWitnesses, prob(guard.formula))
                 }
             } else {
-                val alternatives = event.refines.joinToString(" ∨ ") { e ->
-                    "(" + e.guards.filter { !it.theorem }.map { prob(it.formula) }.ifEmpty { listOf("⊤") }.joinToString(" ∧ ") { "($it)" } + ")"
-                }
+                val alternatives =
+                    event.refines.joinToString(" ∨ ") { e ->
+                        "(" +
+                            e.guards
+                                .filter { !it.theorem }
+                                .map { prob(it.formula) }
+                                .ifEmpty { listOf("⊤") }
+                                .joinToString(" ∧ ") { "($it)" } +
+                            ")"
+                    }
                 po("$prefix/MRG", file, event.token, after, alternatives)
             }
             val concrete = event.actions.map { it.formula.toString() }.toSet()
@@ -177,8 +211,17 @@ class ProofObligationGenerator {
         if (abstract != null && !event.isInitialisation) {
             val abstractlyAssigned = abstractActions.flatMap { a -> a.formula.assignedIdentifiers.map { it.name } }.toSet()
             for (action in event.actions) {
-                for (variable in action.formula.assignedIdentifiers.map { it.name }.filter { it in abstractVariables && it !in abstractlyAssigned }) {
-                    po("$prefix/$variable/EQL", file, action.token, enabled + prob(action.formula.baPredicate), "${renamed("$variable'")} = $variable")
+                for (variable in action.formula.assignedIdentifiers.map { it.name }.filter {
+                    it in abstractVariables &&
+                        it !in abstractlyAssigned
+                }) {
+                    po(
+                        "$prefix/$variable/EQL",
+                        file,
+                        action.token,
+                        enabled + prob(action.formula.baPredicate),
+                        "${renamed("$variable'")} = $variable",
+                    )
                 }
             }
         }
@@ -211,8 +254,15 @@ class ProofObligationGenerator {
     }
 
     /** [formula] with the after-values of [variables], in ProB's notation. */
-    private fun primed(formula: Formula<*>, variables: Collection<String>): String {
-        val substitution = formula.freeIdentifiers.filter { it.name in variables && !it.isPrimed }.associateWith { it.withPrime() as Expression }
+    private fun primed(
+        formula: Formula<*>,
+        variables: Collection<String>,
+    ): String {
+        val substitution =
+            formula.freeIdentifiers
+                .filter {
+                    it.name in variables && !it.isPrimed
+                }.associateWith { it.withPrime() as Expression }
         return prob(if (substitution.isEmpty()) formula else formula.substituteFreeIdents(substitution))
     }
 

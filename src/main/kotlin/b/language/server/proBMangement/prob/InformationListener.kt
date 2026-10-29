@@ -9,15 +9,15 @@ import java.io.File
 /**
  * Custom collector to collect warnings from prob kernel
  */
-class InformationListener(private val fallbackPath : File, private val communicator : CommunicatorInterface) : IWarningListener {
-    private val warningList : ArrayList<ErrorItem> = arrayListOf()
-
+class InformationListener(
+    private val fallbackPath: File,
+    private val communicator: CommunicatorInterface,
+) : IWarningListener {
+    private val warningList: ArrayList<ErrorItem> = arrayListOf()
 
     override fun warningsOccurred(warnings: MutableList<ErrorItem>?) {
         warningList.addAll(warnings!!.toList())
     }
 
-    fun getInformation() : List<Diagnostic>{
-        return convertErrorItems(warningList, fallbackPath, communicator)
-    }
+    fun getInformation(): List<Diagnostic> = convertErrorItems(warningList, fallbackPath, communicator)
 }

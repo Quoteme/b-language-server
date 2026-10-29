@@ -13,25 +13,25 @@ import java.io.File
 /**
  * Creates the prob kernel access and maintenance
  */
-class ProBKernelManager(private val communicator : CommunicatorInterface) : ProBInterface {
-
-    private var kernel : ProBKernel
+class ProBKernelManager(
+    private val communicator: CommunicatorInterface,
+) : ProBInterface {
+    private var kernel: ProBKernel
     private var probHome = "DEFAULT"
 
-    init{
+    init {
         kernel = setup()
     }
-
 
     /**
      * @return an instance of prob kernel
      */
-    private fun setup() : ProBKernel {
+    private fun setup(): ProBKernel {
         val injector = Guice.createInjector(Stage.PRODUCTION, ProBKernelModule(communicator))
-        val kernel : ProBKernel
-        try{
+        val kernel: ProBKernel
+        try {
             kernel = injector.getInstance(ProBKernel::class.java)
-        }catch (e : de.prob.exception.CliError){
+        } catch (e: de.prob.exception.CliError) {
             throw Exception("wrong path to prob $probHome")
         }
         return kernel
@@ -42,16 +42,13 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
      * @param probNewHome the potential new proB home
      * @return changes was successful/no change at all
      */
-    private fun checkProBVersionSetting(probNewHome : String) : Boolean{
-        return if(probNewHome != probHome)
-        {
-            if(probNewHome == "DEFAULT"){ //Use default prob
+    private fun checkProBVersionSetting(probNewHome: String): Boolean =
+        if (probNewHome != probHome) {
+            if (probNewHome == "DEFAULT") { // Use default prob
                 System.setProperty("prob.home", "null")
                 kernel = setup()
                 true
-            }
-            else {
-
+            } else {
                 val dict = File(probNewHome)
                 if (dict.exists() && dict.isDirectory) { // Use custom prob
                     System.setProperty("prob.home", probNewHome)
@@ -62,11 +59,9 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
                     false
                 }
             }
-        }else{
+        } else {
             true
         }
-    }
-
 
     /**
      * Checks the given document with the help of ProB
@@ -76,13 +71,20 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
      *
      * @throws CouldNotFindProBHomeException the given path ist not "DEFAULT" and wrong
      */
-    override fun checkDocument(file : File, settings: Settings): List<Diagnostic> {
-
-        communicator.sendDebugMessage("try to use ${settings.probHome} as prob version instead of " + System.getProperty("prob.home"), MessageType.Info)
+    override fun checkDocument(
+        file: File,
+        settings: Settings,
+    ): List<Diagnostic> {
+        communicator.sendDebugMessage(
+            "try to use ${settings.probHome} as prob version instead of " + System.getProperty("prob.home"),
+            MessageType.Info,
+        )
         val result = checkProBVersionSetting(settings.probHome)
-        if(!result){
-          throw CouldNotFindProBHomeException("searched at ${settings.probHome} for prob but found nothing - make sure " +
-                  "you point to the prob directory not to probcli.sh/probcli")
+        if (!result) {
+            throw CouldNotFindProBHomeException(
+                "searched at ${settings.probHome} for prob but found nothing - make sure " +
+                    "you point to the prob directory not to probcli.sh/probcli",
+            )
         }
 
         communicator.sendDebugMessage("success!", MessageType.Info)
@@ -90,13 +92,21 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
         return kernel.check(file, proBSettings(settings))
     }
 
-    override fun modelCheck(file : File, settings: Settings): Pair<List<Diagnostic>, String> =
-        kernel.modelCheck(file, proBSettings(settings))
+    override fun modelCheck(
+        file: File,
+        settings: Settings,
+    ): Pair<List<Diagnostic>, String> = kernel.modelCheck(file, proBSettings(settings))
 
-    override fun proofObligations(file : File): List<ProofObligation> = kernel.proofObligations(file)
+    override fun proofObligations(file: File): List<ProofObligation> = kernel.proofObligations(file)
 
-    override fun identifiers(file : File): Map<String, String> = kernel.identifiers(file)
+    override fun identifiers(file: File): Map<String, String> = kernel.identifiers(file)
 
-    private fun proBSettings(settings : Settings) = ProBSettings(wdChecks = settings.wdChecks, strictChecks = settings.strictChecks,
-            performanceHints = settings.performanceHints, poTimeout = settings.poTimeout, modelCheckStates = settings.modelCheckStates)
+    private fun proBSettings(settings: Settings) =
+        ProBSettings(
+            wdChecks = settings.wdChecks,
+            strictChecks = settings.strictChecks,
+            performanceHints = settings.performanceHints,
+            poTimeout = settings.poTimeout,
+            modelCheckStates = settings.modelCheckStates,
+        )
 }

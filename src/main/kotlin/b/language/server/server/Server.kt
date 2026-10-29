@@ -3,7 +3,6 @@ package b.language.server.server
 import b.language.server.analysis.legacy.ProBKernelManager
 import b.language.server.client.Communicator
 import b.language.server.config.Settings
-import b.language.server.config.castJsonToSetting
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.CodeActionKind
 import org.eclipse.lsp4j.CodeActionOptions
@@ -108,7 +107,7 @@ class Server :
             val requestedConfig = languageClient.configuration(ConfigurationParams(listOf(configurationItem)))
             documentSettings[uri] =
                 CompletableFuture.allOf(requestedConfig).thenApply {
-                    castJsonToSetting(requestedConfig.get().firstOrNull() as? JsonObject ?: JsonObject())
+                    Settings.from(requestedConfig.get().firstOrNull() as? JsonObject)
                 }
             documentSettings[uri]!!
         }

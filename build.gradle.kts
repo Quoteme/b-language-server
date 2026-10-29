@@ -1,6 +1,8 @@
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     kotlin("jvm") version "2.2.20"
+    // Generates the JSON (de)serializers of classes annotated with @Serializable.
+    kotlin("plugin.serialization") version "2.2.20"
     idea
     // Apply the application plugin to add support for building a CLI application.
     application
@@ -21,6 +23,8 @@ dependencies {
 
     // eclipse lsp implementation
     implementation("org.eclipse.lsp4j", "org.eclipse.lsp4j", "0.24.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test-junit5
     testImplementation(kotlin("test-junit5"))

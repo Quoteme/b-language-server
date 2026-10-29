@@ -1,7 +1,7 @@
 package b.language.server.server
 
 import b.language.server.client.Communicator
-import b.language.server.config.castJsonToSetting
+import b.language.server.config.Settings
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.DidChangeWatchedFilesParams
@@ -38,7 +38,7 @@ class BWorkspaceService(
         } else {
             if (params!!.settings is JsonObject) {
                 val settings: JsonObject = params.settings as JsonObject
-                val documentSetting = castJsonToSetting(settings)
+                val documentSetting = Settings.from(settings)
                 server.globalSettings = documentSetting
             }
         }

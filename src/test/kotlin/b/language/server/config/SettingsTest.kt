@@ -1,6 +1,7 @@
 package b.language.server.config
 
 import com.google.gson.JsonParser
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
@@ -36,5 +37,20 @@ class SettingsTest {
     @Test
     fun `numbers and booleans given as strings are read`() {
         assertEquals(Settings(poTimeout = 5, debugMode = false), parse("""{"poTimeout": "5", "debugMode": "false"}"""))
+    }
+
+    @Test
+    fun `serialized settings are read back unchanged`() {
+        val settings = Settings(false, false, false, "/opt/prob", false, 5, 7)
+        assertEquals(settings, parse(Json.encodeToString(settings)))
+    }
+
+    @Test
+    fun `settings are serialized with the keys the client uses`() {
+        assertEquals(
+            """{"strictChecks":true,"wdChecks":true,"performanceHints":true,"probHome":"DEFAULT",""" +
+                """"debugMode":true,"poTimeout":1000,"modelCheckStates":100000}""",
+            Json { encodeDefaults = true }.encodeToString(Settings()),
+        )
     }
 }

@@ -1,0 +1,6 @@
+<res>/eventb/TypeErrors.mch
+  17:12-17:25 Error ProB Type: ℤ does not match type: PERSONS
+  22:12-22:17 Error ProB Identifier 'cuont' has not been declared
+
+Info: Model check skipped: the model has errors
+Log: Evaluation done: 0 problem(s) found by model checking

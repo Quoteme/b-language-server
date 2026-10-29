@@ -1,0 +1,496 @@
+0:0 #3177b5f9ce04
+2:0 #b986747d583b
+2:11 #4442fe71522f
+4:0 #8ed0eff3b221
+4:11 #4442fe71522f
+4:17 #f6e4429bec7a
+4:20 #def34d5632c0
+4:21 #def34d5632c0
+4:26 #51844d8a5664
+4:27 #3504177b22c3
+4:29 #aa1b2a127ed7
+4:33 #3504177b22c3
+4:34 #51844d8a5664
+6:0 #a6af35b76bf7
+6:15 #4442fe71522f
+6:21 #d69698dc0908
+6:22 #d69698dc0908
+13:5 #c91fb88c3340
+13:7 #87f47dc32137
+13:11 #4442fe71522f
+13:16 #c96f6fb19d1f
+13:21 #105ce7a745bc
+13:26 #4442fe71522f
+13:32 #d69698dc0908
+13:33 #d69698dc0908
+13:35 #4442fe71522f
+13:41 #138a65f12826
+13:45 #38c748f8cc14
+13:49 #e85e2b14fb8c
+14:5 #c91fb88c3340
+14:7 #87f47dc32137
+14:11 #4442fe71522f
+14:16 #cc3a92ea1873
+14:19 #105ce7a745bc
+14:24 #4442fe71522f
+14:30 #d69698dc0908
+14:31 #d69698dc0908
+14:33 #4442fe71522f
+14:39 #8911d3b06f40
+14:43 #38c748f8cc14
+14:46 #e85e2b14fb8c
+15:11 #c91fb88c3340
+15:13 #1606fae9a58a
+15:17 #e85e2b14fb8c
+16:12 #c91fb88c3340
+16:14 #1606fae9a58a
+18:0 #38c748f8cc14
+
+=== #3177b5f9ce04
+```b
+MACHINE or REFINEMENT or IMPLEMENTATION
+```
+
+---
+
+**Example**
+```b
+MACHINE Counter
+VARIABLES count
+INVARIANT count : 0..10
+INITIALISATION count := 0
+OPERATIONS
+  inc = PRE count < 10 THEN count := count + 1 END
+END
+```
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #b986747d583b
+```b
+VARIABLES x,y,...
+```
+
+---
+
+**Example**
+```b
+VARIABLES count
+INVARIANT count : 0..10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #4442fe71522f
+```b
+floor(r)
+```
+
+---
+
+Convert a real r into an integer
+
+**Example**
+```b
+floor(2.7) = 2
+```
+
+[ProB, Summary of B Syntax: Reals](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals)
+
+=== #8ed0eff3b221
+```b
+INVARIANT P
+```
+
+---
+
+Logical predicate
+
+**Example**
+```b
+VARIABLES count
+INVARIANT count : 0..10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #f6e4429bec7a
+```b
+E:S
+```
+
+---
+
+Element of
+
+**Example**
+```b
+2 : {1, 2, 3}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+---
+
+```b
+x : (P)
+```
+
+---
+
+Choice by predicate P (constraining x; previous value of x is x$0)
+
+**Example**
+```b
+count : (count > count$0)
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #def34d5632c0
+```b
+n..m
+```
+
+---
+
+Set of numbers from n to m
+
+**Example**
+```b
+2..4 = {2, 3, 4}
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #51844d8a5664
+```b
+m/n
+```
+
+---
+
+Division
+
+**Example**
+```b
+7 / 2 = 3
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #3504177b22c3
+```b
+S*T
+```
+
+---
+
+Cartesian product
+
+**Example**
+```b
+{1} * {2, 3} = {(1, 2), (1, 3)}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+---
+
+```b
+m*n
+```
+
+---
+
+Multiplication
+
+**Example**
+```b
+2 * 3 = 6
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #aa1b2a127ed7
+```b
+NAT
+```
+
+---
+
+Set of implementable natural numbers
+
+**Example**
+```b
+NAT = 0..MAXINT
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #a6af35b76bf7
+```b
+INITIALISATION S
+```
+
+---
+
+Substitution
+
+**Example**
+```b
+INITIALISATION count := 0
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #d69698dc0908
+```b
+x := E
+```
+
+---
+
+Assignment
+
+**Example**
+```b
+count := count + 1
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+---
+
+```b
+f(x) := E
+```
+
+---
+
+Functional override
+
+**Example**
+```b
+f(1) := 2
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #c91fb88c3340
+```b
+E = F
+```
+
+---
+
+Equality
+
+**Example**
+```b
+{1, 2} = {2, 1}
+```
+
+[ProB, Summary of B Syntax: Equality](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Equality)
+
+=== #87f47dc32137
+```b
+PRE P THEN G END
+```
+
+---
+
+**Example**
+```b
+inc = PRE count < 10 THEN count := count + 1 END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #c96f6fb19d1f
+```b
+m<n
+```
+
+---
+
+Less than
+
+**Example**
+```b
+2 < 3
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #105ce7a745bc
+```b
+IF P THEN E1 END
+IF P THEN E1 ELSIF E2 END
+IF P THEN E1 ELSE E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+ANY x,... WHERE P THEN G END
+PRE P THEN G END
+ASSERT P THEN G END
+IF P THEN G END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #138a65f12826
+```b
+m+n
+```
+
+---
+
+Addition
+
+**Example**
+```b
+2 + 3 = 5
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #38c748f8cc14
+```b
+IF P THEN E1 END
+IF P THEN E1 ELSIF E2 END
+IF P THEN E1 ELSE E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+LET x1,... BE x1=E1 & ... IN E END
+ANY x,... WHERE P THEN G END
+LET x,... BE x=E & ... IN G END
+VAR x,... IN G END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #e85e2b14fb8c
+```b
+(r1;r2)
+```
+
+---
+
+Relational composition {x,y| x|->z:r1 & z|->y:r2}
+
+**Example**
+```b
+({1 |-> 2} ; {2 |-> 3}) = {1 |-> 3}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+---
+
+```b
+G;H
+```
+
+---
+
+Sequential composition**
+
+**Example**
+```b
+BEGIN x := 1 ; y := x END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+---
+
+```b
+"FILE.def";
+```
+
+---
+
+Include definitions from file
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #cc3a92ea1873
+```b
+m>n
+```
+
+---
+
+Greater than
+
+**Example**
+```b
+3 > 2
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #8911d3b06f40
+```b
+S-T or S \ T
+```
+
+---
+
+Set difference
+
+**Example**
+```b
+{1, 2, 3} - {2} = {1, 3}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+---
+
+```b
+m-n
+```
+
+---
+
+Difference
+
+**Example**
+```b
+5 - 3 = 2
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #1606fae9a58a
+```b
+skip
+```
+
+---
+
+No operation
+
+**Example**
+```b
+nop = skip
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))

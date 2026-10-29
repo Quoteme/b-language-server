@@ -1,0 +1,12 @@
+<res>/eventb/Bank.mch
+  7:3-7:7 Hint ProB inv3/WD is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  10:8-10:22 Hint ProB INITIALISATION/inv2/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  10:8-10:22 Hint ProB INITIALISATION/inv3/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  19:7-19:11 Hint ProB add_client/grd2/WD is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  15:8-15:18 Hint ProB add_client/inv2/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  15:8-15:18 Hint ProB add_client/inv3/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  24:8-24:23 Hint ProB connect_account/inv2/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
+  0:8-0:12 Error ProB Deadlock after <path>
+
+Info: Model check: Deadlock found.
+Log: Evaluation done: 1 problem(s) found by model checking

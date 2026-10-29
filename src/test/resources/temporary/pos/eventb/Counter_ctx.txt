@@ -1,0 +1,1 @@
+[{"uri":"file:<res>/eventb/Counter_ctx.mch","line":4,"character":11,"name":"thm1/THM","status":"discharged","detail":""}]

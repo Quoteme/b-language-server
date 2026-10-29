@@ -1,0 +1,2 @@
+<res>/eventb/StructureError.mch
+  5:2-5:6 Error ProB expecting: '@', 'theorem'

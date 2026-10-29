@@ -1,0 +1,2342 @@
+0:1 'M'
+  MODEL Keyword MODEL name #d546947611c8
+  MININT Keyword MININT #98c34ba12f74
+  MAXINT Keyword MAXINT #8440d895fb63
+  max Function max(S) #d9a30f5e6287
+  min Function min(S) #75539f48c30e
+  mod Function m mod n #c632a9cbfc7a
+  MACHINE Keyword MACHINE or REFINEMENT or IMPLEMENTATION #3177b5f9ce04
+  MAX_OPERATIONS_OPNAME Keyword MAX_OPERATIONS_OPNAME == n #f96124955e20
+0:2 'MA'
+  MAXINT Keyword MAXINT #8440d895fb63
+  max Function max(S) #d9a30f5e6287
+  MACHINE Keyword MACHINE or REFINEMENT or IMPLEMENTATION #3177b5f9ce04
+  MAX_OPERATIONS_OPNAME Keyword MAX_OPERATIONS_OPNAME == n #f96124955e20
+0:9 'D'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DEFINITIONS Keyword DEFINITIONS m(x,...) == BODY;... #09776ade126f
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+0:10 'Do'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+1:1 'S'
+  SYSTEM Keyword SYSTEM name #e000d6b9ed42
+  SIGMA Keyword SIGMA(z).(P|E) #5fd4e8122579
+  succ Function succ(n) #867544a45e44
+  seq Function seq(S) #91ec366ad21e
+  seq1 Function seq1(S) #a3ed612a4cda
+  size Function size(s) #64af59152cf8
+  struct Function struct(ID:S,...,ID:S) #c9654daba4a5
+  STRING Keyword STRING #a827e62ca18a
+  son Function son(t,n,i) #c3a494dfc4f1
+  sons Function sons(t) #f6a7e9fad484
+  subtree Function subtree(t,n) #f62766ea38e8
+  sizet Function sizet(t) #e41328a6cd30
+  skip Function skip #1606fae9a58a
+  SELECT Keyword SELECT P THEN G WHEN ... WHEN Q THEN H END #42fced66de6a
+  SETS Keyword SETS S;T={e1,e2,...};... #8b62788454cb
+  SEES Keyword SEES #92c823e45f49
+  SCOPE Keyword SCOPE == P #e0e4b6bb2f59
+  SET_PREF_MININT Keyword SET_PREF_MININT == n #ca33cef3857d
+  SET_PREF_MAXINT Keyword SET_PREF_MAXINT == n #b97c56e1ec9a
+  SET_PREF_MAX_INITIALISATIONS Keyword SET_PREF_MAX_INITIALISATIONS == n #37f08e5b96d5
+  SET_PREF_MAX_OPERATIONS Keyword SET_PREF_MAX_OPERATIONS == n #4bbc881d1165
+  SET_PREF_SYMBOLIC Keyword SET_PREF_SYMBOLIC == TRUE/FALSE #33f6ecf3ced0
+  SET_PREF_TIME_OUT Keyword SET_PREF_TIME_OUT == n #7e0eaf4e7bde
+  SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n #07ddee781b9e
+  SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n #e1840ea3546d
+  south EnumMember (element) south : DOOR #a253b29dba71
+1:2 'SE'
+  seq Function seq(S) #91ec366ad21e
+  seq1 Function seq1(S) #a3ed612a4cda
+  SELECT Keyword SELECT P THEN G WHEN ... WHEN Q THEN H END #42fced66de6a
+  SETS Keyword SETS S;T={e1,e2,...};... #8b62788454cb
+  SEES Keyword SEES #92c823e45f49
+  SET_PREF_MININT Keyword SET_PREF_MININT == n #ca33cef3857d
+  SET_PREF_MAXINT Keyword SET_PREF_MAXINT == n #b97c56e1ec9a
+  SET_PREF_MAX_INITIALISATIONS Keyword SET_PREF_MAX_INITIALISATIONS == n #37f08e5b96d5
+  SET_PREF_MAX_OPERATIONS Keyword SET_PREF_MAX_OPERATIONS == n #4bbc881d1165
+  SET_PREF_SYMBOLIC Keyword SET_PREF_SYMBOLIC == TRUE/FALSE #33f6ecf3ced0
+  SET_PREF_TIME_OUT Keyword SET_PREF_TIME_OUT == n #7e0eaf4e7bde
+  SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n #07ddee781b9e
+  SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n #e1840ea3546d
+2:4 'DO'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+2:11 'n'
+  not Function not(P) #f14cdf37611e
+  NATURAL Keyword NATURAL #b76c6a37423f
+  NATURAL1 Keyword NATURAL1 #636667c74188
+  NAT Keyword NAT #aa1b2a127ed7
+  NAT1 Keyword NAT1 #6643142187e9
+  north EnumMember (element) north : DOOR #4637986b5a0b
+2:12 'no'
+  not Function not(P) #f14cdf37611e
+  north EnumMember (element) north : DOOR #4637986b5a0b
+2:18 's'
+  SYSTEM Keyword SYSTEM name #e000d6b9ed42
+  SIGMA Keyword SIGMA(z).(P|E) #5fd4e8122579
+  succ Function succ(n) #867544a45e44
+  seq Function seq(S) #91ec366ad21e
+  seq1 Function seq1(S) #a3ed612a4cda
+  size Function size(s) #64af59152cf8
+  struct Function struct(ID:S,...,ID:S) #c9654daba4a5
+  STRING Keyword STRING #a827e62ca18a
+  son Function son(t,n,i) #c3a494dfc4f1
+  sons Function sons(t) #f6a7e9fad484
+  subtree Function subtree(t,n) #f62766ea38e8
+  sizet Function sizet(t) #e41328a6cd30
+  skip Function skip #1606fae9a58a
+  SELECT Keyword SELECT P THEN G WHEN ... WHEN Q THEN H END #42fced66de6a
+  SETS Keyword SETS S;T={e1,e2,...};... #8b62788454cb
+  SEES Keyword SEES #92c823e45f49
+  SCOPE Keyword SCOPE == P #e0e4b6bb2f59
+  SET_PREF_MININT Keyword SET_PREF_MININT == n #ca33cef3857d
+  SET_PREF_MAXINT Keyword SET_PREF_MAXINT == n #b97c56e1ec9a
+  SET_PREF_MAX_INITIALISATIONS Keyword SET_PREF_MAX_INITIALISATIONS == n #37f08e5b96d5
+  SET_PREF_MAX_OPERATIONS Keyword SET_PREF_MAX_OPERATIONS == n #4bbc881d1165
+  SET_PREF_SYMBOLIC Keyword SET_PREF_SYMBOLIC == TRUE/FALSE #33f6ecf3ced0
+  SET_PREF_TIME_OUT Keyword SET_PREF_TIME_OUT == n #7e0eaf4e7bde
+  SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n #07ddee781b9e
+  SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING Keyword SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n #e1840ea3546d
+  south EnumMember (element) south : DOOR #a253b29dba71
+2:19 'so'
+  son Function son(t,n,i) #c3a494dfc4f1
+  sons Function sons(t) #f6a7e9fad484
+  south EnumMember (element) south : DOOR #a253b29dba71
+3:3 'P'
+  POW Keyword POW(S) #df2778996657
+  POW1 Keyword POW1(S) #f1ac281034bb
+  PI Keyword PI(z).(P|E) #49ffe255a3ea
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  perm Function perm(S) #b253886c590e
+  prefix Function prefix(t) #ba4af34018a4
+  postfix Function postfix(t) #6c15e42d462a
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+  PERSON Class (deferred set) PERSON #a41a77c6884b
+3:4 'PE'
+  perm Function perm(S) #b253886c590e
+  PERSON Class (deferred set) PERSON #a41a77c6884b
+4:1 'C'
+  card Function card(S) #357752b3f287
+  closure1 Function closure1(r) #11e9333b3334
+  closure Function closure(r) #a58bdd676e0f
+  conc Function conc(S) #bfb6147a66f7
+  ceiling Function ceiling(r) #662eca4df654
+  const Function const(E,s) #02fc4597139d
+  CHOICE Keyword CHOICE G OR H END #16230cf2e14a
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  CONSTRAINTS Keyword CONSTRAINTS P #1a774b61e1dd
+  CONSTANTS Keyword CONSTANTS x,y,... #d550ffe8a7d7
+  CONCRETE_CONSTANTS Keyword CONCRETE_CONSTANTS cx,cy,... #1cf352de364d
+  CONCRETE_VARIABLES Keyword CONCRETE_VARIABLES cv,cw,... #c5e743f64baf
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+  close_door Function (operation) close_door(d : DOOR) #bf6dc0e9ea8d
+  count Function (operation) n : INTEGER <-- count #286a6250e75d
+4:2 'CO'
+  conc Function conc(S) #bfb6147a66f7
+  const Function const(E,s) #02fc4597139d
+  CONSTRAINTS Keyword CONSTRAINTS P #1a774b61e1dd
+  CONSTANTS Keyword CONSTANTS x,y,... #d550ffe8a7d7
+  CONCRETE_CONSTANTS Keyword CONCRETE_CONSTANTS cx,cy,... #1cf352de364d
+  CONCRETE_VARIABLES Keyword CONCRETE_VARIABLES cv,cw,... #c5e743f64baf
+  count Function (operation) n : INTEGER <-- count #286a6250e75d
+5:3 'c'
+  card Function card(S) #357752b3f287
+  closure1 Function closure1(r) #11e9333b3334
+  closure Function closure(r) #a58bdd676e0f
+  conc Function conc(S) #bfb6147a66f7
+  ceiling Function ceiling(r) #662eca4df654
+  const Function const(E,s) #02fc4597139d
+  CHOICE Keyword CHOICE G OR H END #16230cf2e14a
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  CONSTRAINTS Keyword CONSTRAINTS P #1a774b61e1dd
+  CONSTANTS Keyword CONSTANTS x,y,... #d550ffe8a7d7
+  CONCRETE_CONSTANTS Keyword CONCRETE_CONSTANTS cx,cy,... #1cf352de364d
+  CONCRETE_VARIABLES Keyword CONCRETE_VARIABLES cv,cw,... #c5e743f64baf
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+  close_door Function (operation) close_door(d : DOOR) #bf6dc0e9ea8d
+  count Function (operation) n : INTEGER <-- count #286a6250e75d
+5:4 'ca'
+  card Function card(S) #357752b3f287
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+6:2 'PR'
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  prefix Function prefix(t) #ba4af34018a4
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+7:4 'ca'
+  card Function card(S) #357752b3f287
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+7:14 'N'
+  not Function not(P) #f14cdf37611e
+  NATURAL Keyword NATURAL #b76c6a37423f
+  NATURAL1 Keyword NATURAL1 #636667c74188
+  NAT Keyword NAT #aa1b2a127ed7
+  NAT1 Keyword NAT1 #6643142187e9
+  north EnumMember (element) north : DOOR #4637986b5a0b
+7:15 'NA'
+  NATURAL Keyword NATURAL #b76c6a37423f
+  NATURAL1 Keyword NATURAL1 #636667c74188
+  NAT Keyword NAT #aa1b2a127ed7
+  NAT1 Keyword NAT1 #6643142187e9
+8:2 'DE'
+  DEFINITIONS Keyword DEFINITIONS m(x,...) == BODY;... #09776ade126f
+9:3 'f'
+  FALSE Keyword FALSE #1842ba132d2d
+  FIN Keyword FIN(S) #59d18c10503f
+  FIN1 Keyword FIN1(S) #abe2822bfdfa
+  fnc Function fnc(r) #06d05d201bb9
+  first Function first(s) #96248cec44d2
+  front Function front(s) #3dc0adf4e422
+  FLOAT Keyword FLOAT #8e0048a00bf1
+  floor Function floor(r) #4442fe71522f
+  father Function father(t,n) #fe941a55a592
+  FREETYPES Keyword FREETYPES x=x1,x2(arg2),...;... #eb71f8f02045
+  full Value (definition) full #d3dd56f5d13f
+9:4 'fu'
+  full Value (definition) full #d3dd56f5d13f
+9:13 'ca'
+  card Function card(S) #357752b3f287
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+9:17 'i'
+  IMPORTS Keyword IMPORTS M,… #d73eba397648
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  id Function id(S) #754853db58a6
+  iterate Function iterate(r,n) #a97ca697ca78
+  iseq Function iseq(S) #7c579c2f4149
+  iseq1 Function iseq1(S) #ea645908dd01
+  IF Keyword IF P THEN E1 END #8da48ecd9fe5
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  IMPLEMENTATION Keyword MACHINE or REFINEMENT or IMPLEMENTATION #43c8b98818d0
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+9:18 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+10:1 'V'
+  VISIBLE_CONSTANTS Keyword VISIBLE_CONSTANTS c,… #3206d7277fb1
+  VISIBLE_VARIABLES Keyword VISIBLE_VARIABLES v,… #3ea63c4dce29
+  VALUES Keyword VALUES c = E;… #5da29d491b04
+  VAR Keyword VAR x,... IN G END #36e528eed3f6
+  VARIANT Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  VARIABLES Keyword VARIABLES x,y,... #b986747d583b
+  VISB_JSON_FILE Keyword VISB_JSON_FILE == "PATH to .json" #5b2b3f88033c
+  VISB_SVG_BOX Keyword VISB_SVG_BOX == ... #2e98f9555294
+  VISB_SVG_CONTENTS Keyword VISB_SVG_CONTENTS == ... #5967162d03cb
+10:2 'VA'
+  VALUES Keyword VALUES c = E;… #5da29d491b04
+  VAR Keyword VAR x,... IN G END #36e528eed3f6
+  VARIANT Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  VARIABLES Keyword VARIABLES x,y,... #b986747d583b
+11:3 'o'
+  or Function P or Q #9db078f82fe4
+  OR Keyword CHOICE G OR H END #fb7ac366c586
+  OF Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #7b3b24c97733
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+11:4 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+11:10 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+12:1 'I'
+  IMPORTS Keyword IMPORTS M,… #d73eba397648
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  id Function id(S) #754853db58a6
+  iterate Function iterate(r,n) #a97ca697ca78
+  iseq Function iseq(S) #7c579c2f4149
+  iseq1 Function iseq1(S) #ea645908dd01
+  IF Keyword IF P THEN E1 END #8da48ecd9fe5
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  IMPLEMENTATION Keyword MACHINE or REFINEMENT or IMPLEMENTATION #43c8b98818d0
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+12:2 'IN'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+13:4 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+13:12 'DO'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+13:19 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+13:29 'PE'
+  perm Function perm(S) #b253886c590e
+  PERSON Class (deferred set) PERSON #a41a77c6884b
+13:38 'ca'
+  card Function card(S) #357752b3f287
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+14:2 'IN'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+15:4 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+15:18 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+16:1 'O'
+  or Function P or Q #9db078f82fe4
+  OR Keyword CHOICE G OR H END #fb7ac366c586
+  OF Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #7b3b24c97733
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+16:2 'OP'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+17:4 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+17:13 'd'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DEFINITIONS Keyword DEFINITIONS m(x,...) == BODY;... #09776ade126f
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+17:19 'PR'
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  prefix Function prefix(t) #ba4af34018a4
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+17:27 'DO'
+  dom Function dom(r) #3c60ef15d698
+  DO Keyword WHILE P1 DO G INVARIANT P2 VARIANT E END #f61762198698
+  DOOR Enum (enumerated set) DOOR = {north, south} #c2c4980db1c4
+17:43 'T'
+  TRUE Keyword TRUE #318e6a6e9a66
+  tail Function tail(s) #8c138d9e7bab
+  tree Function tree(S) #da014c611a1c
+  top Function top(t) #ee451d2477a9
+  THEN Keyword IF P THEN E1 END #105ce7a745bc
+17:44 'TH'
+  THEN Keyword IF P THEN E1 END #105ce7a745bc
+17:68 'E'
+  EVENTS Keyword EVENTS e;… #2eb694c9e5b2
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  ELSIF Keyword IF P THEN E1 ELSIF E2 END #8f211f5e4f3e
+  ELSE Keyword IF P THEN E1 ELSE E2 END #4d5616f689b3
+  EITHER Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #7b3b24c97733
+  EXTENDS Keyword EXTENDS #50d2e39ade61
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+17:69 'EN'
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+18:4 'cl'
+  closure1 Function closure1(r) #11e9333b3334
+  closure Function closure(r) #a58bdd676e0f
+  close_door Function (operation) close_door(d : DOOR) #bf6dc0e9ea8d
+18:20 'PR'
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  prefix Function prefix(t) #ba4af34018a4
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+18:28 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+18:33 'TH'
+  THEN Keyword IF P THEN E1 END #105ce7a745bc
+18:57 'EN'
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+19:3 'e'
+  EVENTS Keyword EVENTS e;… #2eb694c9e5b2
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  ELSIF Keyword IF P THEN E1 ELSIF E2 END #8f211f5e4f3e
+  ELSE Keyword IF P THEN E1 ELSE E2 END #4d5616f689b3
+  EITHER Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #7b3b24c97733
+  EXTENDS Keyword EXTENDS #50d2e39ade61
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+19:4 'en'
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+19:9 'p'
+  POW Keyword POW(S) #df2778996657
+  POW1 Keyword POW1(S) #f1ac281034bb
+  PI Keyword PI(z).(P|E) #49ffe255a3ea
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  perm Function perm(S) #b253886c590e
+  prefix Function prefix(t) #ba4af34018a4
+  postfix Function postfix(t) #6c15e42d462a
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+  PERSON Class (deferred set) PERSON #a41a77c6884b
+19:15 'PR'
+  pred Function pred(n) #a370d0337e26
+  prj1 Function prj1(S,T) #ed71d05bf9ae
+  prj2 Function prj2(S,T) #4f5269e66d3a
+  prefix Function prefix(t) #ba4af34018a4
+  PRE Keyword PRE P THEN G END #87f47dc32137
+  PROPERTIES Keyword PROPERTIES P #7ba479bc57e2
+  PROMOTES Keyword PROMOTES #e955c7c6de5f
+19:23 'PE'
+  perm Function perm(S) #b253886c590e
+  PERSON Class (deferred set) PERSON #a41a77c6884b
+19:32 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+19:41 'op'
+  OPERATIONS Keyword OPERATIONS O;... #ebd3e882e852
+  open Variable (variable) open : POW(DOOR) #8642555cab5d
+  open_door Function (operation) open_door(d : DOOR) #b29b99de83e1
+19:54 'no'
+  not Function not(P) #f14cdf37611e
+  north EnumMember (element) north : DOOR #4637986b5a0b
+19:58 'fu'
+  full Value (definition) full #d3dd56f5d13f
+19:64 'TH'
+  THEN Keyword IF P THEN E1 END #105ce7a745bc
+19:93 'EN'
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+20:10 'co'
+  conc Function conc(S) #bfb6147a66f7
+  const Function const(E,s) #02fc4597139d
+  CONSTRAINTS Keyword CONSTRAINTS P #1a774b61e1dd
+  CONSTANTS Keyword CONSTANTS x,y,... #d550ffe8a7d7
+  CONCRETE_CONSTANTS Keyword CONCRETE_CONSTANTS cx,cy,... #1cf352de364d
+  CONCRETE_VARIABLES Keyword CONCRETE_VARIABLES cv,cw,... #c5e743f64baf
+  count Function (operation) n : INTEGER <-- count #286a6250e75d
+20:23 'ca'
+  card Function card(S) #357752b3f287
+  CASE Keyword CASE E OF EITHER m THEN G OR n THEN H ... END END #1a50bac4eb6e
+  capacity Constant (constant) capacity : INTEGER #0403033c2aa2
+20:28 'in'
+  inter Function inter(S) #a2c59bc84f78
+  INTER Keyword INTER(z).(P|E) #cdca86b5d9f1
+  INTEGER Keyword INTEGER #2d6b7f7dd813
+  INT Keyword INT #e7c0b38f909f
+  IN Keyword LET x1,... BE x1=E1 & ... IN E END #ace3b64d2cbf
+  INVARIANT Keyword INVARIANT P #8ed0eff3b221
+  INITIALISATION Keyword INITIALISATION S #a6af35b76bf7
+  INCLUDES Keyword INCLUDES #ac3729fb9ec3
+  inside Variable (variable) inside : POW(PERSON) #c5e6c00306f8
+21:2 'EN'
+  END Keyword IF P THEN E1 END #38c748f8cc14
+  enter Function (operation) enter(p : PERSON) #10215af24b5c
+
+=== #d546947611c8
+```b
+MODEL name
+```
+
+---
+
+A synonym for MACHINE.
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #98c34ba12f74
+```b
+MININT
+```
+
+---
+
+The minimum implementable integer
+
+**Example**
+```b
+MININT < 0
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #8440d895fb63
+```b
+MAXINT
+```
+
+---
+
+The maximum implementable integer
+
+**Example**
+```b
+MAXINT > 0
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #d9a30f5e6287
+```b
+max(S)
+```
+
+---
+
+Maximum of a set of numbers
+
+**Example**
+```b
+max({3, 1, 2}) = 3
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #75539f48c30e
+```b
+min(S)
+```
+
+---
+
+Minimum of a set of numbers
+
+**Example**
+```b
+min({3, 1, 2}) = 1
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #c632a9cbfc7a
+```b
+m mod n
+```
+
+---
+
+Remainder of division
+
+**Example**
+```b
+7 mod 2 = 1
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #3177b5f9ce04
+```b
+MACHINE or REFINEMENT or IMPLEMENTATION
+```
+
+---
+
+**Example**
+```b
+MACHINE Counter
+VARIABLES count
+INVARIANT count : 0..10
+INITIALISATION count := 0
+OPERATIONS
+  inc = PRE count < 10 THEN count := count + 1 END
+END
+```
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #f96124955e20
+```b
+MAX_OPERATIONS_OPNAME == n
+```
+
+---
+
+Max. number of enablings for the operation OPNAME
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #3c60ef15d698
+```b
+dom(r)
+```
+
+---
+
+Domain of relation
+
+**Example**
+```b
+dom({1 |-> 2, 3 |-> 4}) = {1, 3}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #f61762198698
+```b
+WHILE P1 DO G INVARIANT P2 VARIANT E END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #09776ade126f
+```b
+DEFINITIONS m(x,...) == BODY;...
+```
+
+---
+
+**Example**
+```b
+DEFINITIONS twice(x) == 2 * x; LIMIT == 10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #c2c4980db1c4
+```b
+(enumerated set) DOOR = {north, south}
+```
+
+---
+
+An enumerated set, declared in SETS.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #e000d6b9ed42
+```b
+SYSTEM name
+```
+
+---
+
+A synonym for MACHINE.
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #5fd4e8122579
+```b
+SIGMA(z).(P|E)
+```
+
+---
+
+Set summation
+
+**Example**
+```b
+SIGMA(z).(z : 1..4 | z) = 10
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #867544a45e44
+```b
+succ(n)
+```
+
+---
+
+Successor (n+1)
+
+**Example**
+```b
+succ(3) = 4
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #91ec366ad21e
+```b
+seq(S)
+```
+
+---
+
+Set of sequences over S
+
+**Example**
+```b
+[1, 2] : seq({1, 2})
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #a3ed612a4cda
+```b
+seq1(S)
+```
+
+---
+
+Set of non-empty sequences over S
+
+**Example**
+```b
+[] /: seq1({1})
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #64af59152cf8
+```b
+size(s)
+```
+
+---
+
+Size of sequence
+
+**Example**
+```b
+size([4, 5, 6]) = 3
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+---
+
+```b
+size(s)
+```
+
+---
+
+The length of a string s
+
+**Example**
+```b
+size([4, 5, 6]) = 3
+```
+
+[ProB, Summary of B Syntax: Strings](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings)
+
+=== #c9654daba4a5
+```b
+struct(ID:S,...,ID:S)
+```
+
+---
+
+Set of records with given fields and field types
+
+**Example**
+```b
+rec(x : 1, y : TRUE) : struct(x : NATURAL, y : BOOL)
+```
+
+[ProB, Summary of B Syntax: Records](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records)
+
+=== #a827e62ca18a
+```b
+STRING
+```
+
+---
+
+The set of all strings
+
+**Example**
+```b
+"abc" : STRING
+```
+
+[ProB, Summary of B Syntax: Strings](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings)
+
+=== #c3a494dfc4f1
+```b
+son(t,n,i)
+```
+
+---
+
+The ith son of the node denoted by branch n in tree t
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #f6a7e9fad484
+```b
+sons(t)
+```
+
+---
+
+The sequence of sons of the root of the tree t
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #f62766ea38e8
+```b
+subtree(t,n)
+```
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #e41328a6cd30
+```b
+sizet(t)
+```
+
+---
+
+The size of the tree (number of nodes)
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #1606fae9a58a
+```b
+skip
+```
+
+---
+
+No operation
+
+**Example**
+```b
+nop = skip
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #42fced66de6a
+```b
+SELECT P THEN G WHEN ... WHEN Q THEN H END
+```
+
+---
+
+**Example**
+```b
+SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+---
+
+```b
+SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #8b62788454cb
+```b
+SETS S;T={e1,e2,...};...
+```
+
+---
+
+**Example**
+```b
+SETS ID; COLOUR = {red, green}
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #92c823e45f49
+```b
+SEES
+```
+
+---
+
+List of machines
+
+**Example**
+```b
+SEES Constants
+```
+
+[ProB, Summary of B Syntax: Machine inclusion](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion)
+
+=== #e0e4b6bb2f59
+```b
+SCOPE == P
+```
+
+---
+
+To limit the search space to "interesting" nodes
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #ca33cef3857d
+```b
+SET_PREF_MININT == n
+```
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #b97c56e1ec9a
+```b
+SET_PREF_MAXINT == n
+```
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #37f08e5b96d5
+```b
+SET_PREF_MAX_INITIALISATIONS == n
+```
+
+---
+
+Max. number of intialisations computed
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #4bbc881d1165
+```b
+SET_PREF_MAX_OPERATIONS == n
+```
+
+---
+
+Max. number of enablings per operation computed
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #33f6ecf3ced0
+```b
+SET_PREF_SYMBOLIC == TRUE/FALSE
+```
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #7e0eaf4e7bde
+```b
+SET_PREF_TIME_OUT == n
+```
+
+---
+
+Time out for operation computation in ms
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #07ddee781b9e
+```b
+SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n
+```
+
+---
+
+Additional padding between images in pixels
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #e1840ea3546d
+```b
+SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n
+```
+
+---
+
+Additional padding between text in pixels
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #a253b29dba71
+```b
+(element) south : DOOR
+```
+
+---
+
+An element of an enumerated set.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #f14cdf37611e
+```b
+not(P)
+```
+
+---
+
+Negation
+
+**Example**
+```b
+not(1 = 2)
+```
+
+[ProB, Summary of B Syntax: Logical predicates](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates)
+
+=== #b76c6a37423f
+```b
+NATURAL
+```
+
+---
+
+Set of natural numbers
+
+**Example**
+```b
+0 : NATURAL & -1 /: NATURAL
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #636667c74188
+```b
+NATURAL1
+```
+
+---
+
+Set of non-zero natural numbers
+
+**Example**
+```b
+0 /: NATURAL1 & 1 : NATURAL1
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #aa1b2a127ed7
+```b
+NAT
+```
+
+---
+
+Set of implementable natural numbers
+
+**Example**
+```b
+NAT = 0..MAXINT
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #6643142187e9
+```b
+NAT1
+```
+
+---
+
+Set of non-zero implementable natural numbers
+
+**Example**
+```b
+NAT1 = 1..MAXINT
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #4637986b5a0b
+```b
+(element) north : DOOR
+```
+
+---
+
+An element of an enumerated set.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #df2778996657
+```b
+POW(S)
+```
+
+---
+
+Power set
+
+**Example**
+```b
+POW({1, 2}) = {{}, {1}, {2}, {1, 2}}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #f1ac281034bb
+```b
+POW1(S)
+```
+
+---
+
+Set of non-empty subsets
+
+**Example**
+```b
+POW1({1}) = {{1}}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #49ffe255a3ea
+```b
+PI(z).(P|E)
+```
+
+---
+
+Set product
+
+**Example**
+```b
+PI(z).(z : 1..4 | z) = 24
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #a370d0337e26
+```b
+pred(n)
+```
+
+---
+
+Predecessor (n-1)
+
+**Example**
+```b
+pred(3) = 2
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #ed71d05bf9ae
+```b
+prj1(S,T)
+```
+
+---
+
+Projection function (usage prj1(Dom,Ran)(Pair))
+
+**Example**
+```b
+prj1(NATURAL, NATURAL)(1 |-> 2) = 1
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #4f5269e66d3a
+```b
+prj2(S,T)
+```
+
+---
+
+Projection function (usage prj2(Dom,Ran)(Pair))
+
+**Example**
+```b
+prj2(NATURAL, NATURAL)(1 |-> 2) = 2
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #b253886c590e
+```b
+perm(S)
+```
+
+---
+
+Set of bijective sequences (permutations) over S
+
+**Example**
+```b
+[2, 1] : perm({1, 2})
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #ba4af34018a4
+```b
+prefix(t)
+```
+
+---
+
+The nodes of the tree t in prefix order
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #6c15e42d462a
+```b
+postfix(t)
+```
+
+---
+
+The nodes of the tree t in prefix order
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #87f47dc32137
+```b
+PRE P THEN G END
+```
+
+---
+
+**Example**
+```b
+inc = PRE count < 10 THEN count := count + 1 END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #7ba479bc57e2
+```b
+PROPERTIES P
+```
+
+---
+
+Logical predicate
+
+**Example**
+```b
+CONSTANTS limit
+PROPERTIES limit : NATURAL & limit = 10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #e955c7c6de5f
+```b
+PROMOTES
+```
+
+---
+
+List of operations
+
+[ProB, Summary of B Syntax: Machine inclusion](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion)
+
+=== #a41a77c6884b
+```b
+(deferred set) PERSON
+```
+
+---
+
+A deferred set, declared in SETS: a non-empty set whose elements are not given.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #357752b3f287
+```b
+card(S)
+```
+
+---
+
+Cardinality
+
+**Example**
+```b
+card({4, 5, 6}) = 3
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #11e9333b3334
+```b
+closure1(r)
+```
+
+---
+
+Transitive closure
+
+**Example**
+```b
+closure1({1 |-> 2, 2 |-> 3}) = {1 |-> 2, 2 |-> 3, 1 |-> 3}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #a58bdd676e0f
+```b
+closure(r)
+```
+
+---
+
+Reflexive & transitive closure
+
+**Example**
+```b
+(1 |-> 1) : closure({1 |-> 2})
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #bfb6147a66f7
+```b
+conc(S)
+```
+
+---
+
+Concatenation of sequence of sequences
+
+**Example**
+```b
+conc([[1], [2, 3]]) = [1, 2, 3]
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+---
+
+```b
+conc(ss)
+```
+
+---
+
+The concatenation of a sequence of strings
+
+**Example**
+```b
+conc(["a", "bc"]) = "abc"
+```
+
+[ProB, Summary of B Syntax: Strings](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings)
+
+=== #662eca4df654
+```b
+ceiling(r)
+```
+
+---
+
+Convert a real r into an integer
+
+**Example**
+```b
+ceiling(2.1) = 3
+```
+
+[ProB, Summary of B Syntax: Reals](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals)
+
+=== #02fc4597139d
+```b
+const(E,s)
+```
+
+---
+
+Construct a tree from info E and sequence of subtrees s
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #16230cf2e14a
+```b
+CHOICE G OR H END
+```
+
+---
+
+**Example**
+```b
+CHOICE count := 1 OR count := 2 END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #1a50bac4eb6e
+```b
+CASE E OF EITHER m THEN G OR n THEN H ... END END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+---
+
+```b
+CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END
+```
+
+---
+
+**Example**
+```b
+CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #1a774b61e1dd
+```b
+CONSTRAINTS P
+```
+
+---
+
+Logical predicate
+
+**Example**
+```b
+MACHINE Buffer(size)
+CONSTRAINTS size : NATURAL1
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #d550ffe8a7d7
+```b
+CONSTANTS x,y,...
+```
+
+---
+
+**Example**
+```b
+CONSTANTS limit
+PROPERTIES limit : NATURAL & limit = 10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #1cf352de364d
+```b
+CONCRETE_CONSTANTS cx,cy,...
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #c5e743f64baf
+```b
+CONCRETE_VARIABLES cv,cw,...
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #0403033c2aa2
+```b
+(constant) capacity : INTEGER
+```
+
+---
+
+A constant; its type follows from PROPERTIES.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #bf6dc0e9ea8d
+```b
+(operation) close_door(d : DOOR)
+```
+
+---
+
+An operation of the machine.  
+Reads: `open`  
+Writes: `open`
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #286a6250e75d
+```b
+(operation) n : INTEGER <-- count
+```
+
+---
+
+An operation of the machine.  
+Reads: `inside`
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #1842ba132d2d
+```b
+FALSE
+```
+
+---
+
+Falsity value (this is an expression)
+
+**Example**
+```b
+bool(1 > 2) = FALSE
+```
+
+[ProB, Summary of B Syntax: Booleans](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans)
+
+=== #59d18c10503f
+```b
+FIN(S)
+```
+
+---
+
+Set of all finite subsets
+
+**Example**
+```b
+{1, 2} : FIN(NATURAL)
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #abe2822bfdfa
+```b
+FIN1(S)
+```
+
+---
+
+Set of all non-empty finite subsets
+
+**Example**
+```b
+{1} : FIN1(NATURAL)
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #06d05d201bb9
+```b
+fnc(r)
+```
+
+---
+
+Translate relation A<->B into function A+->POW(B)
+
+**Example**
+```b
+fnc({1 |-> 2, 1 |-> 3}) = {1 |-> {2, 3}}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #96248cec44d2
+```b
+first(s)
+```
+
+---
+
+First element
+
+**Example**
+```b
+first([4, 5]) = 4
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #3dc0adf4e422
+```b
+front(s)
+```
+
+---
+
+Front of sequence (all but last element)
+
+**Example**
+```b
+front([1, 2, 3]) = [1, 2]
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #8e0048a00bf1
+```b
+FLOAT
+```
+
+---
+
+Set of floating point numbers
+
+[ProB, Summary of B Syntax: Reals](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals)
+
+=== #4442fe71522f
+```b
+floor(r)
+```
+
+---
+
+Convert a real r into an integer
+
+**Example**
+```b
+floor(2.7) = 2
+```
+
+[ProB, Summary of B Syntax: Reals](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals)
+
+=== #fe941a55a592
+```b
+father(t,n)
+```
+
+---
+
+Father of the node denoted by branch n in the tree t
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #eb71f8f02045
+```b
+FREETYPES x=x1,x2(arg2),...;...
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #d3dd56f5d13f
+```b
+(definition) full
+```
+
+---
+
+A definition, expanded where it is used.
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #d73eba397648
+```b
+IMPORTS M,…
+```
+
+---
+
+Machines imported by an implementation.
+
+**Example**
+```b
+IMPLEMENTATION Counter_i
+REFINES Counter
+IMPORTS Storage
+```
+
+[ProB, Summary of B Syntax: Machine inclusion](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion)
+
+=== #a2c59bc84f78
+```b
+inter(S)
+```
+
+---
+
+Generalised intersection over sets of sets
+
+**Example**
+```b
+inter({{1, 2}, {2, 3}}) = {2}
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #cdca86b5d9f1
+```b
+INTER(z).(P|E)
+```
+
+---
+
+Generalised intersection with predicate
+
+**Example**
+```b
+INTER(z).(z : 1..2 | z..3) = 2..3
+```
+
+[ProB, Summary of B Syntax: Sets](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets)
+
+=== #2d6b7f7dd813
+```b
+INTEGER
+```
+
+---
+
+Set of integers
+
+**Example**
+```b
+-1 : INTEGER
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #e7c0b38f909f
+```b
+INT
+```
+
+---
+
+Set of implementable integers (MININT..MAXINT)
+
+**Example**
+```b
+INT = MININT..MAXINT
+```
+
+[ProB, Summary of B Syntax: Integers](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers)
+
+=== #754853db58a6
+```b
+id(S)
+```
+
+---
+
+Identity relation
+
+**Example**
+```b
+id({1, 2}) = {1 |-> 1, 2 |-> 2}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #a97ca697ca78
+```b
+iterate(r,n)
+```
+
+---
+
+Iteration of r with n>=0
+
+**Example**
+```b
+iterate({1 |-> 2, 2 |-> 3}, 2) = {1 |-> 3}
+```
+
+[ProB, Summary of B Syntax: Relations](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations)
+
+=== #7c579c2f4149
+```b
+iseq(S)
+```
+
+---
+
+Set of injective sequences over S
+
+**Example**
+```b
+[1, 2] : iseq(NATURAL)
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #ea645908dd01
+```b
+iseq1(S)
+```
+
+---
+
+Set of non-empty injective sequences over S
+
+**Example**
+```b
+[1, 2] : iseq1(NATURAL)
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #8da48ecd9fe5
+```b
+IF P THEN E1 END
+```
+
+---
+
+Conditional branching
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE)
+
+---
+
+```b
+IF P THEN E1 ELSIF E2 END
+```
+
+---
+
+We also allow multiple ELSIF branches
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE)
+
+---
+
+```b
+IF P THEN E1 ELSE E2 END
+```
+
+---
+
+But you always need an ELSE branch for expressions and predicates
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE)
+
+=== #ace3b64d2cbf
+```b
+LET x1,... BE x1=E1 & ... IN E END
+LET x,... BE x=E & ... IN G END
+VAR x,... IN G END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(LET x BE x = 2 IN x * x END) = 4
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #8ed0eff3b221
+```b
+INVARIANT P
+```
+
+---
+
+Logical predicate
+
+**Example**
+```b
+VARIABLES count
+INVARIANT count : 0..10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #43c8b98818d0
+```b
+MACHINE or REFINEMENT or IMPLEMENTATION
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+MACHINE Counter
+VARIABLES count
+INVARIANT count : 0..10
+INITIALISATION count := 0
+OPERATIONS
+  inc = PRE count < 10 THEN count := count + 1 END
+END
+```
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #a6af35b76bf7
+```b
+INITIALISATION S
+```
+
+---
+
+Substitution
+
+**Example**
+```b
+INITIALISATION count := 0
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #ac3729fb9ec3
+```b
+INCLUDES
+```
+
+---
+
+List of machines
+
+**Example**
+```b
+INCLUDES Counter
+```
+
+[ProB, Summary of B Syntax: Machine inclusion](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion)
+
+=== #c5e6c00306f8
+```b
+(variable) inside : POW(PERSON)
+```
+
+---
+
+A variable; its type follows from INVARIANT.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #3206d7277fb1
+```b
+VISIBLE_CONSTANTS c,…
+```
+
+---
+
+A synonym for CONCRETE_CONSTANTS.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #3ea63c4dce29
+```b
+VISIBLE_VARIABLES v,…
+```
+
+---
+
+A synonym for CONCRETE_VARIABLES.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #5da29d491b04
+```b
+VALUES c = E;…
+```
+
+---
+
+Values of constants and deferred sets in an implementation; ProB supports it partially.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #36e528eed3f6
+```b
+VAR x,... IN G END
+```
+
+---
+
+Generate local variables
+
+**Example**
+```b
+VAR t IN t := x ; x := y ; y := t END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #b986747d583b
+```b
+VARIABLES x,y,...
+```
+
+---
+
+**Example**
+```b
+VARIABLES count
+INVARIANT count : 0..10
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #5b2b3f88033c
+```b
+VISB_JSON_FILE == "PATH to .json"
+```
+
+---
+
+A path to a default VisB JSON file for visualisation;
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #2e98f9555294
+```b
+VISB_SVG_BOX == ...
+```
+
+---
+
+Record with dimensions (height, width) of a default empty SVG
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #5967162d03cb
+```b
+VISB_SVG_CONTENTS == ...
+```
+
+---
+
+Defines a string to be included into a created empty SVG file
+
+[ProB, Summary of B Syntax: Definitions](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions)
+
+=== #9db078f82fe4
+```b
+P or Q
+```
+
+---
+
+Disjunction
+
+**Example**
+```b
+1 > 2 or 2 > 1
+```
+
+[ProB, Summary of B Syntax: Logical predicates](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates)
+
+=== #fb7ac366c586
+```b
+CHOICE G OR H END
+CASE E OF EITHER m THEN G OR n THEN H ... END END
+CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+CHOICE count := 1 OR count := 2 END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #7b3b24c97733
+```b
+CASE E OF EITHER m THEN G OR n THEN H ... END END
+CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END
+```
+
+[ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #ebd3e882e852
+```b
+OPERATIONS O;...
+```
+
+---
+
+Operations
+
+**Example**
+```b
+OPERATIONS
+  inc = PRE count < 10 THEN count := count + 1 END;
+  r <-- get = r := count
+```
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #8642555cab5d
+```b
+(variable) open : POW(DOOR)
+```
+
+---
+
+A variable; its type follows from INVARIANT.
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #b29b99de83e1
+```b
+(operation) open_door(d : DOOR)
+```
+
+---
+
+An operation of the machine.  
+Reads: `open`  
+Writes: `open`
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)
+
+=== #318e6a6e9a66
+```b
+TRUE
+```
+
+---
+
+Truth value (this is an expression)
+
+**Example**
+```b
+bool(1 < 2) = TRUE
+```
+
+[ProB, Summary of B Syntax: Booleans](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans)
+
+=== #8c138d9e7bab
+```b
+tail(s)
+```
+
+---
+
+Tail of sequence (all but first element)
+
+**Example**
+```b
+tail([1, 2, 3]) = [2, 3]
+```
+
+[ProB, Summary of B Syntax: Sequences](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences)
+
+=== #da014c611a1c
+```b
+tree(S)
+```
+
+---
+
+Set of trees over domain S
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #ee451d2477a9
+```b
+top(t)
+```
+
+---
+
+Top of a tree
+
+[ProB, Summary of B Syntax: Trees](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees)
+
+=== #105ce7a745bc
+```b
+IF P THEN E1 END
+IF P THEN E1 ELSIF E2 END
+IF P THEN E1 ELSE E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+ANY x,... WHERE P THEN G END
+PRE P THEN G END
+ASSERT P THEN G END
+IF P THEN G END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #2eb694c9e5b2
+```b
+EVENTS e;…
+```
+
+---
+
+A synonym for OPERATIONS.
+
+[ProB, Summary of B Syntax: Machine header](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header)
+
+=== #38c748f8cc14
+```b
+IF P THEN E1 END
+IF P THEN E1 ELSIF E2 END
+IF P THEN E1 ELSE E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+LET x1,... BE x1=E1 & ... IN E END
+ANY x,... WHERE P THEN G END
+LET x,... BE x=E & ... IN G END
+VAR x,... IN G END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #8f211f5e4f3e
+```b
+IF P THEN E1 ELSIF E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+IF P1 THEN G1 ELSIF P2 THEN G2 ... END
+IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #4d5616f689b3
+```b
+IF P THEN E1 ELSE E2 END
+IF P THEN E1 ELSIF E2 ELSE E3 END
+IF P THEN G ELSE H END
+IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END
+SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END
+CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END
+```
+
+---
+
+Part of the constructs above.
+
+**Example**
+```b
+(IF 1 < 2 THEN 3 ELSE 4 END) = 3
+```
+
+[ProB, Summary of B Syntax: LET and IF-THEN-ELSE](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE) · [ProB, Summary of B Syntax: Statements (aka Substitutions)](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions))
+
+=== #50d2e39ade61
+```b
+EXTENDS
+```
+
+---
+
+List of machines
+
+[ProB, Summary of B Syntax: Machine inclusion](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion)
+
+=== #10215af24b5c
+```b
+(operation) enter(p : PERSON)
+```
+
+---
+
+An operation of the machine.  
+Reads: `capacity`, `inside`, `open`  
+Writes: `inside`
+
+[ProB, Summary of B Syntax: Machine sections](https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections)

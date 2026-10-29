@@ -1,0 +1,131 @@
+0:0 #8fab6f635833
+2:0 #7b94eaaf0b22
+4:0 #23131a597e59
+5:9 #ad3fe1085c48
+5:11 #1e0528bc7f9b
+7:0 #cdb73cbf8ec5
+
+=== #8fab6f635833
+```eventb
+machine name refines abstract sees context …
+  variables v …
+  invariants @label P …
+  variant V
+  events …
+end
+```
+
+---
+
+The dynamic part of a model: variables, invariants and the events that change the variables. A machine can refine one machine and see contexts.
+
+**Example**
+```eventb
+machine Counter sees Limits
+variables n
+invariants
+  @inv1 n ∈ 0 ‥ limit
+events
+  event INITIALISATION
+    then @act1 n ≔ 0
+  end
+  event inc
+    when @grd1 n < limit
+    then @act1 n ≔ n + 1
+  end
+end
+```
+
+[Rodin Handbook, 3.2.4 Machines](https://www3.hhu.de/stups/handbook/rodin/current/html/machine.html)
+
+=== #7b94eaaf0b22
+```eventb
+variables v …
+```
+
+---
+
+The state of the machine. Each variable needs an invariant from which its type can be inferred; variables of the abstract machine may be kept.
+
+**Example**
+```eventb
+variables n
+invariants
+  @inv1 n ∈ ℕ
+```
+
+[Rodin Handbook, 3.2.4.3 Variables and invariants](https://www3.hhu.de/stups/handbook/rodin/current/html/machine.html#variables_and_invariants)
+
+=== #23131a597e59
+```eventb
+invariants
+  @label P
+  theorem @label Q
+```
+
+---
+
+Labelled predicates that must hold in every state: the initialisation must establish them and every event preserve them (proof obligation INV).
+
+**Example**
+```eventb
+invariants
+  @inv1 n ∈ 0 ‥ limit
+```
+
+[Rodin Handbook, 3.2.4.3 Variables and invariants](https://www3.hhu.de/stups/handbook/rodin/current/html/machine.html#variables_and_invariants)
+
+=== #ad3fe1085c48
+```eventb
+E ∈ S
+```
+
+---
+
+**Set membership** · Typed as `:`.
+
+Checks if an expression E denotes an element of a set S.
+
+*Definition:* E ∉ S ≙ ¬ (E ∈ S)  
+*Type:* E ∈ S and E ∉ S are predicates with E ∈ α and S ∈ ℙ(α).  
+*Well-definedness:* L(E ∈ S) ≙ L(E) ∧ L(S)
+
+**Example**
+```eventb
+2 ∈ {1, 2, 3}
+```
+
+[Rodin Handbook, 3.3.2.5 Membership](https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#membership)
+
+=== #1e0528bc7f9b
+```eventb
+ℕ
+```
+
+---
+
+**Natural numbers, starting with 0** · Typed as `NAT`.
+
+The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.
+
+*Definition:* ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}; ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}  
+*Type:* ℕ ∈ ℙ(ℤ); ℕ1 ∈ ℙ(ℤ)  
+*Well-definedness:* L(ℕ) ≙ ⊤; L(ℕ1) ≙ ⊤
+
+**Example**
+```eventb
+0 ∈ ℕ ∧ −1 ∉ ℕ
+```
+
+[Rodin Handbook, 3.3.6.1 Sets of numbers](https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428)
+
+=== #cdb73cbf8ec5
+```eventb
+end
+```
+
+---
+
+Ends an event, machine or context.
+
+[Rodin Handbook, 3.2.4 Machines](https://www3.hhu.de/stups/handbook/rodin/current/html/machine.html)

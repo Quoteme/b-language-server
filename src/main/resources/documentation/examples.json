@@ -1,0 +1,1922 @@
+[
+ {
+  "language": "eventb",
+  "title": "True",
+  "kind": "sig",
+  "text": "⊤"
+ },
+ {
+  "language": "eventb",
+  "title": "False",
+  "kind": "sig",
+  "text": "⊥"
+ },
+ {
+  "language": "eventb",
+  "title": "Conjunction",
+  "kind": "sig",
+  "text": "P ∧ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "Disjunction",
+  "kind": "sig",
+  "text": "P ∨ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "Implication",
+  "kind": "sig",
+  "text": "P ⇒ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "Equivalence",
+  "kind": "sig",
+  "text": "P ⇔ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "Negation",
+  "kind": "sig",
+  "text": "¬P"
+ },
+ {
+  "language": "eventb",
+  "title": "Universal quantification",
+  "kind": "sig",
+  "text": "∀x·P ⇒ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "Existential quantification",
+  "kind": "sig",
+  "text": "∃x·P ∧ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "equality",
+  "kind": "sig",
+  "text": "E = F"
+ },
+ {
+  "language": "eventb",
+  "title": "inequality",
+  "kind": "sig",
+  "text": "E ≠ F"
+ },
+ {
+  "language": "eventb",
+  "title": "set membership",
+  "kind": "sig",
+  "text": "E ∈ S"
+ },
+ {
+  "language": "eventb",
+  "title": "negated set membership",
+  "kind": "sig",
+  "text": "E ∉ S"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean values",
+  "kind": "sig",
+  "text": "BOOL"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean true",
+  "kind": "sig",
+  "text": "TRUE"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean false",
+  "kind": "sig",
+  "text": "FALSE"
+ },
+ {
+  "language": "eventb",
+  "title": "Convert a predicate into a Boolean value",
+  "kind": "sig",
+  "text": "bool(P)"
+ },
+ {
+  "language": "eventb",
+  "title": "Empty set",
+  "kind": "sig",
+  "text": "∅"
+ },
+ {
+  "language": "eventb",
+  "title": "subset",
+  "kind": "sig",
+  "text": "S ⊆ T"
+ },
+ {
+  "language": "eventb",
+  "title": "not a subset",
+  "kind": "sig",
+  "text": "S ⊈ T"
+ },
+ {
+  "language": "eventb",
+  "title": "strict subset",
+  "kind": "sig",
+  "text": "S ⊂ T"
+ },
+ {
+  "language": "eventb",
+  "title": "not a strict subset",
+  "kind": "sig",
+  "text": "S ⊄ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Union",
+  "kind": "sig",
+  "text": "S ∪ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Intersection",
+  "kind": "sig",
+  "text": "S ∩ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Set subtraction",
+  "kind": "sig",
+  "text": "S ∖ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Power set",
+  "kind": "sig",
+  "text": "ℙ(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Set of non-empty subsets",
+  "kind": "sig",
+  "text": "ℙ1(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Finite set",
+  "kind": "sig",
+  "text": "finite(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Cardinality of a finite set",
+  "kind": "sig",
+  "text": "card(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Partitions of a set",
+  "kind": "sig",
+  "text": "partition(S, A, B, …)"
+ },
+ {
+  "language": "eventb",
+  "title": "Generalized union",
+  "kind": "sig",
+  "text": "union(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Generalized intersection",
+  "kind": "sig",
+  "text": "inter(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Quantified union",
+  "kind": "sig",
+  "text": "⋃x·P ∣ E"
+ },
+ {
+  "language": "eventb",
+  "title": "Quantified intersection",
+  "kind": "sig",
+  "text": "⋂x·P ∣ E"
+ },
+ {
+  "language": "eventb",
+  "title": "Pair",
+  "kind": "sig",
+  "text": "E ↦ F"
+ },
+ {
+  "language": "eventb",
+  "title": "Cartesian product",
+  "kind": "sig",
+  "text": "S × T"
+ },
+ {
+  "language": "eventb",
+  "title": "Relations",
+  "kind": "sig",
+  "text": "S ↔ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Total relations",
+  "kind": "sig",
+  "text": "S  T"
+ },
+ {
+  "language": "eventb",
+  "title": "Surjective relations",
+  "kind": "sig",
+  "text": "S  T"
+ },
+ {
+  "language": "eventb",
+  "title": "Total surjective relations",
+  "kind": "sig",
+  "text": "S  T"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain",
+  "kind": "sig",
+  "text": "dom(r)"
+ },
+ {
+  "language": "eventb",
+  "title": "Range",
+  "kind": "sig",
+  "text": "ran(r)"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain restriction",
+  "kind": "sig",
+  "text": "S ◁ r"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain subtraction",
+  "kind": "sig",
+  "text": "S ⩤ r"
+ },
+ {
+  "language": "eventb",
+  "title": "Range restriction",
+  "kind": "sig",
+  "text": "r ▷ S"
+ },
+ {
+  "language": "eventb",
+  "title": "Range subtraction",
+  "kind": "sig",
+  "text": "r ⩥ S"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational forward composition",
+  "kind": "sig",
+  "text": "r ; s"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational backward composition",
+  "kind": "sig",
+  "text": "s ∘ r"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational override",
+  "kind": "sig",
+  "text": "r  s"
+ },
+ {
+  "language": "eventb",
+  "title": "Parallel product",
+  "kind": "sig",
+  "text": "r ∥ s"
+ },
+ {
+  "language": "eventb",
+  "title": "Direct product",
+  "kind": "sig",
+  "text": "r ⊗ s"
+ },
+ {
+  "language": "eventb",
+  "title": "Inverse",
+  "kind": "sig",
+  "text": "r∼"
+ },
+ {
+  "language": "eventb",
+  "title": "Identity relation",
+  "kind": "sig",
+  "text": "id"
+ },
+ {
+  "language": "eventb",
+  "title": "First projection",
+  "kind": "sig",
+  "text": "prj1"
+ },
+ {
+  "language": "eventb",
+  "title": "Second projection",
+  "kind": "sig",
+  "text": "prj2"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial functions",
+  "kind": "sig",
+  "text": "S ⇸ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Total functions",
+  "kind": "sig",
+  "text": "S → T"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial injections",
+  "kind": "sig",
+  "text": "S ⤔ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Total injections",
+  "kind": "sig",
+  "text": "S ↣ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial surjections",
+  "kind": "sig",
+  "text": "S ⤀ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Total surjections",
+  "kind": "sig",
+  "text": "S ↠ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Bijections",
+  "kind": "sig",
+  "text": "S ⤖ T"
+ },
+ {
+  "language": "eventb",
+  "title": "Lambda",
+  "kind": "sig",
+  "text": "λx·P ∣ E"
+ },
+ {
+  "language": "eventb",
+  "title": "Integers",
+  "kind": "sig",
+  "text": "ℤ"
+ },
+ {
+  "language": "eventb",
+  "title": "Natural numbers, starting with 0",
+  "kind": "sig",
+  "text": "ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Natural numbers, starting with 1",
+  "kind": "sig",
+  "text": "ℕ1"
+ },
+ {
+  "language": "eventb",
+  "title": "Range of numbers",
+  "kind": "sig",
+  "text": "a ‥ b"
+ },
+ {
+  "language": "eventb",
+  "title": "Addition",
+  "kind": "sig",
+  "text": "a + b"
+ },
+ {
+  "language": "eventb",
+  "title": "Subtraction or unary minus",
+  "kind": "sig",
+  "text": "a − b"
+ },
+ {
+  "language": "eventb",
+  "title": "Multiplication",
+  "kind": "sig",
+  "text": "a ∗ b"
+ },
+ {
+  "language": "eventb",
+  "title": "Integer division",
+  "kind": "sig",
+  "text": "a ÷ b"
+ },
+ {
+  "language": "eventb",
+  "title": "Modulo",
+  "kind": "sig",
+  "text": "a mod b"
+ },
+ {
+  "language": "eventb",
+  "title": "Exponentiation",
+  "kind": "sig",
+  "text": "a ^ b"
+ },
+ {
+  "language": "eventb",
+  "title": "Minimum",
+  "kind": "sig",
+  "text": "min(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "Maximum",
+  "kind": "sig",
+  "text": "max(S)"
+ },
+ {
+  "language": "eventb",
+  "title": "of type",
+  "kind": "sig",
+  "text": "E ⦂ T"
+ },
+ {
+  "language": "eventb",
+  "title": "deterministic assignment",
+  "kind": "sig",
+  "text": "x ≔ E"
+ },
+ {
+  "language": "eventb",
+  "title": "non-deterministic assignment with a before-after-predicate",
+  "kind": "sig",
+  "text": "x :∣ Q"
+ },
+ {
+  "language": "eventb",
+  "title": "non-deterministic assignment of a set member",
+  "kind": "sig",
+  "text": "x :∈ S"
+ },
+ {
+  "language": "eventb",
+  "title": "True",
+  "kind": "pred",
+  "text": "⊤"
+ },
+ {
+  "language": "eventb",
+  "title": "False",
+  "kind": "pred",
+  "text": "¬⊥"
+ },
+ {
+  "language": "eventb",
+  "title": "Conjunction",
+  "kind": "pred",
+  "text": "1 < 2 ∧ 2 < 3"
+ },
+ {
+  "language": "eventb",
+  "title": "Disjunction",
+  "kind": "pred",
+  "text": "1 > 2 ∨ 2 > 1"
+ },
+ {
+  "language": "eventb",
+  "title": "Implication",
+  "kind": "pred",
+  "text": "1 > 2 ⇒ 1 = 3"
+ },
+ {
+  "language": "eventb",
+  "title": "Equivalence",
+  "kind": "pred",
+  "text": "1 < 2 ⇔ 2 > 1"
+ },
+ {
+  "language": "eventb",
+  "title": "Negation",
+  "kind": "pred",
+  "text": "¬(1 = 2)"
+ },
+ {
+  "language": "eventb",
+  "title": "Universal quantification",
+  "kind": "pred",
+  "text": "∀x·x ∈ 1 ‥ 3 ⇒ x > 0"
+ },
+ {
+  "language": "eventb",
+  "title": "Existential quantification",
+  "kind": "pred",
+  "text": "∃x·x ∈ ℕ ∧ x ∗ x = 9"
+ },
+ {
+  "language": "eventb",
+  "title": "equality",
+  "kind": "pred",
+  "text": "{1, 2} = {2, 1}"
+ },
+ {
+  "language": "eventb",
+  "title": "inequality",
+  "kind": "pred",
+  "text": "1 ≠ 2"
+ },
+ {
+  "language": "eventb",
+  "title": "set membership",
+  "kind": "pred",
+  "text": "2 ∈ {1, 2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "negated set membership",
+  "kind": "pred",
+  "text": "4 ∉ {1, 2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean values",
+  "kind": "pred",
+  "text": "BOOL = {TRUE, FALSE}"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean true",
+  "kind": "pred",
+  "text": "bool(1 < 2) = TRUE"
+ },
+ {
+  "language": "eventb",
+  "title": "Boolean false",
+  "kind": "pred",
+  "text": "bool(1 > 2) = FALSE"
+ },
+ {
+  "language": "eventb",
+  "title": "Convert a predicate into a Boolean value",
+  "kind": "pred",
+  "text": "bool(2 ∈ {1, 2}) = TRUE"
+ },
+ {
+  "language": "eventb",
+  "title": "Empty set",
+  "kind": "pred",
+  "text": "{1} ∩ {2} = ∅"
+ },
+ {
+  "language": "eventb",
+  "title": "subset",
+  "kind": "pred",
+  "text": "{1, 2} ⊆ {1, 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "not a subset",
+  "kind": "pred",
+  "text": "{1, 4} ⊈ {1, 2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "strict subset",
+  "kind": "pred",
+  "text": "{1} ⊂ {1, 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "not a strict subset",
+  "kind": "pred",
+  "text": "{1, 2} ⊄ {1, 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Union",
+  "kind": "pred",
+  "text": "{1, 2} ∪ {2, 3} = {1, 2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Intersection",
+  "kind": "pred",
+  "text": "{1, 2} ∩ {2, 3} = {2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Set subtraction",
+  "kind": "pred",
+  "text": "{1, 2, 3} ∖ {2} = {1, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Power set",
+  "kind": "pred",
+  "text": "ℙ({1, 2}) = {∅, {1}, {2}, {1, 2}}"
+ },
+ {
+  "language": "eventb",
+  "title": "Set of non-empty subsets",
+  "kind": "pred",
+  "text": "ℙ1({1}) = {{1}}"
+ },
+ {
+  "language": "eventb",
+  "title": "Finite set",
+  "kind": "pred",
+  "text": "finite(1 ‥ 10)"
+ },
+ {
+  "language": "eventb",
+  "title": "Cardinality of a finite set",
+  "kind": "pred",
+  "text": "card({4, 5, 6}) = 3"
+ },
+ {
+  "language": "eventb",
+  "title": "Partitions of a set",
+  "kind": "pred",
+  "text": "partition(1 ‥ 4, {1, 2}, {3, 4})"
+ },
+ {
+  "language": "eventb",
+  "title": "Generalized union",
+  "kind": "pred",
+  "text": "union({{1}, {2, 3}}) = {1, 2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Generalized intersection",
+  "kind": "pred",
+  "text": "inter({{1, 2}, {2, 3}}) = {2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Quantified union",
+  "kind": "pred",
+  "text": "(⋃x·x ∈ 1 ‥ 3 ∣ {x ∗ 2}) = {2, 4, 6}"
+ },
+ {
+  "language": "eventb",
+  "title": "Quantified intersection",
+  "kind": "pred",
+  "text": "(⋂x·x ∈ 1 ‥ 2 ∣ x ‥ 3) = 2 ‥ 3"
+ },
+ {
+  "language": "eventb",
+  "title": "Pair",
+  "kind": "pred",
+  "text": "(1 ↦ 2) ∈ ℕ × ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Cartesian product",
+  "kind": "pred",
+  "text": "{1} × {2, 3} = {1 ↦ 2, 1 ↦ 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Relations",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 1 ↦ 3} ∈ {1} ↔ {2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Total relations",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 1 ↦ 3} ∈ {1}  {2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Surjective relations",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 1 ↦ 3} ∈ {1, 4}  {2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Total surjective relations",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 4 ↦ 3} ∈ {1, 4}  {2, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain",
+  "kind": "pred",
+  "text": "dom({1 ↦ 2, 3 ↦ 4}) = {1, 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Range",
+  "kind": "pred",
+  "text": "ran({1 ↦ 2, 3 ↦ 4}) = {2, 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain restriction",
+  "kind": "pred",
+  "text": "{1} ◁ {1 ↦ 2, 3 ↦ 4} = {1 ↦ 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Domain subtraction",
+  "kind": "pred",
+  "text": "{1} ⩤ {1 ↦ 2, 3 ↦ 4} = {3 ↦ 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Range restriction",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 4} ▷ {4} = {3 ↦ 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Range subtraction",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 4} ⩥ {4} = {1 ↦ 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational forward composition",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ; {2 ↦ 3} = {1 ↦ 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational backward composition",
+  "kind": "pred",
+  "text": "{2 ↦ 3} ∘ {1 ↦ 2} = {1 ↦ 3}"
+ },
+ {
+  "language": "eventb",
+  "title": "Relational override",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 4}  {1 ↦ 5} = {1 ↦ 5, 3 ↦ 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Parallel product",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ∥ {3 ↦ 4} = {(1 ↦ 3) ↦ (2 ↦ 4)}"
+ },
+ {
+  "language": "eventb",
+  "title": "Direct product",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ⊗ {1 ↦ 3} = {1 ↦ (2 ↦ 3)}"
+ },
+ {
+  "language": "eventb",
+  "title": "Inverse",
+  "kind": "pred",
+  "text": "{1 ↦ 2}∼ = {2 ↦ 1}"
+ },
+ {
+  "language": "eventb",
+  "title": "Identity relation",
+  "kind": "pred",
+  "text": "{1, 2} ◁ id = {1 ↦ 1, 2 ↦ 2}"
+ },
+ {
+  "language": "eventb",
+  "title": "First projection",
+  "kind": "pred",
+  "text": "prj1(1 ↦ 2) = 1"
+ },
+ {
+  "language": "eventb",
+  "title": "Second projection",
+  "kind": "pred",
+  "text": "prj2(1 ↦ 2) = 2"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial functions",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ∈ {1, 3} ⇸ ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Total functions",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 2} ∈ {1, 3} → ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial injections",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ∈ {1, 3} ⤔ {2, 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Total injections",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 4} ∈ {1, 3} ↣ ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Partial surjections",
+  "kind": "pred",
+  "text": "{1 ↦ 2} ∈ {1, 3} ⤀ {2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Total surjections",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 2} ∈ {1, 3} ↠ {2}"
+ },
+ {
+  "language": "eventb",
+  "title": "Bijections",
+  "kind": "pred",
+  "text": "{1 ↦ 2, 3 ↦ 4} ∈ {1, 3} ⤖ {2, 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Lambda",
+  "kind": "pred",
+  "text": "(λx·x ∈ ℤ ∣ x ∗ x)(3) = 9"
+ },
+ {
+  "language": "eventb",
+  "title": "Integers",
+  "kind": "pred",
+  "text": "−1 ∈ ℤ"
+ },
+ {
+  "language": "eventb",
+  "title": "Natural numbers, starting with 0",
+  "kind": "pred",
+  "text": "0 ∈ ℕ ∧ −1 ∉ ℕ"
+ },
+ {
+  "language": "eventb",
+  "title": "Natural numbers, starting with 1",
+  "kind": "pred",
+  "text": "0 ∉ ℕ1 ∧ 1 ∈ ℕ1"
+ },
+ {
+  "language": "eventb",
+  "title": "Range of numbers",
+  "kind": "pred",
+  "text": "2 ‥ 4 = {2, 3, 4}"
+ },
+ {
+  "language": "eventb",
+  "title": "Addition",
+  "kind": "pred",
+  "text": "2 + 3 = 5"
+ },
+ {
+  "language": "eventb",
+  "title": "Subtraction or unary minus",
+  "kind": "pred",
+  "text": "5 − 3 = 2"
+ },
+ {
+  "language": "eventb",
+  "title": "Multiplication",
+  "kind": "pred",
+  "text": "2 ∗ 3 = 6"
+ },
+ {
+  "language": "eventb",
+  "title": "Integer division",
+  "kind": "pred",
+  "text": "7 ÷ 2 = 3"
+ },
+ {
+  "language": "eventb",
+  "title": "Modulo",
+  "kind": "pred",
+  "text": "7 mod 2 = 1"
+ },
+ {
+  "language": "eventb",
+  "title": "Exponentiation",
+  "kind": "pred",
+  "text": "2 ^ 3 = 8"
+ },
+ {
+  "language": "eventb",
+  "title": "Minimum",
+  "kind": "pred",
+  "text": "min({3, 1, 2}) = 1"
+ },
+ {
+  "language": "eventb",
+  "title": "Maximum",
+  "kind": "pred",
+  "text": "max({3, 1, 2}) = 3"
+ },
+ {
+  "language": "eventb",
+  "title": "of type",
+  "kind": "pred",
+  "text": "(∅ ⦂ ℙ(ℤ)) = ∅"
+ },
+ {
+  "language": "eventb",
+  "title": "deterministic assignment",
+  "kind": "code",
+  "text": "@act1 n ≔ n + 1\n@act2 f(1) ≔ 2"
+ },
+ {
+  "language": "eventb",
+  "title": "non-deterministic assignment with a before-after-predicate",
+  "kind": "code",
+  "text": "@act1 n :∣ n' > n"
+ },
+ {
+  "language": "eventb",
+  "title": "non-deterministic assignment of a set member",
+  "kind": "code",
+  "text": "@act1 n :∈ 1 ‥ 3"
+ },
+ {
+  "language": "b",
+  "title": "P & Q",
+  "kind": "pred",
+  "text": "1 < 2 & 2 < 3"
+ },
+ {
+  "language": "b",
+  "title": "P or Q",
+  "kind": "pred",
+  "text": "1 > 2 or 2 > 1"
+ },
+ {
+  "language": "b",
+  "title": "P => Q",
+  "kind": "pred",
+  "text": "1 > 2 => 1 = 3"
+ },
+ {
+  "language": "b",
+  "title": "P <=> Q",
+  "kind": "pred",
+  "text": "(1 < 2) <=> (2 > 1)"
+ },
+ {
+  "language": "b",
+  "title": "not(P)",
+  "kind": "pred",
+  "text": "not(1 = 2)"
+ },
+ {
+  "language": "b",
+  "title": "!(x).(P=>Q)",
+  "kind": "pred",
+  "text": "!(x).(x : 1..3 => x > 0)"
+ },
+ {
+  "language": "b",
+  "title": "#(x).(P&Q)",
+  "kind": "pred",
+  "text": "#(x).(x : NATURAL & x * x = 9)"
+ },
+ {
+  "language": "b",
+  "title": "btrue",
+  "kind": "pred",
+  "text": "btrue"
+ },
+ {
+  "language": "b",
+  "title": "bfalse",
+  "kind": "pred",
+  "text": "not(bfalse)"
+ },
+ {
+  "language": "b",
+  "title": "E = F",
+  "kind": "pred",
+  "text": "{1, 2} = {2, 1}"
+ },
+ {
+  "language": "b",
+  "title": "E /= F",
+  "kind": "pred",
+  "text": "1 /= 2"
+ },
+ {
+  "language": "b",
+  "title": "TRUE",
+  "kind": "pred",
+  "text": "bool(1 < 2) = TRUE"
+ },
+ {
+  "language": "b",
+  "title": "FALSE",
+  "kind": "pred",
+  "text": "bool(1 > 2) = FALSE"
+ },
+ {
+  "language": "b",
+  "title": "BOOL",
+  "kind": "pred",
+  "text": "BOOL = {TRUE, FALSE}"
+ },
+ {
+  "language": "b",
+  "title": "bool(P)",
+  "kind": "pred",
+  "text": "bool(2 : {1, 2}) = TRUE"
+ },
+ {
+  "language": "b",
+  "title": "{x|P}",
+  "kind": "pred",
+  "text": "{x | x : 1..10 & x mod 3 = 0} = {3, 6, 9}"
+ },
+ {
+  "language": "b",
+  "title": "{(x).P|E}",
+  "kind": "pred",
+  "text": "{(x).x : 1..3 | x * x} = {1, 4, 9}"
+ },
+ {
+  "language": "b",
+  "title": "POW(S)",
+  "kind": "pred",
+  "text": "POW({1, 2}) = {{}, {1}, {2}, {1, 2}}"
+ },
+ {
+  "language": "b",
+  "title": "POW1(S)",
+  "kind": "pred",
+  "text": "POW1({1}) = {{1}}"
+ },
+ {
+  "language": "b",
+  "title": "FIN(S)",
+  "kind": "pred",
+  "text": "{1, 2} : FIN(NATURAL)"
+ },
+ {
+  "language": "b",
+  "title": "FIN1(S)",
+  "kind": "pred",
+  "text": "{1} : FIN1(NATURAL)"
+ },
+ {
+  "language": "b",
+  "title": "card(S)",
+  "kind": "pred",
+  "text": "card({4, 5, 6}) = 3"
+ },
+ {
+  "language": "b",
+  "title": "S*T",
+  "kind": "pred",
+  "text": "{1} * {2, 3} = {(1, 2), (1, 3)}"
+ },
+ {
+  "language": "b",
+  "title": "S\\/T",
+  "kind": "pred",
+  "text": "{1, 2} \\/ {2, 3} = {1, 2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S/\\T",
+  "kind": "pred",
+  "text": "{1, 2} /\\ {2, 3} = {2}"
+ },
+ {
+  "language": "b",
+  "title": "S-T or S \\ T",
+  "kind": "pred",
+  "text": "{1, 2, 3} - {2} = {1, 3}"
+ },
+ {
+  "language": "b",
+  "title": "E:S",
+  "kind": "pred",
+  "text": "2 : {1, 2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "E/:S",
+  "kind": "pred",
+  "text": "4 /: {1, 2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S<:T",
+  "kind": "pred",
+  "text": "{1, 2} <: {1, 2}"
+ },
+ {
+  "language": "b",
+  "title": "S/<:T",
+  "kind": "pred",
+  "text": "{1, 4} /<: {1, 2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S<<:T",
+  "kind": "pred",
+  "text": "{1} <<: {1, 2}"
+ },
+ {
+  "language": "b",
+  "title": "S/<<:T",
+  "kind": "pred",
+  "text": "{1, 2} /<<: {1, 2}"
+ },
+ {
+  "language": "b",
+  "title": "union(S)",
+  "kind": "pred",
+  "text": "union({{1}, {2, 3}}) = {1, 2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "inter(S)",
+  "kind": "pred",
+  "text": "inter({{1, 2}, {2, 3}}) = {2}"
+ },
+ {
+  "language": "b",
+  "title": "UNION(z).(P|E)",
+  "kind": "pred",
+  "text": "UNION(z).(z : 1..3 | {z * 2}) = {2, 4, 6}"
+ },
+ {
+  "language": "b",
+  "title": "INTER(z).(P|E)",
+  "kind": "pred",
+  "text": "INTER(z).(z : 1..2 | z..3) = 2..3"
+ },
+ {
+  "language": "b",
+  "title": "S?",
+  "kind": "pred",
+  "text": "{5}? = 5"
+ },
+ {
+  "language": "b",
+  "title": "INTEGER",
+  "kind": "pred",
+  "text": "-1 : INTEGER"
+ },
+ {
+  "language": "b",
+  "title": "NATURAL",
+  "kind": "pred",
+  "text": "0 : NATURAL & -1 /: NATURAL"
+ },
+ {
+  "language": "b",
+  "title": "NATURAL1",
+  "kind": "pred",
+  "text": "0 /: NATURAL1 & 1 : NATURAL1"
+ },
+ {
+  "language": "b",
+  "title": "INT",
+  "kind": "pred",
+  "text": "INT = MININT..MAXINT"
+ },
+ {
+  "language": "b",
+  "title": "NAT",
+  "kind": "pred",
+  "text": "NAT = 0..MAXINT"
+ },
+ {
+  "language": "b",
+  "title": "NAT1",
+  "kind": "pred",
+  "text": "NAT1 = 1..MAXINT"
+ },
+ {
+  "language": "b",
+  "title": "MININT",
+  "kind": "pred",
+  "text": "MININT < 0"
+ },
+ {
+  "language": "b",
+  "title": "MAXINT",
+  "kind": "pred",
+  "text": "MAXINT > 0"
+ },
+ {
+  "language": "b",
+  "title": "n..m",
+  "kind": "pred",
+  "text": "2..4 = {2, 3, 4}"
+ },
+ {
+  "language": "b",
+  "title": "m>n",
+  "kind": "pred",
+  "text": "3 > 2"
+ },
+ {
+  "language": "b",
+  "title": "m<n",
+  "kind": "pred",
+  "text": "2 < 3"
+ },
+ {
+  "language": "b",
+  "title": "m>=n",
+  "kind": "pred",
+  "text": "3 >= 3"
+ },
+ {
+  "language": "b",
+  "title": "m<=n",
+  "kind": "pred",
+  "text": "2 <= 3"
+ },
+ {
+  "language": "b",
+  "title": "max(S)",
+  "kind": "pred",
+  "text": "max({3, 1, 2}) = 3"
+ },
+ {
+  "language": "b",
+  "title": "min(S)",
+  "kind": "pred",
+  "text": "min({3, 1, 2}) = 1"
+ },
+ {
+  "language": "b",
+  "title": "m+n",
+  "kind": "pred",
+  "text": "2 + 3 = 5"
+ },
+ {
+  "language": "b",
+  "title": "m-n",
+  "kind": "pred",
+  "text": "5 - 3 = 2"
+ },
+ {
+  "language": "b",
+  "title": "m*n",
+  "kind": "pred",
+  "text": "2 * 3 = 6"
+ },
+ {
+  "language": "b",
+  "title": "m/n",
+  "kind": "pred",
+  "text": "7 / 2 = 3"
+ },
+ {
+  "language": "b",
+  "title": "m**n",
+  "kind": "pred",
+  "text": "2 ** 3 = 8"
+ },
+ {
+  "language": "b",
+  "title": "m mod n",
+  "kind": "pred",
+  "text": "7 mod 2 = 1"
+ },
+ {
+  "language": "b",
+  "title": "PI(z).(P|E)",
+  "kind": "pred",
+  "text": "PI(z).(z : 1..4 | z) = 24"
+ },
+ {
+  "language": "b",
+  "title": "SIGMA(z).(P|E)",
+  "kind": "pred",
+  "text": "SIGMA(z).(z : 1..4 | z) = 10"
+ },
+ {
+  "language": "b",
+  "title": "succ(n)",
+  "kind": "pred",
+  "text": "succ(3) = 4"
+ },
+ {
+  "language": "b",
+  "title": "pred(n)",
+  "kind": "pred",
+  "text": "pred(3) = 2"
+ },
+ {
+  "language": "b",
+  "title": "S<->T",
+  "kind": "pred",
+  "text": "{(1, 2), (1, 3)} : {1} <-> {2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S<<->T",
+  "kind": "pred",
+  "text": "{(1, 2)} : {1} <<-> {2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S<->>T",
+  "kind": "pred",
+  "text": "{(1, 2), (1, 3)} : {1, 4} <->> {2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "S<<->>T",
+  "kind": "pred",
+  "text": "{(1, 2), (4, 3)} : {1, 4} <<->> {2, 3}"
+ },
+ {
+  "language": "b",
+  "title": "E|->F",
+  "kind": "pred",
+  "text": "(1 |-> 2) = (1, 2)"
+ },
+ {
+  "language": "b",
+  "title": "dom(r)",
+  "kind": "pred",
+  "text": "dom({1 |-> 2, 3 |-> 4}) = {1, 3}"
+ },
+ {
+  "language": "b",
+  "title": "ran(r)",
+  "kind": "pred",
+  "text": "ran({1 |-> 2, 3 |-> 4}) = {2, 4}"
+ },
+ {
+  "language": "b",
+  "title": "id(S)",
+  "kind": "pred",
+  "text": "id({1, 2}) = {1 |-> 1, 2 |-> 2}"
+ },
+ {
+  "language": "b",
+  "title": "S<|r",
+  "kind": "pred",
+  "text": "{1} <| {1 |-> 2, 3 |-> 4} = {1 |-> 2}"
+ },
+ {
+  "language": "b",
+  "title": "S<<|r",
+  "kind": "pred",
+  "text": "{1} <<| {1 |-> 2, 3 |-> 4} = {3 |-> 4}"
+ },
+ {
+  "language": "b",
+  "title": "r|>S",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4} |> {4} = {3 |-> 4}"
+ },
+ {
+  "language": "b",
+  "title": "r|>>S",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4} |>> {4} = {1 |-> 2}"
+ },
+ {
+  "language": "b",
+  "title": "r~",
+  "kind": "pred",
+  "text": "{1 |-> 2}~ = {2 |-> 1}"
+ },
+ {
+  "language": "b",
+  "title": "r[S]",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4}[{1}] = {2}"
+ },
+ {
+  "language": "b",
+  "title": "r1<+r2",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4} <+ {1 |-> 5} = {1 |-> 5, 3 |-> 4}"
+ },
+ {
+  "language": "b",
+  "title": "r1><r2",
+  "kind": "pred",
+  "text": "{1 |-> 2} >< {1 |-> 3} = {1 |-> (2 |-> 3)}"
+ },
+ {
+  "language": "b",
+  "title": "(r1;r2)",
+  "kind": "pred",
+  "text": "({1 |-> 2} ; {2 |-> 3}) = {1 |-> 3}"
+ },
+ {
+  "language": "b",
+  "title": "(r1||r2)",
+  "kind": "pred",
+  "text": "({1 |-> 2} || {3 |-> 4}) = {(1 |-> 3) |-> (2 |-> 4)}"
+ },
+ {
+  "language": "b",
+  "title": "prj1(S,T)",
+  "kind": "pred",
+  "text": "prj1(NATURAL, NATURAL)(1 |-> 2) = 1"
+ },
+ {
+  "language": "b",
+  "title": "prj2(S,T)",
+  "kind": "pred",
+  "text": "prj2(NATURAL, NATURAL)(1 |-> 2) = 2"
+ },
+ {
+  "language": "b",
+  "title": "fnc(r)",
+  "kind": "pred",
+  "text": "fnc({1 |-> 2, 1 |-> 3}) = {1 |-> {2, 3}}"
+ },
+ {
+  "language": "b",
+  "title": "rel(r)",
+  "kind": "pred",
+  "text": "rel({1 |-> {2, 3}}) = {1 |-> 2, 1 |-> 3}"
+ },
+ {
+  "language": "b",
+  "title": "closure1(r)",
+  "kind": "pred",
+  "text": "closure1({1 |-> 2, 2 |-> 3}) = {1 |-> 2, 2 |-> 3, 1 |-> 3}"
+ },
+ {
+  "language": "b",
+  "title": "closure(r)",
+  "kind": "pred",
+  "text": "(1 |-> 1) : closure({1 |-> 2})"
+ },
+ {
+  "language": "b",
+  "title": "iterate(r,n)",
+  "kind": "pred",
+  "text": "iterate({1 |-> 2, 2 |-> 3}, 2) = {1 |-> 3}"
+ },
+ {
+  "language": "b",
+  "title": "S+->T",
+  "kind": "pred",
+  "text": "{1 |-> 2} : {1, 3} +-> NATURAL"
+ },
+ {
+  "language": "b",
+  "title": "S-->T",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 2} : {1, 3} --> NATURAL"
+ },
+ {
+  "language": "b",
+  "title": "S+->>T",
+  "kind": "pred",
+  "text": "{1 |-> 2} : {1, 3} +->> {2}"
+ },
+ {
+  "language": "b",
+  "title": "S-->>T",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 2} : {1, 3} -->> {2}"
+ },
+ {
+  "language": "b",
+  "title": "S>+>T",
+  "kind": "pred",
+  "text": "{1 |-> 2} : {1, 3} >+> {2, 4}"
+ },
+ {
+  "language": "b",
+  "title": "S>->T",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4} : {1, 3} >-> NATURAL"
+ },
+ {
+  "language": "b",
+  "title": "S>+>>T",
+  "kind": "pred",
+  "text": "{1 |-> 2} : {1, 3} >+>> {2}"
+ },
+ {
+  "language": "b",
+  "title": "S>->>T",
+  "kind": "pred",
+  "text": "{1 |-> 2, 3 |-> 4} : {1, 3} >->> {2, 4}"
+ },
+ {
+  "language": "b",
+  "title": "%x.(P|E)",
+  "kind": "pred",
+  "text": "%x.(x : INTEGER | x * x)(3) = 9"
+ },
+ {
+  "language": "b",
+  "title": "[] or <>",
+  "kind": "pred",
+  "text": "[1] /= []"
+ },
+ {
+  "language": "b",
+  "title": "[E]",
+  "kind": "pred",
+  "text": "[5] = {1 |-> 5}"
+ },
+ {
+  "language": "b",
+  "title": "[E,F]",
+  "kind": "pred",
+  "text": "[5, 6] = {1 |-> 5, 2 |-> 6}"
+ },
+ {
+  "language": "b",
+  "title": "seq(S)",
+  "kind": "pred",
+  "text": "[1, 2] : seq({1, 2})"
+ },
+ {
+  "language": "b",
+  "title": "seq1(S)",
+  "kind": "pred",
+  "text": "[] /: seq1({1})"
+ },
+ {
+  "language": "b",
+  "title": "iseq(S)",
+  "kind": "pred",
+  "text": "[1, 2] : iseq(NATURAL)"
+ },
+ {
+  "language": "b",
+  "title": "iseq1(S)",
+  "kind": "pred",
+  "text": "[1, 2] : iseq1(NATURAL)"
+ },
+ {
+  "language": "b",
+  "title": "perm(S)",
+  "kind": "pred",
+  "text": "[2, 1] : perm({1, 2})"
+ },
+ {
+  "language": "b",
+  "title": "size(s)",
+  "kind": "pred",
+  "text": "size([4, 5, 6]) = 3"
+ },
+ {
+  "language": "b",
+  "title": "s^t",
+  "kind": "pred",
+  "text": "[1] ^ [2, 3] = [1, 2, 3]"
+ },
+ {
+  "language": "b",
+  "title": "E->s",
+  "kind": "pred",
+  "text": "0 -> [1] = [0, 1]"
+ },
+ {
+  "language": "b",
+  "title": "s<-E",
+  "kind": "pred",
+  "text": "[1] <- 2 = [1, 2]"
+ },
+ {
+  "language": "b",
+  "title": "rev(s)",
+  "kind": "pred",
+  "text": "rev([1, 2, 3]) = [3, 2, 1]"
+ },
+ {
+  "language": "b",
+  "title": "first(s)",
+  "kind": "pred",
+  "text": "first([4, 5]) = 4"
+ },
+ {
+  "language": "b",
+  "title": "last(s)",
+  "kind": "pred",
+  "text": "last([4, 5]) = 5"
+ },
+ {
+  "language": "b",
+  "title": "front(s)",
+  "kind": "pred",
+  "text": "front([1, 2, 3]) = [1, 2]"
+ },
+ {
+  "language": "b",
+  "title": "tail(s)",
+  "kind": "pred",
+  "text": "tail([1, 2, 3]) = [2, 3]"
+ },
+ {
+  "language": "b",
+  "title": "conc(S)",
+  "kind": "pred",
+  "text": "conc([[1], [2, 3]]) = [1, 2, 3]"
+ },
+ {
+  "language": "b",
+  "title": "s/|\\n",
+  "kind": "pred",
+  "text": "[1, 2, 3] /|\\ 2 = [1, 2]"
+ },
+ {
+  "language": "b",
+  "title": "s\\|/n",
+  "kind": "pred",
+  "text": "[1, 2, 3] \\|/ 2 = [3]"
+ },
+ {
+  "language": "b",
+  "title": "struct(ID:S,...,ID:S)",
+  "kind": "pred",
+  "text": "rec(x : 1, y : TRUE) : struct(x : NATURAL, y : BOOL)"
+ },
+ {
+  "language": "b",
+  "title": "rec(ID:E,...,ID:E)",
+  "kind": "pred",
+  "text": "rec(x : 1, y : 2)'y = 2"
+ },
+ {
+  "language": "b",
+  "title": "E'ID",
+  "kind": "pred",
+  "text": "rec(x : 1, y : 2)'x = 1"
+ },
+ {
+  "language": "b",
+  "title": "STRING",
+  "kind": "pred",
+  "text": "\"abc\" : STRING"
+ },
+ {
+  "language": "b",
+  "title": "s ^ t",
+  "kind": "pred",
+  "text": "\"ab\" ^ \"c\" = \"abc\""
+ },
+ {
+  "language": "b",
+  "title": "conc(ss)",
+  "kind": "pred",
+  "text": "conc([\"a\", \"bc\"]) = \"abc\""
+ },
+ {
+  "language": "b",
+  "title": "REAL",
+  "kind": "pred",
+  "text": "1.5 : REAL"
+ },
+ {
+  "language": "b",
+  "title": "real(n)",
+  "kind": "pred",
+  "text": "real(2) = 2.0"
+ },
+ {
+  "language": "b",
+  "title": "floor(r)",
+  "kind": "pred",
+  "text": "floor(2.7) = 2"
+ },
+ {
+  "language": "b",
+  "title": "ceiling(r)",
+  "kind": "pred",
+  "text": "ceiling(2.1) = 3"
+ },
+ {
+  "language": "b",
+  "title": "IF P THEN E1 ELSE E2 END",
+  "kind": "pred",
+  "text": "(IF 1 < 2 THEN 3 ELSE 4 END) = 3"
+ },
+ {
+  "language": "b",
+  "title": "LET x1,... BE x1=E1 & ... IN E END",
+  "kind": "pred",
+  "text": "(LET x BE x = 2 IN x * x END) = 4"
+ },
+ {
+  "language": "b",
+  "title": "skip",
+  "kind": "code",
+  "text": "nop = skip"
+ },
+ {
+  "language": "b",
+  "title": "x := E",
+  "kind": "code",
+  "text": "count := count + 1"
+ },
+ {
+  "language": "b",
+  "title": "f(x) := E",
+  "kind": "code",
+  "text": "f(1) := 2"
+ },
+ {
+  "language": "b",
+  "title": "x :: S",
+  "kind": "code",
+  "text": "count :: 0..10"
+ },
+ {
+  "language": "b",
+  "title": "x : (P)",
+  "kind": "code",
+  "text": "count : (count > count$0)"
+ },
+ {
+  "language": "b",
+  "title": "x <-- OP(x)",
+  "kind": "code",
+  "text": "result <-- get"
+ },
+ {
+  "language": "b",
+  "title": "G||H",
+  "kind": "code",
+  "text": "BEGIN x := 1 || y := 2 END"
+ },
+ {
+  "language": "b",
+  "title": "G;H",
+  "kind": "code",
+  "text": "BEGIN x := 1 ; y := x END"
+ },
+ {
+  "language": "b",
+  "title": "ANY x,... WHERE P THEN G END",
+  "kind": "code",
+  "text": "ANY v WHERE v : 1..3 THEN count := v END"
+ },
+ {
+  "language": "b",
+  "title": "LET x,... BE x=E & ... IN G END",
+  "kind": "code",
+  "text": "LET v BE v = count + 1 IN count := v END"
+ },
+ {
+  "language": "b",
+  "title": "VAR x,... IN G END",
+  "kind": "code",
+  "text": "VAR t IN t := x ; x := y ; y := t END"
+ },
+ {
+  "language": "b",
+  "title": "PRE P THEN G END",
+  "kind": "code",
+  "text": "inc = PRE count < 10 THEN count := count + 1 END"
+ },
+ {
+  "language": "b",
+  "title": "ASSERT P THEN G END",
+  "kind": "code",
+  "text": "ASSERT count > 0 THEN count := count - 1 END"
+ },
+ {
+  "language": "b",
+  "title": "CHOICE G OR H END",
+  "kind": "code",
+  "text": "CHOICE count := 1 OR count := 2 END"
+ },
+ {
+  "language": "b",
+  "title": "IF P THEN G ELSE H END",
+  "kind": "code",
+  "text": "IF count > 0 THEN count := count - 1 ELSE count := 10 END"
+ },
+ {
+  "language": "b",
+  "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+  "kind": "code",
+  "text": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
+ },
+ {
+  "language": "b",
+  "title": "SELECT P THEN G WHEN ... WHEN Q THEN H END",
+  "kind": "code",
+  "text": "SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END"
+ },
+ {
+  "language": "b",
+  "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+  "kind": "code",
+  "text": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
+ },
+ {
+  "language": "b",
+  "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+  "kind": "code",
+  "text": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
+ },
+ {
+  "language": "b",
+  "title": "WHEN P THEN G END",
+  "kind": "code",
+  "text": "WHEN count > 0 THEN count := count - 1 END"
+ },
+ {
+  "language": "b",
+  "title": "MACHINE or REFINEMENT or IMPLEMENTATION",
+  "kind": "code",
+  "text": "MACHINE Counter\nVARIABLES count\nINVARIANT count : 0..10\nINITIALISATION count := 0\nOPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END\nEND"
+ },
+ {
+  "language": "b",
+  "title": "CONSTRAINTS P",
+  "kind": "code",
+  "text": "MACHINE Buffer(size)\nCONSTRAINTS size : NATURAL1"
+ },
+ {
+  "language": "b",
+  "title": "SETS S;T={e1,e2,...};...",
+  "kind": "code",
+  "text": "SETS ID; COLOUR = {red, green}"
+ },
+ {
+  "language": "b",
+  "title": "CONSTANTS x,y,...",
+  "kind": "code",
+  "text": "CONSTANTS limit\nPROPERTIES limit : NATURAL & limit = 10"
+ },
+ {
+  "language": "b",
+  "title": "PROPERTIES P",
+  "kind": "code",
+  "text": "CONSTANTS limit\nPROPERTIES limit : NATURAL & limit = 10"
+ },
+ {
+  "language": "b",
+  "title": "DEFINITIONS m(x,...) == BODY;...",
+  "kind": "code",
+  "text": "DEFINITIONS twice(x) == 2 * x; LIMIT == 10"
+ },
+ {
+  "language": "b",
+  "title": "VARIABLES x,y,...",
+  "kind": "code",
+  "text": "VARIABLES count\nINVARIANT count : 0..10"
+ },
+ {
+  "language": "b",
+  "title": "INVARIANT P",
+  "kind": "code",
+  "text": "VARIABLES count\nINVARIANT count : 0..10"
+ },
+ {
+  "language": "b",
+  "title": "ASSERTIONS P;...;P",
+  "kind": "code",
+  "text": "ASSERTIONS count >= 0; count <= 10"
+ },
+ {
+  "language": "b",
+  "title": "INITIALISATION S",
+  "kind": "code",
+  "text": "INITIALISATION count := 0"
+ },
+ {
+  "language": "b",
+  "title": "OPERATIONS O;...",
+  "kind": "code",
+  "text": "OPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END;\n  r <-- get = r := count"
+ },
+ {
+  "language": "b",
+  "title": "SEES",
+  "kind": "code",
+  "text": "SEES Constants"
+ },
+ {
+  "language": "b",
+  "title": "INCLUDES",
+  "kind": "code",
+  "text": "INCLUDES Counter"
+ },
+ {
+  "language": "b",
+  "title": "REFINES",
+  "kind": "code",
+  "text": "REFINEMENT Counter_r\nREFINES Counter"
+ }
+]

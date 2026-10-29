@@ -45,6 +45,9 @@ java {
 
 tasks.test {
     useJUnitPlatform()
+    // Each test starts ProB processes of its own; one test JVM at a time keeps their number bounded.
+    maxParallelForks = 1
+    maxHeapSize = "2g"
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {

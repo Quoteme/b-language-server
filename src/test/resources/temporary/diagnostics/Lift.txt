@@ -1,0 +1,2 @@
+<res>/Lift.mch
+  2:11-2:16 Error ProB Invalid combination of symbols: 'VARIABLES' and 'floor'. This keyword (floor) cannot be used as an identifier

@@ -1,6 +1,6 @@
 package b.language.server.server
 
-import b.language.server.analysis.legacy.ProBKernelManager
+import b.language.server.analysis.AnalysisDispatcher
 import b.language.server.client.Communicator
 import b.language.server.config.Settings
 import com.google.gson.JsonObject
@@ -25,13 +25,16 @@ import org.eclipse.lsp4j.services.LanguageServer
 import org.eclipse.lsp4j.services.TextDocumentService
 import org.eclipse.lsp4j.services.WorkspaceService
 import java.util.concurrent.CompletableFuture
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
 class Server :
     LanguageServer,
     ServerInterface {
-    private val textDocumentService: TextDocumentService = BDocumentService(this, Communicator, ProBKernelManager(Communicator))
+    private val analysis = AnalysisDispatcher()
+    private val documentService = BDocumentService(this, Communicator, analysis)
+    private val released = AtomicBoolean(false)
     private val bWorkspaceService: WorkspaceService = BWorkspaceService(this, Communicator)
     private lateinit var languageClient: LanguageClient
     var globalSettings: Settings = Settings()
@@ -51,7 +54,7 @@ class Server :
         res.capabilities.workspace.workspaceFolders.supported = true
         res.capabilities.codeActionProvider = Either.forRight(CodeActionOptions(listOf(CodeActionKind.Source)))
         res.capabilities.hoverProvider = Either.forLeft(true)
-        res.capabilities.executeCommandProvider = ExecuteCommandOptions(BDocumentService.COMMANDS)
+        res.capabilities.executeCommandProvider = ExecuteCommandOptions(Command.handledByServer.map { it.id })
         res.capabilities.completionProvider = CompletionOptions()
         return CompletableFuture.supplyAsync { res }
     }
@@ -62,17 +65,30 @@ class Server :
      * delivered correctly to the client). There is a separate exit notification
      * that asks the server to exit.
      */
-    override fun shutdown(): CompletableFuture<Any> = CompletableFuture.supplyAsync { true }
+    override fun shutdown(): CompletableFuture<Any> =
+        CompletableFuture.supplyAsync {
+            release()
+            true
+        }
+
+    /** Ends the ProB processes, once. */
+    private fun release() {
+        if (released.compareAndSet(false, true)) {
+            documentService.close()
+            analysis.close()
+        }
+    }
 
     /**
      * Provides access to the textDocument services.
      */
-    override fun getTextDocumentService(): TextDocumentService = textDocumentService
+    override fun getTextDocumentService(): TextDocumentService = documentService
 
     /**
      * A notification to ask the server to exit its process.
      */
     override fun exit() {
+        release()
         exitProcess(0)
     }
 

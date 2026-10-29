@@ -4,6 +4,7 @@ import b.language.server.Fixtures
 import b.language.server.analysis.AnalysisDispatcher
 import b.language.server.analysis.prob.startProB
 import b.language.server.client.RecordingCommunicator
+import b.language.server.project.OpenDocuments
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import org.eclipse.lsp4j.jsonrpc.json.MessageJsonHandler
@@ -14,24 +15,26 @@ import kotlin.test.assertEquals
 /** The JSON the client reads from the commands, as lsp4j writes it; b.nvim depends on these names. */
 class WireFormatTest {
     private val analysis = AnalysisDispatcher(startProB())
-    private val service = BDocumentService(BDocumentServiceTest::defaultSettings, RecordingCommunicator(), analysis)
+    private val documents = OpenDocuments()
+    private val checks = DocumentChecks(DocumentChecksTest::defaultSettings, RecordingCommunicator(), analysis, documents)
+    private val commands = Commands(checks, documents, analysis)
     private val gson = MessageJsonHandler(emptyMap()).gson
 
     @AfterEach
     fun close() {
-        service.close()
+        commands.close()
         analysis.close()
     }
 
     private fun command(
         command: Command,
         argument: Any,
-    ) = JsonParser.parseString(gson.toJson(service.executeCommand(command.id, listOf(argument)).get()))
+    ) = JsonParser.parseString(gson.toJson(commands.execute(command.id, listOf(argument)).get()))
 
     @Test
     fun `proof obligations are listed with their status by name`() {
         val counter = Fixtures.file("eventb/Counter.mch")
-        service.checkDocument(counter)
+        checks.check(counter)
         val obligations = command(Command.SHOW_POS, counter.toURI().toString()).asJsonArray.map { it.asJsonObject }
         val inv2 = obligations.first { it["name"].asString == "inc/inv2/INV" }
         assertEquals("disproved", inv2["status"].asString)

@@ -16,4 +16,7 @@ class OpenDocuments {
 
     /** The editor's text of [file], or else its content on disk; null if it exists in neither. */
     fun textOf(file: File): String? = texts[file] ?: file.takeIf { it.isFile }?.readText()
+
+    /** The project of [file], as it reads in the editor. */
+    fun projectOf(file: File): Project = Project.of(file, textOf(file).orEmpty())
 }

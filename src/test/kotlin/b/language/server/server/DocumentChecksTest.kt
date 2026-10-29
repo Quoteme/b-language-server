@@ -9,6 +9,7 @@ import b.language.server.analysis.Problem
 import b.language.server.analysis.prob.startProB
 import b.language.server.client.RecordingCommunicator
 import b.language.server.config.Settings
+import b.language.server.project.OpenDocuments
 import b.language.server.project.Project
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
@@ -16,7 +17,7 @@ import java.io.File
 import java.util.concurrent.CompletableFuture
 import kotlin.test.assertEquals
 
-class BDocumentServiceTest {
+class DocumentChecksTest {
     /** What each test started, closed afterwards to end its ProB processes. */
     private val opened = mutableListOf<AutoCloseable>()
 
@@ -44,17 +45,17 @@ class BDocumentServiceTest {
     }
 
     @Test
-    fun checkDocument_test_documentRegistered() {
+    fun check_test_documentRegistered() {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(::defaultSettings, communicator, analysis).also { opened += it }
+        val checks = DocumentChecks(::defaultSettings, communicator, analysis, OpenDocuments())
 
         val documentToCheck = File("src/test/resources/WD_M1.mch").absolutePath
 
         val expectedDocument = File("src/test/resources/WD_M1.mch").absolutePath
 
-        documentService.checkDocument(File(documentToCheck))
+        checks.check(File(documentToCheck))
 
         assertEquals(1, communicator.diagnostics.entries.size)
         assertEquals(
@@ -67,21 +68,21 @@ class BDocumentServiceTest {
     }
 
     @Test
-    fun checkDocument_test_subDocument_displayed_properly() {
+    fun check_test_subDocument_displayed_properly() {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(::defaultSettings, communicator, analysis).also { opened += it }
+        val checks = DocumentChecks(::defaultSettings, communicator, analysis, OpenDocuments())
 
         val documentToCheck = File("src/test/resources/WD_M2.mch").absolutePath
 
         val expectedDocument = File("src/test/resources/WD_M1.mch").absolutePath
 
-        documentService.checkDocument(File(documentToCheck))
+        checks.check(File(documentToCheck))
 
         communicator.diagnostics.clear()
 
-        documentService.checkDocument(File(documentToCheck))
+        checks.check(File(documentToCheck))
 
         assertEquals(2, communicator.diagnostics.entries.size)
         assertEquals(
@@ -94,15 +95,15 @@ class BDocumentServiceTest {
     }
 
     @Test
-    fun checkDocument_test_unregistered_document_after_no_errors() {
+    fun check_test_unregistered_document_after_no_errors() {
         val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
-        val documentService = BDocumentService(::defaultSettings, communicator, FixedAfterFirstCheck(analysis)).also { opened += it }
+        val checks = DocumentChecks(::defaultSettings, communicator, FixedAfterFirstCheck(analysis), OpenDocuments())
 
-        documentService.checkDocument(File(File("src/test/resources/WD_M2.mch").absolutePath))
+        checks.check(File(File("src/test/resources/WD_M2.mch").absolutePath))
 
-        documentService.checkDocument(File(File("src/test/resources/WD_M2.mch").absolutePath))
+        checks.check(File(File("src/test/resources/WD_M2.mch").absolutePath))
 
         assertEquals(
             emptyList(),

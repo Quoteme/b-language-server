@@ -1,9 +1,8 @@
 package b.language.server.server
 
-import arrow.core.getOrElse
 import b.language.server.analysis.AnalysisDispatcher
 import b.language.server.client.Communicator
-import b.language.server.config.Settings
+import b.language.server.project.OpenDocuments
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.CodeActionKind
 import org.eclipse.lsp4j.CodeActionOptions
@@ -13,7 +12,6 @@ import org.eclipse.lsp4j.ConfigurationParams
 import org.eclipse.lsp4j.ExecuteCommandOptions
 import org.eclipse.lsp4j.InitializeParams
 import org.eclipse.lsp4j.InitializeResult
-import org.eclipse.lsp4j.MessageType
 import org.eclipse.lsp4j.SaveOptions
 import org.eclipse.lsp4j.ServerCapabilities
 import org.eclipse.lsp4j.TextDocumentSyncKind
@@ -32,14 +30,25 @@ import kotlin.system.exitProcess
 class Server(
     private val analysis: AnalysisDispatcher,
 ) : LanguageServer {
-    private val documentService = BDocumentService({ getDocumentSettings(it.absolutePath) }, Communicator, analysis)
-    private val released = AtomicBoolean(false)
-    private val bWorkspaceService: WorkspaceService = BWorkspaceService(this, Communicator)
     private lateinit var languageClient: LanguageClient
-    var globalSettings: Settings = Settings()
-    var configurationAbility: Boolean = true
+    private val settings =
+        SettingsStore(Communicator) { scope ->
+            val item =
+                ConfigurationItem().apply {
+                    scopeUri = scope
+                    section = "prob"
+                }
+            languageClient.configuration(ConfigurationParams(listOf(item))).thenApply { it.firstOrNull() as? JsonObject }
+        }
+    private val documents = OpenDocuments()
+    private val checks = DocumentChecks(settings::settingsOf, Communicator, analysis, documents)
+    private val commands = Commands(checks, documents, analysis)
+    private val documentService = BDocumentService(documents, checks, Communicator, analysis)
+    private val bWorkspaceService: WorkspaceService = BWorkspaceService(settings, commands, Communicator)
+    private val released = AtomicBoolean(false)
 
     override fun initialize(params: InitializeParams?): CompletableFuture<InitializeResult> {
+        settings.canAsk = params?.capabilities?.workspace?.configuration ?: false
         val res = InitializeResult(ServerCapabilities())
         // ProB checks the file on disk, so only opening and saving trigger a check.
         val sync = TextDocumentSyncOptions()
@@ -72,7 +81,7 @@ class Server(
     /** Ends the ProB processes, once. */
     private fun release() {
         if (released.compareAndSet(false, true)) {
-            documentService.close()
+            commands.close()
             analysis.close()
         }
     }
@@ -99,35 +108,4 @@ class Server(
         this.languageClient = remoteProxy
         Communicator.client = remoteProxy
     }
-
-    /**
-     * Get the settings for the current document from the client, or the global settings if the client cannot be
-     * asked for them
-     * @param uri the uri of the document requested
-     * @return settings of the document requested
-     */
-    fun getDocumentSettings(uri: String): CompletableFuture<Settings> {
-        Communicator.sendDebugMessage("requesting configuration for document: $uri", MessageType.Info)
-        return if (!configurationAbility) {
-            val returnValue = CompletableFuture<Settings>()
-            returnValue.complete(globalSettings)
-
-            returnValue
-        } else {
-            val configurationItem = ConfigurationItem()
-            configurationItem.scopeUri = uri
-            configurationItem.section = "prob"
-
-            languageClient.configuration(ConfigurationParams(listOf(configurationItem))).thenApply { configuration ->
-                readSettings(configuration.firstOrNull() as? JsonObject)
-            }
-        }
-    }
-
-    /** The client's settings, or the defaults if they cannot be read. */
-    fun readSettings(json: JsonObject?): Settings =
-        Settings.from(json).getOrElse {
-            Communicator.sendDebugMessage("ignoring invalid settings: ${it.message}", MessageType.Warning)
-            Settings()
-        }
 }

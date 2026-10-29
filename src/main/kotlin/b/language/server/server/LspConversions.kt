@@ -15,8 +15,13 @@ import org.eclipse.lsp4j.MarkupKind
 import org.eclipse.lsp4j.Position
 import org.eclipse.lsp4j.Range
 import org.eclipse.lsp4j.jsonrpc.messages.Either
+import java.io.File
+import java.net.URI
 
 // How the results of the analysis are told to the client.
+
+/** The file a client's `file://` URI names. */
+fun fileOf(uri: String) = File(URI(uri).path)
 
 fun SourcePosition.toLsp() = Position(line, column)
 

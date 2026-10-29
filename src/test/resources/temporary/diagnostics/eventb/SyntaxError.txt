@@ -1,2 +1,0 @@
-<res>/eventb/SyntaxError.mch
-  5:14-5:15 Error ProB Premature End Of Formula

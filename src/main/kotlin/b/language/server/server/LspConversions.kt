@@ -16,7 +16,7 @@ import org.eclipse.lsp4j.Position
 import org.eclipse.lsp4j.Range
 import org.eclipse.lsp4j.jsonrpc.messages.Either
 
-/* How the results of the analysis are told to the client. */
+// How the results of the analysis are told to the client.
 
 fun SourcePosition.toLsp() = Position(line, column)
 

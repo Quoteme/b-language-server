@@ -39,7 +39,12 @@ class Discharger(
         // The obligations mention constants and variables freely; only the carrier sets must be known.
         val sets =
             Context("proof_obligations").withSets(
-                ModelElementList(main.contexts.flatMap { it.sets }.distinct().map { ProBSet(EventB(it, NO_EXTENSIONS)) }),
+                ModelElementList(
+                    main.contexts
+                        .flatMap { it.sets }
+                        .distinct()
+                        .map { ProBSet(EventB(it, NO_EXTENSIONS)) },
+                ),
             )
         val verdicts =
             session.withStateSpace(ProBPreferences(timeoutMillis = timeoutMillis)) { stateSpace ->
@@ -63,12 +68,18 @@ class Discharger(
         for (solver in solvers) {
             val attempt =
                 ProBFailure.catching {
-                    CbcSolveCommand(EventB(goal.negation, NO_EXTENSIONS, FormulaExpand.EXPAND), solver).also { stateSpace.execute(it) }.value
+                    CbcSolveCommand(
+                        EventB(goal.negation, NO_EXTENSIONS, FormulaExpand.EXPAND),
+                        solver,
+                    ).also { stateSpace.execute(it) }.value
                 }
             when (attempt) {
                 is Either.Left -> {
                     val failure = attempt.value
-                    reason = failure.errors.firstOrNull()?.message ?: failure.description?.lineSequence()?.firstOrNull().orEmpty()
+                    reason = failure.errors.firstOrNull()?.message ?: failure.description
+                        ?.lineSequence()
+                        ?.firstOrNull()
+                        .orEmpty()
                 }
 
                 is Either.Right -> {

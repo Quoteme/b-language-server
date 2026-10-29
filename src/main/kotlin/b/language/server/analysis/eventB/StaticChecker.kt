@@ -258,7 +258,15 @@ class StaticChecker(
         var typed = true
         for (invariant in unit.invariants.mapNotNull { written(it) }) {
             checkLabel(file, invariant.label, labels)
-            val predicate = checkFormula(file, invariant.label, invariant.text, Kind.PREDICATE, env, contextNames + allVariables) as Predicate?
+            val predicate =
+                checkFormula(
+                    file,
+                    invariant.label,
+                    invariant.text,
+                    Kind.PREDICATE,
+                    env,
+                    contextNames + allVariables,
+                ) as Predicate?
             if (predicate == null) {
                 typed = false
             } else {
@@ -281,7 +289,13 @@ class StaticChecker(
                     }
 
                     expression.type !is IntegerType && expression.type !is PowerSetType -> {
-                        report(file, node.expression, null, "Variant must be an integer or a set, but has type ${expression.type}", Severity.ERROR)
+                        report(
+                            file,
+                            node.expression,
+                            null,
+                            "Variant must be an integer or a set, but has type ${expression.type}",
+                            Severity.ERROR,
+                        )
                         null
                     }
 

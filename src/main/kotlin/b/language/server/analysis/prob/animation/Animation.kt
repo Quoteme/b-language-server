@@ -7,6 +7,8 @@ import b.language.server.analysis.prob.ProBFailure
 import b.language.server.analysis.prob.ProBPreferences
 import b.language.server.analysis.prob.ProBSession
 import b.language.server.analysis.prob.Transitions
+import b.language.server.project.DeclarationKind
+import b.language.server.project.Project
 import de.prob.animator.command.ExportVisBHtmlForStates
 import de.prob.animator.command.FindStateCommand
 import de.prob.animator.command.GetAnimationMatrixForStateCommand
@@ -78,10 +80,10 @@ class Animation : AutoCloseable {
             ProBFailure
                 .catching {
                     GetImagesForMachineCommand().also { stateSpace.execute(it) }.images.mapValues { (_, name) ->
-                        File(name).let { if (it.isAbsolute) it else File(model.file.absoluteFile.parentFile, name) }
+                        model.project.fileNamed(name)
                     }
                 }.getOrElse { emptyMap() }
-        visb = loadVisB(stateSpace, model.file)
+        visb = loadVisB(stateSpace, model.project)
         return view()
     }
 
@@ -111,7 +113,12 @@ class Animation : AutoCloseable {
         if (action == AnimationAction.RESTART) return start(model ?: return Failure(NOT_RUNNING))
         message = ""
         // ProB rejects what it cannot do; prob-java rejects arguments, such as a step beyond the history.
-        when (val stepped = ProBFailure.catching { Either.catchOrThrow<IllegalArgumentException, Trace> { step(current, action, argument, count) } }) {
+        when (
+            val stepped =
+                ProBFailure.catching {
+                    Either.catchOrThrow<IllegalArgumentException, Trace> { step(current, action, argument, count) }
+                }
+        ) {
             is Either.Left -> message = stepped.value.message("ProB reported an error")
             is Either.Right -> stepped.value.fold({ message = it.message ?: "Invalid input" }, { trace = it })
         }
@@ -207,35 +214,35 @@ class Animation : AutoCloseable {
         return Either
             .catch {
                 when (request.kind) {
-                VisualizationKind.GRAPHICS -> {
-                    val page = File(output, "graphics.html")
-                    graphicsPage = page
-                    writeGraphics(trace)
-                    Page(page.path)
-                }
+                    VisualizationKind.GRAPHICS -> {
+                        val page = File(output, "graphics.html")
+                        graphicsPage = page
+                        writeGraphics(trace)
+                        Page(page.path)
+                    }
 
-                VisualizationKind.VISB -> {
-                    if (visb == null) return Failure("The machine has no VISB_JSON_FILE in its DEFINITIONS")
-                    val page = File(output, "visb.html")
-                    visbPage = page
-                    writeVisB(trace)
-                    Page(page.path)
-                }
+                    VisualizationKind.VISB -> {
+                        if (visb == null) return Failure("The machine has no VISB_JSON_FILE in its DEFINITIONS")
+                        val page = File(output, "visb.html")
+                        visbPage = page
+                        writeVisB(trace)
+                        Page(page.path)
+                    }
 
-                VisualizationKind.DOT -> {
-                    val format = request.format.ifBlank { "svg" }
-                    val visualization = DotVisualizationCommand.getByName(request.command, trace)
-                    val target = File(output, "${request.command}.$format")
-                    target.writeBytes(visualization.visualizeToBytes(format, parse(trace, request.formulas)))
-                    Page(target.path)
-                }
+                    VisualizationKind.DOT -> {
+                        val format = request.format.ifBlank { "svg" }
+                        val visualization = DotVisualizationCommand.getByName(request.command, trace)
+                        val target = File(output, "${request.command}.$format")
+                        target.writeBytes(visualization.visualizeToBytes(format, parse(trace, request.formulas)))
+                        Page(target.path)
+                    }
 
-                VisualizationKind.TABLE -> {
-                    val visualization = TableVisualizationCommand.getByName(request.command, trace)
-                    val table = visualization.visualize(parse(trace, request.formulas))
-                    Table(visualization.name, table.header, table.rows)
+                    VisualizationKind.TABLE -> {
+                        val visualization = TableVisualizationCommand.getByName(request.command, trace)
+                        val table = visualization.visualize(parse(trace, request.formulas))
+                        Table(visualization.name, table.header, table.rows)
+                    }
                 }
-            }
             }.getOrElse { error ->
                 if (error is ProBError) {
                     Failure(ProBFailure(error.errors, error.message).message("ProB could not visualise the state"))
@@ -271,8 +278,13 @@ class Animation : AutoCloseable {
         // Without ANIMATION_FUNCTION, ProB or prob-java refuse to compute the matrix.
         val matrix =
             ProBFailure
-                .catching { Either.catchOrThrow<IllegalArgumentException, _> { GetAnimationMatrixForStateCommand(state).also { state.stateSpace.execute(it) }.matrix } }
-                .getOrNull()
+                .catching {
+                    Either.catchOrThrow<IllegalArgumentException, _> {
+                        GetAnimationMatrixForStateCommand(
+                            state,
+                        ).also { state.stateSpace.execute(it) }.matrix
+                    }
+                }.getOrNull()
                 ?.getOrNull()
         if (matrix.isNullOrEmpty()) return null
         return matrix.map { row ->
@@ -298,14 +310,14 @@ class Animation : AutoCloseable {
     /** Loads the VisB file that VISB_JSON_FILE names, relative to the model, as ProB Tcl/Tk does. */
     private fun loadVisB(
         stateSpace: StateSpace,
-        file: File,
+        project: Project,
     ): File? =
         ProBFailure
             .catching {
                 val path = ReadVisBPathFromDefinitionsCommand().also { stateSpace.execute(it) }.path
                 path
                     ?.takeIf { it.isNotBlank() }
-                    ?.let { File(it).let { f -> if (f.isAbsolute) f else File(file.absoluteFile.parentFile, it) } }
+                    ?.let(project::fileNamed)
                     ?.also { stateSpace.execute(LoadVisBCommand(it.absolutePath)) }
             }.getOrElse {
                 message = "VisB: " + it.message("null")
@@ -349,7 +361,7 @@ class Animation : AutoCloseable {
                     }
                 }
             }
-        val name = model?.file?.nameWithoutExtension ?: ""
+        val name = model?.project?.mainFile?.nameWithoutExtension ?: ""
         page.writeText(
             """<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta http-equiv="refresh" content="1">
@@ -369,7 +381,8 @@ $body
     private fun view(): AnimationResponse {
         val trace = trace ?: return Failure(NOT_RUNNING)
         val sources = sources ?: return Failure(NOT_RUNNING)
-        val file = model?.file ?: return Failure(NOT_RUNNING)
+        val project = model?.project ?: return Failure(NOT_RUNNING)
+        val file = project.mainFile
         val stateSpace = trace.stateSpace
         val state = trace.currentState
         val previous = trace.previousState
@@ -392,13 +405,19 @@ $body
         ) = names.map { name ->
             val value = if (ready) value(state, name) else null
             val before = if (ready && previous != null && previous.isInitialised == state.isInitialised) value(previous, name) else value
-            NamedValue(name, value, value != before, sources.declaration(name, kind))
+            NamedValue(name, value, value != before, project.declaration(name, kind))
         }
 
         val enabled =
             trace.getNextTransitions(true, FormulaExpand.TRUNCATE).sortedBy { label(it, context) }.map { transition ->
                 val name = display(transition.name, context)
-                EnabledEvent(transition.id, name, transition.name, parameters(transition, constantNames, variableNames, context), sources.event(name))
+                EnabledEvent(
+                    transition.id,
+                    name,
+                    transition.name,
+                    parameters(transition, constantNames, variableNames, context),
+                    sources.event(name),
+                )
             }
         val enabledNames = enabled.map { it.event }.toSet()
         val disabled =
@@ -409,7 +428,11 @@ $body
                     .filter { it !in enabledNames && it != Transitions.INITIALISATION }
                     .sorted()
                     .map { name ->
-                        DisabledEvent(name, sources.guards(name).map { GuardStatus(it.label, holds(state, it.formula)) }, sources.event(name))
+                        DisabledEvent(
+                            name,
+                            sources.guards(name).map { GuardStatus(it.label, holds(state, it.formula)) },
+                            sources.event(name),
+                        )
                     }
             }
 
@@ -420,7 +443,7 @@ $body
                 // A context has no invariants; its axioms hold for the chosen constants.
                 val labelled = if (context) sources.axioms else sources.invariants
                 if (labelled.isEmpty()) {
-                    listOf(PredicateStatus("INVARIANT", state.isInvariantOk, sources.declaration("INVARIANT", DeclarationKind.INVARIANT_CLAUSE)))
+                    listOf(PredicateStatus("INVARIANT", state.isInvariantOk, project.declaration("INVARIANT", DeclarationKind.INVARIANT)))
                 } else {
                     labelled.map { PredicateStatus(it.label, holds(state, it.formula), it.location) }
                 }

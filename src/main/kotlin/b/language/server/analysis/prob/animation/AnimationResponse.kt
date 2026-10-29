@@ -136,4 +136,9 @@ data class VisualizationEntry(
     val reason: String,
 )
 
-private val Location?.uri: String? get() = this?.file?.toPath()?.toUri()?.toString()
+private val Location?.uri: String? get() =
+    this
+        ?.file
+        ?.toPath()
+        ?.toUri()
+        ?.toString()

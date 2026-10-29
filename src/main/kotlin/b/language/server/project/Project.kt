@@ -20,6 +20,15 @@ interface Project {
         eventB: (EventBProject) -> R,
     ): R
 
+    /** Where [name] is declared as a [kind] in the project's files, if it can be found. */
+    fun declaration(
+        name: String,
+        kind: DeclarationKind,
+    ): Location?
+
+    /** A file the model names, such as an image; relative paths are relative to the main file's folder. */
+    fun fileNamed(path: String): File = File(path).let { if (it.isAbsolute) it else File(mainFile.absoluteFile.parentFile, path) }
+
     companion object {
         private val FIRST_WORD = Regex("""\A(?:\s|//[^\n]*|/\*[\s\S]*?\*/)*([A-Za-z_]+)""")
 

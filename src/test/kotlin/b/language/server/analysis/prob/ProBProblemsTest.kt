@@ -58,14 +58,20 @@ class ProBProblemsTest {
 
     @Test
     fun errorCodeTranslation_Error1() {
-        val result = ErrorItem.Type.INTERNAL_ERROR.toSeverity().toLsp()
+        val result =
+            ErrorItem.Type.INTERNAL_ERROR
+                .toSeverity()
+                .toLsp()
 
         assertEquals(DiagnosticSeverity.Error, result)
     }
 
     @Test
     fun errorCodeTranslation_Error2() {
-        val result = ErrorItem.Type.ERROR.toSeverity().toLsp()
+        val result =
+            ErrorItem.Type.ERROR
+                .toSeverity()
+                .toLsp()
 
         assertEquals(DiagnosticSeverity.Error, result)
     }

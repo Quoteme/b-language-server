@@ -1,3 +1,0 @@
-
-Info: Model check: Model Checking complete. No more error nodes found.
-Log: Evaluation done: 0 problem(s) found by model checking

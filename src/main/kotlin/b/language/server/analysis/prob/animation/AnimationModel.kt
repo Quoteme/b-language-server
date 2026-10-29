@@ -2,12 +2,12 @@ package b.language.server.analysis.prob.animation
 
 import b.language.server.analysis.prob.ProBSession
 import b.language.server.project.Location
+import b.language.server.project.Project
 import de.prob.statespace.StateSpace
-import java.io.File
 
 /** A model to animate, and how to load it. */
 interface AnimationModel {
-    val file: File
+    val project: Project
 
     /** Loads the model into [stateSpace], which belongs to [session]. */
     fun load(
@@ -35,9 +35,7 @@ data class LabeledPredicate(
     val location: Location? = null,
 )
 
-enum class DeclarationKind { CONSTANT, VARIABLE, INVARIANT_CLAUSE }
-
-/** Where the parts of an animated model are declared, so the client can jump to them. */
+/** What the checked model knows about its parts, beyond what ProB reports; declarations come from the [Project]. */
 interface AnimationSources {
     val name: String
 
@@ -57,9 +55,4 @@ interface AnimationSources {
 
     /** The guards of [event], if its truth can be shown without parameters. */
     fun guards(event: String): List<LabeledPredicate>
-
-    fun declaration(
-        name: String,
-        kind: DeclarationKind,
-    ): Location?
 }

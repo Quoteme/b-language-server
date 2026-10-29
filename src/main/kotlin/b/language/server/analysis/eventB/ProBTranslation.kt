@@ -85,9 +85,14 @@ class ProBTranslation(
                             .withParentEvent(event.refines.firstOrNull()?.let { abstract?.getEvent(it.name) })
                             .withParameters(ModelElementList(event.parameters.keys.map { EventParameter(it) }))
                             .withGuards(
-                                ModelElementList(event.guards.map { EventBGuard(it.label, it.formula.toString(), it.theorem, NO_EXTENSIONS) }),
-                            ).withWitnesses(ModelElementList(event.witnesses.map { Witness(it.label, it.formula.toString(), NO_EXTENSIONS) }))
-                            .withActions(ModelElementList(event.actions.map { EventBAction(it.label, it.formula.toString(), NO_EXTENSIONS) }))
+                                ModelElementList(
+                                    event.guards.map { EventBGuard(it.label, it.formula.toString(), it.theorem, NO_EXTENSIONS) },
+                                ),
+                            ).withWitnesses(
+                                ModelElementList(event.witnesses.map { Witness(it.label, it.formula.toString(), NO_EXTENSIONS) }),
+                            ).withActions(
+                                ModelElementList(event.actions.map { EventBAction(it.label, it.formula.toString(), NO_EXTENSIONS) }),
+                            )
                     }
 
                 var built =

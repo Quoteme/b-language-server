@@ -63,3 +63,19 @@ application {
     mainClass.set("b.language.server.AppKt") // The main class of the application
 }
 
+
+// Regenerates the hover and completion documentation from the Rodin Handbook and ProB's Summary of
+// B Syntax. It downloads them, so it is not part of the build: run it by hand and commit the result.
+tasks.register<Exec>("generateDocumentation") {
+    group = "documentation"
+    description = "Regenerates src/main/resources/documentation from the official sources (needs network and Python 3)."
+    val symbols = providers.gradleProperty("symbols").orElse("../b.nvim/lua/prob/symbols.lua")
+    commandLine(
+        "python3",
+        "scripts/generate_documentation.py",
+        "--out",
+        "src/main/resources/documentation",
+        "--symbols",
+        symbols.get(),
+    )
+}

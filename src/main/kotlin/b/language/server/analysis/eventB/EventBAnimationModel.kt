@@ -2,14 +2,12 @@ package b.language.server.analysis.eventB
 
 import b.language.server.analysis.Severity
 import b.language.server.analysis.prob.ProBSession
-import b.language.server.analysis.prob.explanation
 import b.language.server.analysis.prob.animation.AnimationLoad
 import b.language.server.analysis.prob.animation.AnimationModel
 import b.language.server.analysis.prob.animation.AnimationSources
-import b.language.server.analysis.prob.animation.DeclarationKind
 import b.language.server.analysis.prob.animation.LabeledPredicate
+import b.language.server.analysis.prob.explanation
 import b.language.server.project.Location
-import b.language.server.project.SourceLines
 import b.language.server.project.SourcePosition
 import b.language.server.project.eventB.EventBProject
 import de.be4.eventb.core.parser.node.Token
@@ -19,10 +17,8 @@ import java.io.File
 
 /** An Event-B component to animate; it is checked first, since ProB needs a well-typed model. */
 class EventBAnimationModel(
-    private val project: EventBProject,
+    override val project: EventBProject,
 ) : AnimationModel {
-    override val file: File get() = project.mainFile
-
     override fun load(
         session: ProBSession,
         stateSpace: StateSpace,
@@ -61,20 +57,6 @@ class EventBAnimationSources(
         val info = machine?.events?.get(event) ?: return emptyList()
         if (info.parameters.isNotEmpty()) return emptyList()
         return info.guards.filter { !it.theorem }.map { LabeledPredicate(it.label, it.formula.toString()) }
-    }
-
-    override fun declaration(
-        name: String,
-        kind: DeclarationKind,
-    ): Location? {
-        val keyword =
-            when (kind) {
-                DeclarationKind.CONSTANT -> "constants"
-                DeclarationKind.VARIABLE -> "variables"
-                DeclarationKind.INVARIANT_CLAUSE -> return null
-            }
-        val files = (listOfNotNull(machine?.file) + main.contexts.map { it.file }).distinct()
-        return files.firstNotNullOfOrNull { SourceLines(it).find(SourceLines.identifier(name), keyword) }
     }
 
     private fun predicate(

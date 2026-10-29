@@ -1,8 +1,0 @@
-<res>/eventb/Counter.mch
-  10:19-10:22 Hint ProB inc/inv1/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  10:19-10:22 Warning ProB inc/inv2/INV does not hold, e.g. for n' = 3, limit = 3, n = 2
-  10:19-10:22 Hint ProB inc/NAT is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  10:19-10:22 Hint ProB inc/VAR is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  14:8-14:11 Hint ProB add/inv1/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  14:8-14:11 Warning ProB add/inv2/INV does not hold, e.g. for n' = 3, limit = 3, k = 3, n = 0
-  21:8-21:13 Warning ProB check/inv2/INV does not hold, e.g. for n' = 3, limit = 3, n = 0

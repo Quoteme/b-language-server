@@ -15,11 +15,14 @@ object ClassicBKeywords {
                 "SYSTEM" to KeywordDocumentation("SYSTEM name", "A synonym for MACHINE.", null, header),
                 "EVENTS" to KeywordDocumentation("EVENTS e;…", "A synonym for OPERATIONS.", null, header),
                 "ref" to KeywordDocumentation("event ref abstract_event", "Atelier B's keyword for event refinement.", null, header),
-                "ABSTRACT_CONSTANTS" to KeywordDocumentation("ABSTRACT_CONSTANTS c,…", "Constants that need not be implemented.", null, sections),
-                "ABSTRACT_VARIABLES" to KeywordDocumentation("ABSTRACT_VARIABLES v,…", "Variables that need not be implemented.", null, sections),
+                "ABSTRACT_CONSTANTS" to
+                    KeywordDocumentation("ABSTRACT_CONSTANTS c,…", "Constants that need not be implemented.", null, sections),
+                "ABSTRACT_VARIABLES" to
+                    KeywordDocumentation("ABSTRACT_VARIABLES v,…", "Variables that need not be implemented.", null, sections),
                 "VISIBLE_CONSTANTS" to KeywordDocumentation("VISIBLE_CONSTANTS c,…", "A synonym for CONCRETE_CONSTANTS.", null, sections),
                 "VISIBLE_VARIABLES" to KeywordDocumentation("VISIBLE_VARIABLES v,…", "A synonym for CONCRETE_VARIABLES.", null, sections),
-                "LOCAL_OPERATIONS" to KeywordDocumentation("LOCAL_OPERATIONS O;…", "Operations only available inside an implementation.", null, sections),
+                "LOCAL_OPERATIONS" to
+                    KeywordDocumentation("LOCAL_OPERATIONS O;…", "Operations only available inside an implementation.", null, sections),
                 "VALUES" to
                     KeywordDocumentation(
                         "VALUES c = E;…",

@@ -1,7 +1,0 @@
-<res>/WD_M1.mch
-  4:2-4:6 Warning ProB WD-PO [AXM] not discharged: x /= 0
-  5:10-5:11 Warning ProB Variable is written by no operation (consider defining it as a constant): v
-  1:10-1:11 Information ProB This constant is not used outside of the PROPERTIES/axioms: x
-
-<res>/WD_M2.mch
-  1:10-1:11 Information ProB This constant is not used outside of the PROPERTIES/axioms: y

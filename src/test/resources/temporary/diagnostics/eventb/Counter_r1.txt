@@ -1,3 +1,0 @@
-<res>/eventb/Counter_r1.mch
-  7:19-7:22 Error ProB Convergent event 'inc' requires a variant
-  0:8-0:18 Warning ProB Abstract event 'check' is not refined

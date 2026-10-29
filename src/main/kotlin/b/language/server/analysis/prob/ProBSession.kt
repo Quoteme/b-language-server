@@ -68,9 +68,7 @@ class ProBSession private constructor(
     fun <T> withStateSpace(
         preferences: ProBPreferences,
         block: (StateSpace) -> T,
-    ): T {
-        return Releasing(createStateSpace(preferences)) { it.kill() }.use { block(it.value) }
-    }
+    ): T = Releasing(createStateSpace(preferences)) { it.kill() }.use { block(it.value) }
 
     /** Kills the state space of the current animation, if there is one. */
     fun unloadCurrent() {

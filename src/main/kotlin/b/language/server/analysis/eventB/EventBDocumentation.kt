@@ -106,12 +106,18 @@ object EventBDocumentation {
         val lines =
             obligations.joinToString("\n") { po ->
                 when (val verdict = po.verdict) {
-                    Verdict.Discharged -> "- ✓ `${po.name}`"
+                    Verdict.Discharged -> {
+                        "- ✓ `${po.name}`"
+                    }
+
                     is Verdict.Disproved -> {
                         "- ✗ `${po.name}` does not hold" +
                             (if (verdict.counterexample.isEmpty()) "" else ", e.g. for `${verdict.counterexample}`")
                     }
-                    is Verdict.Undischarged -> "- ? `${po.name}` not discharged by ProB"
+
+                    is Verdict.Undischarged -> {
+                        "- ? `${po.name}` not discharged by ProB"
+                    }
                 }
             }
         return "**Proof obligations** ([3.2.7](${RodinHandbook.POS.url}))\n$lines"
@@ -156,7 +162,10 @@ object EventBDocumentation {
                 val type = if (own.env.contains(name)) own.env.getType(name) else null
                 val kept = if (machine !== own) " of the abstract machine" else ""
                 val signature = if (primed) "(after-value) ${typed(word, type)}" else "(variable$kept) ${typed(name, type)}"
-                val changing = own.events.values.filter { name in it.assigned }.map { it.name }
+                val changing =
+                    own.events.values
+                        .filter { name in it.assigned }
+                        .map { it.name }
                 val here = if (primed) own.formulaAt(line)?.let { listOf("```eventb\n${it.show()}\n```") }.orEmpty() else emptyList()
                 val text =
                     listOf(if (primed) "The value of `$name` after the event." else "A variable of machine `${machine.name}`.") +
@@ -181,7 +190,14 @@ object EventBDocumentation {
             val signature =
                 "machine ${machine.name}" + (machine.abstract?.let { " refines ${it.name}" } ?: "") +
                     (if (machine.variables.isEmpty()) "" else "\n  variables " + machine.variables.joinToString(" ")) +
-                    (if (machine.invariants.isEmpty()) "" else "\n  invariants\n    " + machine.invariants.joinToString("\n    ") { it.show() }) +
+                    (
+                        if (machine.invariants.isEmpty()) {
+                            ""
+                        } else {
+                            "\n  invariants\n    " +
+                                machine.invariants.joinToString("\n    ") { it.show() }
+                        }
+                    ) +
                     "\n  events " + machine.events.keys.joinToString(" ") + "\nend"
             return card(signature, listOf("In `${machine.file.name}`."), listOf(RodinHandbook.MACHINE))
         }
@@ -284,7 +300,10 @@ object EventBDocumentation {
             if (word.endsWith("'")) {
                 return card(
                     "(after-value) ${typed(word, type)}",
-                    listOf("The value of `${word.removeSuffix("'")}` after the event, in `@${labeled.label}`.", "```eventb\n${labeled.show()}\n```"),
+                    listOf(
+                        "The value of `${word.removeSuffix("'")}` after the event, in `@${labeled.label}`.",
+                        "```eventb\n${labeled.show()}\n```",
+                    ),
                     listOf(NONDETERMINISTIC),
                 )
             }

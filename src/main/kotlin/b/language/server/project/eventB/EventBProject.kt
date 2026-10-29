@@ -1,8 +1,10 @@
 package b.language.server.project.eventB
 
 import arrow.core.Either
+import b.language.server.project.DeclarationKind
 import b.language.server.project.Location
 import b.language.server.project.Project
+import b.language.server.project.SourceLines
 import b.language.server.project.classicB.ClassicBProject
 import de.be4.eventb.core.parser.BException
 import de.be4.eventb.core.parser.EventBLexerException
@@ -75,6 +77,24 @@ class EventBProject(
     }
 
     private val components = LinkedHashMap<String, Component>()
+
+    /**
+     * Where [name] is declared, searching the components loaded so far, the main file first. An
+     * Event-B machine has no single invariant clause, so [DeclarationKind.INVARIANT] is never found.
+     */
+    override fun declaration(
+        name: String,
+        kind: DeclarationKind,
+    ): Location? {
+        val keyword =
+            when (kind) {
+                DeclarationKind.CONSTANT -> "constants"
+                DeclarationKind.VARIABLE -> "variables"
+                DeclarationKind.INVARIANT -> return null
+            }
+        if (components.isEmpty()) loadMain()
+        return components.values.firstNotNullOfOrNull { SourceLines(it.file).find(SourceLines.identifier(name), keyword) }
+    }
 
     /** Loads the main file. */
     fun loadMain(): Loading = load(mainFile, null, null)

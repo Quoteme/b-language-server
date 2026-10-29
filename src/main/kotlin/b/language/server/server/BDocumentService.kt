@@ -107,9 +107,21 @@ class BDocumentService(
         file: File,
         problems: List<Problem>,
     ) {
-        val byTarget = problems.groupBy { it.location.file.toURI().path }
+        val byTarget =
+            problems.groupBy {
+                it.location.file
+                    .toURI()
+                    .path
+            }
         byTarget.forEach { (target, own) -> communicator.publishDiagnostics(target, own.map { it.toDiagnostic(SOURCE) }) }
-        val stale = published[file].orEmpty().map { it.location.file.toURI().path }.toSet() - byTarget.keys
+        val stale =
+            published[file]
+                .orEmpty()
+                .map {
+                    it.location.file
+                        .toURI()
+                        .path
+                }.toSet() - byTarget.keys
         stale.forEach { communicator.publishDiagnostics(it, emptyList()) }
         communicator.sendDebugMessage("invalidating old files $stale", MessageType.Info)
         published[file] = problems
@@ -134,8 +146,13 @@ class BDocumentService(
             // A failing completion offers nothing rather than an error in the editor.
             val items =
                 Either
-                    .catch { analysis.complete(projectOf(file), SourcePosition(params.position.line, params.position.character)).map { it.toLsp() } }
-                    .onLeft { communicator.sendDebugMessage("completion failed: ${it.message}", MessageType.Info) }
+                    .catch {
+                        analysis
+                            .complete(
+                                projectOf(file),
+                                SourcePosition(params.position.line, params.position.character),
+                            ).map { it.toLsp() }
+                    }.onLeft { communicator.sendDebugMessage("completion failed: ${it.message}", MessageType.Info) }
                     .getOrElse { emptyList() }
             LspEither.forRight(CompletionList(false, items))
         }

@@ -1,5 +1,0 @@
-<res>/eventb/Bank_r1.mch
-  19:7-19:11 Hint ProB add_client/grd2/WD is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  13:8-13:18 Hint ProB add_client/inv1/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  16:8-16:23 Hint ProB connect_account/grd1/GRD is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so
-  25:8-25:13 Hint ProB block/inv1/INV is not discharged by ProB: File for component does not exist: <prob>/lib/z3interface.so

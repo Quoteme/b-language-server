@@ -74,7 +74,12 @@ class IdentifierCatalog private constructor(
                 text: String,
                 link: Link = SECTIONS,
             ) {
-                cards[name] = IdentifierCard(name, kind, DocumentationCard(CodeLanguage.CLASSIC_B, signature, listOf(text), links = listOf(link)).render())
+                cards[name] =
+                    IdentifierCard(
+                        name,
+                        kind,
+                        DocumentationCard(CodeLanguage.CLASSIC_B, signature, listOf(text), links = listOf(link)).render(),
+                    )
             }
 
             val sets = names(Category.SETS)
@@ -82,9 +87,19 @@ class IdentifierCatalog private constructor(
             for (name in sets) {
                 val members = elements.filter { type(it) == name }
                 if (members.isEmpty()) {
-                    put(name, IdentifierKind.DEFERRED_SET, "(deferred set) $name", "A deferred set, declared in SETS: a non-empty set whose elements are not given.")
+                    put(
+                        name,
+                        IdentifierKind.DEFERRED_SET,
+                        "(deferred set) $name",
+                        "A deferred set, declared in SETS: a non-empty set whose elements are not given.",
+                    )
                 } else {
-                    put(name, IdentifierKind.ENUMERATED_SET, "(enumerated set) $name = {${members.joinToString(", ")}}", "An enumerated set, declared in SETS.")
+                    put(
+                        name,
+                        IdentifierKind.ENUMERATED_SET,
+                        "(enumerated set) $name = {${members.joinToString(", ")}}",
+                        "An enumerated set, declared in SETS.",
+                    )
                 }
             }
             for (name in elements) put(name, IdentifierKind.ELEMENT, "(element) ${typed(name)}", "An element of an enumerated set.")
@@ -98,7 +113,11 @@ class IdentifierCatalog private constructor(
                 put(name, IdentifierKind.FREE_TYPE, "(free type) $name", "A free type, declared in FREETYPES.", FREE_TYPES)
             }
             for (name in names(Category.DEFINITIONS)) {
-                if (name !in cards) put(name, IdentifierKind.DEFINITION, "(definition) $name", "A definition, expanded where it is used.", DEFINITIONS)
+                if (name !in
+                    cards
+                ) {
+                    put(name, IdentifierKind.DEFINITION, "(definition) $name", "A definition, expanded where it is used.", DEFINITIONS)
+                }
             }
             val machine = stateSpace.loadedMachine
             for (name in names(Category.OPERATIONS)) {

@@ -26,8 +26,16 @@ abstract class ProBModelChecker<in P : Project, M : LoadableModel>(
                 ProBFailure
                     .catching {
                         when (val outcome = ModelCheckOutcome.of(stateSpace, settings.modelCheckStates)) {
-                            is ModelCheckOutcome.NoError -> ModelCheckReport(emptyList(), "Model check: ${outcome.message}")
-                            is ModelCheckOutcome.ErrorFound -> ModelCheckReport(locate(project, model, outcome), "Model check: ${outcome.message}")
+                            is ModelCheckOutcome.NoError -> {
+                                ModelCheckReport(emptyList(), "Model check: ${outcome.message}")
+                            }
+
+                            is ModelCheckOutcome.ErrorFound -> {
+                                ModelCheckReport(
+                                    locate(project, model, outcome),
+                                    "Model check: ${outcome.message}",
+                                )
+                            }
                         }
                     }.mapLeft(LoadFailure::Rejected)
                     .bind()

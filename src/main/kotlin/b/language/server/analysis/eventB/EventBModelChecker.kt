@@ -1,9 +1,9 @@
 package b.language.server.analysis.eventB
 
+import arrow.core.Either
 import b.language.server.analysis.Problem
 import b.language.server.analysis.Severity
 import b.language.server.analysis.eventB.ProBTranslation.Companion.NO_EXTENSIONS
-import arrow.core.Either
 import b.language.server.analysis.prob.LoadFailure
 import b.language.server.analysis.prob.LoadableModel
 import b.language.server.analysis.prob.ModelCheckOutcome

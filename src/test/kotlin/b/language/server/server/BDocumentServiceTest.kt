@@ -2,12 +2,12 @@ package b.language.server.server
 
 import arrow.core.Either
 import arrow.core.right
+import b.language.server.analysis.Analysis
 import b.language.server.analysis.AnalysisDispatcher
 import b.language.server.analysis.AnalysisFailure
-import b.language.server.analysis.Analysis
 import b.language.server.analysis.Problem
 import b.language.server.analysis.prob.startProB
-import b.language.server.client.DummyCommunicator
+import b.language.server.client.RecordingCommunicator
 import b.language.server.config.Settings
 import b.language.server.project.Project
 import org.junit.jupiter.api.AfterEach
@@ -23,16 +23,11 @@ class BDocumentServiceTest {
     @AfterEach
     fun close() = opened.asReversed().forEach { it.close() }
 
+    /** A server whose client always has the default settings. */
     class DummyServer : ServerInterface {
-        override fun getDocumentSettings(uri: String): CompletableFuture<Settings> {
-            val result = CompletableFuture<Settings>()
-            result.complete(Settings())
-            return result
-        }
+        override fun getDocumentSettings(uri: String): CompletableFuture<Settings> = CompletableFuture.completedFuture(Settings())
 
-        override fun removeDocumentSettings(uri: String) {
-            TODO("Not yet implemented")
-        }
+        override fun removeDocumentSettings(uri: String) = Unit
     }
 
     /**
@@ -52,7 +47,7 @@ class BDocumentServiceTest {
 
     @Test
     fun checkDocument_test_documentRegistered() {
-        val communicator = DummyCommunicator()
+        val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
@@ -63,19 +58,19 @@ class BDocumentServiceTest {
 
         documentService.checkDocument(File(documentToCheck))
 
-        assertEquals(1, communicator.pushedDiagnostics.entries.size)
+        assertEquals(1, communicator.diagnostics.entries.size)
         assertEquals(
             3,
-            communicator.pushedDiagnostics.entries
+            communicator.diagnostics.entries
                 .first()
                 .value.size,
         )
-        assertEquals(expectedDocument, communicator.pushedDiagnostics.keys.first())
+        assertEquals(expectedDocument, communicator.diagnostics.keys.first())
     }
 
     @Test
     fun checkDocument_test_subDocument_displayed_properly() {
-        val communicator = DummyCommunicator()
+        val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, analysis).also { opened += it }
@@ -86,23 +81,23 @@ class BDocumentServiceTest {
 
         documentService.checkDocument(File(documentToCheck))
 
-        communicator.pushedDiagnostics.clear()
+        communicator.diagnostics.clear()
 
         documentService.checkDocument(File(documentToCheck))
 
-        assertEquals(2, communicator.pushedDiagnostics.entries.size)
+        assertEquals(2, communicator.diagnostics.entries.size)
         assertEquals(
             3,
-            communicator.pushedDiagnostics.entries
+            communicator.diagnostics.entries
                 .first()
                 .value.size,
         )
-        assertEquals(expectedDocument, communicator.pushedDiagnostics.keys.first())
+        assertEquals(expectedDocument, communicator.diagnostics.keys.first())
     }
 
     @Test
     fun checkDocument_test_unregistered_document_after_no_errors() {
-        val communicator = DummyCommunicator()
+        val communicator = RecordingCommunicator()
 
         val analysis = AnalysisDispatcher(startProB()).also { opened += it }
         val documentService = BDocumentService(DummyServer(), communicator, FixedAfterFirstCheck(analysis)).also { opened += it }
@@ -113,18 +108,9 @@ class BDocumentServiceTest {
 
         assertEquals(
             emptyList(),
-            communicator.pushedDiagnostics.entries
+            communicator.diagnostics.entries
                 .first()
                 .value,
         )
     }
-
-    /*
-     * Write Tests:
-     * Test different options you can turn on and off
-     * strict, WD, performance
-     * Included files have errors and errors are mapped properly
-     * Included files have no errors
-     * Included files have
-     */
 }

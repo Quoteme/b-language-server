@@ -2,7 +2,11 @@ package b.language.server.proBMangement.prob
 
 import b.language.server.communication.CommunicatorInterface
 import de.prob.animator.domainobjects.ErrorItem
-import org.eclipse.lsp4j.*
+import org.eclipse.lsp4j.Diagnostic
+import org.eclipse.lsp4j.DiagnosticSeverity
+import org.eclipse.lsp4j.MessageType
+import org.eclipse.lsp4j.Position
+import org.eclipse.lsp4j.Range
 import java.io.File
 
 fun convertErrorItems(

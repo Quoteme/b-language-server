@@ -39,3 +39,4 @@ build
 .settings/org.eclipse.jdt.core.prefs
 
 kls_database.db
+.kotlin

@@ -114,7 +114,7 @@ class BDocumentServiceTest {
         )
     }
 
-    /**
+    /*
      * Write Tests:
      * Test different options you can turn on and off
      * strict, WD, performance

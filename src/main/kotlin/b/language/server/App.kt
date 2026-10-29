@@ -3,7 +3,8 @@ package b.language.server
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.launch.LSPLauncher
 import org.eclipse.lsp4j.services.LanguageClient
-import java.io.*
+import java.io.InputStream
+import java.io.OutputStream
 import java.net.ServerSocket
 import java.util.concurrent.Future
 

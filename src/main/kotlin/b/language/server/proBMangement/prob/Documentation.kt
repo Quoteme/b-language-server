@@ -48,6 +48,54 @@ abstract class Documentation {
                 )
             }
         }
+
+        @JvmStatic protected fun handbook(
+            page: String,
+            section: String,
+        ) = "$HANDBOOK$page" to "Rodin Handbook, $section"
+
+        @JvmStatic protected val CONTEXT = handbook("context.html", "3.2.3 Contexts")
+
+        @JvmStatic protected val MACHINE = handbook("machine.html", "3.2.4 Machines")
+
+        @JvmStatic protected val EVENTS = handbook("machine.html#events", "3.2.4.4 Events")
+
+        @JvmStatic protected val TERMINATION = handbook("machine.html#termination", "3.2.4.8 Termination")
+
+        @JvmStatic protected val POS = handbook("generated_proof_obligations.html", "3.2.7 Generated proof obligations")
+
+        @JvmStatic protected val GUARDS = handbook("machine.html#guards", "3.2.4.4.2 Guards")
+
+        @JvmStatic protected val ACTIONS = handbook("machine.html#actions", "3.2.4.4.3 Actions")
+
+        @JvmStatic protected val COUNTER =
+            """
+            machine Counter sees Limits
+            variables n
+            invariants
+              @inv1 n ∈ 0 ‥ limit
+            events
+              event INITIALISATION
+                then @act1 n ≔ 0
+              end
+              event inc
+                when @grd1 n < limit
+                then @act1 n ≔ n + 1
+              end
+            end
+            """.trimIndent()
+
+        @JvmStatic protected val ADD =
+            """
+            event add
+              any k
+              where
+                @grd1 k ∈ 1 ‥ 3
+                @grd2 n + k ≤ limit
+              then
+                @act1 n ≔ n + k
+            end
+            """.trimIndent()
     }
 
     // ----------------------------------------------------------------------
@@ -86,48 +134,6 @@ abstract class Documentation {
         val example: String?,
         val where: Pair<String, String>,
     )
-
-    protected fun handbook(
-        page: String,
-        section: String,
-    ) = "$HANDBOOK$page" to "Rodin Handbook, $section"
-
-    protected val CONTEXT = handbook("context.html", "3.2.3 Contexts")
-    protected val MACHINE = handbook("machine.html", "3.2.4 Machines")
-    protected val EVENTS = handbook("machine.html#events", "3.2.4.4 Events")
-    protected val TERMINATION = handbook("machine.html#termination", "3.2.4.8 Termination")
-    protected val POS = handbook("generated_proof_obligations.html", "3.2.7 Generated proof obligations")
-    protected val GUARDS = handbook("machine.html#guards", "3.2.4.4.2 Guards")
-    protected val ACTIONS = handbook("machine.html#actions", "3.2.4.4.3 Actions")
-
-    protected val COUNTER =
-        """
-        machine Counter sees Limits
-        variables n
-        invariants
-          @inv1 n ∈ 0 ‥ limit
-        events
-          event INITIALISATION
-            then @act1 n ≔ 0
-          end
-          event inc
-            when @grd1 n < limit
-            then @act1 n ≔ n + 1
-          end
-        end
-        """.trimIndent()
-
-    protected val ADD =
-        """
-        event add
-          any k
-          where
-            @grd1 k ∈ 1 ‥ 3
-            @grd2 n + k ≤ limit
-          then
-            @act1 n ≔ n + k
-        end
-        """.trimIndent()
 
     protected val eventbKeywords: Map<String, Doc> =
         mapOf(
@@ -635,7 +641,11 @@ abstract class Documentation {
             val abstract = name !in event.parameters
             val text =
                 listOf(
-                    if (abstract) "A parameter of the abstract event, given a value by a witness." else "A parameter of event `${event.name}`.",
+                    if (abstract) {
+                        "A parameter of the abstract event, given a value by a witness."
+                    } else {
+                        "A parameter of event `${event.name}`."
+                    },
                 ) + mentioning("Guards about it:", mentions(name, event.guards + event.witnesses))
             return card(
                 "eventb",

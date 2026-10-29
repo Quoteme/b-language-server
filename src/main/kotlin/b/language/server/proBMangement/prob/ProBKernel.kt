@@ -153,7 +153,11 @@ class ProBKernel
                 result[name] =
                     card(
                         if (members.isEmpty()) "(deferred set) $name" else "(enumerated set) $name = {${members.joinToString(", ")}}",
-                        if (members.isEmpty()) "A deferred set, declared in SETS: a non-empty set whose elements are not given." else "An enumerated set, declared in SETS.",
+                        if (members.isEmpty()) {
+                            "A deferred set, declared in SETS: a non-empty set whose elements are not given."
+                        } else {
+                            "An enumerated set, declared in SETS."
+                        },
                         sections,
                     )
             }

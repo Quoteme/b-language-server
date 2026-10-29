@@ -1,4 +1,4 @@
-import b.language.server.communication.CommunicatorInterface
+import b.language.server.client.CommunicatorInterface
 import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.MessageType
 

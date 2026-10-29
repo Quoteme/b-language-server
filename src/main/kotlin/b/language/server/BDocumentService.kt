@@ -1,11 +1,11 @@
 package b.language.server
 
-import b.language.server.communication.CommunicatorInterface
-import b.language.server.dataStorage.Settings
-import b.language.server.proBMangement.ProBInterface
-import b.language.server.proBMangement.prob.Animation
-import b.language.server.proBMangement.prob.Completion
-import b.language.server.proBMangement.prob.CouldNotFindProBHomeException
+import b.language.server.analysis.legacy.Animation
+import b.language.server.analysis.legacy.Completion
+import b.language.server.analysis.legacy.CouldNotFindProBHomeException
+import b.language.server.analysis.legacy.ProBInterface
+import b.language.server.client.CommunicatorInterface
+import b.language.server.config.Settings
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import org.eclipse.lsp4j.CodeAction
@@ -36,7 +36,7 @@ import java.io.File
 import java.net.URI
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
-import b.language.server.proBMangement.prob.Hover as HoverText
+import b.language.server.analysis.legacy.Hover as HoverText
 
 class BDocumentService(
     private val server: ServerInterface,

@@ -1,6 +1,6 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
-import b.language.server.communication.CommunicatorInterface
+import b.language.server.client.CommunicatorInterface
 import com.google.inject.AbstractModule
 import de.prob.MainModule
 

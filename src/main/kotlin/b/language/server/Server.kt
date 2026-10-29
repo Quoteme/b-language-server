@@ -1,8 +1,8 @@
 package b.language.server
 
-import b.language.server.communication.Communicator
-import b.language.server.dataStorage.Settings
-import b.language.server.proBMangement.prob.ProBKernelManager
+import b.language.server.analysis.legacy.ProBKernelManager
+import b.language.server.client.Communicator
+import b.language.server.config.Settings
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.CodeActionKind
 import org.eclipse.lsp4j.CodeActionOptions

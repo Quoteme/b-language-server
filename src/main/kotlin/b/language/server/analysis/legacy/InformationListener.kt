@@ -1,6 +1,6 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
-import b.language.server.communication.CommunicatorInterface
+import b.language.server.client.CommunicatorInterface
 import de.prob.animator.IWarningListener
 import de.prob.animator.domainobjects.ErrorItem
 import org.eclipse.lsp4j.Diagnostic

@@ -1,4 +1,4 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
 class CouldNotFindProBHomeException(
     message: String,

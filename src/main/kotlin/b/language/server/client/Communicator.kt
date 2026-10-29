@@ -1,4 +1,4 @@
-package b.language.server.communication
+package b.language.server.client
 
 import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.MessageParams

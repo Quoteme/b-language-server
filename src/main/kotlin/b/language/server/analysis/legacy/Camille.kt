@@ -1,4 +1,4 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
 import de.be4.eventb.core.parser.BException
 import de.be4.eventb.core.parser.EventBLexerException

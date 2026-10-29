@@ -1,6 +1,6 @@
 package b.language.server
 
-import b.language.server.communication.Communicator
+import b.language.server.client.Communicator
 import com.google.gson.JsonObject
 import org.eclipse.lsp4j.DidChangeConfigurationParams
 import org.eclipse.lsp4j.DidChangeWatchedFilesParams

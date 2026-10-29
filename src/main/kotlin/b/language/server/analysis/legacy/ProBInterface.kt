@@ -1,7 +1,6 @@
-package b.language.server.proBMangement
+package b.language.server.analysis.legacy
 
-import b.language.server.dataStorage.Settings
-import b.language.server.proBMangement.prob.ProofObligation
+import b.language.server.config.Settings
 import org.eclipse.lsp4j.Diagnostic
 import java.io.File
 

@@ -1,4 +1,4 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind

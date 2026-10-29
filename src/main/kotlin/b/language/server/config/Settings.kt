@@ -1,4 +1,4 @@
-package b.language.server.dataStorage
+package b.language.server.config
 
 data class Settings(
     val strictChecks: Boolean = true,

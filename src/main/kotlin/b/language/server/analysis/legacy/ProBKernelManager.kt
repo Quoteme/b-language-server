@@ -1,9 +1,8 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
-import b.language.server.communication.CommunicatorInterface
-import b.language.server.dataStorage.ProBSettings
-import b.language.server.dataStorage.Settings
-import b.language.server.proBMangement.ProBInterface
+import b.language.server.client.CommunicatorInterface
+import b.language.server.config.ProBSettings
+import b.language.server.config.Settings
 import com.google.inject.Guice
 import com.google.inject.Stage
 import org.eclipse.lsp4j.Diagnostic

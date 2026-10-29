@@ -1,7 +1,7 @@
-package b.language.server.proBMangement.prob
+package b.language.server.analysis.legacy
 
-import b.language.server.communication.CommunicatorInterface
-import b.language.server.dataStorage.ProBSettings
+import b.language.server.client.CommunicatorInterface
+import b.language.server.config.ProBSettings
 import com.google.inject.Inject
 import com.google.inject.Injector
 import de.be4.eventb.core.parser.node.AMachineParseUnit

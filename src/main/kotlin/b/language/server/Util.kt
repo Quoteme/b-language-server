@@ -1,6 +1,6 @@
 package b.language.server
 
-import b.language.server.dataStorage.Settings
+import b.language.server.config.Settings
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 

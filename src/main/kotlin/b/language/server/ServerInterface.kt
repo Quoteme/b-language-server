@@ -1,6 +1,6 @@
 package b.language.server
 
-import b.language.server.dataStorage.Settings
+import b.language.server.config.Settings
 import java.util.concurrent.CompletableFuture
 
 interface ServerInterface {

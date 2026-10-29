@@ -1,8 +1,8 @@
 package b.language.server.prob2.proBMangement
 
 import DummyCommunicator
-import b.language.server.proBMangement.prob.convertErrorItems
-import b.language.server.proBMangement.prob.getErrorItemType
+import b.language.server.analysis.legacy.convertErrorItems
+import b.language.server.analysis.legacy.getErrorItemType
 import de.prob.animator.domainobjects.ErrorItem
 import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.DiagnosticSeverity

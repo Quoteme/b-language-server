@@ -1,4 +1,4 @@
-package b.language.server
+package b.language.server.server
 
 import b.language.server.config.Settings
 import java.util.concurrent.CompletableFuture

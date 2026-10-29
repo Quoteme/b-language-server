@@ -1,5 +1,6 @@
 package b.language.server
 
+import b.language.server.server.Server
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.launch.LSPLauncher
 import org.eclipse.lsp4j.services.LanguageClient

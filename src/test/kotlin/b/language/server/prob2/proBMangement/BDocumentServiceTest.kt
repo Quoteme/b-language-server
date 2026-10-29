@@ -1,12 +1,12 @@
 package b.language.server.prob2.proBMangement
 
 import DummyCommunicator
-import b.language.server.BDocumentService
-import b.language.server.ServerInterface
 import b.language.server.analysis.legacy.ProBInterface
 import b.language.server.analysis.legacy.ProBKernelManager
 import b.language.server.client.CommunicatorInterface
 import b.language.server.config.Settings
+import b.language.server.server.BDocumentService
+import b.language.server.server.ServerInterface
 import org.eclipse.lsp4j.Diagnostic
 import org.junit.jupiter.api.Test
 import java.io.File

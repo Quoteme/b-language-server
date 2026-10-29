@@ -1,4 +1,4 @@
-package b.language.server
+package b.language.server.server
 
 import b.language.server.analysis.legacy.Animation
 import b.language.server.analysis.legacy.Completion

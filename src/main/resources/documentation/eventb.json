@@ -1,0 +1,3635 @@
+[
+ {
+  "key": "⊤",
+  "title": "True",
+  "description": "The predicates ⊤ and ⊥ are the predicates that are true and false respectively.",
+  "ascii": "`true`",
+  "definition": [],
+  "types": [],
+  "wd": [
+   "L(⊤) ≙ ⊤",
+   "L(⊥) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000344",
+  "source": "Rodin Handbook, 3.3.2.1 Logical primitives",
+  "primary": true,
+  "symbol": "⊤"
+ },
+ {
+  "key": "true",
+  "title": "True",
+  "description": "The predicates ⊤ and ⊥ are the predicates that are true and false respectively.",
+  "ascii": "`true`",
+  "definition": [],
+  "types": [],
+  "wd": [
+   "L(⊤) ≙ ⊤",
+   "L(⊥) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000344",
+  "source": "Rodin Handbook, 3.3.2.1 Logical primitives",
+  "primary": true,
+  "symbol": "⊤"
+ },
+ {
+  "key": "⊥",
+  "title": "False",
+  "description": "The predicates ⊤ and ⊥ are the predicates that are true and false respectively.",
+  "ascii": "`false`",
+  "definition": [],
+  "types": [],
+  "wd": [
+   "L(⊤) ≙ ⊤",
+   "L(⊥) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000344",
+  "source": "Rodin Handbook, 3.3.2.1 Logical primitives",
+  "primary": true,
+  "symbol": "⊥"
+ },
+ {
+  "key": "false",
+  "title": "False",
+  "description": "The predicates ⊤ and ⊥ are the predicates that are true and false respectively.",
+  "ascii": "`false`",
+  "definition": [],
+  "types": [],
+  "wd": [
+   "L(⊤) ≙ ⊤",
+   "L(⊥) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000344",
+  "source": "Rodin Handbook, 3.3.2.1 Logical primitives",
+  "primary": true,
+  "symbol": "⊥"
+ },
+ {
+  "key": "∧",
+  "title": "Conjunction",
+  "description": "These are the usual logical operators.",
+  "ascii": "`&`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "∧"
+ },
+ {
+  "key": "&",
+  "title": "Conjunction",
+  "description": "These are the usual logical operators.",
+  "ascii": "`&`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "∧"
+ },
+ {
+  "key": "∨",
+  "title": "Disjunction",
+  "description": "These are the usual logical operators.",
+  "ascii": "`or`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "∨"
+ },
+ {
+  "key": "or",
+  "title": "Disjunction",
+  "description": "These are the usual logical operators.",
+  "ascii": "`or`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "∨"
+ },
+ {
+  "key": "⇒",
+  "title": "Implication",
+  "description": "These are the usual logical operators.",
+  "ascii": "`=>`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "⇒"
+ },
+ {
+  "key": "=>",
+  "title": "Implication",
+  "description": "These are the usual logical operators.",
+  "ascii": "`=>`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "⇒"
+ },
+ {
+  "key": "⇔",
+  "title": "Equivalence",
+  "description": "These are the usual logical operators.",
+  "ascii": "`<=>`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "⇔"
+ },
+ {
+  "key": "<=>",
+  "title": "Equivalence",
+  "description": "These are the usual logical operators.",
+  "ascii": "`<=>`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "⇔"
+ },
+ {
+  "key": "¬",
+  "title": "Negation",
+  "description": "These are the usual logical operators.",
+  "ascii": "`not`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "¬"
+ },
+ {
+  "key": "not",
+  "title": "Negation",
+  "description": "These are the usual logical operators.",
+  "ascii": "`not`",
+  "definition": [
+   "The following truth tables describe the behaviours of these operators:",
+   "P",
+   "Q",
+   "P ∧ Q",
+   "P ∨ Q",
+   "P ⇒ Q",
+   "P ⇔ Q",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊥",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "⊤",
+   "P",
+   "¬ P",
+   "⊥",
+   "⊤",
+   "⊤",
+   "⊥"
+  ],
+  "types": [
+   "All arguments are predicates."
+  ],
+  "wd": [
+   "Please note that the operators ∧ and ∨ are not commutative because their well-definedness conditions distinguish between the first and second argument. Therefore, if their arguments have well-definedness conditions, the order matters. For example, x ≠ 0 ∧ y ÷ x = 3 is always well-defined, but y ÷ x = 3 ∧ x ≠ 0 still has the well-definedness condition x ≠ 0.",
+   "L(P ∧ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ∨ Q) ≙ L(P) ∧ (P ∨ L(Q))",
+   "L(P ⇒ Q) ≙ L(P) ∧ (P ⇒ L(Q))",
+   "L(P ⇔ Q) ≙ L(P) ∧ L(Q)",
+   "L(¬ (P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#a0000000349",
+  "source": "Rodin Handbook, 3.3.2.2 Logical operators",
+  "primary": true,
+  "symbol": "¬"
+ },
+ {
+  "key": "∀",
+  "title": "Universal quantification",
+  "description": "The universal quantification ∀ x1,…,xn · P is true if P is satisfied for all possible values of x1…,xn. A usual pattern for quantification is ∀ x1…,xn · P1 ⇒ P2 where P1 is used to specify the types of the identifiers. — The existential quantification ∃ x1…,xn · P is true if a value of x1…,xn exists such that P is satisfied. — The types of all identifiers x1…,xn must be inferable by P. They can be referenced in P.",
+  "ascii": "`!`",
+  "definition": [],
+  "types": [
+   "The quantifiers and the P are predicates."
+  ],
+  "wd": [
+   "L(∀ x1…,xn · P) ≙ ∀ x1…,xn · L(P)",
+   "L(∃ x1…,xn · P) ≙ ∀ x1…,xn · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#quantified_predicates",
+  "source": "Rodin Handbook, 3.3.2.3 Quantified predicates",
+  "primary": true,
+  "symbol": "∀"
+ },
+ {
+  "key": "!",
+  "title": "Universal quantification",
+  "description": "The universal quantification ∀ x1,…,xn · P is true if P is satisfied for all possible values of x1…,xn. A usual pattern for quantification is ∀ x1…,xn · P1 ⇒ P2 where P1 is used to specify the types of the identifiers. — The existential quantification ∃ x1…,xn · P is true if a value of x1…,xn exists such that P is satisfied. — The types of all identifiers x1…,xn must be inferable by P. They can be referenced in P.",
+  "ascii": "`!`",
+  "definition": [],
+  "types": [
+   "The quantifiers and the P are predicates."
+  ],
+  "wd": [
+   "L(∀ x1…,xn · P) ≙ ∀ x1…,xn · L(P)",
+   "L(∃ x1…,xn · P) ≙ ∀ x1…,xn · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#quantified_predicates",
+  "source": "Rodin Handbook, 3.3.2.3 Quantified predicates",
+  "primary": true,
+  "symbol": "∀"
+ },
+ {
+  "key": "∃",
+  "title": "Existential quantification",
+  "description": "The universal quantification ∀ x1,…,xn · P is true if P is satisfied for all possible values of x1…,xn. A usual pattern for quantification is ∀ x1…,xn · P1 ⇒ P2 where P1 is used to specify the types of the identifiers. — The existential quantification ∃ x1…,xn · P is true if a value of x1…,xn exists such that P is satisfied. — The types of all identifiers x1…,xn must be inferable by P. They can be referenced in P.",
+  "ascii": "`#`",
+  "definition": [],
+  "types": [
+   "The quantifiers and the P are predicates."
+  ],
+  "wd": [
+   "L(∀ x1…,xn · P) ≙ ∀ x1…,xn · L(P)",
+   "L(∃ x1…,xn · P) ≙ ∀ x1…,xn · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#quantified_predicates",
+  "source": "Rodin Handbook, 3.3.2.3 Quantified predicates",
+  "primary": true,
+  "symbol": "∃"
+ },
+ {
+  "key": "=",
+  "title": "equality",
+  "description": "Checks if both expressions are or are not equal.",
+  "ascii": "`=`",
+  "definition": [
+   "E ≠ F ≙ ¬ (E = F)"
+  ],
+  "types": [
+   "E = F and E ≠ F are predicates with E ∈ α and F ∈ α, i.e. E and F must have the same type."
+  ],
+  "wd": [
+   "L(E = F) ≙ L(E) ∧ L(F)",
+   "L(E ≠ F) ≙ L(E) ∧ L(F)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#equality",
+  "source": "Rodin Handbook, 3.3.2.4 Equality",
+  "primary": true,
+  "symbol": "="
+ },
+ {
+  "key": "≠",
+  "title": "inequality",
+  "description": "Checks if both expressions are or are not equal.",
+  "ascii": "`/=`",
+  "definition": [
+   "E ≠ F ≙ ¬ (E = F)"
+  ],
+  "types": [
+   "E = F and E ≠ F are predicates with E ∈ α and F ∈ α, i.e. E and F must have the same type."
+  ],
+  "wd": [
+   "L(E = F) ≙ L(E) ∧ L(F)",
+   "L(E ≠ F) ≙ L(E) ∧ L(F)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#equality",
+  "source": "Rodin Handbook, 3.3.2.4 Equality",
+  "primary": true,
+  "symbol": "≠"
+ },
+ {
+  "key": "/=",
+  "title": "inequality",
+  "description": "Checks if both expressions are or are not equal.",
+  "ascii": "`/=`",
+  "definition": [
+   "E ≠ F ≙ ¬ (E = F)"
+  ],
+  "types": [
+   "E = F and E ≠ F are predicates with E ∈ α and F ∈ α, i.e. E and F must have the same type."
+  ],
+  "wd": [
+   "L(E = F) ≙ L(E) ∧ L(F)",
+   "L(E ≠ F) ≙ L(E) ∧ L(F)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#equality",
+  "source": "Rodin Handbook, 3.3.2.4 Equality",
+  "primary": true,
+  "symbol": "≠"
+ },
+ {
+  "key": "∈",
+  "title": "set membership",
+  "description": "Checks if an expression E denotes an element of a set S.",
+  "ascii": "`:`",
+  "definition": [
+   "E ∉ S ≙ ¬ (E ∈ S)"
+  ],
+  "types": [
+   "E ∈ S and E ∉ S are predicates with E ∈ α and S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(E ∈ S) ≙ L(E) ∧ L(S)",
+   "L(E ∉ S) ≙ L(E) ∧ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#membership",
+  "source": "Rodin Handbook, 3.3.2.5 Membership",
+  "primary": true,
+  "symbol": "∈"
+ },
+ {
+  "key": ":",
+  "title": "set membership",
+  "description": "Checks if an expression E denotes an element of a set S.",
+  "ascii": "`:`",
+  "definition": [
+   "E ∉ S ≙ ¬ (E ∈ S)"
+  ],
+  "types": [
+   "E ∈ S and E ∉ S are predicates with E ∈ α and S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(E ∈ S) ≙ L(E) ∧ L(S)",
+   "L(E ∉ S) ≙ L(E) ∧ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#membership",
+  "source": "Rodin Handbook, 3.3.2.5 Membership",
+  "primary": true,
+  "symbol": "∈"
+ },
+ {
+  "key": "∉",
+  "title": "negated set membership",
+  "description": "Checks if an expression E denotes an element of a set S.",
+  "ascii": "`/:`",
+  "definition": [
+   "E ∉ S ≙ ¬ (E ∈ S)"
+  ],
+  "types": [
+   "E ∈ S and E ∉ S are predicates with E ∈ α and S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(E ∈ S) ≙ L(E) ∧ L(S)",
+   "L(E ∉ S) ≙ L(E) ∧ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#membership",
+  "source": "Rodin Handbook, 3.3.2.5 Membership",
+  "primary": true,
+  "symbol": "∉"
+ },
+ {
+  "key": "/:",
+  "title": "negated set membership",
+  "description": "Checks if an expression E denotes an element of a set S.",
+  "ascii": "`/:`",
+  "definition": [
+   "E ∉ S ≙ ¬ (E ∈ S)"
+  ],
+  "types": [
+   "E ∈ S and E ∉ S are predicates with E ∈ α and S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(E ∈ S) ≙ L(E) ∧ L(S)",
+   "L(E ∉ S) ≙ L(E) ∧ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/predicates.html#membership",
+  "source": "Rodin Handbook, 3.3.2.5 Membership",
+  "primary": true,
+  "symbol": "∉"
+ },
+ {
+  "key": "BOOL",
+  "title": "Boolean values",
+  "description": "BOOL is a pre-defined carrier set that contains the constants TRUE and FALSE. — bool(P) denotes the Boolean value of a predicate P. If P is true, the expression is TRUE. If P is false, the expression is FALSE.",
+  "ascii": "`BOOL`",
+  "definition": [
+   "partition(BOOL,{TRUE},{FALSE})",
+   "bool(P) = TRUE ⇔ P"
+  ],
+  "types": [
+   "BOOL ∈ ℙ(BOOL)",
+   "TRUE ∈ BOOL",
+   "FALSE ∈ BOOL",
+   "bool(P) ∈ BOOL with P being a predicate."
+  ],
+  "wd": [
+   "L(BOOL) ≙ ⊤",
+   "L(TRUE) ≙ ⊤",
+   "L(FALSE) ≙ ⊤",
+   "L(bool(P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/booleans.html#booleans",
+  "source": "Rodin Handbook, 3.3.3 Booleans",
+  "primary": true,
+  "symbol": "BOOL"
+ },
+ {
+  "key": "TRUE",
+  "title": "Boolean true",
+  "description": "BOOL is a pre-defined carrier set that contains the constants TRUE and FALSE. — bool(P) denotes the Boolean value of a predicate P. If P is true, the expression is TRUE. If P is false, the expression is FALSE.",
+  "ascii": "`TRUE`",
+  "definition": [
+   "partition(BOOL,{TRUE},{FALSE})",
+   "bool(P) = TRUE ⇔ P"
+  ],
+  "types": [
+   "BOOL ∈ ℙ(BOOL)",
+   "TRUE ∈ BOOL",
+   "FALSE ∈ BOOL",
+   "bool(P) ∈ BOOL with P being a predicate."
+  ],
+  "wd": [
+   "L(BOOL) ≙ ⊤",
+   "L(TRUE) ≙ ⊤",
+   "L(FALSE) ≙ ⊤",
+   "L(bool(P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/booleans.html#booleans",
+  "source": "Rodin Handbook, 3.3.3 Booleans",
+  "primary": true,
+  "symbol": "TRUE"
+ },
+ {
+  "key": "FALSE",
+  "title": "Boolean false",
+  "description": "BOOL is a pre-defined carrier set that contains the constants TRUE and FALSE. — bool(P) denotes the Boolean value of a predicate P. If P is true, the expression is TRUE. If P is false, the expression is FALSE.",
+  "ascii": "`FALSE`",
+  "definition": [
+   "partition(BOOL,{TRUE},{FALSE})",
+   "bool(P) = TRUE ⇔ P"
+  ],
+  "types": [
+   "BOOL ∈ ℙ(BOOL)",
+   "TRUE ∈ BOOL",
+   "FALSE ∈ BOOL",
+   "bool(P) ∈ BOOL with P being a predicate."
+  ],
+  "wd": [
+   "L(BOOL) ≙ ⊤",
+   "L(TRUE) ≙ ⊤",
+   "L(FALSE) ≙ ⊤",
+   "L(bool(P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/booleans.html#booleans",
+  "source": "Rodin Handbook, 3.3.3 Booleans",
+  "primary": true,
+  "symbol": "FALSE"
+ },
+ {
+  "key": "bool",
+  "title": "Convert a predicate into a Boolean value",
+  "description": "BOOL is a pre-defined carrier set that contains the constants TRUE and FALSE. — bool(P) denotes the Boolean value of a predicate P. If P is true, the expression is TRUE. If P is false, the expression is FALSE.",
+  "ascii": "`bool`",
+  "definition": [
+   "partition(BOOL,{TRUE},{FALSE})",
+   "bool(P) = TRUE ⇔ P"
+  ],
+  "types": [
+   "BOOL ∈ ℙ(BOOL)",
+   "TRUE ∈ BOOL",
+   "FALSE ∈ BOOL",
+   "bool(P) ∈ BOOL with P being a predicate."
+  ],
+  "wd": [
+   "L(BOOL) ≙ ⊤",
+   "L(TRUE) ≙ ⊤",
+   "L(FALSE) ≙ ⊤",
+   "L(bool(P)) ≙ L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/booleans.html#booleans",
+  "source": "Rodin Handbook, 3.3.3 Booleans",
+  "primary": true,
+  "symbol": "bool"
+ },
+ {
+  "key": "∅",
+  "title": "Empty set",
+  "description": "exprs is a comma-separated list of one or more expressions of the same type. — The empty set ∅ contains no elements. The set extension {E1,…,En} is the set that contains exactly the elements E1,…,En.",
+  "ascii": "`{}`",
+  "definition": [
+   "∅ ≙ {x | ⊥}",
+   "{E1,…,En} ≙ {x | x = E1 ∨ … ∨ x = En}"
+  ],
+  "types": [
+   "∅ ∈ ℙ(α), where α is an arbitrary type.",
+   "{E1,…,En} ∈ ℙ(α) with E1 ∈ α,…,En ∈ α"
+  ],
+  "wd": [
+   "L(∅) ≙ ⊤",
+   "L({E1,…,En}) ≙ L(E1) ∧ … ∧ L(En)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000371",
+  "source": "Rodin Handbook, 3.3.4.2 Basic sets",
+  "primary": true,
+  "symbol": "∅"
+ },
+ {
+  "key": "{}",
+  "title": "Empty set",
+  "description": "exprs is a comma-separated list of one or more expressions of the same type. — The empty set ∅ contains no elements. The set extension {E1,…,En} is the set that contains exactly the elements E1,…,En.",
+  "ascii": "`{}`",
+  "definition": [
+   "∅ ≙ {x | ⊥}",
+   "{E1,…,En} ≙ {x | x = E1 ∨ … ∨ x = En}"
+  ],
+  "types": [
+   "∅ ∈ ℙ(α), where α is an arbitrary type.",
+   "{E1,…,En} ∈ ℙ(α) with E1 ∈ α,…,En ∈ α"
+  ],
+  "wd": [
+   "L(∅) ≙ ⊤",
+   "L({E1,…,En}) ≙ L(E1) ∧ … ∧ L(En)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000371",
+  "source": "Rodin Handbook, 3.3.4.2 Basic sets",
+  "primary": true,
+  "symbol": "∅"
+ },
+ {
+  "key": "⊆",
+  "title": "subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊆"
+ },
+ {
+  "key": "<:",
+  "title": "subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊆"
+ },
+ {
+  "key": "⊈",
+  "title": "not a subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`/<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊈"
+ },
+ {
+  "key": "/<:",
+  "title": "not a subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`/<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊈"
+ },
+ {
+  "key": "⊂",
+  "title": "strict subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`<<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊂"
+ },
+ {
+  "key": "<<:",
+  "title": "strict subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`<<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊂"
+ },
+ {
+  "key": "⊄",
+  "title": "not a strict subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`/<<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊄"
+ },
+ {
+  "key": "/<<:",
+  "title": "not a strict subset",
+  "description": "S ⊆ T checks if S is a subset of T, i.e. if all elements of S occur in T. S ⊂ T checks if S is a subset of T and S does not equal T. S ⊈ T and S ⊄ T are the respective negated variants.",
+  "ascii": "`/<<:`",
+  "definition": [
+   "S ⊆ T ≙ ∀ e · e ∈ S ⇒ e ∈ T",
+   "S ⊈ T ≙ ¬ (S ⊆ T)",
+   "S ⊂ T ≙ S ⊆ T ∧ S ≠ T",
+   "S ⊄ T ≙ ¬ (S ⊂ T)"
+  ],
+  "types": [
+   "S □ T is a predicate with S ∈ ℙ(α), T ∈ ℙ(α) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ⊆, ⊈, ⊂, ⊄ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#subsets",
+  "source": "Rodin Handbook, 3.3.4.3 Subsets",
+  "primary": true,
+  "symbol": "⊄"
+ },
+ {
+  "key": "∪",
+  "title": "Union",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`\\/`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∪"
+ },
+ {
+  "key": "\\/",
+  "title": "Union",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`\\/`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∪"
+ },
+ {
+  "key": "∩",
+  "title": "Intersection",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`/\\`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∩"
+ },
+ {
+  "key": "/\\",
+  "title": "Intersection",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`/\\`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∩"
+ },
+ {
+  "key": "∖",
+  "title": "Set subtraction",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`\\`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∖"
+ },
+ {
+  "key": "\\",
+  "title": "Set subtraction",
+  "description": "The union S ∪ T denotes the set that contains all elements that are in S or T. The intersection S ∩ T denotes the set that contains all elements that are in both S and T. The set subtraction or set difference S ∖ T denotes all elements that are in S but not in T.",
+  "ascii": "`\\`",
+  "definition": [
+   "S ∪ T ≙ {x | x ∈ S ∨ x ∈ T}",
+   "S ∩ T ≙ {x | x ∈ S ∧ x ∈ T}",
+   "S ∖ T ≙ {x | x ∈ S ∧ x ∉ T}"
+  ],
+  "types": [
+   "S □ T ∈ ℙ(α) with S ∈ ℙ(α) and T ∈ ℙ(α) for each operator □ of ∪, ∩, ∖"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ∪, ∩, ∖"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000375",
+  "source": "Rodin Handbook, 3.3.4.4 Operations on sets",
+  "primary": true,
+  "symbol": "∖"
+ },
+ {
+  "key": "ℙ",
+  "title": "Power set",
+  "description": "ℙ(S) denotes the set of all subsets of the set S. ℙ(S) denotes the set of all non-empty subsets of the set S.",
+  "ascii": "`POW`",
+  "definition": [
+   "ℙ(S) ≙ {x | x ⊆ S}",
+   "ℙ1(S) ≙ ℙ(S) ∖ {∅}"
+  ],
+  "types": [
+   "ℙ(α) ∈ ℙ(ℙ(α)) and ℙ1(α) ∈ ℙ(ℙ(α)) with S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(ℙ(S)) ≙ L(S)",
+   "L(ℙ1(S)) ≙ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000381",
+  "source": "Rodin Handbook, 3.3.4.5 Power sets",
+  "primary": true,
+  "symbol": "ℙ"
+ },
+ {
+  "key": "POW",
+  "title": "Power set",
+  "description": "ℙ(S) denotes the set of all subsets of the set S. ℙ(S) denotes the set of all non-empty subsets of the set S.",
+  "ascii": "`POW`",
+  "definition": [
+   "ℙ(S) ≙ {x | x ⊆ S}",
+   "ℙ1(S) ≙ ℙ(S) ∖ {∅}"
+  ],
+  "types": [
+   "ℙ(α) ∈ ℙ(ℙ(α)) and ℙ1(α) ∈ ℙ(ℙ(α)) with S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(ℙ(S)) ≙ L(S)",
+   "L(ℙ1(S)) ≙ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000381",
+  "source": "Rodin Handbook, 3.3.4.5 Power sets",
+  "primary": true,
+  "symbol": "ℙ"
+ },
+ {
+  "key": "ℙ1",
+  "title": "Set of non-empty subsets",
+  "description": "ℙ(S) denotes the set of all subsets of the set S. ℙ(S) denotes the set of all non-empty subsets of the set S.",
+  "ascii": "`POW1`",
+  "definition": [
+   "ℙ(S) ≙ {x | x ⊆ S}",
+   "ℙ1(S) ≙ ℙ(S) ∖ {∅}"
+  ],
+  "types": [
+   "ℙ(α) ∈ ℙ(ℙ(α)) and ℙ1(α) ∈ ℙ(ℙ(α)) with S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(ℙ(S)) ≙ L(S)",
+   "L(ℙ1(S)) ≙ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000381",
+  "source": "Rodin Handbook, 3.3.4.5 Power sets",
+  "primary": true,
+  "symbol": "ℙ1"
+ },
+ {
+  "key": "POW1",
+  "title": "Set of non-empty subsets",
+  "description": "ℙ(S) denotes the set of all subsets of the set S. ℙ(S) denotes the set of all non-empty subsets of the set S.",
+  "ascii": "`POW1`",
+  "definition": [
+   "ℙ(S) ≙ {x | x ⊆ S}",
+   "ℙ1(S) ≙ ℙ(S) ∖ {∅}"
+  ],
+  "types": [
+   "ℙ(α) ∈ ℙ(ℙ(α)) and ℙ1(α) ∈ ℙ(ℙ(α)) with S ∈ ℙ(α)."
+  ],
+  "wd": [
+   "L(ℙ(S)) ≙ L(S)",
+   "L(ℙ1(S)) ≙ L(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000381",
+  "source": "Rodin Handbook, 3.3.4.5 Power sets",
+  "primary": true,
+  "symbol": "ℙ1"
+ },
+ {
+  "key": "finite",
+  "title": "Finite set",
+  "description": "finite(S) is a predicate that states that S is a finite set. card(S) denotes the cardinality of S. The cardinality is only defined for finite sets.",
+  "ascii": "`finite`",
+  "definition": [
+   "finite(S) ≙ ∃ n,b · n ∈ ℕ ∧ b ∈ S ⤖ 1‥n",
+   "∃ b · b ∈ S ⤖ 1‥card(S)"
+  ],
+  "types": [
+   "finite(S) is a predicate and card(S) ∈ ℤ with S ∈ ℙ(α), i.e. S must be a set."
+  ],
+  "wd": [
+   "L(finite(S)) ≙ L(S)",
+   "L(card(S)) ≙ L(S) ∧ finite(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000383",
+  "source": "Rodin Handbook, 3.3.4.6 Finite sets",
+  "primary": true,
+  "symbol": "finite"
+ },
+ {
+  "key": "card",
+  "title": "Cardinality of a finite set",
+  "description": "finite(S) is a predicate that states that S is a finite set. card(S) denotes the cardinality of S. The cardinality is only defined for finite sets.",
+  "ascii": "`card`",
+  "definition": [
+   "finite(S) ≙ ∃ n,b · n ∈ ℕ ∧ b ∈ S ⤖ 1‥n",
+   "∃ b · b ∈ S ⤖ 1‥card(S)"
+  ],
+  "types": [
+   "finite(S) is a predicate and card(S) ∈ ℤ with S ∈ ℙ(α), i.e. S must be a set."
+  ],
+  "wd": [
+   "L(finite(S)) ≙ L(S)",
+   "L(card(S)) ≙ L(S) ∧ finite(S)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000383",
+  "source": "Rodin Handbook, 3.3.4.6 Finite sets",
+  "primary": true,
+  "symbol": "card"
+ },
+ {
+  "key": "partition",
+  "title": "Partitions of a set",
+  "description": "partition(S,s1,…,sn) is a predicate that states that the sets s1,…,sn constitute a partition of S. The union of all elements of a partition is S and all elements are disjoint. — partition(S) is equivalent to S = ∅ and partition(S,s) to S = s.",
+  "ascii": "`partition`",
+  "definition": [
+   "partition(S,s1,…,sn) ≙ S = s1 ∪ … ∪ sn ∧ ∀ i,j · i ≠ j ⇒ si ∩ sj = ∅"
+  ],
+  "types": [
+   "partition(S,s1,…,sn) is a predicate with S ∈ ℙ(α) and si ∈ ℙ(α) for i ∈ 1‥n"
+  ],
+  "wd": [
+   "L(partition(S,s1,…,sn)) ≙ L(S) ∧ L(s1) ∧ … ∧ L(sn)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#partition",
+  "source": "Rodin Handbook, 3.3.4.7 Partition",
+  "primary": true,
+  "symbol": "partition"
+ },
+ {
+  "key": "union",
+  "title": "Generalized union",
+  "description": "union(S) is the union of all elements of S. inter(S) is the intersection of all elements of S. The intersection is only defined for non-empty S.",
+  "ascii": "`union`",
+  "definition": [
+   "union(S) ≙ {x | ∃ s · s ∈ S ∧ x ∈ s}",
+   "inter(S) ≙ {x | ∀ s · s ∈ S ⇒ x ∈ s}"
+  ],
+  "types": [
+   "union(S) ∈ ℙ(α) and inter(S) ∈ ℙ(α) with S ∈ ℙ(ℙ(α))."
+  ],
+  "wd": [
+   "L(union(S)) ≙ L(S)",
+   "L(inter(S)) ≙ L(S) ∧ S ≠ ∅"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000389",
+  "source": "Rodin Handbook, 3.3.4.8 Generalized union and intersection",
+  "primary": true,
+  "symbol": "union"
+ },
+ {
+  "key": "inter",
+  "title": "Generalized intersection",
+  "description": "union(S) is the union of all elements of S. inter(S) is the intersection of all elements of S. The intersection is only defined for non-empty S.",
+  "ascii": "`inter`",
+  "definition": [
+   "union(S) ≙ {x | ∃ s · s ∈ S ∧ x ∈ s}",
+   "inter(S) ≙ {x | ∀ s · s ∈ S ⇒ x ∈ s}"
+  ],
+  "types": [
+   "union(S) ∈ ℙ(α) and inter(S) ∈ ℙ(α) with S ∈ ℙ(ℙ(α))."
+  ],
+  "wd": [
+   "L(union(S)) ≙ L(S)",
+   "L(inter(S)) ≙ L(S) ∧ S ≠ ∅"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000389",
+  "source": "Rodin Handbook, 3.3.4.8 Generalized union and intersection",
+  "primary": true,
+  "symbol": "inter"
+ },
+ {
+  "key": "⋃",
+  "title": "Quantified union",
+  "description": "⋃ x1…,xn · P | E is the union of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. The types of x1,…,xn must be inferable by P. — Analogously is ⋂ x1…,xn · P | E the intersection of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. — Like set comprehensions (3.3.4.1), the quantified union and intersection have a short form where the free variables of the expression are quantified implicitly: ⋃ E | P and ⋂ E | P.",
+  "ascii": "`UNION`",
+  "definition": [
+   "⋃ x1…,xn · P | E = union({x1…,xn · P | E})",
+   "⋂ x1…,xn · P | E = inter({x1…,xn · P | E})",
+   "⋃ E | P = ⋃ Free(E) · P | E",
+   "⋂ E | P = ⋂ Free(E) · P | E"
+  ],
+  "types": [
+   "With E ∈ ℙ(α) and P being a predicate:",
+   "(⋃ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋂ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋃ E | P) ∈ ℙ(α)",
+   "(⋂ E | P) ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(⋃ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E))) ∧ ∃ x1…,xn · L(P)",
+   "L(⋃ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E))) ∧ ∃ Free(E) · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000392",
+  "source": "Rodin Handbook, 3.3.4.9 Quantified union and intersection",
+  "primary": true,
+  "symbol": "⋃"
+ },
+ {
+  "key": "UNION",
+  "title": "Quantified union",
+  "description": "⋃ x1…,xn · P | E is the union of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. The types of x1,…,xn must be inferable by P. — Analogously is ⋂ x1…,xn · P | E the intersection of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. — Like set comprehensions (3.3.4.1), the quantified union and intersection have a short form where the free variables of the expression are quantified implicitly: ⋃ E | P and ⋂ E | P.",
+  "ascii": "`UNION`",
+  "definition": [
+   "⋃ x1…,xn · P | E = union({x1…,xn · P | E})",
+   "⋂ x1…,xn · P | E = inter({x1…,xn · P | E})",
+   "⋃ E | P = ⋃ Free(E) · P | E",
+   "⋂ E | P = ⋂ Free(E) · P | E"
+  ],
+  "types": [
+   "With E ∈ ℙ(α) and P being a predicate:",
+   "(⋃ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋂ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋃ E | P) ∈ ℙ(α)",
+   "(⋂ E | P) ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(⋃ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E))) ∧ ∃ x1…,xn · L(P)",
+   "L(⋃ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E))) ∧ ∃ Free(E) · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000392",
+  "source": "Rodin Handbook, 3.3.4.9 Quantified union and intersection",
+  "primary": true,
+  "symbol": "⋃"
+ },
+ {
+  "key": "⋂",
+  "title": "Quantified intersection",
+  "description": "⋃ x1…,xn · P | E is the union of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. The types of x1,…,xn must be inferable by P. — Analogously is ⋂ x1…,xn · P | E the intersection of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. — Like set comprehensions (3.3.4.1), the quantified union and intersection have a short form where the free variables of the expression are quantified implicitly: ⋃ E | P and ⋂ E | P.",
+  "ascii": "`INTER`",
+  "definition": [
+   "⋃ x1…,xn · P | E = union({x1…,xn · P | E})",
+   "⋂ x1…,xn · P | E = inter({x1…,xn · P | E})",
+   "⋃ E | P = ⋃ Free(E) · P | E",
+   "⋂ E | P = ⋂ Free(E) · P | E"
+  ],
+  "types": [
+   "With E ∈ ℙ(α) and P being a predicate:",
+   "(⋃ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋂ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋃ E | P) ∈ ℙ(α)",
+   "(⋂ E | P) ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(⋃ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E))) ∧ ∃ x1…,xn · L(P)",
+   "L(⋃ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E))) ∧ ∃ Free(E) · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000392",
+  "source": "Rodin Handbook, 3.3.4.9 Quantified union and intersection",
+  "primary": true,
+  "symbol": "⋂"
+ },
+ {
+  "key": "INTER",
+  "title": "Quantified intersection",
+  "description": "⋃ x1…,xn · P | E is the union of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. The types of x1,…,xn must be inferable by P. — Analogously is ⋂ x1…,xn · P | E the intersection of all values of E for valuations of the identifiers x1…,xn that fulfill the predicate P. — Like set comprehensions (3.3.4.1), the quantified union and intersection have a short form where the free variables of the expression are quantified implicitly: ⋃ E | P and ⋂ E | P.",
+  "ascii": "`INTER`",
+  "definition": [
+   "⋃ x1…,xn · P | E = union({x1…,xn · P | E})",
+   "⋂ x1…,xn · P | E = inter({x1…,xn · P | E})",
+   "⋃ E | P = ⋃ Free(E) · P | E",
+   "⋂ E | P = ⋂ Free(E) · P | E"
+  ],
+  "types": [
+   "With E ∈ ℙ(α) and P being a predicate:",
+   "(⋃ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋂ x1…,xn · P | E) ∈ ℙ(α)",
+   "(⋃ E | P) ∈ ℙ(α)",
+   "(⋂ E | P) ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(⋃ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ x1…,xn · P | E) ≙ (∀ x1…,xn · L(P) ∧ (P ⇒ L(E))) ∧ ∃ x1…,xn · L(P)",
+   "L(⋃ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E)))",
+   "L(⋂ E | P) ≙ (∀ Free(E) · L(P) ∧ (P ⇒ L(E))) ∧ ∃ Free(E) · L(P)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/sets.html#a0000000392",
+  "source": "Rodin Handbook, 3.3.4.9 Quantified union and intersection",
+  "primary": true,
+  "symbol": "⋂"
+ },
+ {
+  "key": "↦",
+  "title": "Pair",
+  "description": "E ↦ F denotes the pair whose first element is E and second element is F. — S × T denotes the set of pairs where the first element is a member of S and second element is a member of T.",
+  "ascii": "`|->`",
+  "definition": [
+   "S × T ≙ {x ↦ y | x ∈ S ∧ y ∈ T}"
+  ],
+  "types": [
+   "E ↦ F ∈ α × β with E ∈ α and F ∈ β .",
+   "S × T ∈ ℙ(α × β) with S ∈ ℙ(α) and T ∈ ℙ(β)."
+  ],
+  "wd": [
+   "L(E ↦ F) ≙ L(E) ∧ L(F)",
+   "L(S × T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#pairs_and_cartesian_product",
+  "source": "Rodin Handbook, 3.3.5.1 Pairs and Cartesian product",
+  "primary": true,
+  "symbol": "↦"
+ },
+ {
+  "key": "|->",
+  "title": "Pair",
+  "description": "E ↦ F denotes the pair whose first element is E and second element is F. — S × T denotes the set of pairs where the first element is a member of S and second element is a member of T.",
+  "ascii": "`|->`",
+  "definition": [
+   "S × T ≙ {x ↦ y | x ∈ S ∧ y ∈ T}"
+  ],
+  "types": [
+   "E ↦ F ∈ α × β with E ∈ α and F ∈ β .",
+   "S × T ∈ ℙ(α × β) with S ∈ ℙ(α) and T ∈ ℙ(β)."
+  ],
+  "wd": [
+   "L(E ↦ F) ≙ L(E) ∧ L(F)",
+   "L(S × T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#pairs_and_cartesian_product",
+  "source": "Rodin Handbook, 3.3.5.1 Pairs and Cartesian product",
+  "primary": true,
+  "symbol": "↦"
+ },
+ {
+  "key": "×",
+  "title": "Cartesian product",
+  "description": "E ↦ F denotes the pair whose first element is E and second element is F. — S × T denotes the set of pairs where the first element is a member of S and second element is a member of T.",
+  "ascii": "`**`",
+  "definition": [
+   "S × T ≙ {x ↦ y | x ∈ S ∧ y ∈ T}"
+  ],
+  "types": [
+   "E ↦ F ∈ α × β with E ∈ α and F ∈ β .",
+   "S × T ∈ ℙ(α × β) with S ∈ ℙ(α) and T ∈ ℙ(β)."
+  ],
+  "wd": [
+   "L(E ↦ F) ≙ L(E) ∧ L(F)",
+   "L(S × T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#pairs_and_cartesian_product",
+  "source": "Rodin Handbook, 3.3.5.1 Pairs and Cartesian product",
+  "primary": true,
+  "symbol": "×"
+ },
+ {
+  "key": "**",
+  "title": "Cartesian product",
+  "description": "E ↦ F denotes the pair whose first element is E and second element is F. — S × T denotes the set of pairs where the first element is a member of S and second element is a member of T.",
+  "ascii": "`**`",
+  "definition": [
+   "S × T ≙ {x ↦ y | x ∈ S ∧ y ∈ T}"
+  ],
+  "types": [
+   "E ↦ F ∈ α × β with E ∈ α and F ∈ β .",
+   "S × T ∈ ℙ(α × β) with S ∈ ℙ(α) and T ∈ ℙ(β)."
+  ],
+  "wd": [
+   "L(E ↦ F) ≙ L(E) ∧ L(F)",
+   "L(S × T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#pairs_and_cartesian_product",
+  "source": "Rodin Handbook, 3.3.5.1 Pairs and Cartesian product",
+  "primary": true,
+  "symbol": "×"
+ },
+ {
+  "key": "↔",
+  "title": "Relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<->`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": "↔"
+ },
+ {
+  "key": "<->",
+  "title": "Relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<->`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": "↔"
+ },
+ {
+  "key": "",
+  "title": "Total relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<<->`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "<<->",
+  "title": "Total relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<<->`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "",
+  "title": "Surjective relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<->>`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "<->>",
+  "title": "Surjective relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<->>`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "",
+  "title": "Total surjective relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<<->>`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "<<->>",
+  "title": "Total surjective relations",
+  "description": "S ↔ T is the set of relations between the two sets S and T. A relation consists of pairs where the first element is of S and the second of T. S ↔ T is just an abbreviation for ℙ(S × T). — A total relation is a relation which relates each element of S to at least one element of T. — A surjective relation is a relation where there is at least one element of S for each element of T such that both are related.",
+  "ascii": "`<<->>`",
+  "definition": [
+   "S ↔ T ≙ ℙ(S × T)",
+   "S ← ↔ T ≙ {r | r ∈ S ↔ T ∧ dom(r) = S}",
+   "S ↔ → T ≙ {r | r ∈ S ↔ T ∧ ran(r) = T}",
+   "S ↔ ↔ T ≙ (S ← ↔ T) ∧ (S ↔ → T)"
+  ],
+  "types": [
+   "For S ∈ ℙ(α) and T ∈ ℙ(β) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "L(S □ T) ≙ L(S) ∧ L(T) for each operator □ of ↔, ← ↔, ↔ →, ↔ ↔ ."
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000398",
+  "source": "Rodin Handbook, 3.3.5.2 Relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "dom",
+  "title": "Domain",
+  "description": "If r is a relation between the sets S and T, the domain dom(r) is the set of the elements of S that are related to at least one element of T by r. — Likewise the range ran(r) is the set of elements of T to which at least one element of S relates by r.",
+  "ascii": "`dom`",
+  "definition": [
+   "dom(r) ≙ {x | ∃ y · x ↦ y ∈ r}",
+   "ran(r) ≙ {y | ∃ x · x ↦ y ∈ r}"
+  ],
+  "types": [
+   "dom(r) ∈ ℙ(α) and ran(r) ∈ ℙ(β) with r ∈ ℙ(α × β)."
+  ],
+  "wd": [
+   "L(dom(r)) ≙ L(r)",
+   "L(ran(r)) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range",
+  "source": "Rodin Handbook, 3.3.5.3 Domain and Range",
+  "primary": true,
+  "symbol": "dom"
+ },
+ {
+  "key": "ran",
+  "title": "Range",
+  "description": "If r is a relation between the sets S and T, the domain dom(r) is the set of the elements of S that are related to at least one element of T by r. — Likewise the range ran(r) is the set of elements of T to which at least one element of S relates by r.",
+  "ascii": "`ran`",
+  "definition": [
+   "dom(r) ≙ {x | ∃ y · x ↦ y ∈ r}",
+   "ran(r) ≙ {y | ∃ x · x ↦ y ∈ r}"
+  ],
+  "types": [
+   "dom(r) ∈ ℙ(α) and ran(r) ∈ ℙ(β) with r ∈ ℙ(α × β)."
+  ],
+  "wd": [
+   "L(dom(r)) ≙ L(r)",
+   "L(ran(r)) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range",
+  "source": "Rodin Handbook, 3.3.5.3 Domain and Range",
+  "primary": true,
+  "symbol": "ran"
+ },
+ {
+  "key": "◁",
+  "title": "Domain restriction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`<|`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "◁"
+ },
+ {
+  "key": "<|",
+  "title": "Domain restriction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`<|`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "◁"
+ },
+ {
+  "key": "⩤",
+  "title": "Domain subtraction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`<<|`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "⩤"
+ },
+ {
+  "key": "<<|",
+  "title": "Domain subtraction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`<<|`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "⩤"
+ },
+ {
+  "key": "▷",
+  "title": "Range restriction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`|>`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "▷"
+ },
+ {
+  "key": "|>",
+  "title": "Range restriction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`|>`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "▷"
+ },
+ {
+  "key": "⩥",
+  "title": "Range subtraction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`|>>`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "⩥"
+ },
+ {
+  "key": "|>>",
+  "title": "Range subtraction",
+  "description": "The domain restriction S ◁ r is a subset of the relation r that contains all of the pairs whose first element is in S. S r is the subset where the pair’s first element is not in S. — In the same way, the range restriction r ▷ S is a subset that contains all of the pairs whose second element is in S and r ▷ -S is the set where the pair’s second element is not in S.",
+  "ascii": "`|>>`",
+  "definition": [
+   "S ◁ r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∈ S}",
+   "S r ≙ {x ↦ y | x ↦ y ∈ r ∧ x ∉ S}",
+   "r ▷ S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∈ S}",
+   "r ▷ -S ≙ {x ↦ y | x ↦ y ∈ r ∧ y ∉ S}"
+  ],
+  "types": [
+   "S ◁ r ∈ ℙ(α × β) and S r ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(α)",
+   "r ▷ S ∈ ℙ(α × β) and r ▷ -S ∈ ℙ(α × β) with r ∈ ℙ(α × β) and S ∈ ℙ(β)"
+  ],
+  "wd": [
+   "L(S □ r) ≙ L(S) ∧ L(r) for each operator □ of ◁, , ▷, ▷ -"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#domain_and_range_restrictions",
+  "source": "Rodin Handbook, 3.3.5.4 Domain and Range Restrictions",
+  "primary": true,
+  "symbol": "⩥"
+ },
+ {
+  "key": ";",
+  "title": "Relational forward composition",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`;`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": ";"
+ },
+ {
+  "key": "∘",
+  "title": "Relational backward composition",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`circ`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∘"
+ },
+ {
+  "key": "circ",
+  "title": "Relational backward composition",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`circ`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∘"
+ },
+ {
+  "key": "",
+  "title": "Relational override",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`<+`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "<+",
+  "title": "Relational override",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`<+`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": ""
+ },
+ {
+  "key": "∥",
+  "title": "Parallel product",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`||`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∥"
+ },
+ {
+  "key": "||",
+  "title": "Parallel product",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`||`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∥"
+ },
+ {
+  "key": "⊗",
+  "title": "Direct product",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`><`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "⊗"
+ },
+ {
+  "key": "><",
+  "title": "Direct product",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`><`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "⊗"
+ },
+ {
+  "key": "∼",
+  "title": "Inverse",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`~`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∼"
+ },
+ {
+  "key": "~",
+  "title": "Inverse",
+  "description": "An element x is related by r ;S to an element y if there is an element z such that r relates x to z and S relates z to y. — s ∘ r can be written as an alternative to r ;s. This reflects the fact that f(g(x)) = (f ∘ g)(x) holds for two functions f and g. — The relational overwrite r s is equal to r except all entries in r whose first element is in the domain of s are replaced by the corresponding entries in s. — The parallel product r | s relates a pair x ↦ y to a pair m ↦ n when r relates x to m and s relates y to n. — If a relation r relates an element x to y and s relates x to z, the direct product r ⊗ s relates x to the pair y ↦ z. — The inverse relation r^-1 relates an element x to y if the original relation r relates y to x.",
+  "ascii": "`~`",
+  "definition": [
+   "r ;s ≙ {x ↦ y | ∃ z · x ↦ z ∈ r ∧ z ↦ y ∈ s}",
+   "r ∘ s ≙ s ;r",
+   "r s ≙ s ∪ (dom(s) r)",
+   "r | s ≙ {(x ↦ y) ↦ (m ↦ n) | x ↦ m ∈ r ∧ y ↦ n ∈ s}",
+   "r ⊗ s ≙ {x ↦ (y ↦ z) | x ↦ y ∈ r ∧ x ↦ z ∈ s}",
+   "r^-1 ≙ {y ↦ x | x ↦ y ∈ r}"
+  ],
+  "types": [
+   "r ;s ∈ ℙ(α × γ) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r ∘ s ∈ ℙ(γ × α) with r ∈ ℙ(α × β) and s ∈ ℙ(β × γ)",
+   "r s ∈ ℙ(α × β) with r ∈ ℙ(α × β) and s ∈ ℙ(α × β)",
+   "r | s ∈ ℙ((α × γ) × (β × δ)) with r ∈ ℙ(α × β) and s ∈ ℙ(γ × δ)",
+   "r ⊗ s ∈ ℙ(α × (β × γ)) with r ∈ ℙ(α × β) and s ∈ ℙ(α × γ)",
+   "r^-1 ∈ ℙ(β × α) with r ∈ ℙ(α × β)"
+  ],
+  "wd": [
+   "L(r □ s) ≙ L(r) ∧ L(s) for each operator □ of ;, ∘, , |, ⊗",
+   "L(r^-1) ≙ L(r)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#operations_on_relations",
+  "source": "Rodin Handbook, 3.3.5.5 Operations on relations",
+  "primary": true,
+  "symbol": "∼"
+ },
+ {
+  "key": "id",
+  "title": "Identity relation",
+  "description": "id is the identity relation that maps every element to itself. — prj1 is a function that maps a pair to its first element. Likewise prj2 maps a pair to its second element. — id, prj1 and prj2 are generic definitions. Their type must be inferred from the environment.",
+  "ascii": "`id`",
+  "definition": [
+   "id ≙ {x ↦ x | ⊤}",
+   "prj1 ≙ {(x ↦ y) ↦ x | ⊤}",
+   "prj2 ≙ {(x ↦ y) ↦ y | ⊤}"
+  ],
+  "types": [
+   "id ∈ ℙ(α × α) for an arbitrary type α .",
+   "prj1 ∈ ℙ((α × β) × α) and prj1 ∈ ℙ((α × β) × β) for arbitrary types α and β ."
+  ],
+  "wd": [
+   "L(id) ≙ ⊤",
+   "L(prj1) ≙ ⊤",
+   "L(prj2) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#constant_relations",
+  "source": "Rodin Handbook, 3.3.5.7 Constant relations",
+  "primary": true,
+  "symbol": "id"
+ },
+ {
+  "key": "prj1",
+  "title": "First projection",
+  "description": "id is the identity relation that maps every element to itself. — prj1 is a function that maps a pair to its first element. Likewise prj2 maps a pair to its second element. — id, prj1 and prj2 are generic definitions. Their type must be inferred from the environment.",
+  "ascii": "`prj1`",
+  "definition": [
+   "id ≙ {x ↦ x | ⊤}",
+   "prj1 ≙ {(x ↦ y) ↦ x | ⊤}",
+   "prj2 ≙ {(x ↦ y) ↦ y | ⊤}"
+  ],
+  "types": [
+   "id ∈ ℙ(α × α) for an arbitrary type α .",
+   "prj1 ∈ ℙ((α × β) × α) and prj1 ∈ ℙ((α × β) × β) for arbitrary types α and β ."
+  ],
+  "wd": [
+   "L(id) ≙ ⊤",
+   "L(prj1) ≙ ⊤",
+   "L(prj2) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#constant_relations",
+  "source": "Rodin Handbook, 3.3.5.7 Constant relations",
+  "primary": true,
+  "symbol": "prj1"
+ },
+ {
+  "key": "prj2",
+  "title": "Second projection",
+  "description": "id is the identity relation that maps every element to itself. — prj1 is a function that maps a pair to its first element. Likewise prj2 maps a pair to its second element. — id, prj1 and prj2 are generic definitions. Their type must be inferred from the environment.",
+  "ascii": "`prj2`",
+  "definition": [
+   "id ≙ {x ↦ x | ⊤}",
+   "prj1 ≙ {(x ↦ y) ↦ x | ⊤}",
+   "prj2 ≙ {(x ↦ y) ↦ y | ⊤}"
+  ],
+  "types": [
+   "id ∈ ℙ(α × α) for an arbitrary type α .",
+   "prj1 ∈ ℙ((α × β) × α) and prj1 ∈ ℙ((α × β) × β) for arbitrary types α and β ."
+  ],
+  "wd": [
+   "L(id) ≙ ⊤",
+   "L(prj1) ≙ ⊤",
+   "L(prj2) ≙ ⊤"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#constant_relations",
+  "source": "Rodin Handbook, 3.3.5.7 Constant relations",
+  "primary": true,
+  "symbol": "prj2"
+ },
+ {
+  "key": "⇸",
+  "title": "Partial functions",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`+->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⇸"
+ },
+ {
+  "key": "+->",
+  "title": "Partial functions",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`+->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⇸"
+ },
+ {
+  "key": "→",
+  "title": "Total functions",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`-->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "→"
+ },
+ {
+  "key": "-->",
+  "title": "Total functions",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`-->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "→"
+ },
+ {
+  "key": "⤔",
+  "title": "Partial injections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>+>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤔"
+ },
+ {
+  "key": ">+>",
+  "title": "Partial injections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>+>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤔"
+ },
+ {
+  "key": "↣",
+  "title": "Total injections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "↣"
+ },
+ {
+  "key": ">->",
+  "title": "Total injections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>->`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "↣"
+ },
+ {
+  "key": "⤀",
+  "title": "Partial surjections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`+->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤀"
+ },
+ {
+  "key": "+->>",
+  "title": "Partial surjections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`+->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤀"
+ },
+ {
+  "key": "↠",
+  "title": "Total surjections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`-->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "↠"
+ },
+ {
+  "key": "-->>",
+  "title": "Total surjections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`-->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "↠"
+ },
+ {
+  "key": "⤖",
+  "title": "Bijections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤖"
+ },
+ {
+  "key": ">->>",
+  "title": "Bijections",
+  "description": "A partial function from S to T is a relation that maps an element of S to at most one element of T. A function is total if its domain contains all elements of S, i.e. it maps every element of S to an element of T. — A function is injective (is an injection) if two distinct elements of S are always mapped to distinct elements of T. It is also equivalent to say that the inverse of an injective function is a also a function. — A function is surjective (is a surjection) if for every element of T there exists an element in S that is mapped to it. — A function is bijective (is a bijection) if it is both injective and surjective.",
+  "ascii": "`>->>`",
+  "definition": [
+   "S ⇸ T ≙ {f | f ∈ S ↔ T ∧ (∀ e,x,y · e ↦ x ∈ f ∧ e ↦ y ∈ f ⇒ x = y)}",
+   "S → T ≙ {f | f ∈ S ⇸ T ∧ dom(f) = S}",
+   "S ⤔ T ≙ {f | f ∈ S ⇸ T ∧ f^-1 ∈ T ⇸ S}",
+   "S ↣ T ≙ (S ⤔ T) ∩ (S → T)",
+   "S ⤀ T ≙ {f | f ∈ S ⇸ T ∧ ran(f) = T}",
+   "S ↠ T ≙ (S ⤀ T) ∩ (S → T)",
+   "S ⤖ T ≙ (S ↣ T) ∩ (S ↠ T)"
+  ],
+  "types": [
+   "S ∈ ℙ(α), T ∈ ℙ(β) for each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "S □ T ∈ ℙ(ℙ(α × β))"
+  ],
+  "wd": [
+   "For each operator □ of ⇸, →, ⤔, ↣, ⤀, ↠, ⤖ :",
+   "L(S □ T) ≙ L(S) ∧ L(T)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#a0000000421",
+  "source": "Rodin Handbook, 3.3.5.8 Sets of functions",
+  "primary": true,
+  "symbol": "⤖"
+ },
+ {
+  "key": "λ",
+  "title": "Lambda",
+  "description": "(λ p · P | E) is a function that maps an “input” p to a result E such that P holds. — p is a pattern of identifiers, parentheses and ↦ which follows the following rules: — An identifier x is a pattern. An identifier x, followed by an ∘ ∘ operator is a pattern (See 3.3.7 for more details). A pair a ↦ b is a pattern if a and b are patterns. (a) is pattern if a is pattern. — In the simplest case, p is just an identifier.",
+  "ascii": "`%`",
+  "definition": [
+   "(λ p · P | E) ≙ {p ↦ E | P}"
+  ],
+  "types": [
+   "(λ p · P | E) ∈ ℙ(α × β) with p ∈ α, P being a predicate and E ∈ β ."
+  ],
+  "wd": [
+   "L(λ p · P | E) ≙ ∀ Free(p) · L(P) ∧ (P ⇒ L(E))"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#lambda",
+  "source": "Rodin Handbook, 3.3.5.10 Lambda",
+  "primary": true,
+  "symbol": "λ"
+ },
+ {
+  "key": "%",
+  "title": "Lambda",
+  "description": "(λ p · P | E) is a function that maps an “input” p to a result E such that P holds. — p is a pattern of identifiers, parentheses and ↦ which follows the following rules: — An identifier x is a pattern. An identifier x, followed by an ∘ ∘ operator is a pattern (See 3.3.7 for more details). A pair a ↦ b is a pattern if a and b are patterns. (a) is pattern if a is pattern. — In the simplest case, p is just an identifier.",
+  "ascii": "`%`",
+  "definition": [
+   "(λ p · P | E) ≙ {p ↦ E | P}"
+  ],
+  "types": [
+   "(λ p · P | E) ∈ ℙ(α × β) with p ∈ α, P being a predicate and E ∈ β ."
+  ],
+  "wd": [
+   "L(λ p · P | E) ≙ ∀ Free(p) · L(P) ∧ (P ⇒ L(E))"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/relations.html#lambda",
+  "source": "Rodin Handbook, 3.3.5.10 Lambda",
+  "primary": true,
+  "symbol": "λ"
+ },
+ {
+  "key": "ℤ",
+  "title": "Integers",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`INT`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℤ"
+ },
+ {
+  "key": "INT",
+  "title": "Integers",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`INT`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℤ"
+ },
+ {
+  "key": "ℕ",
+  "title": "Natural numbers, starting with 0",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`NAT`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℕ"
+ },
+ {
+  "key": "NAT",
+  "title": "Natural numbers, starting with 0",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`NAT`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℕ"
+ },
+ {
+  "key": "ℕ1",
+  "title": "Natural numbers, starting with 1",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`NAT1`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℕ1"
+ },
+ {
+  "key": "NAT1",
+  "title": "Natural numbers, starting with 1",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`NAT1`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "ℕ1"
+ },
+ {
+  "key": "‥",
+  "title": "Range of numbers",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`..`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "‥"
+ },
+ {
+  "key": "..",
+  "title": "Range of numbers",
+  "description": "The set of all integers is denoted by ℤ. It contains all elements of the type. The two subsets ℕ and ℕ1 contain all elements greater than or equal to 0 and 1 respectively. The range of numbers between a and b is denoted by a‥b.",
+  "ascii": "`..`",
+  "definition": [
+   "ℕ ≙ {n | n ∈ ℤ ∧ n ≥ 0}",
+   "ℕ1 ≙ {n | n ∈ ℤ ∧ n ≥ 1}",
+   "a‥b ≙ {n | n ∈ ℤ ∧ a ≤ n ∧ n ≤ b}"
+  ],
+  "types": [
+   "ℤ ∈ ℙ(ℤ)",
+   "ℕ ∈ ℙ(ℤ)",
+   "ℕ1 ∈ ℙ(ℤ)",
+   "a‥b ∈ ℙ(ℤ) with a ∈ ℤ and b ∈ ℤ"
+  ],
+  "wd": [
+   "L(ℤ) ≙ ⊤",
+   "L(ℕ) ≙ ⊤",
+   "L(ℕ1) ≙ ⊤",
+   "L(a‥b) ≙ L(a) ∧ L(b)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#a0000000428",
+  "source": "Rodin Handbook, 3.3.6.1 Sets of numbers",
+  "primary": true,
+  "symbol": "‥"
+ },
+ {
+  "key": "+",
+  "title": "Addition",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`+`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "+"
+ },
+ {
+  "key": "−",
+  "title": "Subtraction or unary minus",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`-`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "−"
+ },
+ {
+  "key": "-",
+  "title": "Subtraction or unary minus",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`-`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "−"
+ },
+ {
+  "key": "∗",
+  "title": "Multiplication",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`*`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "∗"
+ },
+ {
+  "key": "*",
+  "title": "Multiplication",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`*`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "∗"
+ },
+ {
+  "key": "÷",
+  "title": "Integer division",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`/`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "÷"
+ },
+ {
+  "key": "/",
+  "title": "Integer division",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`/`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "÷"
+ },
+ {
+  "key": "mod",
+  "title": "Modulo",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`mod`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "mod"
+ },
+ {
+  "key": "^",
+  "title": "Exponentiation",
+  "description": "These are the usual arithmetic operations.",
+  "ascii": "`^`",
+  "definition": [
+   "Addition, subtraction and multiplication behave as expected.",
+   "The division is defined in a way that 1 ÷ 2 = 0 and -1 ÷ 2 = 0:",
+   "a ÷ b = max({c | c ∈ ℕ ∧ b · c ≤ a}) for a ∈ ℕ and b ∈ ℕ",
+   "(-a) ÷ b = - (a ÷ b)",
+   "a ÷ (-b) = - (a ÷ b)",
+   "amod b = c ≙ c ∈ 0‥b-1 ∧ ∃ k · k ∈ ℕ ∧ k · b + c = a"
+  ],
+  "types": [
+   "With a ∈ ℤ, b ∈ ℤ for each operator □ of +, -, ·, ÷, mod :",
+   "a □ b ∈ ℤ",
+   "-a ∈ ℤ"
+  ],
+  "wd": [
+   "L(a + b) ≙ L(a) ∧ L(b)",
+   "L(a-b) ≙ L(a) ∧ L(b)",
+   "L(-a) ≙ L(a)",
+   "L(a · b) ≙ L(a) ∧ L(b)",
+   "L(a ÷ b) ≙ L(a) ∧ L(b) ∧ b ≠ 0",
+   "L(amod b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b > 0",
+   "L(a^b) ≙ L(a) ∧ L(b) ∧ a ≥ 0 ∧ b ≥ 0"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#arithmetic_operations",
+  "source": "Rodin Handbook, 3.3.6.2 Arithmetic operations",
+  "primary": true,
+  "symbol": "^"
+ },
+ {
+  "key": "min",
+  "title": "Minimum",
+  "description": "min(S) and max(S) denotes the smallest and largest number in the set of integers S respectively. — The minimum and maximum are only defined if such a number exists.",
+  "ascii": "`min`",
+  "definition": [
+   "min(S) ∈ S ∧ (∀ x · x ∈ S ⇒ min(S) ≤ x)",
+   "max(S) ∈ S ∧ (∀ x · x ∈ S ⇒ max(S) ≥ x)"
+  ],
+  "types": [
+   "min(S) ∈ ℤ and max(S) ∈ ℤ with S ∈ ℙ(ℤ)."
+  ],
+  "wd": [
+   "L(min(S)) ≙ L(S) ∧ S ≠ ∅ ∧ ∃ b · ∀ x · x ∈ S ⇒ b ≤ x",
+   "L(max(S)) ≙ L(S) ∧ S ≠ ∅ ∧ ∃ b · ∀ x · x ∈ S ⇒ b ≥ x"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#minimum_and_maximum",
+  "source": "Rodin Handbook, 3.3.6.3 Minimum and Maximum",
+  "primary": true,
+  "symbol": "min"
+ },
+ {
+  "key": "max",
+  "title": "Maximum",
+  "description": "min(S) and max(S) denotes the smallest and largest number in the set of integers S respectively. — The minimum and maximum are only defined if such a number exists.",
+  "ascii": "`max`",
+  "definition": [
+   "min(S) ∈ S ∧ (∀ x · x ∈ S ⇒ min(S) ≤ x)",
+   "max(S) ∈ S ∧ (∀ x · x ∈ S ⇒ max(S) ≥ x)"
+  ],
+  "types": [
+   "min(S) ∈ ℤ and max(S) ∈ ℤ with S ∈ ℙ(ℤ)."
+  ],
+  "wd": [
+   "L(min(S)) ≙ L(S) ∧ S ≠ ∅ ∧ ∃ b · ∀ x · x ∈ S ⇒ b ≤ x",
+   "L(max(S)) ≙ L(S) ∧ S ≠ ∅ ∧ ∃ b · ∀ x · x ∈ S ⇒ b ≥ x"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/arithmetic.html#minimum_and_maximum",
+  "source": "Rodin Handbook, 3.3.6.3 Minimum and Maximum",
+  "primary": true,
+  "symbol": "max"
+ },
+ {
+  "key": "⦂",
+  "title": "of type",
+  "description": "E ∘ ∘ α is an expression that has exactly the value of E but its type is specified by the type expression α (3.3.1.1). — E is restricted to expressions whose type does not depend on an argument of that expression. These are the constant relations id, prj1, prj2 and the empty set ∅ . — Another location where the operator can be used is the declaration of bound variables in quantifiers and patterns in lambda expressions. Each identifier can be followed by ∘ ∘ and the identifier’s type.",
+  "ascii": "`oftype`",
+  "definition": [
+   "E ∘ ∘ α = E"
+  ],
+  "types": [
+   "E ∘ ∘ α ∈ α with E ∈ α"
+  ],
+  "wd": [
+   "L(E ∘ ∘ α) ≙ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/typing.html#typing",
+  "source": "Rodin Handbook, 3.3.7 Typing",
+  "primary": true,
+  "symbol": "⦂"
+ },
+ {
+  "key": "oftype",
+  "title": "of type",
+  "description": "E ∘ ∘ α is an expression that has exactly the value of E but its type is specified by the type expression α (3.3.1.1). — E is restricted to expressions whose type does not depend on an argument of that expression. These are the constant relations id, prj1, prj2 and the empty set ∅ . — Another location where the operator can be used is the declaration of bound variables in quantifiers and patterns in lambda expressions. Each identifier can be followed by ∘ ∘ and the identifier’s type.",
+  "ascii": "`oftype`",
+  "definition": [
+   "E ∘ ∘ α = E"
+  ],
+  "types": [
+   "E ∘ ∘ α ∈ α with E ∈ α"
+  ],
+  "wd": [
+   "L(E ∘ ∘ α) ≙ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/typing.html#typing",
+  "source": "Rodin Handbook, 3.3.7 Typing",
+  "primary": true,
+  "symbol": "⦂"
+ },
+ {
+  "key": "≔",
+  "title": "deterministic assignment",
+  "description": "x1,…,xn ≔ E1…,En assigns the expressions Ei to the variable xi, with i ∈ 1‥n. All xi must be distinct identifiers that refer to variables of the concrete machine. — There is a special form of the assignment which uses a relational overwrite: — x(F) ≔ E.",
+  "ascii": "`:=`",
+  "definition": [
+   "The before-after-predicate of x1,…,xn ≔ E1,…,En is",
+   "x1’ = E1 ∧ … ∧ xn’ = En.",
+   "This assignment is equivalent to x1,…,xn :∣ x1’ = E1 ∧ … ∧ xn’ = En.",
+   "The special form for this assignment is:",
+   "x(F) ≔ E ≙ x ≔ x {F ↦ E}"
+  ],
+  "types": [
+   "xi and Ei must have the same type: xi ∈ αi and Ei ∈ αi for i ∈ 1‥n."
+  ],
+  "wd": [
+   "L(x1,…,xn ≔ E1,…,En) ≙ L(E1) ∧ … ∧ L(En)",
+   "L(x(F) ≔ E) ≙ L(F) ∧ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#deterministic_assignments",
+  "source": "Rodin Handbook, 3.3.8.1 Deterministic Assignments",
+  "primary": true,
+  "symbol": "≔"
+ },
+ {
+  "key": ":=",
+  "title": "deterministic assignment",
+  "description": "x1,…,xn ≔ E1…,En assigns the expressions Ei to the variable xi, with i ∈ 1‥n. All xi must be distinct identifiers that refer to variables of the concrete machine. — There is a special form of the assignment which uses a relational overwrite: — x(F) ≔ E.",
+  "ascii": "`:=`",
+  "definition": [
+   "The before-after-predicate of x1,…,xn ≔ E1,…,En is",
+   "x1’ = E1 ∧ … ∧ xn’ = En.",
+   "This assignment is equivalent to x1,…,xn :∣ x1’ = E1 ∧ … ∧ xn’ = En.",
+   "The special form for this assignment is:",
+   "x(F) ≔ E ≙ x ≔ x {F ↦ E}"
+  ],
+  "types": [
+   "xi and Ei must have the same type: xi ∈ αi and Ei ∈ αi for i ∈ 1‥n."
+  ],
+  "wd": [
+   "L(x1,…,xn ≔ E1,…,En) ≙ L(E1) ∧ … ∧ L(En)",
+   "L(x(F) ≔ E) ≙ L(F) ∧ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#deterministic_assignments",
+  "source": "Rodin Handbook, 3.3.8.1 Deterministic Assignments",
+  "primary": true,
+  "symbol": "≔"
+ },
+ {
+  "key": ":∣",
+  "title": "non-deterministic assignment with a before-after-predicate",
+  "description": "x1,…,xn :∣ Q assigns any value to the variables x1…,xn such that the the before-after-predicate Q is fulfilled. Each xi is an identifier that refers to a variable of the concrete machine. — All free identifiers in Q must be constants, concrete parameters, concrete variables or primed versions of the modified variables (x1’,…,xn’). — This is the most general form of assignment. All other assignments can be converted to this.",
+  "ascii": "`:|`",
+  "definition": [
+   "The before-after-predicate is Q."
+  ],
+  "types": [
+   "Q is a predicate and all xi and x’i must have the same type: x1 ∈ αi and x’1 ∈ αi for i ∈ 1‥n."
+  ],
+  "wd": [
+   "L(x1,…,xn :∣ Q) ≙ ∀ x1’,…,xn’ · L(Q)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#nondeterministic_assignments",
+  "source": "Rodin Handbook, 3.3.8.2 Non-deterministic assignment with before-after-predicate",
+  "primary": true,
+  "symbol": ":∣"
+ },
+ {
+  "key": ":|",
+  "title": "non-deterministic assignment with a before-after-predicate",
+  "description": "x1,…,xn :∣ Q assigns any value to the variables x1…,xn such that the the before-after-predicate Q is fulfilled. Each xi is an identifier that refers to a variable of the concrete machine. — All free identifiers in Q must be constants, concrete parameters, concrete variables or primed versions of the modified variables (x1’,…,xn’). — This is the most general form of assignment. All other assignments can be converted to this.",
+  "ascii": "`:|`",
+  "definition": [
+   "The before-after-predicate is Q."
+  ],
+  "types": [
+   "Q is a predicate and all xi and x’i must have the same type: x1 ∈ αi and x’1 ∈ αi for i ∈ 1‥n."
+  ],
+  "wd": [
+   "L(x1,…,xn :∣ Q) ≙ ∀ x1’,…,xn’ · L(Q)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#nondeterministic_assignments",
+  "source": "Rodin Handbook, 3.3.8.2 Non-deterministic assignment with before-after-predicate",
+  "primary": true,
+  "symbol": ":∣"
+ },
+ {
+  "key": ":∈",
+  "title": "non-deterministic assignment of a set member",
+  "description": "x :∈ E assigns any value of the set E to the variable x. x is an identifier that refers to a variable of the concrete machine. — All free identifiers in E must be constants, concrete variables or concrete parameters.",
+  "ascii": "`::`",
+  "definition": [
+   "The before-after-predicate is x’ ∈ E.",
+   "The assignment is equivalent to x :∣ x’ ∈ E."
+  ],
+  "types": [
+   "x ∈ α and E ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(x :∈ E) ≙ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#a0000000450",
+  "source": "Rodin Handbook, 3.3.8.3 Non-deterministic assignment by sets",
+  "primary": true,
+  "symbol": ":∈"
+ },
+ {
+  "key": "::",
+  "title": "non-deterministic assignment of a set member",
+  "description": "x :∈ E assigns any value of the set E to the variable x. x is an identifier that refers to a variable of the concrete machine. — All free identifiers in E must be constants, concrete variables or concrete parameters.",
+  "ascii": "`::`",
+  "definition": [
+   "The before-after-predicate is x’ ∈ E.",
+   "The assignment is equivalent to x :∣ x’ ∈ E."
+  ],
+  "types": [
+   "x ∈ α and E ∈ ℙ(α)"
+  ],
+  "wd": [
+   "L(x :∈ E) ≙ L(E)"
+  ],
+  "link": "https://www3.hhu.de/stups/handbook/rodin/current/html/assignments.html#a0000000450",
+  "source": "Rodin Handbook, 3.3.8.3 Non-deterministic assignment by sets",
+  "primary": true,
+  "symbol": ":∈"
+ }
+]

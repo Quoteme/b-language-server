@@ -8,6 +8,8 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import b.language.server.proBMangement.prob.Animation
 import b.language.server.proBMangement.prob.Completion
+import b.language.server.proBMangement.prob.ProofObligation
+import b.language.server.proBMangement.prob.ProofSession
 import b.language.server.proBMangement.prob.Hover as HoverText
 import org.eclipse.lsp4j.jsonrpc.messages.Either
 import java.util.concurrent.CompletableFuture
@@ -25,6 +27,7 @@ class BDocumentService(private val server: ServerInterface,
     private val issueTracker : ConcurrentHashMap<String, Set<String>> = ConcurrentHashMap()
     private val published : ConcurrentHashMap<String, Map<String, List<Diagnostic>>> = ConcurrentHashMap()
     private val animation by lazy { Animation(communicator) }
+    private val proving by lazy { ProofSession(communicator) }
 
     companion object {
         const val MODEL_CHECK = "prob.modelCheck"
@@ -35,7 +38,11 @@ class BDocumentService(private val server: ServerInterface,
         const val OPEN_ANIMATION = "prob.animate.open"
         /** Shows a visualisation of the animation's current state, as ProB Tcl/Tk does. */
         const val VISUALIZE = "prob.visualize"
-        val COMMANDS = listOf(MODEL_CHECK, DISCHARGE_POS, SHOW_POS, ANIMATE, VISUALIZE)
+        /** Interactive proof of an obligation, as in Rodin's Proving perspective. */
+        const val PROVE = "prob.prove"
+        /** Handled by the client, which opens its proving panel and then sends [PROVE]. */
+        const val OPEN_PROVE = "prob.prove.open"
+        val COMMANDS = listOf(MODEL_CHECK, DISCHARGE_POS, SHOW_POS, ANIMATE, VISUALIZE, PROVE)
     }
 
     /**
@@ -143,6 +150,7 @@ class BDocumentService(private val server: ServerInterface,
             "ProB: discharge proof obligations with a longer timeout" to DISCHARGE_POS,
             "ProB: list proof obligations" to SHOW_POS,
             "ProB: animate" to OPEN_ANIMATION,
+            "ProB: prove interactively" to OPEN_PROVE,
         ).takeIf { wanted }.orEmpty().map { (title, command) ->
             Either.forRight<Command, CodeAction>(CodeAction(title).apply {
                 kind = CodeActionKind.Source
@@ -179,6 +187,10 @@ class BDocumentService(private val server: ServerInterface,
                 }
             }
         }
+        if (command == PROVE) {
+            val request = argument as? JsonObject ?: return CompletableFuture.completedFuture(null)
+            return prove(request)
+        }
         val uri = (argument as? JsonPrimitive)?.asString ?: argument?.toString()?.trim('"')
             ?: return CompletableFuture.completedFuture(null)
         val file = File(URI(uri).path)
@@ -210,6 +222,43 @@ class BDocumentService(private val server: ServerInterface,
             )
             else -> CompletableFuture.completedFuture(null)
         }
+    }
+
+    /** Runs an action of the proving panel; the answer is the panel's view. */
+    private fun prove(request : JsonObject) : CompletableFuture<Any?> {
+        fun field(name : String) = request.get(name)?.takeUnless { it.isJsonNull }
+        val action = field("action")?.asString ?: "view"
+        val file = field("uri")?.asString?.let { File(URI(it).path) }
+        fun obligations(file : File) = synchronized(proBInterface) { proBInterface.proofObligations(file) }
+        return when (action) {
+            "open" -> server.getDocumentSettings(file!!.absolutePath).thenApply { settings ->
+                synchronized(proving) { proving.open(file, obligations(file), field("name")?.asString, settings.poTimeout * 10) }
+            }
+            "at" -> CompletableFuture.supplyAsync { proving.at(file!!, obligations(file), field("line")?.asInt ?: 0) }
+            "close" -> CompletableFuture.supplyAsync { synchronized(proving) { proving.close() }; mapOf("closed" to true) }
+            else -> CompletableFuture.supplyAsync {
+                synchronized(proving) {
+                    val before = proving.obligation?.status
+                    val view = proving.perform(action, field("node")?.asString, field("tactic")?.asString,
+                        field("hyp")?.asInt, field("position")?.asString, field("input")?.asString)
+                    proving.obligation?.takeIf { it.status != before }?.let { refresh(it) }
+                    view
+                }
+            }
+        }
+    }
+
+    /** Replaces the diagnostic of [obligation] after its status changed. */
+    private fun refresh(obligation : ProofObligation) {
+        // Diagnostics are published by the file checked, grouped by the file they are in.
+        val path = obligation.file.toURI().path
+        val byFile = published.entries.firstOrNull { it.key == obligation.file.absolutePath }
+            ?: published.entries.firstOrNull { (_, diagnostics) -> diagnostics.containsKey(path) } ?: return
+        val updated = byFile.value.mapValues { it.value.toMutableList() }.toMutableMap()
+        val diagnostics = updated.getOrPut(path) { mutableListOf() }
+        diagnostics.removeAll { it.message.startsWith(obligation.name + " ") || it.message.startsWith(obligation.name + ":") }
+        obligation.diagnostic()?.let { diagnostics += it }
+        publish(File(byFile.key), updated)
     }
 
     /**

@@ -417,16 +417,23 @@ abstract class Documentation {
         val lines = obligations.joinToString("\n") { po ->
             val mark = when (po.status) {
                 ProofObligation.Status.DISCHARGED -> "✓"
+                ProofObligation.Status.PROVED -> "✓✎"
+                ProofObligation.Status.REVIEWED -> "≈"
                 ProofObligation.Status.DISPROVED -> "✗"
                 ProofObligation.Status.UNDISCHARGED -> "?"
+                ProofObligation.Status.BROKEN -> "⚠"
             }
             "- $mark `${po.name}`" + when (po.status) {
                 ProofObligation.Status.DISPROVED -> " does not hold" + (if (po.detail.isEmpty()) "" else ", e.g. for `${po.detail}`")
                 ProofObligation.Status.UNDISCHARGED -> " not discharged by ProB"
+                ProofObligation.Status.PROVED -> " proved interactively"
+                ProofObligation.Status.REVIEWED -> " reviewed"
+                ProofObligation.Status.BROKEN -> " has a broken proof"
                 ProofObligation.Status.DISCHARGED -> ""
             }
         }
-        return "**Proof obligations** ([3.2.7](${POS.first}))\n$lines"
+        val prove = if (obligations.any { !it.closed }) "\n\n`:ProbProve` proves them interactively." else ""
+        return "**Proof obligations** ([3.2.7](${POS.first}))\n$lines$prove"
     }
 
     // ----------------------------------------------------------------------

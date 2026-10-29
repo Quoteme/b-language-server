@@ -11,21 +11,16 @@ import de.prob.animator.domainobjects.ErrorItem
 import de.prob.exception.ProBError
 import de.prob.scripting.FactoryProvider
 import de.be4.eventb.core.parser.node.AMachineParseUnit
-import de.prob.animator.command.CbcSolveCommand
 import de.prob.animator.command.FormulaTypecheckCommand
 import de.prob.animator.command.GetMachineIdentifiersCommand
-import de.prob.animator.domainobjects.ComputationNotCompletedResult
 import de.prob.animator.domainobjects.EvalResult
 import de.prob.animator.domainobjects.EventB
 import de.prob.animator.domainobjects.FormulaExpand
 import de.prob.check.ConsistencyChecker
 import de.prob.check.ModelCheckErrorUncovered
 import de.prob.check.ModelCheckingOptions
-import de.prob.model.eventb.Context
 import de.prob.model.eventb.EventBModel
-import de.prob.model.representation.ModelElementList
 import java.time.Duration
-import de.prob.model.representation.Set as ProBSet
 import de.prob.statespace.AnimationSelector
 import de.prob.statespace.StateSpace
 import org.eclipse.lsp4j.Diagnostic
@@ -96,10 +91,14 @@ class ProBKernel @Inject constructor(private val injector : Injector,
         }
 
         val generated = ProofObligationGenerator().generate(project.mainInfo)
-        communicator.sendDebugMessage("discharging ${generated.size} proof obligations", MessageType.Info)
-        discharge(project, generated, settings.poTimeout)
+        val broken = replay(file, generated)
+        val open = generated.filter { !it.closed }
+        communicator.sendDebugMessage("discharging ${open.size} proof obligations", MessageType.Info)
+        discharge(project, open, settings.poTimeout)
+        // A broken proof matters only if ProB cannot decide the obligation either.
+        broken.filter { it.status == ProofObligation.Status.UNDISCHARGED }.forEach { it.status = ProofObligation.Status.BROKEN }
         obligations[file.absolutePath] = generated
-        return problems + generated.mapNotNull { it.toDiagnostic() }
+        return problems + generated.mapNotNull { it.diagnostic() }
     }
 
     /** Hover texts for the identifiers of classical B machines, by file and name, from their last check. */
@@ -180,59 +179,38 @@ class ProBKernel @Inject constructor(private val injector : Injector,
      */
     private fun discharge(project : CamilleProject, obligations : List<ProofObligation>, timeout : Int) {
         if (obligations.isEmpty()) return
-        val noExtensions = emptySet<org.eventb.core.ast.extension.IFormulaExtension>()
-        val contexts = when (val info = project.mainInfo) {
-            is MachineInfo -> info.contexts
-            is ContextInfo -> info.closure().toList()
-            else -> emptyList()
-        }
-        // The obligations mention constants and variables freely; only the carrier sets must be known.
-        val sets = Context("proof_obligations").withSets(ModelElementList(contexts.flatMap { it.sets }.distinct().map { ProBSet(EventB(it, noExtensions)) }))
-        val stateSpace = animator.createStateSpace()
         try {
-            stateSpace.changePreferences(mapOf("TIME_OUT" to timeout.toString()))
-            injector.getInstance(EventBModel::class.java).addContext(sets).loadIntoStateSpace(stateSpace, sets)
-            for (obligation in obligations) {
-                solve(stateSpace, obligation, noExtensions)
+            ProBProver(injector, animator, ProBProver.carrierSets(project), timeout).use { prover ->
+                for (obligation in obligations) {
+                    when (val result = prover.solve(obligation.negation)) {
+                        is ProBProver.Result.Proved -> obligation.status = ProofObligation.Status.DISCHARGED
+                        is ProBProver.Result.Counterexample -> {
+                            obligation.status = ProofObligation.Status.DISPROVED
+                            obligation.detail = result.detail
+                        }
+                        is ProBProver.Result.Unknown -> obligation.detail = result.reason
+                    }
+                }
             }
         } catch (e : ProBError) {
             communicator.sendDebugMessage("could not discharge proof obligations: ${e.message}", MessageType.Info)
-        } finally {
-            stateSpace.kill()
         }
     }
 
-    private fun solve(stateSpace : StateSpace, obligation : ProofObligation, noExtensions : Set<org.eventb.core.ast.extension.IFormulaExtension>) {
-        for (solver in listOf(CbcSolveCommand.Solvers.PROB, CbcSolveCommand.Solvers.Z3AXM)) {
-            val result = try {
-                val command = CbcSolveCommand(EventB(obligation.negation, noExtensions, FormulaExpand.EXPAND), solver)
-                stateSpace.execute(command)
-                command.value
-            } catch (e : ProBError) {
-                obligation.detail = e.errors.firstOrNull()?.message ?: e.message?.lineSequence()?.firstOrNull().orEmpty()
-                continue
-            }
-            if (result is EvalResult && result.value == "FALSE") {
-                obligation.status = ProofObligation.Status.DISCHARGED
-                return
-            }
-            if (result is EvalResult && result.value == "TRUE") {
-                obligation.status = ProofObligation.Status.DISPROVED
-                obligation.detail = result.solutions.entries.joinToString(", ") { (name, value) ->
-                    "${name.replace(Regex("$PRIME_SUFFIX$"), "'")} = $value"
-                }
-                return
-            }
-            obligation.detail = (result as? ComputationNotCompletedResult)?.reason ?: result.toString()
+    /**
+     * Replays the proofs saved in the component's .bpr file, as Rodin does after a change.
+     * @return the obligations whose saved proof no longer applies
+     */
+    private fun replay(file : File, obligations : List<ProofObligation>) : Set<ProofObligation> {
+        val saved = ProofStore(file).load()
+        val broken = mutableSetOf<ProofObligation>()
+        for (obligation in obligations) {
+            val skeleton = saved[obligation.name] ?: continue
+            val tree = ProofTree(obligation)
+            if (!tree.load(skeleton)) broken += obligation
+            obligation.updateStatus(tree)
         }
-    }
-
-    private fun ProofObligation.toDiagnostic() : Diagnostic? = when (status) {
-        ProofObligation.Status.DISCHARGED -> null
-        ProofObligation.Status.DISPROVED ->
-            diagnostic(file, line, pos, length, if (detail.isEmpty()) "$name does not hold" else "$name does not hold, e.g. for $detail", DiagnosticSeverity.Warning)
-        ProofObligation.Status.UNDISCHARGED ->
-            diagnostic(file, line, pos, length, "$name is not discharged by ProB: $detail", DiagnosticSeverity.Hint)
+        return broken
     }
 
     /**

@@ -1,6 +1,7 @@
 package b.language.server.temporary
 
 import b.language.server.analysis.AnalysisDispatcher
+import b.language.server.analysis.prob.startProB
 import b.language.server.config.Settings
 import b.language.server.server.BDocumentService
 import b.language.server.server.ServerInterface
@@ -34,7 +35,7 @@ class Harness(
             override fun removeDocumentSettings(uri: String) = Unit
         }
 
-    private val analysis = AnalysisDispatcher()
+    private val analysis = AnalysisDispatcher(startProB())
     private val service = BDocumentService(server, communicator, analysis)
 
     override fun close() {

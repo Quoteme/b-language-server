@@ -29,3 +29,16 @@ hs_err_pid*
 build
 /.idea
 /lsp
+
+.classpath
+
+.project
+
+.settings/org.eclipse.buildship.core.prefs
+
+.settings/org.eclipse.jdt.core.prefs
+
+# stuff caused by kotlin lsp and java-lsp
+bin
+kls_database.db
+.kotlin

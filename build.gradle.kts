@@ -1,6 +1,8 @@
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     kotlin("jvm") version "2.2.20"
+    // Generates the JSON (de)serializers of classes annotated with @Serializable.
+    kotlin("plugin.serialization") version "2.2.20"
     idea
     // Apply the application plugin to add support for building a CLI application.
     application
@@ -22,6 +24,11 @@ dependencies {
     // eclipse lsp implementation
     implementation("org.eclipse.lsp4j", "org.eclipse.lsp4j", "0.24.0")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+
+    // Typed errors: Either and the Raise DSL instead of exceptions
+    implementation("io.arrow-kt:arrow-core:2.3.0")
+
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test-junit5
     testImplementation(kotlin("test-junit5"))
 
@@ -41,6 +48,9 @@ java {
 
 tasks.test {
     useJUnitPlatform()
+    // Each test starts ProB processes of its own; one test JVM at a time keeps their number bounded.
+    maxParallelForks = 1
+    maxHeapSize = "2g"
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -53,3 +63,19 @@ application {
     mainClass.set("b.language.server.AppKt") // The main class of the application
 }
 
+
+// Regenerates the hover and completion documentation from the Rodin Handbook and ProB's Summary of
+// B Syntax. It downloads them, so it is not part of the build: run it by hand and commit the result.
+tasks.register<Exec>("generateDocumentation") {
+    group = "documentation"
+    description = "Regenerates src/main/resources/documentation from the official sources (needs network and Python 3)."
+    val symbols = providers.gradleProperty("symbols").orElse("../b.nvim/lua/prob/symbols.lua")
+    commandLine(
+        "python3",
+        "scripts/generate_documentation.py",
+        "--out",
+        "src/main/resources/documentation",
+        "--symbols",
+        symbols.get(),
+    )
+}

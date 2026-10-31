@@ -1,0 +1,333 @@
+/*
+ * A late-2000s look for Dokka's HTML output: glossy gradient bars, Verdana and Trebuchet MS,
+ * boxed content with bevelled borders, zebra tables, and no dark theme.
+ */
+
+:root,
+.theme-dark {
+    --retro-blue-light: #6d9bd8;
+    --retro-blue: #3a6cb5;
+    --retro-blue-dark: #1d4583;
+    --retro-link: #0645ad;
+    --retro-link-hover: #d1600f;
+    --retro-border: #a9bcd6;
+    --retro-panel: #eef3fa;
+    --retro-page: #dfe7f1;
+    --retro-text: #222;
+
+    --font-family-default: Verdana, Tahoma, "DejaVu Sans", Geneva, sans-serif;
+    --default-font-family: var(--font-family-default);
+    --font-family-mono: "Courier New", Courier, "Liberation Mono", monospace;
+    --default-monospace-font-family: var(--font-family-mono);
+    --default-font-size: 13px;
+    --font-text-m: 400 13px/20px var(--font-family-default);
+    --font-text-s: 400 11px/16px var(--font-family-default);
+    --font-h1: bold 24px/30px "Trebuchet MS", var(--font-family-default);
+    --font-h2: bold 17px/24px "Trebuchet MS", var(--font-family-default);
+    --font-h3: bold 15px/22px "Trebuchet MS", var(--font-family-default);
+    --font-h4: bold 13px/20px "Trebuchet MS", var(--font-family-default);
+    --toc-font: 400 12px/18px var(--font-family-default);
+
+    --color-background: #fff;
+    --color-background-page: #fff;
+    --background-color: #fff;
+    --text-color: var(--retro-text);
+    --default-font-color: var(--retro-text);
+    --header-font-color: var(--retro-blue-dark);
+    --color-text: var(--retro-text);
+    --color-text-light: #555;
+    --toc-color: var(--retro-link);
+    --toc-hover-color: #dbe7f6;
+    --toc-link-hover-gradient: none;
+    --toc-button-hover-gradient: none;
+    --border-color: var(--retro-border);
+    --color-key-blue: var(--retro-blue);
+    --hover-link-color: var(--retro-link-hover);
+    --active-tab-border-color: var(--retro-blue);
+    --sidemenu-section-active-color: var(--retro-blue-dark);
+    --active-section-color: var(--retro-blue-dark);
+    --color-background-inline-code: #fffbe3;
+    --color-background-code-block: #fffbe3;
+    --color-background-footer: #e4e4e4;
+    --navigation-highlight-color: #dbe7f6;
+}
+
+/* One look only: the dark theme toggle has no place in 2009. */
+.navigation-controls--btn_theme {
+    display: none !important;
+}
+
+html,
+body {
+    background: var(--retro-page) linear-gradient(#c9d7e8, var(--retro-page) 320px) no-repeat !important;
+    color: var(--retro-text);
+    font: 13px/1.55 var(--font-family-default);
+}
+
+a,
+a:visited {
+    color: var(--retro-link);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--retro-link-hover);
+    text-decoration: underline;
+}
+
+/* ---------- Glossy header bar ---------- */
+
+.navigation,
+.navigation.theme-dark {
+    background: linear-gradient(var(--retro-blue-light) 0%, var(--retro-blue) 50%, #2b5ba3 51%, var(--retro-blue-dark) 100%) !important;
+    border-bottom: 1px solid #12305e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    color: #fff;
+}
+
+.navigation .library-name--link,
+.navigation .library-name--link:visited {
+    color: #fff !important;
+    font: bold 22px "Trebuchet MS", var(--font-family-default);
+    letter-spacing: 0.5px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5), 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+.navigation .library-name--link:hover {
+    text-decoration: none;
+}
+
+.library-version {
+    color: #dbe7f6;
+    font-size: 11px;
+}
+
+/* Pill-shaped glossy buttons, as on every Web 2.0 page. */
+.platform-tag,
+.platform-tag.jvm-like,
+.platform-selector {
+    background: linear-gradient(#9fdc7a 0%, #6cbe45 50%, #5aae34 51%, #4d9a2b 100%) !important;
+    border: 1px solid #3e7d22 !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 1px 1px rgba(0, 0, 0, 0.2);
+    color: #fff !important;
+    font: bold 11px var(--font-family-default) !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.navigation-controls--btn {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    background: var(--retro-panel) !important;
+    border-right: 1px solid var(--retro-border) !important;
+}
+
+.sidebar--inner {
+    background: transparent !important;
+}
+
+.toc--link {
+    color: var(--retro-link) !important;
+    font: var(--toc-font);
+}
+
+/* The current page: highlighted like a selected item in an old file manager. */
+.toc--part[data-active] > .toc--row {
+    border-top: 1px solid #e3c35a;
+    border-bottom: 1px solid #e3c35a;
+}
+
+.toc--part[data-active] > .toc--row .toc--button,
+.toc--part[data-active] > .toc--row .toc--link,
+.toc--part[data-active] > .toc--row .toc--button ~ .toc--link:hover {
+    background: linear-gradient(#fff6c8, #ffe58a) !important;
+    color: #5a3d00 !important;
+    font-weight: bold;
+}
+
+.toc--row:hover {
+    background: #dbe7f6;
+}
+
+/* ---------- Content box ---------- */
+
+.main-content {
+    background: #fff !important;
+    border: 1px solid var(--retro-border);
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(29, 69, 131, 0.25);
+    margin: 18px 22px 18px 18px;
+    padding: 4px 24px 18px !important;
+}
+
+.breadcrumbs {
+    color: #666;
+    font-size: 11px;
+}
+
+h1,
+h1.cover,
+.cover > h1 {
+    margin-top: 14px !important;
+    border-bottom: 2px solid var(--retro-blue);
+    color: var(--retro-blue-dark);
+    font: var(--font-h1);
+    padding-bottom: 4px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+/* Section headings as bevelled widget title bars. */
+h2,
+.content h2,
+.cover h2,
+h2.tableheader {
+    background: linear-gradient(#f7faff, #d8e4f3);
+    border: 1px solid var(--retro-border);
+    border-radius: 5px 5px 0 0;
+    color: var(--retro-blue-dark);
+    font: var(--font-h2);
+    margin: 22px 0 8px;
+    padding: 4px 10px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+h3,
+h4 {
+    color: var(--retro-blue-dark);
+}
+
+/* ---------- Tables of packages and members ---------- */
+
+.table {
+    border: 1px solid var(--retro-border);
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.table-row,
+.table-row_platform-tagged,
+.table-row_content {
+    border-bottom: 1px dotted var(--retro-border) !important;
+    padding: 6px 10px !important;
+}
+
+.table > .table-row:nth-child(odd),
+.table > a + .table-row:nth-child(odd) {
+    background: #f4f7fc;
+}
+
+.table-row:hover {
+    background: #fffbe3 !important;
+}
+
+/* Tabs as the rounded tabs of the time. */
+.section-tab {
+    background: linear-gradient(#fdfdfd, #dfe6ef);
+    border: 1px solid var(--retro-border) !important;
+    border-bottom: none !important;
+    border-radius: 5px 5px 0 0;
+    color: var(--retro-link);
+    font: bold 12px var(--font-family-default);
+    margin-right: 3px;
+    padding: 5px 12px;
+}
+
+.section-tab[data-active] {
+    background: linear-gradient(var(--retro-blue-light), var(--retro-blue));
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Code ---------- */
+
+code,
+.symbol,
+.monospace {
+    font-family: var(--font-family-mono) !important;
+}
+
+p code,
+li code,
+.inline-code {
+    background: #fffbe3;
+    border: 1px solid #e8dc9c;
+    border-radius: 2px;
+    padding: 0 3px;
+}
+
+.symbol,
+pre {
+    background: #fffbe3 !important;
+    border: 1px solid #e8dc9c !important;
+    border-left: 4px solid #e8b923 !important;
+    border-radius: 0 !important;
+}
+
+/* Diagrams: on a sheet with a dashed border, as if pasted in. */
+.sample-container {
+    background: #fff !important;
+    border: 1px dashed var(--retro-border);
+    padding: 12px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: linear-gradient(#f2f2f2, #d6d6d6) !important;
+    border-top: 1px solid #b5b5b5;
+    color: #555;
+    font-size: 11px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.footer a {
+    color: var(--retro-link);
+}
+
+/*
+ * Diagrams in the style of the UML tools of the time: pale yellow boxes, grey borders, black lines.
+ * Mermaid writes its own styles into each diagram, so these need !important.
+ */
+.sample-container svg .node rect,
+.sample-container svg .node polygon,
+.sample-container svg .node circle,
+.sample-container svg .node path,
+.sample-container svg rect.actor,
+.sample-container svg .classGroup rect,
+.sample-container svg g.classGroup rect,
+.sample-container svg .stateGroup rect,
+.sample-container svg .statediagram-state rect.basic,
+.sample-container svg .statediagram-state .divider {
+    fill: #ffffcc !important;
+    stroke: #8a8a5c !important;
+}
+
+.sample-container svg .statediagram-cluster rect.outer,
+.sample-container svg .statediagram-cluster rect.inner,
+.sample-container svg .cluster rect {
+    fill: #f6f6e4 !important;
+    stroke: #8a8a5c !important;
+}
+
+.sample-container svg .flowchart-link,
+.sample-container svg .relation,
+.sample-container svg .transition,
+.sample-container svg .messageLine0,
+.sample-container svg .messageLine1,
+.sample-container svg .actor-line {
+    stroke: #333 !important;
+}
+
+.sample-container svg .edgeLabel,
+.sample-container svg .edgeLabel rect,
+.sample-container svg .edgeLabel p,
+.sample-container svg .labelBkg {
+    background-color: #fff !important;
+    fill: #fff !important;
+}

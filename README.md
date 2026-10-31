@@ -3,7 +3,11 @@
 A language server for classical B and Event-B, written in Kotlin, with ProB as its backend. It ships its own probcli
 through the ProB Java Kernel.
 
+<p>
 <img width="567" height="378" alt="mascot" src="https://github.com/user-attachments/assets/46be255b-4314-434c-adeb-18ce7c4dd89e" />
+<br>
+<em>Artistic depiction of b-language-server analyzing an Event-B machine</em>
+</p>
 
 ## Documentation
 

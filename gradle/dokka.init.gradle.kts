@@ -39,6 +39,8 @@ rootProject {
             }
             pluginsConfiguration.withType<org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters>().configureEach {
                 customStyleSheets.from("docs/retro.css")
+                // The header logo; docs/retro.css points Dokka at it. Dokka copies assets into images/.
+                file("docs/icon.png").takeIf { it.isFile }?.let { customAssets.from(it) }
                 footerMessage.set("b-language-server &middot; best viewed in any browser at 1024&times;768")
             }
         }

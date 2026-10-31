@@ -52,6 +52,13 @@
     --navigation-highlight-color: #dbe7f6;
 }
 
+/* The header logo: docs/icon.png, which the build copies into images/. */
+:root {
+    --dokka-logo-image-url: url("../images/icon.png");
+    --dokka-logo-height: 32px;
+    --dokka-logo-width: 32px;
+}
+
 /* One look only: the dark theme toggle has no place in 2009. */
 .navigation-controls--btn_theme {
     display: none !important;

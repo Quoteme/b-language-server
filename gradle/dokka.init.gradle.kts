@@ -88,6 +88,23 @@ rootProject {
                     }
                 }
             }
-        tasks.named("dokkaGeneratePublicationHtml") { finalizedBy(installMermaid) }
+        // Dokka links its own logo as the favicon of every page; docs/icon.png replaces it, if there is one.
+        val icon = file("docs/icon.png")
+        val useIconAsFavicon =
+            tasks.register("dokkaUseIconAsFavicon") {
+                description = "Makes docs/icon.png the favicon of the Dokka pages."
+                onlyIf { icon.isFile }
+                doLast {
+                    site.get().asFileTree.matching { include("**/*.html") }.forEach { page ->
+                        val text = page.readText()
+                        val replaced =
+                            text.replace(Regex("""<link href="([^"]*)images/logo-icon\.svg" rel="icon" type="image/svg">""")) {
+                                """<link href="${it.groupValues[1]}images/icon.png" rel="icon" type="image/png">"""
+                            }
+                        if (replaced != text) page.writeText(replaced)
+                    }
+                }
+            }
+        tasks.named("dokkaGeneratePublicationHtml") { finalizedBy(installMermaid, useIconAsFavicon) }
     }
 }

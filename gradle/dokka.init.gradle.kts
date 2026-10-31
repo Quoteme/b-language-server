@@ -25,6 +25,9 @@ val mermaidElk =
         "sha512-6KzQTCAy4lSlETy5fBOYyUD0JQtZk/ihacVHSmAyo00hW7REOhKQGjNIxVwAnI+HtJdfpGnSMxkp9qnJDijppw==",
     )
 
+/** The project's page; the docs link to it from the header, the footer and every declaration. */
+val repository = "https://github.com/quoteme/b-language-server"
+
 rootProject {
     pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
         plugins.apply(org.jetbrains.dokka.gradle.formats.DokkaHtmlPlugin::class.java)
@@ -36,12 +39,21 @@ rootProject {
                 classpath.from(configurations.named("compileClasspath"))
                 includes.from("Module.md")
                 jdkVersion.set(17)
+                // Each declaration links to its source on the default branch, which the docs are published from.
+                sourceLink {
+                    localDirectory.set(file("src/main/kotlin"))
+                    remoteUrl("$repository/blob/master/src/main/kotlin")
+                    remoteLineSuffix.set("#L")
+                }
             }
             pluginsConfiguration.withType<org.jetbrains.dokka.gradle.engine.plugins.DokkaHtmlPluginParameters>().configureEach {
                 customStyleSheets.from("docs/retro.css")
                 // The header logo; docs/retro.css points Dokka at it. Dokka copies assets into images/.
                 file("docs/icon.png").takeIf { it.isFile }?.let { customAssets.from(it) }
-                footerMessage.set("b-language-server &middot; best viewed in any browser at 1024&times;768")
+                homepageLink.set(repository)
+                footerMessage.set(
+                    "b-language-server &middot; <a href=\"$repository\">source on GitHub</a> &middot; best viewed in any browser at 1024&times;768",
+                )
             }
         }
 

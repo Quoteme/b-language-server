@@ -7,6 +7,15 @@ Clients (neovim, VS Code, ...) talk to the server over stdio (`--stdio`) or a TC
 requests into calls of the analysis of the model's kind, which runs in a shared ProB process. Animations run in a
 ProB process of their own.
 
+The source, issues and releases are on GitHub: [quoteme/b-language-server](https://github.com/quoteme/b-language-server).
+
+## Clients
+
+| Client | Editor | Project page |
+| ------ | ------ | ------------ |
+| ![neovim](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neovim/neovim-original.svg) b.nvim | Neovim | [github.com/Quoteme/b.nvim](https://github.com/Quoteme/b.nvim) |
+| ![vscode](https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg) b.vscode | Visual Studio Code | [github.com/Quoteme/b.vscode](https://github.com/Quoteme/b.vscode) |
+
 ## How a request flows through the server
 
 ```mermaid

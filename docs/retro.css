@@ -171,6 +171,8 @@ a:hover {
     box-shadow: 0 1px 6px rgba(29, 69, 131, 0.25);
     margin: 18px 22px 18px 18px;
     padding: 4px 24px 18px !important;
+    /* Dokka sets width: 100%, which with the margins above would run past the window. */
+    width: auto;
 }
 
 .breadcrumbs {
@@ -337,4 +339,51 @@ pre {
 .sample-container svg .labelBkg {
     background-color: #fff !important;
     fill: #fff !important;
+}
+
+/* ---------- Markdown tables, such as the clients ---------- */
+
+/*
+ * Dokka's container scrolls, which clips the table's outer border; these tables are small. Its script
+ * also widens tables into the page's padding with a negative margin, assuming Dokka's wider padding.
+ */
+.table--container {
+    margin-right: 0 !important;
+    overflow: visible;
+}
+
+.table--container table {
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    width: 100%;
+}
+
+/* Every cell has all four borders; Dokka leaves out the right one of the last column. */
+.table--container th,
+.table--container td,
+.table--container th:last-child,
+.table--container td:last-child {
+    border: 1px solid var(--retro-border);
+    padding: 4px 10px;
+    vertical-align: middle;
+}
+
+.table--container th {
+    background: linear-gradient(#f7faff, #d8e4f3);
+    color: var(--retro-blue-dark);
+    font: bold 12px var(--font-family-default);
+    text-align: left;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.table--container tbody tr:nth-child(even) {
+    background: #f4f7fc;
+}
+
+/* Icons in tables, such as those of the editors, at the size of the text. */
+.table--container td img {
+    height: 16px;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+    width: 16px;
 }

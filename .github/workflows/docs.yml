@@ -24,31 +24,11 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v6
-      - name: Write Dokka init script
-        run: |
-          cat > "$RUNNER_TEMP/dokka.init.gradle.kts" <<'EOF'
-          initscript {
-              repositories { gradlePluginPortal() }
-              dependencies { classpath("org.jetbrains.dokka:dokka-gradle-plugin:2.1.0") }
-          }
-          rootProject {
-              pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
-                  plugins.apply(org.jetbrains.dokka.gradle.formats.DokkaJavadocPlugin::class.java)
-                  extensions.configure<org.jetbrains.dokka.gradle.DokkaExtension> {
-                      moduleName.set(rootProject.name)
-                      dokkaSourceSets.register("main") {
-                          sourceRoots.from("src/main/kotlin", "src/main/java")
-                          classpath.from(configurations.named("compileClasspath"))
-                          jdkVersion.set(17)
-                      }
-                  }
-              }
-          }
-          EOF
-      - run: ./gradlew --init-script "$RUNNER_TEMP/dokka.init.gradle.kts" dokkaGeneratePublicationJavadoc
+      # Dokka, the Mermaid plugin, Module.md and docs/retro.css are set up by the init script.
+      - run: ./gradlew --init-script gradle/dokka.init.gradle.kts dokkaGeneratePublicationHtml
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: build/dokka/javadoc
+          path: build/dokka/html
 
   deploy:
     needs: build

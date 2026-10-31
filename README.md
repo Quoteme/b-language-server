@@ -39,4 +39,8 @@ If you want to use another version probcli point to the directory, not to probcl
     
 ## Clients
 
-- VSCode: https://marketplace.visualstudio.com/items?itemName=SeeBasTStick.b-language-extension
+| Client                      | Link                                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------------------- |
+| b.nvim                      | https://github.com/Quoteme/b.nvim                                                           |
+| b.vscode                    | https://github.com/Quoteme/b.vscode                                                         |
+| Original VSCode extension   | https://marketplace.visualstudio.com/items?itemName=SeeBasTStick.b-language-extension       |

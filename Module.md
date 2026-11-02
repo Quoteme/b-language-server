@@ -40,35 +40,39 @@ sequenceDiagram
     Client->>Server: initialize
     Server-->>Client: capabilities
 
-    User->>Client: open or save a file
-    Client->>Server: didOpen / didSave
-    Server->>Open: update(file, text)
-    Server->>Checks: check(file)
-    Checks->>Client: workspace/configuration ("prob")
-    Client-->>Checks: Settings
-    Checks->>Open: projectOf(file)
-    Open-->>Checks: ClassicBProject or EventBProject
-    Checks->>Dispatcher: check(project, settings)
-    Dispatcher->>Analysis: project.match
-    Analysis->>ProB: load, check, discharge POs
-    ProB-->>Analysis: errors, warnings
-    Analysis-->>Checks: Either: AnalysisFailure or problems
-    Checks-->>Client: publishDiagnostics / showMessage
-
-    User->>Client: hover or complete
-    Client->>Server: hover / completion
-    Server->>Dispatcher: hover / complete(project, position)
-    Dispatcher->>Analysis: project.match
-    Analysis-->>Server: Markdown / candidates
-    Server-->>Client: Hover / CompletionList
-
-    User->>Client: source action
-    Client->>Server: codeAction
-    Server-->>Client: the prob.* commands
-    Client->>Server: workspace/executeCommand prob.*
-    Server->>Dispatcher: Commands: modelCheck,<br>proofObligations, animationModel
-    Dispatcher-->>Server: report, POs, animation model
-    Server-->>Client: JSON result, diagnostics, messages
+    loop while files are open, in any order, again and again
+        alt option 1: opens or saves a file
+            User->>Client: open or save a file
+            Client->>Server: didOpen / didSave
+            Server->>Open: update(file, text)
+            Server->>Checks: check(file)
+            Checks->>Client: workspace/configuration ("prob")
+            Client-->>Checks: Settings
+            Checks->>Open: projectOf(file)
+            Open-->>Checks: ClassicBProject or EventBProject
+            Checks->>Dispatcher: check(project, settings)
+            Dispatcher->>Analysis: project.match
+            Analysis->>ProB: load, check, discharge POs
+            ProB-->>Analysis: errors, warnings
+            Analysis-->>Checks: Either: AnalysisFailure or problems
+            Checks-->>Client: publishDiagnostics / showMessage
+        else option 2: hovers or completes
+            User->>Client: hover or complete
+            Client->>Server: hover / completion
+            Server->>Dispatcher: hover / complete(project, position)
+            Dispatcher->>Analysis: project.match
+            Analysis-->>Server: Markdown / candidates
+            Server-->>Client: Hover / CompletionList
+        else option 3: chooses a source action
+            User->>Client: source action
+            Client->>Server: codeAction
+            Server-->>Client: the prob.* commands
+            Client->>Server: workspace/executeCommand prob.*
+            Server->>Dispatcher: Commands: modelCheck,<br>proofObligations, animationModel
+            Dispatcher-->>Server: report, POs, animation model
+            Server-->>Client: JSON result, diagnostics, messages
+        end
+    end
 
     Client->>Server: shutdown / exit
     Server->>ProB: close the ProB processes

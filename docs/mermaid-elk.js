@@ -35,7 +35,11 @@
   mermaid.render = function () {
     var args = arguments;
     return ready.then(function () {
-      return render.apply(null, args);
+      return render.apply(null, args).then(function (result) {
+        // Mermaid tags a sequence diagram's alt fragment "alt"; the docs call it "options", as each section is one.
+        result.svg = result.svg.replace(/(<text[^>]*class="labelText"[^>]*>)alt(<\/text>)/g, "$1options$2");
+        return result;
+      });
     });
   };
 })();

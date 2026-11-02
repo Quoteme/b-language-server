@@ -23,8 +23,12 @@
     initialize(
       Object.assign({}, config, {
         theme: "default",
+        // Lets a click on a sequence diagram participant open its menu of links to the docs.
+        securityLevel: "loose",
         layout: "elk",
         elk: { mergeEdges: false, nodePlacementStrategy: "NETWORK_SIMPLEX" },
+        // Wide enough for class names such as BDocumentService, which would otherwise break mid-word.
+        flowchart: Object.assign({}, config && config.flowchart, { wrappingWidth: 240 }),
       }),
     );
   };
@@ -33,7 +37,11 @@
   mermaid.render = function () {
     var args = arguments;
     return ready.then(function () {
-      return render.apply(null, args);
+      return render.apply(null, args).then(function (result) {
+        // Mermaid tags a sequence diagram's alt fragment "alt"; the docs call it "options", as each section is one.
+        result.svg = result.svg.replace(/(<text[^>]*class="labelText"[^>]*>)alt(<\/text>)/g, "$1options$2");
+        return result;
+      });
     });
   };
 })();

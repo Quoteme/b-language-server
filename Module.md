@@ -30,38 +30,49 @@ sequenceDiagram
     participant Analysis as ClassicBAnalysis /<br>EventBAnalysis
     participant ProB as ProBSession
 
+    links Server: {"Server": "b-language-server/b.language.server.server/-server/index.html", "BDocumentService": "b-language-server/b.language.server.server/-b-document-service/index.html", "BWorkspaceService": "b-language-server/b.language.server.server/-b-workspace-service/index.html"}
+    links Checks: {"DocumentChecks": "b-language-server/b.language.server.server/-document-checks/index.html", "SettingsStore": "b-language-server/b.language.server.server/-settings-store/index.html"}
+    links Open: {"OpenDocuments": "b-language-server/b.language.server.project/-open-documents/index.html"}
+    links Dispatcher: {"AnalysisDispatcher": "b-language-server/b.language.server.analysis/-analysis-dispatcher/index.html"}
+    links Analysis: {"ClassicBAnalysis": "b-language-server/b.language.server.analysis.classicB/-classic-b-analysis/index.html", "EventBAnalysis": "b-language-server/b.language.server.analysis.eventB/-event-b-analysis/index.html"}
+    links ProB: {"ProBSession": "b-language-server/b.language.server.analysis.prob/-pro-b-session/index.html"}
+
     Client->>Server: initialize
     Server-->>Client: capabilities
 
-    User->>Client: open or save a file
-    Client->>Server: didOpen / didSave
-    Server->>Open: update(file, text)
-    Server->>Checks: check(file)
-    Checks->>Client: workspace/configuration ("prob")
-    Client-->>Checks: Settings
-    Checks->>Open: projectOf(file)
-    Open-->>Checks: ClassicBProject or EventBProject
-    Checks->>Dispatcher: check(project, settings)
-    Dispatcher->>Analysis: project.match
-    Analysis->>ProB: load, check, discharge POs
-    ProB-->>Analysis: errors, warnings
-    Analysis-->>Checks: Either: AnalysisFailure or problems
-    Checks-->>Client: publishDiagnostics / showMessage
-
-    User->>Client: hover or complete
-    Client->>Server: hover / completion
-    Server->>Dispatcher: hover / complete(project, position)
-    Dispatcher->>Analysis: project.match
-    Analysis-->>Server: Markdown / candidates
-    Server-->>Client: Hover / CompletionList
-
-    User->>Client: source action
-    Client->>Server: codeAction
-    Server-->>Client: the prob.* commands
-    Client->>Server: workspace/executeCommand prob.*
-    Server->>Dispatcher: Commands: modelCheck,<br>proofObligations, animationModel
-    Dispatcher-->>Server: report, POs, animation model
-    Server-->>Client: JSON result, diagnostics, messages
+    loop while files are open, in any order, again and again
+        alt option 1: opens or saves a file
+            User->>Client: open or save a file
+            Client->>Server: didOpen / didSave
+            Server->>Open: update(file, text)
+            Server->>Checks: check(file)
+            Checks->>Client: workspace/configuration ("prob")
+            Client-->>Checks: Settings
+            Checks->>Open: projectOf(file)
+            Open-->>Checks: ClassicBProject or EventBProject
+            Checks->>Dispatcher: check(project, settings)
+            Dispatcher->>Analysis: project.match
+            Analysis->>ProB: load, check, discharge POs
+            ProB-->>Analysis: errors, warnings
+            Analysis-->>Checks: Either: AnalysisFailure or problems
+            Checks-->>Client: publishDiagnostics / showMessage
+        else option 2: hovers or completes
+            User->>Client: hover or complete
+            Client->>Server: hover / completion
+            Server->>Dispatcher: hover / complete(project, position)
+            Dispatcher->>Analysis: project.match
+            Analysis-->>Server: Markdown / candidates
+            Server-->>Client: Hover / CompletionList
+        else option 3: chooses a source action
+            User->>Client: source action
+            Client->>Server: codeAction
+            Server-->>Client: the prob.* commands
+            Client->>Server: workspace/executeCommand prob.*
+            Server->>Dispatcher: Commands: modelCheck,<br>proofObligations, animationModel
+            Dispatcher-->>Server: report, POs, animation model
+            Server-->>Client: JSON result, diagnostics, messages
+        end
+    end
 
     Client->>Server: shutdown / exit
     Server->>ProB: close the ProB processes
@@ -72,20 +83,20 @@ sequenceDiagram
 ```mermaid
 graph TD
     client["Client<br>neovim, vscode, ..."]
-    server["Server<br>Server, BDocumentService, BWorkspaceService"]
-    config["config<br>Settings"]
-    project["Project"]
-    dispatcher["AnalysisDispatcher"]
-    tasks["Analysis interfaces<br>Checker, HoverProvider, CompletionProvider,<br>ModelChecker, ProofObligationProvider, AnimationProvider"]
-    classicBAnalysis["ClassicBAnalysis"]
-    eventBAnalysis["EventBAnalysis"]
-    classicB["ClassicBProject"]
-    eventB["EventBProject"]
+    server["<a href='b-language-server/b.language.server.server/index.html'>Server</a><br><a href='b-language-server/b.language.server.server/-server/index.html'>Server</a>, <a href='b-language-server/b.language.server.server/-b-document-service/index.html'>BDocumentService</a>, <a href='b-language-server/b.language.server.server/-b-workspace-service/index.html'>BWorkspaceService</a>"]
+    config["<a href='b-language-server/b.language.server.config/index.html'>config</a><br><a href='b-language-server/b.language.server.config/-settings/index.html'>Settings</a>"]
+    project["<a href='b-language-server/b.language.server.project/-project/index.html'>Project</a>"]
+    dispatcher["<a href='b-language-server/b.language.server.analysis/-analysis-dispatcher/index.html'>AnalysisDispatcher</a>"]
+    tasks["<a href='b-language-server/b.language.server.analysis/-analysis/index.html'>Analysis</a> interfaces<br><a href='b-language-server/b.language.server.analysis/-checker/index.html'>Checker</a>, <a href='b-language-server/b.language.server.analysis/-hover-provider/index.html'>HoverProvider</a>, <a href='b-language-server/b.language.server.analysis/-completion-provider/index.html'>CompletionProvider</a>,<br><a href='b-language-server/b.language.server.analysis/-model-checker/index.html'>ModelChecker</a>, <a href='b-language-server/b.language.server.analysis/-proof-obligation-provider/index.html'>ProofObligationProvider</a>, <a href='b-language-server/b.language.server.analysis/-animation-provider/index.html'>AnimationProvider</a>"]
+    classicBAnalysis["<a href='b-language-server/b.language.server.analysis.classicB/-classic-b-analysis/index.html'>ClassicBAnalysis</a>"]
+    eventBAnalysis["<a href='b-language-server/b.language.server.analysis.eventB/-event-b-analysis/index.html'>EventBAnalysis</a>"]
+    classicB["<a href='b-language-server/b.language.server.project.classicB/-classic-b-project/index.html'>ClassicBProject</a>"]
+    eventB["<a href='b-language-server/b.language.server.project.eventB/-event-b-project/index.html'>EventBProject</a>"]
     classicFiles["files: .mch, .ref, .imp, ..."]
     eventFiles["Camille components: .mch<br>one machine or context per file"]
-    probSession["ProBSession<br>one ProB process"]
-    documentation["documentation tables<br>JSON from the Rodin Handbook<br>and the ProB Summary of B Syntax"]
-    animation["Animation<br>its own ProB process"]
+    probSession["<a href='b-language-server/b.language.server.analysis.prob/-pro-b-session/index.html'>ProBSession</a><br>one ProB process"]
+    documentation["<a href='b-language-server/b.language.server.analysis.documentation/-documentation-tables/index.html'>documentation tables</a><br>JSON from the Rodin Handbook<br>and the ProB Summary of B Syntax"]
+    animation["<a href='b-language-server/b.language.server.analysis.prob.animation/-animation/index.html'>Animation</a><br>its own ProB process"]
 
     client -->|"open, save, hover, completion,<br>code actions, prob commands"| server
     server -->|"diagnostics, hovers, completions,<br>messages, command results as JSON"| client
@@ -117,6 +128,26 @@ graph TD
 
     server -->|"prob.animate, prob.visualize"| animation
     animation -->|"loads the animation model of"| project
+    subgraph legend["Packages, as in src/main/kotlin/b/language/server"]
+        direction LR
+        legendClient["client"]
+        legendServer["server"]
+        legendConfig["config"]
+        legendProject["project"]
+        legendAnalysis["analysis"]
+    end
+
+    classDef client fill:#dbe9fb,stroke:#3a6cb5,color:#222
+    classDef server fill:#fde4c8,stroke:#d1600f,color:#222
+    classDef config fill:#eadcf5,stroke:#7a4fa3,color:#222
+    classDef project fill:#d9f2d9,stroke:#3c8c3c,color:#222
+    classDef analysis fill:#fff6c4,stroke:#b59a00,color:#222
+    class client,legendClient client
+    class server,legendServer server
+    class config,legendConfig config
+    class project,classicB,eventB,classicFiles,eventFiles,legendProject project
+    class dispatcher,tasks,classicBAnalysis,eventBAnalysis,probSession,documentation,animation,legendAnalysis analysis
+    style legend fill:#ffffff,stroke:#a9bcd6
 ```
 
 # Package b.language.server.server

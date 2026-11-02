@@ -8,15 +8,29 @@ import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonNames
 
+/** Settings the client can configure for the language server. */
 @OptIn(ExperimentalSerializationApi::class)
 @Serializable
 data class Settings(
+    /** Runs ProB's extended static checks (linting) on top of type checking. */
     val strictChecks: Boolean = true,
+    /**
+     * Enables well-definedness checks, e.g. division by zero or function application outside the domain.
+     * See [Well-Definedness Checking](https://prob.hhu.de/w/index.php?title=Well-Definedness_Checking).
+     */
     val wdChecks: Boolean = true,
+    /** Reports hints about constructs that ProB may evaluate inefficiently. */
     val performanceHints: Boolean = true,
+    /**
+     * Path to the ProB installation to use; `"DEFAULT"` uses the probcli bundled with the ProB Java Kernel.
+     * See [ProB Java API](https://prob.hhu.de/w/index.php?title=ProB_Java_API).
+     */
     @JsonNames("proBHome") val probHome: String = "DEFAULT",
+    /** Sends verbose log messages from the server to the client's output channel. */
     val debugMode: Boolean = true,
+    /** Time limit in milliseconds for discharging each Event-B proof obligation. */
     val poTimeout: Int = 1000,
+    /** Maximum number of states explored by the model checker. */
     val modelCheckStates: Int = 100000,
 ) {
     companion object {

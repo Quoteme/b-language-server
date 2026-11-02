@@ -27,6 +27,8 @@
         securityLevel: "loose",
         layout: "elk",
         elk: { mergeEdges: false, nodePlacementStrategy: "NETWORK_SIMPLEX" },
+        // Wide enough for class names such as BDocumentService, which would otherwise break mid-word.
+        flowchart: Object.assign({}, config && config.flowchart, { wrappingWidth: 240 }),
       }),
     );
   };

@@ -128,6 +128,26 @@ graph TD
 
     server -->|"prob.animate, prob.visualize"| animation
     animation -->|"loads the animation model of"| project
+    subgraph legend["Packages, as in src/main/kotlin/b/language/server"]
+        direction LR
+        legendClient["client"]
+        legendServer["server"]
+        legendConfig["config"]
+        legendProject["project"]
+        legendAnalysis["analysis"]
+    end
+
+    classDef client fill:#dbe9fb,stroke:#3a6cb5,color:#222
+    classDef server fill:#fde4c8,stroke:#d1600f,color:#222
+    classDef config fill:#eadcf5,stroke:#7a4fa3,color:#222
+    classDef project fill:#d9f2d9,stroke:#3c8c3c,color:#222
+    classDef analysis fill:#fff6c4,stroke:#b59a00,color:#222
+    class client,legendClient client
+    class server,legendServer server
+    class config,legendConfig config
+    class project,classicB,eventB,classicFiles,eventFiles,legendProject project
+    class dispatcher,tasks,classicBAnalysis,eventBAnalysis,probSession,documentation,animation,legendAnalysis analysis
+    style legend fill:#ffffff,stroke:#a9bcd6
 ```
 
 # Package b.language.server.server

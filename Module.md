@@ -30,6 +30,13 @@ sequenceDiagram
     participant Analysis as ClassicBAnalysis /<br>EventBAnalysis
     participant ProB as ProBSession
 
+    links Server: {"Server": "b-language-server/b.language.server.server/-server/index.html", "BDocumentService": "b-language-server/b.language.server.server/-b-document-service/index.html", "BWorkspaceService": "b-language-server/b.language.server.server/-b-workspace-service/index.html"}
+    links Checks: {"DocumentChecks": "b-language-server/b.language.server.server/-document-checks/index.html", "SettingsStore": "b-language-server/b.language.server.server/-settings-store/index.html"}
+    links Open: {"OpenDocuments": "b-language-server/b.language.server.project/-open-documents/index.html"}
+    links Dispatcher: {"AnalysisDispatcher": "b-language-server/b.language.server.analysis/-analysis-dispatcher/index.html"}
+    links Analysis: {"ClassicBAnalysis": "b-language-server/b.language.server.analysis.classicB/-classic-b-analysis/index.html", "EventBAnalysis": "b-language-server/b.language.server.analysis.eventB/-event-b-analysis/index.html"}
+    links ProB: {"ProBSession": "b-language-server/b.language.server.analysis.prob/-pro-b-session/index.html"}
+
     Client->>Server: initialize
     Server-->>Client: capabilities
 
@@ -72,20 +79,20 @@ sequenceDiagram
 ```mermaid
 graph TD
     client["Client<br>neovim, vscode, ..."]
-    server["Server<br>Server, BDocumentService, BWorkspaceService"]
-    config["config<br>Settings"]
-    project["Project"]
-    dispatcher["AnalysisDispatcher"]
-    tasks["Analysis interfaces<br>Checker, HoverProvider, CompletionProvider,<br>ModelChecker, ProofObligationProvider, AnimationProvider"]
-    classicBAnalysis["ClassicBAnalysis"]
-    eventBAnalysis["EventBAnalysis"]
-    classicB["ClassicBProject"]
-    eventB["EventBProject"]
+    server["<a href='b-language-server/b.language.server.server/index.html'>Server</a><br><a href='b-language-server/b.language.server.server/-server/index.html'>Server</a>, <a href='b-language-server/b.language.server.server/-b-document-service/index.html'>BDocumentService</a>, <a href='b-language-server/b.language.server.server/-b-workspace-service/index.html'>BWorkspaceService</a>"]
+    config["<a href='b-language-server/b.language.server.config/index.html'>config</a><br><a href='b-language-server/b.language.server.config/-settings/index.html'>Settings</a>"]
+    project["<a href='b-language-server/b.language.server.project/-project/index.html'>Project</a>"]
+    dispatcher["<a href='b-language-server/b.language.server.analysis/-analysis-dispatcher/index.html'>AnalysisDispatcher</a>"]
+    tasks["<a href='b-language-server/b.language.server.analysis/-analysis/index.html'>Analysis</a> interfaces<br><a href='b-language-server/b.language.server.analysis/-checker/index.html'>Checker</a>, <a href='b-language-server/b.language.server.analysis/-hover-provider/index.html'>HoverProvider</a>, <a href='b-language-server/b.language.server.analysis/-completion-provider/index.html'>CompletionProvider</a>,<br><a href='b-language-server/b.language.server.analysis/-model-checker/index.html'>ModelChecker</a>, <a href='b-language-server/b.language.server.analysis/-proof-obligation-provider/index.html'>ProofObligationProvider</a>, <a href='b-language-server/b.language.server.analysis/-animation-provider/index.html'>AnimationProvider</a>"]
+    classicBAnalysis["<a href='b-language-server/b.language.server.analysis.classicB/-classic-b-analysis/index.html'>ClassicBAnalysis</a>"]
+    eventBAnalysis["<a href='b-language-server/b.language.server.analysis.eventB/-event-b-analysis/index.html'>EventBAnalysis</a>"]
+    classicB["<a href='b-language-server/b.language.server.project.classicB/-classic-b-project/index.html'>ClassicBProject</a>"]
+    eventB["<a href='b-language-server/b.language.server.project.eventB/-event-b-project/index.html'>EventBProject</a>"]
     classicFiles["files: .mch, .ref, .imp, ..."]
     eventFiles["Camille components: .mch<br>one machine or context per file"]
-    probSession["ProBSession<br>one ProB process"]
-    documentation["documentation tables<br>JSON from the Rodin Handbook<br>and the ProB Summary of B Syntax"]
-    animation["Animation<br>its own ProB process"]
+    probSession["<a href='b-language-server/b.language.server.analysis.prob/-pro-b-session/index.html'>ProBSession</a><br>one ProB process"]
+    documentation["<a href='b-language-server/b.language.server.analysis.documentation/-documentation-tables/index.html'>documentation tables</a><br>JSON from the Rodin Handbook<br>and the ProB Summary of B Syntax"]
+    animation["<a href='b-language-server/b.language.server.analysis.prob.animation/-animation/index.html'>Animation</a><br>its own ProB process"]
 
     client -->|"open, save, hover, completion,<br>code actions, prob commands"| server
     server -->|"diagnostics, hovers, completions,<br>messages, command results as JSON"| client

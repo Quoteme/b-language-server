@@ -23,6 +23,8 @@
     initialize(
       Object.assign({}, config, {
         theme: "default",
+        // Lets a click on a sequence diagram participant open its menu of links to the docs.
+        securityLevel: "loose",
         layout: "elk",
         elk: { mergeEdges: false, nodePlacementStrategy: "NETWORK_SIMPLEX" },
       }),

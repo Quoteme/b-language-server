@@ -405,7 +405,7 @@ The analysis of classical B, which ProB does.
 
 # Package b.language.server.analysis.eventB
 
-The analysis of Event-B in Camille notation: Rodin's static checker, and proof obligations discharged by ProB.
+The analysis of Event-B in [Camille notation](https://wiki.event-b.org/index.php/Camille_Editor): Rodin's static checker, and proof obligations discharged by ProB.
 
 # Package b.language.server.analysis.documentation
 

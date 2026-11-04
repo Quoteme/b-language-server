@@ -19,7 +19,8 @@ import de.be4.eventb.core.parser.node.Token
 import java.io.File
 
 /**
- * Event-B machines and contexts written in Camille notation (`machine m0 sees c0 …`), each in its own
+ * Event-B machines and contexts written in
+ * [Camille notation](https://wiki.event-b.org/index.php/Camille_Editor) (`machine m0 sees c0 …`), each in its own
  * file next to the files that reference it. ProB only loads Event-B from Rodin projects, so the
  * components are parsed here.
  */

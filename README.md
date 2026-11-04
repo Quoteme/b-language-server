@@ -24,7 +24,7 @@ Clients communicate with the server either over stdio (start it with `--stdio`) 
 - **Diagnostics** on open and save:
   - classical B: ProB's parser and type checker, plus extended static checks, well-definedness checks and
     performance hints (see [Settings](#settings))
-  - Event-B (Camille notation): Rodin's static checker, plus proof obligations generated as in Rodin and
+  - Event-B ([Camille notation](https://wiki.event-b.org/index.php/Camille_Editor)): Rodin's static checker, plus proof obligations generated as in Rodin and
     discharged or disproved (with a counterexample) by ProB's constraint solvers
 - **Hover**: documentation of keywords and operators, and the types of identifiers; for Event-B also labels and
   proof obligations

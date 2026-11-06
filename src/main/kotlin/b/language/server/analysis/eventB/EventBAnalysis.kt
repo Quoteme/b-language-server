@@ -11,7 +11,18 @@ import b.language.server.analysis.prob.ProBSession
 import b.language.server.analysis.prob.animation.AnimationModel
 import b.language.server.project.eventB.EventBProject
 
-/** The analysis of Event-B in Camille notation. */
+/**
+ * The analysis of Event-B in Camille notation. It follows Rodin's steps, on Camille text instead of Rodin's files:
+ *
+ * ```
+ * Rodin: .bum/.buc → static checker → .bcm/.bcc
+ * Here:  Camille text → StaticChecker → CheckedComponent
+ * ```
+ *
+ * Sources: here [StaticChecker]; Rodin [file types](https://wiki.event-b.org/index.php/Rodin_File_Types).
+ *
+ * Model checking and animation load the model through [ProBTranslation].
+ */
 class EventBAnalysis private constructor(
     session: ProBSession,
     private val obligations: LastCheck<List<ProofObligation>>,

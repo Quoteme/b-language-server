@@ -24,7 +24,45 @@ import de.prob.statespace.StateSpace
 import org.eventb.core.ast.extension.IFormulaExtension
 import de.prob.model.representation.Set as ProBSet
 
-/** A checked model as prob-java represents it, ready to be loaded into ProB. */
+/**
+ * A checked model as prob-java represents it, ready to be loaded into ProB.
+ *
+ * No classical B file is written: each machine of the refinement chain and each context stays a unit of its own.
+ *
+ * ```
+ * CheckedComponent → EventBModel → AST → load_event_b_project(machines, contexts, info, _Error)
+ * ```
+ *
+ * Rodin's ProB plugin sends a term of the same form
+ * ([here](https://github.com/hhu-stups/prob2_kernel/blob/0b6f49275150943f152558ef42c4f2c13080be10/prob-java/src/main/java/de/prob/model/eventb/translate/EventBModelTranslator.java#L126), [Rodin](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/EventBTranslator.java#L150)),
+ * built from the static checker's output. A formula φ reaches the AST as:
+ *
+ * ```
+ * Here:  translate(parse(toString(φ)))
+ * Rodin: translate(φ)
+ * ```
+ *
+ * `toString` drops types, so `∅`, `id`, `prj1` and `prj2` reach ProB without the `typeof` that Rodin's route gives them.
+ * Sources:
+ * - [`toString`](https://github.com/systerel/RodinCore/blob/f103a3e1c14c6a3d3a173c01bd67ea3d44ac168e/org.eventb.core.ast/src/org/eventb/core/ast/Formula.java#L1237) has no types
+ * - here: [`EventB` parses the string](https://github.com/hhu-stups/prob2_kernel/blob/0b6f49275150943f152558ef42c4f2c13080be10/prob-java/src/main/java/de/prob/animator/domainobjects/EventB.java#L97),
+ *   and [`typeof` needs a type](https://github.com/hhu-stups/prob2_kernel/blob/0b6f49275150943f152558ef42c4f2c13080be10/prob-java/src/main/java/de/prob/formula/TranslationVisitor.java#L109)
+ * - Rodin: [typed formula](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/AbstractComponentTranslator.java#L225),
+ *   [`typeof` added](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/TranslationVisitor.java#L128)
+ *
+ * Other differences from the plugin:
+ * - Merged events: if e refines a₁, …, aₙ, only a₁ is sent, because prob-java holds one parent event. Rodin sends all.
+ *   ([here](https://github.com/hhu-stups/prob2_kernel/blob/0b6f49275150943f152558ef42c4f2c13080be10/prob-java/src/main/java/de/prob/model/eventb/translate/EventBMachineTranslator.java#L147), [Rodin](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/ModelTranslator.java#L408))
+ * - Missing witnesses: nothing is sent. Rodin sends the default witness ⊤.
+ *   ([here: warning only][StaticChecker], [Rodin: ⊤ created](https://github.com/systerel/RodinCore/blob/f103a3e1c14c6a3d3a173c01bd67ea3d44ac168e/org.eventb.core/src/org/eventb/internal/core/sc/modules/MachineEventWitnessModule.java#L138),
+ *   [Rodin: sent](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/ModelTranslator.java#L499))
+ * - Proof status: none is sent. Rodin sends it.
+ *   ([Rodin: collected](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/ModelTranslator.java#L183), [Rodin: sent](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/EventBTranslator.java#L158))
+ * - Sees: only the contexts no other seen context extends are named. Rodin names all of them, transitively.
+ *   ([Rodin: names](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/ModelTranslator.java#L317), [Rodin: transitive](https://github.com/systerel/RodinCore/blob/f103a3e1c14c6a3d3a173c01bd67ea3d44ac168e/org.eventb.core/src/org/eventb/core/ISCMachineRoot.java#L106))
+ * - Invariants: prob-java repeats those of the abstract machines in each machine. Rodin sends a machine's own.
+ *   ([here](https://github.com/hhu-stups/prob2_kernel/blob/0b6f49275150943f152558ef42c4f2c13080be10/prob-java/src/main/java/de/prob/model/eventb/EventBMachine.java#L114), [Rodin](https://github.com/hhu-stups/prob-rodinplugin/blob/379c856a05b2f6799d2f6476cf80ecd269f1f71e/de.prob.core/src/de/prob/eventb/translator/internal/ModelTranslator.java#L580))
+ */
 class ProBTranslation(
     private val model: EventBModel,
     private val main: AbstractElement,

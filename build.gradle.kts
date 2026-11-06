@@ -15,6 +15,9 @@ repositories {
 
 
 
+// Generates the hover documentation; neither part of the server nor of its build.
+val generator = sourceSets.create("generator")
+
 dependencies {
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
@@ -30,6 +33,9 @@ dependencies {
 
     implementation(platform("de.hhu.stups:prob-java-bom:4.16.1"))
     implementation("de.hhu.stups", "prob-java")
+
+    "generatorImplementation"("com.google.code.gson:gson:2.15.0")
+    testImplementation(generator.output)
 }
 
 java {
@@ -51,3 +57,11 @@ application {
     mainClass.set("b.language.server.AppKt") // The main class of the application
 }
 
+// Downloads ProB's Summary of B Syntax, so it does not run with the build: run it by hand and commit the result.
+tasks.register<JavaExec>("generateDocumentation") {
+    group = "documentation"
+    description = "Regenerates the hover documentation from the ProB wiki (needs network)."
+    classpath = generator.runtimeClasspath
+    mainClass.set("b.language.server.generator.GenerateDocumentationKt")
+    args("src/main/resources/documentation/classical.json")
+}

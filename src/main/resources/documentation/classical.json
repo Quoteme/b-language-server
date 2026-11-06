@@ -1,0 +1,2858 @@
+[
+  {
+    "key": "&",
+    "title": "P & Q",
+    "description": "conjunction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "or",
+    "title": "P or Q",
+    "description": "disjunction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "=>",
+    "title": "P => Q",
+    "description": "implication",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "<=>",
+    "title": "P <=> Q",
+    "description": "equivalence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "not",
+    "title": "not(P)",
+    "description": "negation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "!",
+    "title": "!(x).(P=>Q)",
+    "description": "universal quantification",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "=>",
+    "title": "!(x).(P=>Q)",
+    "description": "universal quantification",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": false
+  },
+  {
+    "key": "#",
+    "title": "#(x).(P&Q)",
+    "description": "existential quantification",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "&",
+    "title": "#(x).(P&Q)",
+    "description": "existential quantification",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": false
+  },
+  {
+    "key": "btrue",
+    "title": "btrue",
+    "description": "truth (this is a predicate)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "bfalse",
+    "title": "bfalse",
+    "description": "falsity (this is a predicate)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
+    "source": "ProB, Summary of B Syntax: Logical predicates",
+    "primary": true
+  },
+  {
+    "key": "=",
+    "title": "E = F",
+    "description": "equality",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Equality",
+    "source": "ProB, Summary of B Syntax: Equality",
+    "primary": true
+  },
+  {
+    "key": "/=",
+    "title": "E /= F",
+    "description": "disequality",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Equality",
+    "source": "ProB, Summary of B Syntax: Equality",
+    "primary": true
+  },
+  {
+    "key": "TRUE",
+    "title": "TRUE",
+    "description": "truth value (this is an expression)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
+    "source": "ProB, Summary of B Syntax: Booleans",
+    "primary": true
+  },
+  {
+    "key": "FALSE",
+    "title": "FALSE",
+    "description": "falsity value (this is an expression)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
+    "source": "ProB, Summary of B Syntax: Booleans",
+    "primary": true
+  },
+  {
+    "key": "BOOL",
+    "title": "BOOL",
+    "description": "set of boolean values ({TRUE,FALSE})",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
+    "source": "ProB, Summary of B Syntax: Booleans",
+    "primary": true
+  },
+  {
+    "key": "bool",
+    "title": "bool(P)",
+    "description": "convert predicate into BOOL value",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
+    "source": "ProB, Summary of B Syntax: Booleans",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "{x|P}",
+    "description": "comprehension set",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "{(x).P|E}",
+    "description": "Event-B style comprehension set (brackets needed)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "POW",
+    "title": "POW(S)",
+    "description": "power set",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "POW1",
+    "title": "POW1(S)",
+    "description": "set of non-empty subsets",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "FIN",
+    "title": "FIN(S)",
+    "description": "set of all finite subsets",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "FIN1",
+    "title": "FIN1(S)",
+    "description": "set of all non-empty finite subsets",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "card",
+    "title": "card(S)",
+    "description": "cardinality",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "*",
+    "title": "S*T",
+    "description": "cartesian product",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "\\/",
+    "title": "S\\/T",
+    "description": "set union",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "/\\",
+    "title": "S/\\T",
+    "description": "set intersection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "-",
+    "title": "S-T or S \\ T",
+    "description": "set difference",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "S-T or S \\ T",
+    "description": "set difference",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": false
+  },
+  {
+    "key": ":",
+    "title": "E:S",
+    "description": "element of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "/:",
+    "title": "E/:S",
+    "description": "not element of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "<:",
+    "title": "S<:T",
+    "description": "subset of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "/<:",
+    "title": "S/<:T",
+    "description": "not subset of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "<<:",
+    "title": "S<<:T",
+    "description": "strict subset of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "/<<:",
+    "title": "S/<<:T",
+    "description": "not strict subset of",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "union",
+    "title": "union(S)",
+    "description": "generalised union over sets of sets",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "inter",
+    "title": "inter(S)",
+    "description": "generalised intersection over sets of sets",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "UNION",
+    "title": "UNION(z).(P|E)",
+    "description": "generalised union with predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "UNION(z).(P|E)",
+    "description": "generalised union with predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": false
+  },
+  {
+    "key": "INTER",
+    "title": "INTER(z).(P|E)",
+    "description": "generalised intersection with predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "INTER(z).(P|E)",
+    "description": "generalised intersection with predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": false
+  },
+  {
+    "key": "?",
+    "title": "S?",
+    "description": "extracting element from singleton set (MU operator)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
+    "source": "ProB, Summary of B Syntax: Sets",
+    "primary": true
+  },
+  {
+    "key": "INTEGER",
+    "title": "INTEGER",
+    "description": "set of integers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "NATURAL",
+    "title": "NATURAL",
+    "description": "set of natural numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "NATURAL1",
+    "title": "NATURAL1",
+    "description": "set of non-zero natural numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "INT",
+    "title": "INT",
+    "description": "set of implementable integers (MININT..MAXINT)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "NAT",
+    "title": "NAT",
+    "description": "set of implementable natural numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "NAT1",
+    "title": "NAT1",
+    "description": "set of non-zero implementable natural numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "..",
+    "title": "n..m",
+    "description": "set of numbers from n to m",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "MININT",
+    "title": "MININT",
+    "description": "the minimum implementable integer",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "MAXINT",
+    "title": "MAXINT",
+    "description": "the maximum implementable integer",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": ">",
+    "title": "m>n",
+    "description": "greater than",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "<",
+    "title": "m<n",
+    "description": "less than",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": ">=",
+    "title": "m>=n",
+    "description": "greater than or equal",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "<=",
+    "title": "m<=n",
+    "description": "less than or equal",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "max",
+    "title": "max(S)",
+    "description": "maximum of a set of numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "min",
+    "title": "min(S)",
+    "description": "minimum of a set of numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "+",
+    "title": "m+n",
+    "description": "addition",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "-",
+    "title": "m-n",
+    "description": "difference",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "*",
+    "title": "m*n",
+    "description": "multiplication",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "/",
+    "title": "m/n",
+    "description": "division",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "**",
+    "title": "m**n",
+    "description": "power",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "mod",
+    "title": "m mod n",
+    "description": "remainder of division",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "PI",
+    "title": "PI(z).(P|E)",
+    "description": "set product",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "PI(z).(P|E)",
+    "description": "set product",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": false
+  },
+  {
+    "key": "SIGMA",
+    "title": "SIGMA(z).(P|E)",
+    "description": "set summation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "SIGMA(z).(P|E)",
+    "description": "set summation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": false
+  },
+  {
+    "key": "succ",
+    "title": "succ(n)",
+    "description": "successor (n+1)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "pred",
+    "title": "pred(n)",
+    "description": "predecessor (n-1)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
+    "source": "ProB, Summary of B Syntax: Integers",
+    "primary": true
+  },
+  {
+    "key": "<->",
+    "title": "S<->T",
+    "description": "relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<<->",
+    "title": "S<<->T",
+    "description": "total relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<->>",
+    "title": "S<->>T",
+    "description": "surjective relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<<->>",
+    "title": "S<<->>T",
+    "description": "total surjective relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "|->",
+    "title": "E|->F",
+    "description": "maplet",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "dom",
+    "title": "dom(r)",
+    "description": "domain of relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "ran",
+    "title": "ran(r)",
+    "description": "range of relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "id",
+    "title": "id(S)",
+    "description": "identity relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<|",
+    "title": "S<|r",
+    "description": "domain restriction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<<|",
+    "title": "S<<|r",
+    "description": "domain subtraction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "|>",
+    "title": "r|>S",
+    "description": "range restriction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "|>>",
+    "title": "r|>>S",
+    "description": "range subtraction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "~",
+    "title": "r~",
+    "description": "inverse of relation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "[",
+    "title": "r[S]",
+    "description": "relational image",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "<+",
+    "title": "r1<+r2",
+    "description": "relational overriding (r2 overrides r1)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "><",
+    "title": "r1><r2",
+    "description": "direct product (all pairs (x,(y,z)) with x,y:r1 and x,z:r2)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "(r1;r2)",
+    "description": "relational composition {x,y| x|->z:r1 & z|->y:r2}",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "||",
+    "title": "(r1||r2)",
+    "description": "parallel product (all pairs ((x,v),(y,w)) with x,y:r1 and v,w:r2)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "prj1",
+    "title": "prj1(S,T)",
+    "description": "projection function (usage prj1(Dom,Ran)(Pair))",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "prj2",
+    "title": "prj2(S,T)",
+    "description": "projection function (usage prj2(Dom,Ran)(Pair))",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "fnc",
+    "title": "fnc(r)",
+    "description": "translate relation A<->B into function A+->POW(B)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "rel",
+    "title": "rel(r)",
+    "description": "translate relation A<->POW(B) into relation A<->B",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "closure1",
+    "title": "closure1(r)",
+    "description": "transitive closure",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "closure",
+    "title": "closure(r)",
+    "description": "reflexive & transitive closure",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "iterate",
+    "title": "iterate(r,n)",
+    "description": "iteration of r with n>=0",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
+    "source": "ProB, Summary of B Syntax: Relations",
+    "primary": true
+  },
+  {
+    "key": "+->",
+    "title": "S+->T",
+    "description": "partial function",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": "-->",
+    "title": "S-->T",
+    "description": "total function",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": "+->>",
+    "title": "S+->>T",
+    "description": "partial surjection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": "-->>",
+    "title": "S-->>T",
+    "description": "total surjection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": ">+>",
+    "title": "S>+>T",
+    "description": "partial injection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": ">->",
+    "title": "S>->T",
+    "description": "total injection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": ">+>>",
+    "title": "S>+>>T",
+    "description": "partial bijection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": ">->>",
+    "title": "S>->>T",
+    "description": "total bijection",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": "%",
+    "title": "%x.(P|E)",
+    "description": "lambda abstraction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": true
+  },
+  {
+    "key": "|",
+    "title": "%x.(P|E)",
+    "description": "lambda abstraction",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
+    "source": "ProB, Summary of B Syntax: Functions",
+    "primary": false
+  },
+  {
+    "key": "<>",
+    "title": "[] or <>",
+    "description": "empty sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "[",
+    "title": "[E]",
+    "description": "singleton sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "[",
+    "title": "[E,F]",
+    "description": "constructed sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "seq",
+    "title": "seq(S)",
+    "description": "set of sequences over S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "seq1",
+    "title": "seq1(S)",
+    "description": "set of non-empty sequences over S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "iseq",
+    "title": "iseq(S)",
+    "description": "set of injective sequences over S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "iseq1",
+    "title": "iseq1(S)",
+    "description": "set of non-empty injective sequences over S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "perm",
+    "title": "perm(S)",
+    "description": "set of bijective sequences (permutations) over S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "size",
+    "title": "size(s)",
+    "description": "size of sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "^",
+    "title": "s^t",
+    "description": "concatenation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "->",
+    "title": "E->s",
+    "description": "prepend element",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "<-",
+    "title": "s<-E",
+    "description": "append element",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "rev",
+    "title": "rev(s)",
+    "description": "reverse of sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "first",
+    "title": "first(s)",
+    "description": "first element",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "last",
+    "title": "last(s)",
+    "description": "last element",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "front",
+    "title": "front(s)",
+    "description": "front of sequence (all but last element)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "tail",
+    "title": "tail(s)",
+    "description": "tail of sequence (all but first element)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "conc",
+    "title": "conc(S)",
+    "description": "concatenation of sequence of sequences",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "/|\\",
+    "title": "s/|\\n",
+    "description": "take first n elements of sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "\\|/",
+    "title": "s\\|/n",
+    "description": "drop first n elements from sequence",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
+    "source": "ProB, Summary of B Syntax: Sequences",
+    "primary": true
+  },
+  {
+    "key": "struct",
+    "title": "struct(ID:S,...,ID:S)",
+    "description": "set of records with given fields and field types",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
+    "source": "ProB, Summary of B Syntax: Records",
+    "primary": true
+  },
+  {
+    "key": ":",
+    "title": "struct(ID:S,...,ID:S)",
+    "description": "set of records with given fields and field types",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
+    "source": "ProB, Summary of B Syntax: Records",
+    "primary": false
+  },
+  {
+    "key": "rec",
+    "title": "rec(ID:E,...,ID:E)",
+    "description": "construct a record with given field names and values",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
+    "source": "ProB, Summary of B Syntax: Records",
+    "primary": true
+  },
+  {
+    "key": ":",
+    "title": "rec(ID:E,...,ID:E)",
+    "description": "construct a record with given field names and values",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
+    "source": "ProB, Summary of B Syntax: Records",
+    "primary": false
+  },
+  {
+    "key": "'",
+    "title": "E'ID",
+    "description": "get value of field with name ID",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
+    "source": "ProB, Summary of B Syntax: Records",
+    "primary": true
+  },
+  {
+    "key": "'",
+    "title": "'''astring'''",
+    "description": "an alternate way of writing (multi-line) strings, no need to escape \"",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "STRING",
+    "title": "STRING",
+    "description": "the set of all strings",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "size",
+    "title": "size(s)",
+    "description": "the length of a string s",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "rev",
+    "title": "rev(s)",
+    "description": "the reverse of a string s",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "^",
+    "title": "s ^ t",
+    "description": "the concatenation of two strings",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "conc",
+    "title": "conc(ss)",
+    "description": "the concatenation of a sequence of strings",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "\\n",
+    "description": "newline (ASCII character 13)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "\\r",
+    "description": "carriage return (ASCII 10)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "\\t",
+    "description": "tab (ASCII 9)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "\\\"",
+    "description": "the double quote symbol \"",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\",
+    "title": "\\'",
+    "description": "the single quote symbol '",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "\\\\",
+    "title": "\\\\",
+    "description": "the backslash symbol",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
+    "source": "ProB, Summary of B Syntax: Strings",
+    "primary": true
+  },
+  {
+    "key": "REAL",
+    "title": "REAL",
+    "description": "set of reals",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
+    "source": "ProB, Summary of B Syntax: Reals",
+    "primary": true
+  },
+  {
+    "key": "FLOAT",
+    "title": "FLOAT",
+    "description": "set of floating point numbers",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
+    "source": "ProB, Summary of B Syntax: Reals",
+    "primary": true
+  },
+  {
+    "key": "real",
+    "title": "real(n)",
+    "description": "convert an integer n into a real number",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
+    "source": "ProB, Summary of B Syntax: Reals",
+    "primary": true
+  },
+  {
+    "key": "floor",
+    "title": "floor(r)",
+    "description": "convert a real r into an integer",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
+    "source": "ProB, Summary of B Syntax: Reals",
+    "primary": true
+  },
+  {
+    "key": "ceiling",
+    "title": "ceiling(r)",
+    "description": "convert a real r into an integer",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
+    "source": "ProB, Summary of B Syntax: Reals",
+    "primary": true
+  },
+  {
+    "key": "tree",
+    "title": "tree(S)",
+    "description": "set of trees over domain S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "btree",
+    "title": "btree(S)",
+    "description": "set of binary trees over domain S",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "top",
+    "title": "top(t)",
+    "description": "top of a tree",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "const",
+    "title": "const(E,s)",
+    "description": "construct a tree from info E and sequence of subtrees s",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "rank",
+    "title": "rank(t,n)",
+    "description": "rank of the node at end of branch n in the tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "father",
+    "title": "father(t,n)",
+    "description": "father of the node denoted by branch n in the tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "son",
+    "title": "son(t,n,i)",
+    "description": "the ith son of the node denoted by branch n in tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "sons",
+    "title": "sons(t)",
+    "description": "the sequence of sons of the root of the tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "subtree",
+    "title": "subtree(t,n)",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "arity",
+    "title": "arity(t,n)",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "bin",
+    "title": "bin(E)",
+    "description": "construct a binary tree with a single node E",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "bin",
+    "title": "bin(tl,E,tr)",
+    "description": "construct a binary tree with root info E and subtrees tl,tr",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "left",
+    "title": "left(t)",
+    "description": "the left (first) son of the root of the binary tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "right",
+    "title": "right(t)",
+    "description": "the right (last) son of the root of the binary tree t",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "sizet",
+    "title": "sizet(t)",
+    "description": "the size of the tree (number of nodes)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "prefix",
+    "title": "prefix(t)",
+    "description": "the nodes of the tree t in prefix order",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "postfix",
+    "title": "postfix(t)",
+    "description": "the nodes of the tree t in prefix order",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Trees",
+    "source": "ProB, Summary of B Syntax: Trees",
+    "primary": true
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN E1 END",
+    "description": "conditional branching",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN E1 END",
+    "description": "conditional branching",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN E1 END",
+    "description": "conditional branching",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN E1 ELSIF E2 END",
+    "description": "we also allow multiple ELSIF branches",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN E1 ELSIF E2 END",
+    "description": "we also allow multiple ELSIF branches",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "ELSIF",
+    "title": "IF P THEN E1 ELSIF E2 END",
+    "description": "we also allow multiple ELSIF branches",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN E1 ELSIF E2 END",
+    "description": "we also allow multiple ELSIF branches",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN E1 ELSE E2 END",
+    "description": "but you always need an ELSE branch for expressions and predicates",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN E1 ELSE E2 END",
+    "description": "but you always need an ELSE branch for expressions and predicates",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "IF P THEN E1 ELSE E2 END",
+    "description": "but you always need an ELSE branch for expressions and predicates",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN E1 ELSE E2 END",
+    "description": "but you always need an ELSE branch for expressions and predicates",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN E1 ELSIF E2 ELSE E3 END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN E1 ELSIF E2 ELSE E3 END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "ELSIF",
+    "title": "IF P THEN E1 ELSIF E2 ELSE E3 END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "IF P THEN E1 ELSIF E2 ELSE E3 END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN E1 ELSIF E2 ELSE E3 END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "LET",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": true
+  },
+  {
+    "key": "BE",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "IN",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "=",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "&",
+    "title": "LET x1,... BE x1=E1 & ... IN E END",
+    "description": "introduce local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
+    "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
+    "primary": false
+  },
+  {
+    "key": "skip",
+    "title": "skip",
+    "description": "no operation",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": ":=",
+    "title": "x := E",
+    "description": "assignment",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": ":=",
+    "title": "f(x) := E",
+    "description": "functional override",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "::",
+    "title": "x :: S",
+    "description": "choice from set",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": ":",
+    "title": "x : (P)",
+    "description": "choice by predicate P (constraining x; previous value of x is x$0)",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "<--",
+    "title": "x <-- OP(x)",
+    "description": "call operation and assign return value",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "||",
+    "title": "G||H",
+    "description": "parallel substitution**",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "G;H",
+    "description": "sequential composition**",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "ANY",
+    "title": "ANY x,... WHERE P THEN G END",
+    "description": "non deterministic choice",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "WHERE",
+    "title": "ANY x,... WHERE P THEN G END",
+    "description": "non deterministic choice",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "THEN",
+    "title": "ANY x,... WHERE P THEN G END",
+    "description": "non deterministic choice",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "ANY x,... WHERE P THEN G END",
+    "description": "non deterministic choice",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "LET",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "BE",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "IN",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "=",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "&",
+    "title": "LET x,... BE x=E & ... IN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "VAR",
+    "title": "VAR x,... IN G END",
+    "description": "generate local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "IN",
+    "title": "VAR x,... IN G END",
+    "description": "generate local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "VAR x,... IN G END",
+    "description": "generate local variables",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "PRE",
+    "title": "PRE P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "PRE P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "PRE P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ASSERT",
+    "title": "ASSERT P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "ASSERT P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "ASSERT P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "CHOICE",
+    "title": "CHOICE G OR H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "OR",
+    "title": "CHOICE G OR H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "CHOICE G OR H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN G END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P THEN G ELSE H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P THEN G ELSE H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "IF P THEN G ELSE H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P THEN G ELSE H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSIF",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "IF",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSIF",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "IF P1 THEN G1 ELSIF P2 THEN G2 ... ELSE Gn END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "SELECT",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "WHEN",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "SELECT",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "WHEN",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "SELECT P THEN G WHEN ... WHEN Q THEN H ELSE I END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "CASE",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "OF",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "EITHER",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "THEN",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "OR",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "CASE",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "OF",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "EITHER",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "THEN",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "OR",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "ELSE",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "CASE E OF EITHER m THEN G OR n THEN H ... ELSE I END END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "WHILE",
+    "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "DO",
+    "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "INVARIANT",
+    "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "VARIANT",
+    "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "WHILE P1 DO G INVARIANT P2 VARIANT E END",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "WHEN",
+    "title": "WHEN P THEN G END",
+    "description": "is a synonym for SELECT P THEN G END",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": true
+  },
+  {
+    "key": "THEN",
+    "title": "WHEN P THEN G END",
+    "description": "is a synonym for SELECT P THEN G END",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "END",
+    "title": "WHEN P THEN G END",
+    "description": "is a synonym for SELECT P THEN G END",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
+    "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
+    "primary": false
+  },
+  {
+    "key": "MACHINE",
+    "title": "MACHINE or REFINEMENT or IMPLEMENTATION",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": true
+  },
+  {
+    "key": "REFINEMENT",
+    "title": "MACHINE or REFINEMENT or IMPLEMENTATION",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": false
+  },
+  {
+    "key": "IMPLEMENTATION",
+    "title": "MACHINE or REFINEMENT or IMPLEMENTATION",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": false
+  },
+  {
+    "key": "CONSTRAINTS",
+    "title": "CONSTRAINTS P",
+    "description": "logical predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "SETS",
+    "title": "SETS S;T={e1,e2,...};...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "SETS S;T={e1,e2,...};...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "=",
+    "title": "SETS S;T={e1,e2,...};...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "FREETYPES",
+    "title": "FREETYPES x=x1,x2(arg2),...;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "=",
+    "title": "FREETYPES x=x1,x2(arg2),...;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": ";",
+    "title": "FREETYPES x=x1,x2(arg2),...;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "CONSTANTS",
+    "title": "CONSTANTS x,y,...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "CONCRETE_CONSTANTS",
+    "title": "CONCRETE_CONSTANTS cx,cy,...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "PROPERTIES",
+    "title": "PROPERTIES P",
+    "description": "logical predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "DEFINITIONS",
+    "title": "DEFINITIONS m(x,...) == BODY;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "DEFINITIONS m(x,...) == BODY;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": ";",
+    "title": "DEFINITIONS m(x,...) == BODY;...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "VARIABLES",
+    "title": "VARIABLES x,y,...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "CONCRETE_VARIABLES",
+    "title": "CONCRETE_VARIABLES cv,cw,...",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "INVARIANT",
+    "title": "INVARIANT P",
+    "description": "logical predicate",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "ASSERTIONS",
+    "title": "ASSERTIONS P;...;P",
+    "description": "list of logical predicates separated by ;",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "ASSERTIONS P;...;P",
+    "description": "list of logical predicates separated by ;",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "INITIALISATION",
+    "title": "INITIALISATION S",
+    "description": "substitution",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "OPERATIONS",
+    "title": "OPERATIONS O;...",
+    "description": "operations",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "OPERATIONS O;...",
+    "description": "operations",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": false
+  },
+  {
+    "key": "USES",
+    "title": "USES",
+    "description": "list of machines",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "INCLUDES",
+    "title": "INCLUDES",
+    "description": "list of machines",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "SEES",
+    "title": "SEES",
+    "description": "list of machines",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "EXTENDS",
+    "title": "EXTENDS",
+    "description": "list of machines",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "PROMOTES",
+    "title": "PROMOTES",
+    "description": "list of operations",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "REFINES",
+    "title": "REFINES",
+    "description": "machine",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "NAME1 == Expression;",
+    "description": "Definition without arguments",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "NAME1 == Expression;",
+    "description": "Definition without arguments",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "NAME2(ID,...,ID) == E2;",
+    "description": "Definition with arguments",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": ";",
+    "title": "NAME2(ID,...,ID) == E2;",
+    "description": "Definition with arguments",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": ";",
+    "title": "\"FILE.def\";",
+    "description": "Include definitions from file",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "GOAL",
+    "title": "GOAL == P",
+    "description": "to define a custom Goal predicate for Model Checking",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "GOAL == P",
+    "description": "to define a custom Goal predicate for Model Checking",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SCOPE",
+    "title": "SCOPE == P",
+    "description": "to limit the search space to \"interesting\" nodes",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SCOPE == P",
+    "description": "to limit the search space to \"interesting\" nodes",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "scope_SETNAME == n..n",
+    "description": "to define custom cardinality for set SETNAME",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "scope_SETNAME == n",
+    "description": "equivalent to 1..n",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "SET_PREF_MININT",
+    "title": "SET_PREF_MININT == n",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_MININT == n",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_MAXINT",
+    "title": "SET_PREF_MAXINT == n",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_MAXINT == n",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_MAX_INITIALISATIONS",
+    "title": "SET_PREF_MAX_INITIALISATIONS == n",
+    "description": "max. number of intialisations computed",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_MAX_INITIALISATIONS == n",
+    "description": "max. number of intialisations computed",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_MAX_OPERATIONS",
+    "title": "SET_PREF_MAX_OPERATIONS == n",
+    "description": "max. number of enablings per operation computed",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_MAX_OPERATIONS == n",
+    "description": "max. number of enablings per operation computed",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "MAX_OPERATIONS_OPNAME",
+    "title": "MAX_OPERATIONS_OPNAME == n",
+    "description": "max. number of enablings for the operation OPNAME",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "MAX_OPERATIONS_OPNAME == n",
+    "description": "max. number of enablings for the operation OPNAME",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_SYMBOLIC",
+    "title": "SET_PREF_SYMBOLIC == TRUE/FALSE",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "TRUE",
+    "title": "SET_PREF_SYMBOLIC == TRUE/FALSE",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "FALSE",
+    "title": "SET_PREF_SYMBOLIC == TRUE/FALSE",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_SYMBOLIC == TRUE/FALSE",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "/",
+    "title": "SET_PREF_SYMBOLIC == TRUE/FALSE",
+    "description": "",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_TIME_OUT",
+    "title": "SET_PREF_TIME_OUT == n",
+    "description": "time out for operation computation in ms",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_TIME_OUT == n",
+    "description": "time out for operation computation in ms",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "ASSERT_LTL",
+    "title": "ASSERT_LTL... == \"LTL Formula\"",
+    "description": "using X,F,G,U,R LTL operators +",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "ASSERT_LTL... == \"LTL Formula\"",
+    "description": "using X,F,G,U,R LTL operators +",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "HEURISTIC_FUNCTION",
+    "title": "HEURISTIC_FUNCTION == n",
+    "description": "in directed model-checking mode nodes with smalles value will be processed first",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "HEURISTIC_FUNCTION == n",
+    "description": "in directed model-checking mode nodes with smalles value will be processed first",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "ANIMATION_FUNCTIONn == e",
+    "description": "a function (INT*INT) +-> INT or an INT",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "ANIMATION_FUNCTION_DEFAULT",
+    "title": "ANIMATION_FUNCTION_DEFAULT == e",
+    "description": "a function (INT*INT) +-> INT or an INT",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "ANIMATION_FUNCTION_DEFAULT == e",
+    "description": "a function (INT*INT) +-> INT or an INT",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "ANIMATION_IMGn == \"PATH to .gif\"",
+    "description": "a path to a gif file",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "ANIMATION_STRn == \"sometext\"",
+    "description": "a string without spaces;",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "ANIMATION_STR_JUSTIFY_LEFT",
+    "title": "ANIMATION_STR_JUSTIFY_LEFT == TRUE",
+    "description": "computes the longest string in the outputs and pads",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "TRUE",
+    "title": "ANIMATION_STR_JUSTIFY_LEFT == TRUE",
+    "description": "computes the longest string in the outputs and pads",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "ANIMATION_STR_JUSTIFY_LEFT == TRUE",
+    "description": "computes the longest string in the outputs and pads",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING",
+    "title": "SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n",
+    "description": "additional padding between images in pixels",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_TK_CUSTOM_STATE_VIEW_PADDING == n",
+    "description": "additional padding between images in pixels",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING",
+    "title": "SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n",
+    "description": "additional padding between text in pixels",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "SET_PREF_TK_CUSTOM_STATE_VIEW_STRING_PADDING == n",
+    "description": "additional padding between text in pixels",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "CUSTOM_GRAPH_NODESn == e",
+    "description": "define a set of nodes to be shown,",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "CUSTOM_GRAPH_EDGESn == e",
+    "description": "define a relation to be shown as a graph",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "VISB_JSON_FILE",
+    "title": "VISB_JSON_FILE == \"PATH to .json\"",
+    "description": "a path to a default VisB JSON file for visualisation;",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "VISB_JSON_FILE == \"PATH to .json\"",
+    "description": "a path to a default VisB JSON file for visualisation;",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "==",
+    "title": "VISB_SVG_OBJECTSn == ...",
+    "description": "define a record or set of records for creating new SVG objects",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "VISB_SVG_UPDATESn == ...",
+    "description": "define a record or set of records containing updates of SVG objects",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "VISB_SVG_HOVERSn == ...",
+    "description": "define a record or set of records for VisB hover functions",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "VISB_SVG_BOX",
+    "title": "VISB_SVG_BOX == ...",
+    "description": "record with dimensions (height, width) of a default empty SVG",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "VISB_SVG_BOX == ...",
+    "description": "record with dimensions (height, width) of a default empty SVG",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "VISB_SVG_CONTENTS",
+    "title": "VISB_SVG_CONTENTS == ...",
+    "description": "defines a string to be included into a created empty SVG file",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": true
+  },
+  {
+    "key": "==",
+    "title": "VISB_SVG_CONTENTS == ...",
+    "description": "defines a string to be included into a created empty SVG file",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Definitions",
+    "source": "ProB, Summary of B Syntax: Definitions",
+    "primary": false
+  },
+  {
+    "key": "MODEL",
+    "title": "MODEL name",
+    "description": "A synonym for MACHINE.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": true
+  },
+  {
+    "key": "SYSTEM",
+    "title": "SYSTEM name",
+    "description": "A synonym for MACHINE.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": true
+  },
+  {
+    "key": "EVENTS",
+    "title": "EVENTS e;…",
+    "description": "A synonym for OPERATIONS.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": true
+  },
+  {
+    "key": "ref",
+    "title": "ref abstract_event",
+    "description": "Atelier B's keyword for event refinement.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
+    "source": "ProB, Summary of B Syntax: Machine header",
+    "primary": true
+  },
+  {
+    "key": "ABSTRACT_CONSTANTS",
+    "title": "ABSTRACT_CONSTANTS c,…",
+    "description": "Constants that need not be implemented.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "ABSTRACT_VARIABLES",
+    "title": "ABSTRACT_VARIABLES v,…",
+    "description": "Variables that need not be implemented.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "VISIBLE_CONSTANTS",
+    "title": "VISIBLE_CONSTANTS c,…",
+    "description": "A synonym for CONCRETE_CONSTANTS.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "VISIBLE_VARIABLES",
+    "title": "VISIBLE_VARIABLES v,…",
+    "description": "A synonym for CONCRETE_VARIABLES.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "LOCAL_OPERATIONS",
+    "title": "LOCAL_OPERATIONS O;…",
+    "description": "Operations only available inside an implementation.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "VALUES",
+    "title": "VALUES c = E;…",
+    "description": "Values of constants and deferred sets in an implementation; ProB supports it partially.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
+    "source": "ProB, Summary of B Syntax: Machine sections",
+    "primary": true
+  },
+  {
+    "key": "IMPORTS",
+    "title": "IMPORTS M,…",
+    "description": "Machines imported by an implementation.",
+    "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
+    "source": "ProB, Summary of B Syntax: Machine inclusion",
+    "primary": true
+  }
+]

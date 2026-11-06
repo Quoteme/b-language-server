@@ -18,6 +18,11 @@ class ClassicBHoverTest {
     }
 
     @Test
+    fun examples_followTheDescription() {
+        assertContains(assertNotNull(hover("""S \/ T""", 2)), "Set union\n\n**Example**\n```b\n{1, 2} \\/ {2, 3} = {1, 2, 3}\n```")
+    }
+
+    @Test
     fun theLongestOperator_wins() {
         assertContains(assertNotNull(hover("a<=>b", 2)), "P <=> Q")
     }

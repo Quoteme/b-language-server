@@ -1,6 +1,8 @@
 package b.language.server.generator
 
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import java.io.File
 import java.net.URI
 
@@ -14,6 +16,7 @@ data class Entry(
     val link: String,
     val source: String,
     val primary: Boolean,
+    val example: String? = null,
 )
 
 /** An entry of a [section] of ProB's Summary of B Syntax. */
@@ -109,8 +112,15 @@ fun parseSyntaxSummary(wikitext: String): List<Entry> {
     return entries
 }
 
+/** Adds to [entries] their usage examples, given as a JSON object from title to example. */
+fun withExamples(entries: List<Entry>, examples: String): List<Entry> {
+    val byTitle = Gson().fromJson(examples, JsonObject::class.java)
+    return entries.map { it.copy(example = byTitle[it.title]?.asString) }
+}
+
 /** Writes the documentation of the current wiki page to the file given as the only argument. */
 fun main(args: Array<String>) {
     val entries = parseSyntaxSummary(URI("$SYNTAX&action=raw").toURL().readText()) + KEYWORDS
-    File(args.single()).writeText(GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(entries) + "\n")
+    val examples = Entry::class.java.getResource("/examples.json")!!.readText()
+    File(args.single()).writeText(GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(withExamples(entries, examples)) + "\n")
 }

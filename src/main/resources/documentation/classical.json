@@ -5,7 +5,8 @@
     "description": "conjunction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "1 < 2 & 2 < 3"
   },
   {
     "key": "or",
@@ -13,7 +14,8 @@
     "description": "disjunction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "1 > 2 or 2 > 1"
   },
   {
     "key": "=>",
@@ -21,7 +23,8 @@
     "description": "implication",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "1 > 2 => 1 = 3"
   },
   {
     "key": "<=>",
@@ -29,7 +32,8 @@
     "description": "equivalence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "(1 < 2) <=> (2 > 1)"
   },
   {
     "key": "not",
@@ -37,7 +41,8 @@
     "description": "negation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "not(1 = 2)"
   },
   {
     "key": "!",
@@ -45,7 +50,8 @@
     "description": "universal quantification",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "!(x).(x : 1..3 => x > 0)"
   },
   {
     "key": "=>",
@@ -53,7 +59,8 @@
     "description": "universal quantification",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": false
+    "primary": false,
+    "example": "!(x).(x : 1..3 => x > 0)"
   },
   {
     "key": "#",
@@ -61,7 +68,8 @@
     "description": "existential quantification",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "#(x).(x : NATURAL & x * x = 9)"
   },
   {
     "key": "&",
@@ -69,7 +77,8 @@
     "description": "existential quantification",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": false
+    "primary": false,
+    "example": "#(x).(x : NATURAL & x * x = 9)"
   },
   {
     "key": "btrue",
@@ -77,7 +86,8 @@
     "description": "truth (this is a predicate)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "btrue"
   },
   {
     "key": "bfalse",
@@ -85,7 +95,8 @@
     "description": "falsity (this is a predicate)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Logical_predicates",
     "source": "ProB, Summary of B Syntax: Logical predicates",
-    "primary": true
+    "primary": true,
+    "example": "not(bfalse)"
   },
   {
     "key": "=",
@@ -93,7 +104,8 @@
     "description": "equality",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Equality",
     "source": "ProB, Summary of B Syntax: Equality",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} = {2, 1}"
   },
   {
     "key": "/=",
@@ -101,7 +113,8 @@
     "description": "disequality",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Equality",
     "source": "ProB, Summary of B Syntax: Equality",
-    "primary": true
+    "primary": true,
+    "example": "1 /= 2"
   },
   {
     "key": "TRUE",
@@ -109,7 +122,8 @@
     "description": "truth value (this is an expression)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
     "source": "ProB, Summary of B Syntax: Booleans",
-    "primary": true
+    "primary": true,
+    "example": "bool(1 < 2) = TRUE"
   },
   {
     "key": "FALSE",
@@ -117,7 +131,8 @@
     "description": "falsity value (this is an expression)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
     "source": "ProB, Summary of B Syntax: Booleans",
-    "primary": true
+    "primary": true,
+    "example": "bool(1 > 2) = FALSE"
   },
   {
     "key": "BOOL",
@@ -125,7 +140,8 @@
     "description": "set of boolean values ({TRUE,FALSE})",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
     "source": "ProB, Summary of B Syntax: Booleans",
-    "primary": true
+    "primary": true,
+    "example": "BOOL = {TRUE, FALSE}"
   },
   {
     "key": "bool",
@@ -133,7 +149,8 @@
     "description": "convert predicate into BOOL value",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Booleans",
     "source": "ProB, Summary of B Syntax: Booleans",
-    "primary": true
+    "primary": true,
+    "example": "bool(2 : {1, 2}) = TRUE"
   },
   {
     "key": "|",
@@ -141,7 +158,8 @@
     "description": "comprehension set",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{x | x : 1..10 & x mod 3 = 0} = {3, 6, 9}"
   },
   {
     "key": "|",
@@ -149,7 +167,8 @@
     "description": "Event-B style comprehension set (brackets needed)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{(x).x : 1..3 | x * x} = {1, 4, 9}"
   },
   {
     "key": "POW",
@@ -157,7 +176,8 @@
     "description": "power set",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "POW({1, 2}) = {{}, {1}, {2}, {1, 2}}"
   },
   {
     "key": "POW1",
@@ -165,7 +185,8 @@
     "description": "set of non-empty subsets",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "POW1({1}) = {{1}}"
   },
   {
     "key": "FIN",
@@ -173,7 +194,8 @@
     "description": "set of all finite subsets",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} : FIN(NATURAL)"
   },
   {
     "key": "FIN1",
@@ -181,7 +203,8 @@
     "description": "set of all non-empty finite subsets",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1} : FIN1(NATURAL)"
   },
   {
     "key": "card",
@@ -189,7 +212,8 @@
     "description": "cardinality",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "card({4, 5, 6}) = 3"
   },
   {
     "key": "*",
@@ -197,7 +221,8 @@
     "description": "cartesian product",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1} * {2, 3} = {(1, 2), (1, 3)}"
   },
   {
     "key": "\\/",
@@ -205,7 +230,8 @@
     "description": "set union",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} \\/ {2, 3} = {1, 2, 3}"
   },
   {
     "key": "/\\",
@@ -213,7 +239,8 @@
     "description": "set intersection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} /\\ {2, 3} = {2}"
   },
   {
     "key": "-",
@@ -221,7 +248,8 @@
     "description": "set difference",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2, 3} - {2} = {1, 3}"
   },
   {
     "key": "\\",
@@ -229,7 +257,8 @@
     "description": "set difference",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": false
+    "primary": false,
+    "example": "{1, 2, 3} - {2} = {1, 3}"
   },
   {
     "key": ":",
@@ -237,7 +266,8 @@
     "description": "element of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "2 : {1, 2, 3}"
   },
   {
     "key": "/:",
@@ -245,7 +275,8 @@
     "description": "not element of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "4 /: {1, 2, 3}"
   },
   {
     "key": "<:",
@@ -253,7 +284,8 @@
     "description": "subset of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} <: {1, 2}"
   },
   {
     "key": "/<:",
@@ -261,7 +293,8 @@
     "description": "not subset of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 4} /<: {1, 2, 3}"
   },
   {
     "key": "<<:",
@@ -269,7 +302,8 @@
     "description": "strict subset of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1} <<: {1, 2}"
   },
   {
     "key": "/<<:",
@@ -277,7 +311,8 @@
     "description": "not strict subset of",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{1, 2} /<<: {1, 2}"
   },
   {
     "key": "union",
@@ -285,7 +320,8 @@
     "description": "generalised union over sets of sets",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "union({{1}, {2, 3}}) = {1, 2, 3}"
   },
   {
     "key": "inter",
@@ -293,7 +329,8 @@
     "description": "generalised intersection over sets of sets",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "inter({{1, 2}, {2, 3}}) = {2}"
   },
   {
     "key": "UNION",
@@ -301,7 +338,8 @@
     "description": "generalised union with predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "UNION(z).(z : 1..3 | {z * 2}) = {2, 4, 6}"
   },
   {
     "key": "|",
@@ -309,7 +347,8 @@
     "description": "generalised union with predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": false
+    "primary": false,
+    "example": "UNION(z).(z : 1..3 | {z * 2}) = {2, 4, 6}"
   },
   {
     "key": "INTER",
@@ -317,7 +356,8 @@
     "description": "generalised intersection with predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "INTER(z).(z : 1..2 | z..3) = 2..3"
   },
   {
     "key": "|",
@@ -325,7 +365,8 @@
     "description": "generalised intersection with predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": false
+    "primary": false,
+    "example": "INTER(z).(z : 1..2 | z..3) = 2..3"
   },
   {
     "key": "?",
@@ -333,7 +374,8 @@
     "description": "extracting element from singleton set (MU operator)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sets",
     "source": "ProB, Summary of B Syntax: Sets",
-    "primary": true
+    "primary": true,
+    "example": "{5}? = 5"
   },
   {
     "key": "INTEGER",
@@ -341,7 +383,8 @@
     "description": "set of integers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "-1 : INTEGER"
   },
   {
     "key": "NATURAL",
@@ -349,7 +392,8 @@
     "description": "set of natural numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "0 : NATURAL & -1 /: NATURAL"
   },
   {
     "key": "NATURAL1",
@@ -357,7 +401,8 @@
     "description": "set of non-zero natural numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "0 /: NATURAL1 & 1 : NATURAL1"
   },
   {
     "key": "INT",
@@ -365,7 +410,8 @@
     "description": "set of implementable integers (MININT..MAXINT)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "INT = MININT..MAXINT"
   },
   {
     "key": "NAT",
@@ -373,7 +419,8 @@
     "description": "set of implementable natural numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "NAT = 0..MAXINT"
   },
   {
     "key": "NAT1",
@@ -381,7 +428,8 @@
     "description": "set of non-zero implementable natural numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "NAT1 = 1..MAXINT"
   },
   {
     "key": "..",
@@ -389,7 +437,8 @@
     "description": "set of numbers from n to m",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2..4 = {2, 3, 4}"
   },
   {
     "key": "MININT",
@@ -397,7 +446,8 @@
     "description": "the minimum implementable integer",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "MININT < 0"
   },
   {
     "key": "MAXINT",
@@ -405,7 +455,8 @@
     "description": "the maximum implementable integer",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "MAXINT > 0"
   },
   {
     "key": ">",
@@ -413,7 +464,8 @@
     "description": "greater than",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "3 > 2"
   },
   {
     "key": "<",
@@ -421,7 +473,8 @@
     "description": "less than",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2 < 3"
   },
   {
     "key": ">=",
@@ -429,7 +482,8 @@
     "description": "greater than or equal",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "3 >= 3"
   },
   {
     "key": "<=",
@@ -437,7 +491,8 @@
     "description": "less than or equal",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2 <= 3"
   },
   {
     "key": "max",
@@ -445,7 +500,8 @@
     "description": "maximum of a set of numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "max({3, 1, 2}) = 3"
   },
   {
     "key": "min",
@@ -453,7 +509,8 @@
     "description": "minimum of a set of numbers",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "min({3, 1, 2}) = 1"
   },
   {
     "key": "+",
@@ -461,7 +518,8 @@
     "description": "addition",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2 + 3 = 5"
   },
   {
     "key": "-",
@@ -469,7 +527,8 @@
     "description": "difference",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "5 - 3 = 2"
   },
   {
     "key": "*",
@@ -477,7 +536,8 @@
     "description": "multiplication",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2 * 3 = 6"
   },
   {
     "key": "/",
@@ -485,7 +545,8 @@
     "description": "division",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "7 / 2 = 3"
   },
   {
     "key": "**",
@@ -493,7 +554,8 @@
     "description": "power",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "2 ** 3 = 8"
   },
   {
     "key": "mod",
@@ -501,7 +563,8 @@
     "description": "remainder of division",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "7 mod 2 = 1"
   },
   {
     "key": "PI",
@@ -509,7 +572,8 @@
     "description": "set product",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "PI(z).(z : 1..4 | z) = 24"
   },
   {
     "key": "|",
@@ -517,7 +581,8 @@
     "description": "set product",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": false
+    "primary": false,
+    "example": "PI(z).(z : 1..4 | z) = 24"
   },
   {
     "key": "SIGMA",
@@ -525,7 +590,8 @@
     "description": "set summation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "SIGMA(z).(z : 1..4 | z) = 10"
   },
   {
     "key": "|",
@@ -533,7 +599,8 @@
     "description": "set summation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": false
+    "primary": false,
+    "example": "SIGMA(z).(z : 1..4 | z) = 10"
   },
   {
     "key": "succ",
@@ -541,7 +608,8 @@
     "description": "successor (n+1)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "succ(3) = 4"
   },
   {
     "key": "pred",
@@ -549,7 +617,8 @@
     "description": "predecessor (n-1)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Integers",
     "source": "ProB, Summary of B Syntax: Integers",
-    "primary": true
+    "primary": true,
+    "example": "pred(3) = 2"
   },
   {
     "key": "<->",
@@ -557,7 +626,8 @@
     "description": "relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{(1, 2), (1, 3)} : {1} <-> {2, 3}"
   },
   {
     "key": "<<->",
@@ -565,7 +635,8 @@
     "description": "total relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{(1, 2)} : {1} <<-> {2, 3}"
   },
   {
     "key": "<->>",
@@ -573,7 +644,8 @@
     "description": "surjective relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{(1, 2), (1, 3)} : {1, 4} <->> {2, 3}"
   },
   {
     "key": "<<->>",
@@ -581,7 +653,8 @@
     "description": "total surjective relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{(1, 2), (4, 3)} : {1, 4} <<->> {2, 3}"
   },
   {
     "key": "|->",
@@ -589,7 +662,8 @@
     "description": "maplet",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "(1 |-> 2) = (1, 2)"
   },
   {
     "key": "dom",
@@ -597,7 +671,8 @@
     "description": "domain of relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "dom({1 |-> 2, 3 |-> 4}) = {1, 3}"
   },
   {
     "key": "ran",
@@ -605,7 +680,8 @@
     "description": "range of relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "ran({1 |-> 2, 3 |-> 4}) = {2, 4}"
   },
   {
     "key": "id",
@@ -613,7 +689,8 @@
     "description": "identity relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "id({1, 2}) = {1 |-> 1, 2 |-> 2}"
   },
   {
     "key": "<|",
@@ -621,7 +698,8 @@
     "description": "domain restriction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1} <| {1 |-> 2, 3 |-> 4} = {1 |-> 2}"
   },
   {
     "key": "<<|",
@@ -629,7 +707,8 @@
     "description": "domain subtraction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1} <<| {1 |-> 2, 3 |-> 4} = {3 |-> 4}"
   },
   {
     "key": "|>",
@@ -637,7 +716,8 @@
     "description": "range restriction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4} |> {4} = {3 |-> 4}"
   },
   {
     "key": "|>>",
@@ -645,7 +725,8 @@
     "description": "range subtraction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4} |>> {4} = {1 |-> 2}"
   },
   {
     "key": "~",
@@ -653,7 +734,8 @@
     "description": "inverse of relation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2}~ = {2 |-> 1}"
   },
   {
     "key": "[",
@@ -661,7 +743,8 @@
     "description": "relational image",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4}[{1}] = {2}"
   },
   {
     "key": "<+",
@@ -669,7 +752,8 @@
     "description": "relational overriding (r2 overrides r1)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4} <+ {1 |-> 5} = {1 |-> 5, 3 |-> 4}"
   },
   {
     "key": "><",
@@ -677,7 +761,8 @@
     "description": "direct product (all pairs (x,(y,z)) with x,y:r1 and x,z:r2)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2} >< {1 |-> 3} = {1 |-> (2 |-> 3)}"
   },
   {
     "key": ";",
@@ -685,7 +770,8 @@
     "description": "relational composition {x,y| x|->z:r1 & z|->y:r2}",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "({1 |-> 2} ; {2 |-> 3}) = {1 |-> 3}"
   },
   {
     "key": "||",
@@ -693,7 +779,8 @@
     "description": "parallel product (all pairs ((x,v),(y,w)) with x,y:r1 and v,w:r2)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "({1 |-> 2} || {3 |-> 4}) = {(1 |-> 3) |-> (2 |-> 4)}"
   },
   {
     "key": "prj1",
@@ -701,7 +788,8 @@
     "description": "projection function (usage prj1(Dom,Ran)(Pair))",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "prj1(NATURAL, NATURAL)(1 |-> 2) = 1"
   },
   {
     "key": "prj2",
@@ -709,7 +797,8 @@
     "description": "projection function (usage prj2(Dom,Ran)(Pair))",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "prj2(NATURAL, NATURAL)(1 |-> 2) = 2"
   },
   {
     "key": "fnc",
@@ -717,7 +806,8 @@
     "description": "translate relation A<->B into function A+->POW(B)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "fnc({1 |-> 2, 1 |-> 3}) = {1 |-> {2, 3}}"
   },
   {
     "key": "rel",
@@ -725,7 +815,8 @@
     "description": "translate relation A<->POW(B) into relation A<->B",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "rel({1 |-> {2, 3}}) = {1 |-> 2, 1 |-> 3}"
   },
   {
     "key": "closure1",
@@ -733,7 +824,8 @@
     "description": "transitive closure",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "closure1({1 |-> 2, 2 |-> 3}) = {1 |-> 2, 2 |-> 3, 1 |-> 3}"
   },
   {
     "key": "closure",
@@ -741,7 +833,8 @@
     "description": "reflexive & transitive closure",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "(1 |-> 1) : closure({1 |-> 2})"
   },
   {
     "key": "iterate",
@@ -749,7 +842,8 @@
     "description": "iteration of r with n>=0",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Relations",
     "source": "ProB, Summary of B Syntax: Relations",
-    "primary": true
+    "primary": true,
+    "example": "iterate({1 |-> 2, 2 |-> 3}, 2) = {1 |-> 3}"
   },
   {
     "key": "+->",
@@ -757,7 +851,8 @@
     "description": "partial function",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2} : {1, 3} +-> NATURAL"
   },
   {
     "key": "-->",
@@ -765,7 +860,8 @@
     "description": "total function",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 2} : {1, 3} --> NATURAL"
   },
   {
     "key": "+->>",
@@ -773,7 +869,8 @@
     "description": "partial surjection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2} : {1, 3} +->> {2}"
   },
   {
     "key": "-->>",
@@ -781,7 +878,8 @@
     "description": "total surjection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 2} : {1, 3} -->> {2}"
   },
   {
     "key": ">+>",
@@ -789,7 +887,8 @@
     "description": "partial injection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2} : {1, 3} >+> {2, 4}"
   },
   {
     "key": ">->",
@@ -797,7 +896,8 @@
     "description": "total injection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4} : {1, 3} >-> NATURAL"
   },
   {
     "key": ">+>>",
@@ -805,7 +905,8 @@
     "description": "partial bijection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2} : {1, 3} >+>> {2}"
   },
   {
     "key": ">->>",
@@ -813,7 +914,8 @@
     "description": "total bijection",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "{1 |-> 2, 3 |-> 4} : {1, 3} >->> {2, 4}"
   },
   {
     "key": "%",
@@ -821,7 +923,8 @@
     "description": "lambda abstraction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": true
+    "primary": true,
+    "example": "%x.(x : INTEGER | x * x)(3) = 9"
   },
   {
     "key": "|",
@@ -829,7 +932,8 @@
     "description": "lambda abstraction",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Functions",
     "source": "ProB, Summary of B Syntax: Functions",
-    "primary": false
+    "primary": false,
+    "example": "%x.(x : INTEGER | x * x)(3) = 9"
   },
   {
     "key": "<>",
@@ -837,7 +941,8 @@
     "description": "empty sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1] /= []"
   },
   {
     "key": "[",
@@ -845,7 +950,8 @@
     "description": "singleton sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[5] = {1 |-> 5}"
   },
   {
     "key": "[",
@@ -853,7 +959,8 @@
     "description": "constructed sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[5, 6] = {1 |-> 5, 2 |-> 6}"
   },
   {
     "key": "seq",
@@ -861,7 +968,8 @@
     "description": "set of sequences over S",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1, 2] : seq({1, 2})"
   },
   {
     "key": "seq1",
@@ -869,7 +977,8 @@
     "description": "set of non-empty sequences over S",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[] /: seq1({1})"
   },
   {
     "key": "iseq",
@@ -877,7 +986,8 @@
     "description": "set of injective sequences over S",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1, 2] : iseq(NATURAL)"
   },
   {
     "key": "iseq1",
@@ -885,7 +995,8 @@
     "description": "set of non-empty injective sequences over S",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1, 2] : iseq1(NATURAL)"
   },
   {
     "key": "perm",
@@ -893,7 +1004,8 @@
     "description": "set of bijective sequences (permutations) over S",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[2, 1] : perm({1, 2})"
   },
   {
     "key": "size",
@@ -901,7 +1013,8 @@
     "description": "size of sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "size([4, 5, 6]) = 3"
   },
   {
     "key": "^",
@@ -909,7 +1022,8 @@
     "description": "concatenation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1] ^ [2, 3] = [1, 2, 3]"
   },
   {
     "key": "->",
@@ -917,7 +1031,8 @@
     "description": "prepend element",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "0 -> [1] = [0, 1]"
   },
   {
     "key": "<-",
@@ -925,7 +1040,8 @@
     "description": "append element",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1] <- 2 = [1, 2]"
   },
   {
     "key": "rev",
@@ -933,7 +1049,8 @@
     "description": "reverse of sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "rev([1, 2, 3]) = [3, 2, 1]"
   },
   {
     "key": "first",
@@ -941,7 +1058,8 @@
     "description": "first element",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "first([4, 5]) = 4"
   },
   {
     "key": "last",
@@ -949,7 +1067,8 @@
     "description": "last element",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "last([4, 5]) = 5"
   },
   {
     "key": "front",
@@ -957,7 +1076,8 @@
     "description": "front of sequence (all but last element)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "front([1, 2, 3]) = [1, 2]"
   },
   {
     "key": "tail",
@@ -965,7 +1085,8 @@
     "description": "tail of sequence (all but first element)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "tail([1, 2, 3]) = [2, 3]"
   },
   {
     "key": "conc",
@@ -973,7 +1094,8 @@
     "description": "concatenation of sequence of sequences",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "conc([[1], [2, 3]]) = [1, 2, 3]"
   },
   {
     "key": "/|\\",
@@ -981,7 +1103,8 @@
     "description": "take first n elements of sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1, 2, 3] /|\\ 2 = [1, 2]"
   },
   {
     "key": "\\|/",
@@ -989,7 +1112,8 @@
     "description": "drop first n elements from sequence",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Sequences",
     "source": "ProB, Summary of B Syntax: Sequences",
-    "primary": true
+    "primary": true,
+    "example": "[1, 2, 3] \\|/ 2 = [3]"
   },
   {
     "key": "struct",
@@ -997,7 +1121,8 @@
     "description": "set of records with given fields and field types",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
     "source": "ProB, Summary of B Syntax: Records",
-    "primary": true
+    "primary": true,
+    "example": "rec(x : 1, y : TRUE) : struct(x : NATURAL, y : BOOL)"
   },
   {
     "key": ":",
@@ -1005,7 +1130,8 @@
     "description": "set of records with given fields and field types",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
     "source": "ProB, Summary of B Syntax: Records",
-    "primary": false
+    "primary": false,
+    "example": "rec(x : 1, y : TRUE) : struct(x : NATURAL, y : BOOL)"
   },
   {
     "key": "rec",
@@ -1013,7 +1139,8 @@
     "description": "construct a record with given field names and values",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
     "source": "ProB, Summary of B Syntax: Records",
-    "primary": true
+    "primary": true,
+    "example": "rec(x : 1, y : 2)'y = 2"
   },
   {
     "key": ":",
@@ -1021,7 +1148,8 @@
     "description": "construct a record with given field names and values",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
     "source": "ProB, Summary of B Syntax: Records",
-    "primary": false
+    "primary": false,
+    "example": "rec(x : 1, y : 2)'y = 2"
   },
   {
     "key": "'",
@@ -1029,7 +1157,8 @@
     "description": "get value of field with name ID",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Records",
     "source": "ProB, Summary of B Syntax: Records",
-    "primary": true
+    "primary": true,
+    "example": "rec(x : 1, y : 2)'x = 1"
   },
   {
     "key": "'",
@@ -1045,7 +1174,8 @@
     "description": "the set of all strings",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
     "source": "ProB, Summary of B Syntax: Strings",
-    "primary": true
+    "primary": true,
+    "example": "\"abc\" : STRING"
   },
   {
     "key": "size",
@@ -1053,7 +1183,8 @@
     "description": "the length of a string s",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
     "source": "ProB, Summary of B Syntax: Strings",
-    "primary": true
+    "primary": true,
+    "example": "size([4, 5, 6]) = 3"
   },
   {
     "key": "rev",
@@ -1061,7 +1192,8 @@
     "description": "the reverse of a string s",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
     "source": "ProB, Summary of B Syntax: Strings",
-    "primary": true
+    "primary": true,
+    "example": "rev([1, 2, 3]) = [3, 2, 1]"
   },
   {
     "key": "^",
@@ -1069,7 +1201,8 @@
     "description": "the concatenation of two strings",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
     "source": "ProB, Summary of B Syntax: Strings",
-    "primary": true
+    "primary": true,
+    "example": "\"ab\" ^ \"c\" = \"abc\""
   },
   {
     "key": "conc",
@@ -1077,7 +1210,8 @@
     "description": "the concatenation of a sequence of strings",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Strings",
     "source": "ProB, Summary of B Syntax: Strings",
-    "primary": true
+    "primary": true,
+    "example": "conc([\"a\", \"bc\"]) = \"abc\""
   },
   {
     "key": "\\",
@@ -1133,7 +1267,8 @@
     "description": "set of reals",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
     "source": "ProB, Summary of B Syntax: Reals",
-    "primary": true
+    "primary": true,
+    "example": "1.5 : REAL"
   },
   {
     "key": "FLOAT",
@@ -1149,7 +1284,8 @@
     "description": "convert an integer n into a real number",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
     "source": "ProB, Summary of B Syntax: Reals",
-    "primary": true
+    "primary": true,
+    "example": "real(2) = 2.0"
   },
   {
     "key": "floor",
@@ -1157,7 +1293,8 @@
     "description": "convert a real r into an integer",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
     "source": "ProB, Summary of B Syntax: Reals",
-    "primary": true
+    "primary": true,
+    "example": "floor(2.7) = 2"
   },
   {
     "key": "ceiling",
@@ -1165,7 +1302,8 @@
     "description": "convert a real r into an integer",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Reals",
     "source": "ProB, Summary of B Syntax: Reals",
-    "primary": true
+    "primary": true,
+    "example": "ceiling(2.1) = 3"
   },
   {
     "key": "tree",
@@ -1365,7 +1503,8 @@
     "description": "but you always need an ELSE branch for expressions and predicates",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": true
+    "primary": true,
+    "example": "(IF 1 < 2 THEN 3 ELSE 4 END) = 3"
   },
   {
     "key": "THEN",
@@ -1373,7 +1512,8 @@
     "description": "but you always need an ELSE branch for expressions and predicates",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(IF 1 < 2 THEN 3 ELSE 4 END) = 3"
   },
   {
     "key": "ELSE",
@@ -1381,7 +1521,8 @@
     "description": "but you always need an ELSE branch for expressions and predicates",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(IF 1 < 2 THEN 3 ELSE 4 END) = 3"
   },
   {
     "key": "END",
@@ -1389,7 +1530,8 @@
     "description": "but you always need an ELSE branch for expressions and predicates",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(IF 1 < 2 THEN 3 ELSE 4 END) = 3"
   },
   {
     "key": "IF",
@@ -1437,7 +1579,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": true
+    "primary": true,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "BE",
@@ -1445,7 +1588,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "IN",
@@ -1453,7 +1597,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "END",
@@ -1461,7 +1606,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "=",
@@ -1469,7 +1615,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "&",
@@ -1477,7 +1624,8 @@
     "description": "introduce local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#LET_and_IF-THEN-ELSE",
     "source": "ProB, Summary of B Syntax: LET and IF-THEN-ELSE",
-    "primary": false
+    "primary": false,
+    "example": "(LET x BE x = 2 IN x * x END) = 4"
   },
   {
     "key": "skip",
@@ -1485,7 +1633,8 @@
     "description": "no operation",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "nop = skip"
   },
   {
     "key": ":=",
@@ -1493,7 +1642,8 @@
     "description": "assignment",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "count := count + 1"
   },
   {
     "key": ":=",
@@ -1501,7 +1651,8 @@
     "description": "functional override",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "f(1) := 2"
   },
   {
     "key": "::",
@@ -1509,7 +1660,8 @@
     "description": "choice from set",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "count :: 0..10"
   },
   {
     "key": ":",
@@ -1517,7 +1669,8 @@
     "description": "choice by predicate P (constraining x; previous value of x is x$0)",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "count : (count > count$0)"
   },
   {
     "key": "<--",
@@ -1525,7 +1678,8 @@
     "description": "call operation and assign return value",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "result <-- get"
   },
   {
     "key": "||",
@@ -1533,7 +1687,8 @@
     "description": "parallel substitution**",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "BEGIN x := 1 || y := 2 END"
   },
   {
     "key": ";",
@@ -1541,7 +1696,8 @@
     "description": "sequential composition**",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "BEGIN x := 1 ; y := x END"
   },
   {
     "key": "ANY",
@@ -1549,7 +1705,8 @@
     "description": "non deterministic choice",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "ANY v WHERE v : 1..3 THEN count := v END"
   },
   {
     "key": "WHERE",
@@ -1557,7 +1714,8 @@
     "description": "non deterministic choice",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "ANY v WHERE v : 1..3 THEN count := v END"
   },
   {
     "key": "THEN",
@@ -1565,7 +1723,8 @@
     "description": "non deterministic choice",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "ANY v WHERE v : 1..3 THEN count := v END"
   },
   {
     "key": "END",
@@ -1573,7 +1732,8 @@
     "description": "non deterministic choice",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "ANY v WHERE v : 1..3 THEN count := v END"
   },
   {
     "key": "LET",
@@ -1581,7 +1741,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "BE",
@@ -1589,7 +1750,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "IN",
@@ -1597,7 +1759,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "END",
@@ -1605,7 +1768,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "=",
@@ -1613,7 +1777,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "&",
@@ -1621,7 +1786,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "LET v BE v = count + 1 IN count := v END"
   },
   {
     "key": "VAR",
@@ -1629,7 +1795,8 @@
     "description": "generate local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "VAR t IN t := x ; x := y ; y := t END"
   },
   {
     "key": "IN",
@@ -1637,7 +1804,8 @@
     "description": "generate local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "VAR t IN t := x ; x := y ; y := t END"
   },
   {
     "key": "END",
@@ -1645,7 +1813,8 @@
     "description": "generate local variables",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "VAR t IN t := x ; x := y ; y := t END"
   },
   {
     "key": "PRE",
@@ -1653,7 +1822,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "inc = PRE count < 10 THEN count := count + 1 END"
   },
   {
     "key": "THEN",
@@ -1661,7 +1831,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "inc = PRE count < 10 THEN count := count + 1 END"
   },
   {
     "key": "END",
@@ -1669,7 +1840,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "inc = PRE count < 10 THEN count := count + 1 END"
   },
   {
     "key": "ASSERT",
@@ -1677,7 +1849,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "ASSERT count > 0 THEN count := count - 1 END"
   },
   {
     "key": "THEN",
@@ -1685,7 +1858,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "ASSERT count > 0 THEN count := count - 1 END"
   },
   {
     "key": "END",
@@ -1693,7 +1867,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "ASSERT count > 0 THEN count := count - 1 END"
   },
   {
     "key": "CHOICE",
@@ -1701,7 +1876,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "CHOICE count := 1 OR count := 2 END"
   },
   {
     "key": "OR",
@@ -1709,7 +1885,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CHOICE count := 1 OR count := 2 END"
   },
   {
     "key": "END",
@@ -1717,7 +1894,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CHOICE count := 1 OR count := 2 END"
   },
   {
     "key": "IF",
@@ -1749,7 +1927,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "IF count > 0 THEN count := count - 1 ELSE count := 10 END"
   },
   {
     "key": "THEN",
@@ -1757,7 +1936,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF count > 0 THEN count := count - 1 ELSE count := 10 END"
   },
   {
     "key": "ELSE",
@@ -1765,7 +1945,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF count > 0 THEN count := count - 1 ELSE count := 10 END"
   },
   {
     "key": "END",
@@ -1773,7 +1954,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF count > 0 THEN count := count - 1 ELSE count := 10 END"
   },
   {
     "key": "IF",
@@ -1813,7 +1995,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
   },
   {
     "key": "THEN",
@@ -1821,7 +2004,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
   },
   {
     "key": "ELSIF",
@@ -1829,7 +2013,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
   },
   {
     "key": "ELSE",
@@ -1837,7 +2022,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
   },
   {
     "key": "END",
@@ -1845,7 +2031,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "IF x < 0 THEN s := -1 ELSIF x = 0 THEN s := 0 ELSE s := 1 END"
   },
   {
     "key": "SELECT",
@@ -1853,7 +2040,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END"
   },
   {
     "key": "THEN",
@@ -1861,7 +2049,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END"
   },
   {
     "key": "WHEN",
@@ -1869,7 +2058,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END"
   },
   {
     "key": "END",
@@ -1877,7 +2067,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "SELECT x = 0 THEN y := 1 WHEN x = 1 THEN y := 2 END"
   },
   {
     "key": "SELECT",
@@ -1973,7 +2164,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "OF",
@@ -1981,7 +2173,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "EITHER",
@@ -1989,7 +2182,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "THEN",
@@ -1997,7 +2191,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "OR",
@@ -2005,7 +2200,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "ELSE",
@@ -2013,7 +2209,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "END",
@@ -2021,7 +2218,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "CASE x OF EITHER 0 THEN y := 1 OR 1 THEN y := 2 ELSE y := 0 END END"
   },
   {
     "key": "WHILE",
@@ -2029,7 +2227,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
   },
   {
     "key": "DO",
@@ -2037,7 +2236,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
   },
   {
     "key": "INVARIANT",
@@ -2045,7 +2245,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
   },
   {
     "key": "VARIANT",
@@ -2053,7 +2254,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
   },
   {
     "key": "END",
@@ -2061,7 +2263,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHILE i < 3 DO i := i + 1 INVARIANT i : 0..3 VARIANT 3 - i END"
   },
   {
     "key": "WHEN",
@@ -2069,7 +2272,8 @@
     "description": "is a synonym for SELECT P THEN G END",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": true
+    "primary": true,
+    "example": "WHEN count > 0 THEN count := count - 1 END"
   },
   {
     "key": "THEN",
@@ -2077,7 +2281,8 @@
     "description": "is a synonym for SELECT P THEN G END",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHEN count > 0 THEN count := count - 1 END"
   },
   {
     "key": "END",
@@ -2085,7 +2290,8 @@
     "description": "is a synonym for SELECT P THEN G END",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Statements_(aka_Substitutions)",
     "source": "ProB, Summary of B Syntax: Statements (aka Substitutions)",
-    "primary": false
+    "primary": false,
+    "example": "WHEN count > 0 THEN count := count - 1 END"
   },
   {
     "key": "MACHINE",
@@ -2093,7 +2299,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
     "source": "ProB, Summary of B Syntax: Machine header",
-    "primary": true
+    "primary": true,
+    "example": "MACHINE Counter\nVARIABLES count\nINVARIANT count : 0..10\nINITIALISATION count := 0\nOPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END\nEND"
   },
   {
     "key": "REFINEMENT",
@@ -2101,7 +2308,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
     "source": "ProB, Summary of B Syntax: Machine header",
-    "primary": false
+    "primary": false,
+    "example": "MACHINE Counter\nVARIABLES count\nINVARIANT count : 0..10\nINITIALISATION count := 0\nOPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END\nEND"
   },
   {
     "key": "IMPLEMENTATION",
@@ -2109,7 +2317,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_header",
     "source": "ProB, Summary of B Syntax: Machine header",
-    "primary": false
+    "primary": false,
+    "example": "MACHINE Counter\nVARIABLES count\nINVARIANT count : 0..10\nINITIALISATION count := 0\nOPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END\nEND"
   },
   {
     "key": "CONSTRAINTS",
@@ -2117,7 +2326,8 @@
     "description": "logical predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "MACHINE Buffer(size)\nCONSTRAINTS size : NATURAL1"
   },
   {
     "key": "SETS",
@@ -2125,7 +2335,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "SETS ID; COLOUR = {red, green}"
   },
   {
     "key": ";",
@@ -2133,7 +2344,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "SETS ID; COLOUR = {red, green}"
   },
   {
     "key": "=",
@@ -2141,7 +2353,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "SETS ID; COLOUR = {red, green}"
   },
   {
     "key": "FREETYPES",
@@ -2173,7 +2386,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "CONSTANTS limit\nPROPERTIES limit : NATURAL & limit = 10"
   },
   {
     "key": "CONCRETE_CONSTANTS",
@@ -2189,7 +2403,8 @@
     "description": "logical predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "CONSTANTS limit\nPROPERTIES limit : NATURAL & limit = 10"
   },
   {
     "key": "DEFINITIONS",
@@ -2197,7 +2412,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "DEFINITIONS twice(x) == 2 * x; LIMIT == 10"
   },
   {
     "key": "==",
@@ -2205,7 +2421,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "DEFINITIONS twice(x) == 2 * x; LIMIT == 10"
   },
   {
     "key": ";",
@@ -2213,7 +2430,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "DEFINITIONS twice(x) == 2 * x; LIMIT == 10"
   },
   {
     "key": "VARIABLES",
@@ -2221,7 +2439,8 @@
     "description": "",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "VARIABLES count\nINVARIANT count : 0..10"
   },
   {
     "key": "CONCRETE_VARIABLES",
@@ -2237,7 +2456,8 @@
     "description": "logical predicate",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "VARIABLES count\nINVARIANT count : 0..10"
   },
   {
     "key": "ASSERTIONS",
@@ -2245,7 +2465,8 @@
     "description": "list of logical predicates separated by ;",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "ASSERTIONS count >= 0; count <= 10"
   },
   {
     "key": ";",
@@ -2253,7 +2474,8 @@
     "description": "list of logical predicates separated by ;",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "ASSERTIONS count >= 0; count <= 10"
   },
   {
     "key": "INITIALISATION",
@@ -2261,7 +2483,8 @@
     "description": "substitution",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "INITIALISATION count := 0"
   },
   {
     "key": "OPERATIONS",
@@ -2269,7 +2492,8 @@
     "description": "operations",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": true
+    "primary": true,
+    "example": "OPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END;\n  r <-- get = r := count"
   },
   {
     "key": ";",
@@ -2277,7 +2501,8 @@
     "description": "operations",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_sections",
     "source": "ProB, Summary of B Syntax: Machine sections",
-    "primary": false
+    "primary": false,
+    "example": "OPERATIONS\n  inc = PRE count < 10 THEN count := count + 1 END;\n  r <-- get = r := count"
   },
   {
     "key": "USES",
@@ -2293,7 +2518,8 @@
     "description": "list of machines",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
     "source": "ProB, Summary of B Syntax: Machine inclusion",
-    "primary": true
+    "primary": true,
+    "example": "INCLUDES Counter"
   },
   {
     "key": "SEES",
@@ -2301,7 +2527,8 @@
     "description": "list of machines",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
     "source": "ProB, Summary of B Syntax: Machine inclusion",
-    "primary": true
+    "primary": true,
+    "example": "SEES Constants"
   },
   {
     "key": "EXTENDS",
@@ -2325,7 +2552,8 @@
     "description": "machine",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
     "source": "ProB, Summary of B Syntax: Machine inclusion",
-    "primary": true
+    "primary": true,
+    "example": "REFINEMENT Counter_r\nREFINES Counter"
   },
   {
     "key": "==",
@@ -2853,6 +3081,7 @@
     "description": "Machines imported by an implementation.",
     "link": "https://prob.hhu.de/w/index.php?title=Summary_of_B_Syntax#Machine_inclusion",
     "source": "ProB, Summary of B Syntax: Machine inclusion",
-    "primary": true
+    "primary": true,
+    "example": "IMPLEMENTATION Counter_i\nREFINES Counter\nIMPORTS Storage"
   }
 ]

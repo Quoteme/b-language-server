@@ -11,6 +11,7 @@ private data class Entry(
     val link: String,
     val source: String,
     val primary: Boolean,
+    val example: String?,
 )
 
 /** Hovers of classical B: the documentation of keywords and operators. */
@@ -43,5 +44,10 @@ object ClassicBHover {
     }
 
     private fun render(entry: Entry) =
-        "```b\n${entry.title}\n```\n\n${entry.description.replaceFirstChar { it.uppercase() }}\n\n[${entry.source}](${entry.link})"
+        listOfNotNull(
+            "```b\n${entry.title}\n```",
+            entry.description.replaceFirstChar { it.uppercase() }.ifEmpty { null },
+            entry.example?.let { "**Example**\n```b\n$it\n```" },
+            "[${entry.source}](${entry.link})",
+        ).joinToString("\n\n")
 }

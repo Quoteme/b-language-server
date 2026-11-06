@@ -1,6 +1,7 @@
 package b.language.server.generator
 
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
@@ -65,6 +66,23 @@ class GenerateDocumentationTest {
         assertEquals(listOf("card"), keysOf("card(S)"))
         assertEquals(listOf("or"), keysOf("P or Q"))
         assertEquals(listOf(".."), keysOf("n..m"))
+    }
+
+    @Test
+    fun examples_joinTheEntryWithTheirTitle() {
+        val joined = withExamples(entries, """{"card(S)": "card({1}) = 1"}""")
+
+        assertEquals("card({1}) = 1", joined.single { it.key == "card" }.example)
+        assertEquals(null, joined.single { it.key == "INVARIANT" }.example)
+    }
+
+    @Test
+    fun everyExample_belongsToADocumentedTitle() {
+        val examples = Gson().fromJson(javaClass.getResource("/examples.json")!!.readText(), JsonObject::class.java)
+        val committed = javaClass.getResource("/documentation/classical.json")!!.readText()
+        val titles = Gson().fromJson(committed, Array<Entry>::class.java).map { it.title }
+
+        assertTrue(titles.containsAll(examples.keySet()))
     }
 
     @Test

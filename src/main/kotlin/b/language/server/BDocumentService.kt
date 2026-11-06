@@ -7,6 +7,7 @@ import org.eclipse.lsp4j.*
 import org.eclipse.lsp4j.services.TextDocumentService
 import java.io.File
 import java.net.URI
+import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 
 class BDocumentService(private val server: ServerInterface,
@@ -111,7 +112,25 @@ class BDocumentService(private val server: ServerInterface,
     override fun didChange(params: DidChangeTextDocumentParams?) {
 
         communicator.sendDebugMessage("document ${URI(params!!.textDocument.uri).path} was changed", MessageType.Info)
+        documents[params.textDocument.uri] = params.contentChanges.last().text
         checkDocument(File(URI(params.textDocument.uri).path))
     }
+
+    /**
+     * The hover request is sent from the client to the server to request hover information at a
+     * given text document position.
+     */
+    override fun hover(params: HoverParams): CompletableFuture<Hover?> =
+        CompletableFuture.supplyAsync {
+            val uri = params.textDocument.uri
+            val text = documents[uri] ?: return@supplyAsync null
+            // A failing hover shows nothing rather than an error in the editor.
+            try {
+                proBInterface.hover(File(URI(uri).path), text, params.position)?.let { Hover(MarkupContent(MarkupKind.MARKDOWN, it)) }
+            } catch (e: RuntimeException) {
+                communicator.sendDebugMessage("hover failed: ${e.message}", MessageType.Info)
+                null
+            }
+        }
 
 }

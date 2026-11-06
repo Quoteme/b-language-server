@@ -29,6 +29,7 @@ class Server : LanguageServer, ServerInterface {
         res.capabilities.workspace = WorkspaceServerCapabilities(WorkspaceFoldersOptions())
         res.capabilities.workspace.workspaceFolders.supported = true
        // res.capabilities.completionProvider = CompletionOptions()
+        res.capabilities.hoverProvider = Either.forLeft(true)
         return CompletableFuture.supplyAsync { res }
     }
 

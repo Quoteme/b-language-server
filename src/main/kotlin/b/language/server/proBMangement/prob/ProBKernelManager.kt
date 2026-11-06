@@ -1,5 +1,6 @@
 package b.language.server.proBMangement.prob
 
+import b.language.server.hover.ClassicBHover
 import b.language.server.communication.CommunicatorInterface
 import b.language.server.dataStorage.ProBSettings
 import b.language.server.dataStorage.Settings
@@ -8,6 +9,7 @@ import com.google.inject.Guice
 import com.google.inject.Stage
 import org.eclipse.lsp4j.Diagnostic
 import org.eclipse.lsp4j.MessageType
+import org.eclipse.lsp4j.Position
 import java.io.File
 
 /**
@@ -90,4 +92,7 @@ class ProBKernelManager(private val communicator : CommunicatorInterface) : ProB
         return kernel.check(file, ProBSettings(wdChecks = settings.wdChecks, strictChecks = settings.strictChecks,
                 performanceHints = settings.performanceHints))
     }
+
+    override fun hover(file : File, text : String, position : Position): String? =
+        ClassicBHover.hover(text, position.line, position.character)
 }
